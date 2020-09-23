@@ -1,0 +1,30 @@
+---
+---
+
+/*@import "{{ site.theme }}";*/
+@import url("https://www.robertmwinslow.com/styles/everythingbagel.css");
+
+body {
+  color: #073642;
+  background-color: #fdf6e3;
+ }
+
+pre, code, .highlight {
+  background-color: #eee8d5;
+}
+
+a {
+  color: #073642;
+  text-decoration: underline;
+}
+a:hover {
+  color: #7a0019;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #002b36;
+}
+
+.bg-gray{background-color:#eee8d5 !important} 
+.markdown-body table tr:nth-child(2n){background-color:#eee8d5} 
+.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#eee8d5;border-radius:3px} 
