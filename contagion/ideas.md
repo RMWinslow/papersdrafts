@@ -41,6 +41,7 @@ Think. It's due at 4pm. So allocate an hour to reformatting text, and give it an
     - static perspective per period.
       - but this will just be equivalent to saying that people who like to have conncetions will have more connections. Not super interesting. 
       - Unless focus on the increase in variance
+  - Look at various forms of social distancing schemes
 - mention future plans about explicitly modelling a time path.
 
 

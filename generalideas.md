@@ -12,3 +12,11 @@
     - limited space
     - permits
     - but more social connections, yeh?
+
+- Write a response to that mental illness guy with the gtth test. 
+  - Point out empirical results about adhd in particular
+  - point out that utility theory doesn't work that way
+    - example 1: different preferences for leisure vs thinkery
+    - example 2: different costs for thinkery
+    - impose gtth: strong disutility if thinkery below threshold. In either example, behavior will change.
+  - trembling hand etc. as alternate forms of representation of mental illness

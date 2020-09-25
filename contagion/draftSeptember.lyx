@@ -125,5 +125,237 @@ Introduction
 dfsfsd
 \end_layout
 
+\begin_layout Standard
+-
+\end_layout
+
+\begin_layout Standard
+-
+\end_layout
+
+\begin_layout Standard
+-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $r$
+\end_inset
+
+: transmission rate: chance of transmission along a social connection if
+ one of the two people gets infected.
+\end_layout
+
+\begin_layout Standard
+contrast with 
+\begin_inset Formula $R_{0}$
+\end_inset
+
+ which is the basic reproduction number and is determined by a combination
+ of the transmission rate and structure of social interactions
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $n$
+\end_inset
+
+: numbers of neighbors a person has
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $N$
+\end_inset
+
+: set of neighbors a person has.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $p$
+\end_inset
+
+: disease prevalance: chance that a random person is infected
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $pr$
+\end_inset
+
+ is the chance that a given neighbor transmits the contagion to you.
+\end_layout
+
+\begin_layout Standard
+You become infected iff at least one neighbor transmits to you.
+ 
+\end_layout
+
+\begin_layout Standard
+The chance that none of your neighbors transmits to you is then 
+\begin_inset Formula $\left[1-pr\right]^{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus the chance that at least one of your neighbors transmits to you is
+ 
+\begin_inset Formula $1-\left[1-pr\right]^{n}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $c$
+\end_inset
+
+: loss of utility if you become infected.
+\end_layout
+
+\begin_layout Standard
+If a person cuts off a social connection, then the increase in expected
+ utility from decreased infection risk is 
+\begin_inset Formula 
+\begin{align*}
+c\cdot\left(\left[1-pr\right]^{n-1}-\left[1-pr\right]^{n}\right)=c\cdot\left[1-pr\right]^{n-1}\cdot pr
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This function exhibits exponential decay.
+\end_layout
+
+\begin_layout Standard
+For a person with very many social connections, cutting a marginal connection
+ has large effects on 
+\end_layout
+
+\begin_layout Standard
+-
+\end_layout
+
+\begin_layout Standard
+-
+\end_layout
+
+\begin_layout Standard
+-
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+Lloyd-Smith, J., Schreiber, S., Kopp, P.
+ et al.
+ Superspreading and the effect of individual variation on disease emergence.
+ Nature 438, 355–359 (2005).
+ https://doi.org/10.1038/nature04153 (Highly cited paper about the variation
+ of these connections and their effects)
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-2"
+
+\end_inset
+
+Fogli, Alessandra, and Laura Veldkamp.
+ Germs, social networks and growth.
+ No.
+ w18470.
+ National Bureau of Economic Research, 2012.
+ (Discussion of how diffusion through a network can have positive effects
+ when talking about technology.)
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-3"
+
+\end_inset
+
+Kremer, Michael.
+ "Integrating behavioral choice into epidemiological models of AIDS." The
+ Quarterly Journal of Economics 111.2 (1996): 549-573.
+ (Pretty much already does the differential response based on connectivity
+ thing.
+ Well, that one uses random partners and die-off and only looks at the steady
+ state.
+ So maybe my BS is close enough)
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-4"
+
+\end_inset
+
+Kremer, Michael, and Charles Morcom.
+ "The effect of changing sexual activity on HIV prevalence." Mathematical
+ biosciences 151.1 (1998): 99-122.
+ (Similar to the above)
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-5"
+
+\end_inset
+
+Britton, Tom, Frank Ball, and Pieter Trapman.
+ "The disease-induced herd immunity level for Covid-19 is substantially
+ lower than the classical herd immunity level." arXiv preprint arXiv:2005.03085
+ (2020).
+ (Just plots a few toy examples of how variations in activity can alter
+ the herd immunity threshold)
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-6"
+
+\end_inset
+
+Gomes, M.
+ Gabriela M., et al.
+ "Individual variation in susceptibility or exposure to SARS-CoV-2 lowers
+ the herd immunity threshold." medRxiv (2020).(
+\begin_inset Quotes eld
+\end_inset
+
+Models that curtail individual variation in susceptibility or exposure to
+ infection overestimate epidemic sizes and herd immunity thresholds.
+\begin_inset Quotes erd
+\end_inset
+
+ Don't quite understand the setup of the model.)
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-7"
+
+\end_inset
+
+Mossong, Joël, et al.
+ "Social contacts and mixing patterns relevant to the spread of infectious
+ diseases." PLoS Med 5.3 (2008): e74.
+ (Empirical analysis of social contact structure)
+\end_layout
+
 \end_body
 \end_document
