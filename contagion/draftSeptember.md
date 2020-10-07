@@ -12,7 +12,16 @@ I construct a simple model to endogenize social connections, in which these conn
 
 
 
-# Proposition 1 ()
+# Proposition 1 - Increased variation in connections
+
+
+
+
+
+# Proposition 2 - something something familial bonds mitigates by scaling up the contagion risk
+
+
+# Proposition
 
 
 

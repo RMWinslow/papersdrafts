@@ -110,11 +110,14 @@ Social Polarization in Response to Contagions
 \end_layout
 
 \begin_layout Abstract
-I construct a simple model of social connections, in which these connections
- have associated benefits and costs.
- The expected benefit or harm from a contagion is a function of the number
- of connections an individual has, and is so in a non-linear way.
- And so the responses to a new contagion w
+I construct a very simple utility-based model of social connections which
+ leads to variation in the number of social connections each person has.
+ When the threat of a contagion is introduced, highly connected individuals
+ have less incentive to break off marginal social connections than do less
+ connected individuals.
+ This increases the variance of the distribution of connections, which has
+ important implications in understanding the spread of contagions such as
+ disease.
 \end_layout
 
 \begin_layout Section
@@ -122,83 +125,358 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-dfsfsd
+Why does it seem that some highly secluded people with very low exposure
+ risk are highly concerned about social distancing, while other more gregarious
+ individuals at very high risk of exposure don't seem to care at all?
 \end_layout
 
 \begin_layout Standard
--
+If the personal risk from a contagion is the same for two individuals, then
+ an individual with a very high number of social connections expects to
+ almost certainly be exposed to the contagion regardless of any marginal
+ changes they make to their behavior.
+ But for an individual with very few connections, slight changes in their
+ behavior can drastically reduce their disease risk.
+ 
 \end_layout
 
 \begin_layout Standard
--
+I construct the simplest model which I can think of that results in individuals
+ choosing to have different numbers of social connections.
+ Then when the threat of of contagion is introduced, the risk to an individual
+ comes from their neighbors, but this risk is spread out in a non-linear
+ way.
+ The very first neighbor provides the highest expected risk of contagion,
+ and subsequent neighbors provide exponentially decreasing expected disease
+ exposure.
 \end_layout
 
 \begin_layout Standard
--
+Because of this, the variation and spread of a disease 
+\end_layout
+
+\begin_layout Section
+A simple model of endogenous social connections
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $r$
+I make assumptions about the utility of maintaining social connections,
+ and about the disutility of being exposed to contagion, such that individuals
+ with lots of neighbors are precisely those who won't decide to socially
+ distance.
+\end_layout
+
+\begin_layout Subsection
+Social Connections
+\end_layout
+
+\begin_layout Standard
+There is a unit mass of individuals, indexed by 
+\begin_inset Formula $x$
 \end_inset
 
-: transmission rate: chance of transmission along a social connection if
- one of the two people gets infected.
+ from 0 to 1.
+ Each individual person can be thought of as one of the vertices in a social
+ graph, where the edges of the graph represent person-to-person connections
+ along which contagions, such as disease or information, can potentially
+ spread.
 \end_layout
 
 \begin_layout Standard
-contrast with 
-\begin_inset Formula $R_{0}$
+Each person 
+\begin_inset Formula $x\in(0,1)$
 \end_inset
 
- which is the basic reproduction number and is determined by a combination
- of the transmission rate and structure of social interactions
+ has some randomly determined exogenous level of social skill or social
+ capital 
+\begin_inset Formula $\kappa_{x}$
+\end_inset
+
+.
+ If the process for generating 
+\begin_inset Formula $\kappa$
+\end_inset
+
+ has distribution function 
+\begin_inset Formula $F_{\kappa}$
+\end_inset
+
+, then without loss of generality, we can order the indices so that 
+\begin_inset Formula $F_{\kappa}(\kappa_{x})=Pr(\kappa\leq\kappa_{x})=x$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+Each person chooses how many 
+\begin_inset Formula $n\geq0$
+\end_inset
+
+ social connections (edges in the social graph) they wish to maintain, and
+ uses these connections to improve their own welfare.
+ These connections could be thought of employment which allows the person
+ to buy sandwiches, agreements with neighbors to cooperate on household-producti
+on, or intrinsically rewarding social interactions like friendships and
+ dance partners.
+ Higher levels of social capital enable a person to get more utility out
+ of each connection, but there are diminishing returns to seeking out new
+ connections.
+ The utility that person 
+\begin_inset Formula $x$
+\end_inset
+
+ with social capital 
+\begin_inset Formula $\kappa_{x}$
+\end_inset
+
+ gains from maintaining 
 \begin_inset Formula $n$
 \end_inset
 
-: numbers of neighbors a person has
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $N$
+ connections is 
+\begin_inset Formula $\frac{1}{1-\alpha}\kappa_{x}n^{1-\alpha}$
 \end_inset
 
-: set of neighbors a person has.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $p$
+ where 
+\begin_inset Formula $\alpha\in(0,1)$
 \end_inset
 
-: disease prevalance: chance that a random person is infected
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $pr$
-\end_inset
-
- is the chance that a given neighbor transmits the contagion to you.
-\end_layout
-
-\begin_layout Standard
-You become infected iff at least one neighbor transmits to you.
+ is a parameter common across people.
+ Here, the connections are formed randomly, with each person not knowing
+ the index or social capital of their neighbors.
+ And non-integer numbers of connections are allowed.
  
 \end_layout
 
 \begin_layout Standard
-The chance that none of your neighbors transmits to you is then 
-\begin_inset Formula $\left[1-pr\right]^{n}$
+If the maintenance of each social connection requires effort which incurs
+ exogenous disutility 
+\begin_inset Formula $\varpi$
+\end_inset
+
+, then person 
+\begin_inset Formula $x$
+\end_inset
+
+'s utility as a function of their choice of social connections is 
+\begin_inset Formula 
+\[
+U_{x}(n)=\frac{1}{1-\alpha}\kappa_{x}n^{1-\alpha}-\varpi n
+\]
+
+\end_inset
+
+ If 
+\begin_inset Formula $n(x)$
+\end_inset
+
+ denotes person 
+\begin_inset Formula $x$
+\end_inset
+
+'s optimal number of social connections, then 
+\begin_inset Formula 
+\[
+n(x)=\left(\frac{\kappa_{x}}{\varpi}\right)^{1/\alpha}
+\]
+
+\end_inset
+
+The above equation on also gives us the distribution over degrees in the
+ social graph.
+ 
+\begin_inset Formula $F_{N}\left(n(x)\right)=Pr\left(n(x)\leq\kappa_{x}\right)=x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset Note Note
+status open
+
+\begin_layout Subsubsection
+An example distribution for 
+\begin_inset Formula $\kappa$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+In particular, let something something exponential distribution or power
+ law distribution
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Transmission of the contagion
+\end_layout
+
+\begin_layout Standard
+There is some contagion which spreads through the network in an SIR manner.
+ Like in (Newman 2002) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-9"
+literal "false"
+
+\end_inset
+
+, which provides a general description of evaluating the spread of disease
+ through a network, I'm considering the spread of the epidemic by looking
+ at it's final outcomes rather than by looking at the time-path of infectious
+ frequency among the population.
+\end_layout
+
+\begin_layout Standard
+If a person is infected with the contagion, then they experience additional
+ disutility 
+\begin_inset Formula $\delta$
+\end_inset
+
+.
+ Multiple infectious exposures don't incur any additional disutility.
+ Let 
+\begin_inset Formula $I_{\delta x}=1$
+\end_inset
+
+ iff person 
+\begin_inset Formula $x$
+\end_inset
+
+ is exposed to the contagion at some point during the epidemic, and 0 otherwise.
+ 
+\end_layout
+
+\begin_layout Standard
+When a person first hears about the epidemic, they choose how many social
+ connections to maintain for it's duration.
+ Their expected utility is 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}\left[U_{x}(n,\delta)\right] & =\mathbb{E}\left[\frac{1}{1-\alpha}\kappa_{x}n^{1-\alpha}-\varpi n-I_{\delta x}\delta\right]\\
+ & =\frac{1}{1-\alpha}\kappa_{x}n^{1-\alpha}-\varpi n-Pr(I_{\delta x}=1)\cdot\delta
+\end{align*}
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-Thus the chance that at least one of your neighbors transmits to you is
+\begin_inset Formula $T$
+\end_inset
+
+ is the transmissibility of the contagion.
+ It is the chance that an infected person will transmit the disease to an
+ uninfected person given that they share a social connection.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Contrast 
+\begin_inset Formula $T$
+\end_inset
+
+ with 
+\begin_inset Formula $R_{0}$
+\end_inset
+
+, the basic reproduction number, which is the average number of new infections
+ generated by each infection when the entire population is initial susceptible.
  
-\begin_inset Formula $1-\left[1-pr\right]^{n}$
+\begin_inset Formula $R_{0}$
+\end_inset
+
+ is determined by a combination of the transmission rate and structure of
+ social interactions.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-8"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $T$
+\end_inset
+
+ here is the same for all connections.
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $R_{\infty}$
+\end_inset
+
+ denote the portion of the population that is exposed to the disease throughout
+ the entire course of the epidemic.
+ Because people are assumed to not know the connectivity of their neighbors,
+ each person expects that each of their neighbors will become infected with
+ probability 
+\begin_inset Formula $R_{\infty}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $R_{\infty}$
+\end_inset
+
+ is determined in equilibrium through the choices of 
+\begin_inset Formula $n$
+\end_inset
+
+ by the individuals.
+\end_layout
+
+\begin_layout Standard
+The chance that the contagion is transmitted along any particular social
+ connection is 
+\begin_inset Formula $TR_{\infty}$
+\end_inset
+
+.
+ This is the probability that that neighbor gets sick times the probability
+ that they transmit along that particular social connection.
+\end_layout
+
+\begin_layout Standard
+But infection occurs in person 
+\begin_inset Formula $x$
+\end_inset
+
+ iff 
+\emph on
+at least
+\emph default
+ one of their neighbors transmits the infection to them.
+ If you are a person in this social network with 
+\begin_inset Formula $n$
+\end_inset
+
+ neighbors, then the chance that none of your neighbors transmits to you
+ is 
+\begin_inset Formula $\left[1-TR_{\infty}\right]^{n}$
+\end_inset
+
+.
+ And the the chance that at least one of your neighbors transmits to you
+ is 
+\begin_inset Formula $1-\left[1-TR_{\infty}\right]^{n}$
 \end_inset
 
 .
@@ -206,13 +484,92 @@ Thus the chance that at least one of your neighbors transmits to you is
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $c$
+So
+\begin_inset Formula 
+\[
+\mathbb{E}\left[U_{x}(n,\delta)\right]=\frac{1}{1-\alpha}\kappa_{x}n^{1-\alpha}-\varpi n-\delta+\delta\left[1-TR_{\infty}\right]^{n}
+\]
+
 \end_inset
 
-: loss of utility if you become infected.
+
 \end_layout
 
 \begin_layout Standard
+If 
+\begin_inset Formula $\delta=0$
+\end_inset
+
+, then this is the same as the baseline model without contagion.
+ If 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+, then the contagion is something bad like a disease.
+ And if 
+\begin_inset Formula $\delta<0$
+\end_inset
+
+, then the contagion is something beneficial like technological diffusion.
+\end_layout
+
+\begin_layout Standard
+If people choose their social connections for the duration of the epidemic
+ in an expected utility maximizing way, then the optimal number of connections
+ for person 
+\begin_inset Formula $x$
+\end_inset
+
+, 
+\begin_inset Formula $n(x,\delta)$
+\end_inset
+
+ satisfies
+\begin_inset Formula 
+\[
+0=\kappa_{x}n(x,\delta)^{-\alpha}-\varpi+\delta n(x,\delta)\left[1-TR_{\infty}\right]^{n(x,\delta)-1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left\{ ...\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The discrete form is that the difference between having 
+\begin_inset Formula $n$
+\end_inset
+
+ and 
+\begin_inset Formula $n-1$
+\end_inset
+
+ connections is ...
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
 If a person cuts off a social connection, then the increase in expected
  utility from decreased infection risk is 
 \begin_inset Formula 
@@ -225,25 +582,128 @@ c\cdot\left(\left[1-pr\right]^{n-1}-\left[1-pr\right]^{n}\right)=c\cdot\left[1-p
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 This function exhibits exponential decay.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 For a person with very many social connections, cutting a marginal connection
  has large effects on 
 \end_layout
 
-\begin_layout Standard
--
+\begin_layout Plain Layout
+rewrite more generally in terms of expected values? Allow for coorelation
+ via distribution of ps?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Main Consequence
 \end_layout
 
 \begin_layout Standard
--
+Because any individual can only become infected with a contagion once, and
+ because the chances of avoiding infection exponentially decay with number
+ of connections, highly connected individuals will change their behavior
+ less in response to the threat of contagion.
+ An introvert with very low social capital and hence very few connections
+ can drastically increase their safety by cutting off a marginal social
+ connection.
+ But an extrovert with a very large number of connections would experience
+ almost no benefit from doing so.
+ The same highly connected individuals who drive the spread of contagion,
+ are also the individuals least likely to self-interestedly take steps to
+ mitigate the spread.
+\end_layout
+
+\begin_layout Subsubsection
+conjecture 1: 
 \end_layout
 
 \begin_layout Standard
--
+Let 
+\begin_inset Formula $g(x,\delta)$
+\end_inset
+
+ be person 
+\begin_inset Formula $x$
+\end_inset
+
+'s proportional decrease in connections when news of an impending pandemic
+ arrives:
+\begin_inset Formula 
+\[
+g(x,\delta)=\frac{n(x,\delta)-n(x)}{n(x)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+, 
+\begin_inset Formula $|g(x,\delta)|$
+\end_inset
+
+ is decreasing in 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $\delta<0$
+\end_inset
+
+, 
+\begin_inset Formula $|g(x,\delta)|$
+\end_inset
+
+ is increasing in 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+conjecture 2:
+\end_layout
+
+\begin_layout Standard
+Given that 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ and [insert sufficient assumptions about distribution of social capital]
+ ,the variance of the distribution of 
+\begin_inset Formula $n(x,\delta)$
+\end_inset
+
+ over 
+\begin_inset Formula $x$
+\end_inset
+
+ is greater than that for 
+\begin_inset Formula $n(x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Implications for Disease Outbreaks
 \end_layout
 
 \begin_layout Bibliography
@@ -355,6 +815,61 @@ Mossong, Joël, et al.
  "Social contacts and mixing patterns relevant to the spread of infectious
  diseases." PLoS Med 5.3 (2008): e74.
  (Empirical analysis of social contact structure)
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-8"
+
+\end_inset
+
+Pourbohloul, Babak, et al.
+ "Modeling control strategies of respiratory pathogens." Emerging infectious
+ diseases 11.8 (2005): 1249.
+ (Talks about the importance of transmisability instead of just basic reproducti
+ve number.
+ Also talks about the importance in the variability of the connections)
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-9"
+
+\end_inset
+
+Newman, Mark EJ.
+ "Spread of epidemic disease on networks." Physical review E 66.1 (2002):
+ 016128.(Has the rigourous probabilistic treatment but no endogeneity.
+ peanut butter and chocolate.
+ Power law stuff)
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-10"
+
+\end_inset
+
+Amaral, Luıs A.
+ Nunes, et al.
+ "Classes of small-world networks." Proceedings of the national academy of
+ sciences 97.21 (2000): 11149-11152.
+ (Power law and exponential distributions)
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-11"
+
+\end_inset
+
+Barabási, Albert-László, and Réka Albert.
+ "Emergence of scaling in random networks." science 286.5439 (1999): 509-512.
+ (emergence of scaling using a sort of superstar effect explanation)
 \end_layout
 
 \end_body

@@ -20,3 +20,26 @@
     - example 2: different costs for thinkery
     - impose gtth: strong disutility if thinkery below threshold. In either example, behavior will change.
   - trembling hand etc. as alternate forms of representation of mental illness
+
+- social shaming + externalities
+- Global timing game
+- American Pie parody but lyrics are about forcibly collectivizing aggriculture
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -5,10 +5,28 @@
 - What's missing from these models?
 - Stochastic Markov process (Ben Mol)?
 - Incorporate infection rate
+- Eigengen vectors and eigenvalues
+  - fixed points in distribution are eigenvectors
+- "What number do you want to reduce?"
 - Take that little example of the incentives involved in cutting off a social connection, 
   - determine equilibrium invariant distribution
   - or imposed fixed cost/benefit of gaining or losing connections and fixed cost of infection risk
     - Use solutions from Phelan's stuff to find out what kinds of connections are in equilibrium?
+
+- Jorge asks why he cares less and less as time goes by. 
+  - "Why is it that as time goes by I stop caring?
+  - "Learning I won't get it." 
+  - Disease exposure is highly correlted geographically/socially. A priori it is difficult to tell whether you will have high disease exposure, but as the pandemic goes on you gain more info about the fact that you dont 
+  - Home production decaying?
+  - "Odds of getting sick with a fixed cost?" What did I mean here?
+  
+- notes from bad talk I gave
+  - "icing model" on symettric tree? typo?
+  - ideal branching problem
+  - Tom Holmes on Walmart
+    - How do you build a new walmart
+  - continuous time markov process, exponentially meeting with different types, keeping track of meeting people who are sick and healthy
+  - what set of parameters are stable in equilibrium where people are trying to decide to cut off a marginal connection?
 
 
 
@@ -42,7 +60,15 @@ Think. It's due at 4pm. So allocate an hour to reformatting text, and give it an
       - but this will just be equivalent to saying that people who like to have conncetions will have more connections. Not super interesting. 
       - Unless focus on the increase in variance
   - Look at various forms of social distancing schemes
+  - maybe the hit will be a fraction of existing utility?
 - mention future plans about explicitly modelling a time path.
+- integrate over distribution to get expected externaility from some particular individual getting sick
+- shutting down $c$ portion of individuals or shutting down $c$ portion of all conncections - analogue in terms of incentives is place huge disincentive on one person or small disincentives on everyone. But disincentives on activity don't have same coorespondence to lockdown. Lump sum tax on every activity, Or huge tax on randomly chosen activities. Compare to that simple model used in class.
+- Options
+  - Shut down all connections for subsection
+  - shut down some fraction of connections for everybody
+  - impose fixed cost on each connection
+  - 
 
 
 ## option 2: Focus on the distributionary effects themselves. 
