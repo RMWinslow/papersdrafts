@@ -176,10 +176,7 @@ There is a unit mass of individuals, indexed by
 \end_inset
 
  from 0 to 1.
- Each individual person can be thought of as one of the vertices in a social
- graph, where the edges of the graph represent person-to-person connections
- along which contagions, such as disease or information, can potentially
- spread.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -189,69 +186,88 @@ Each person
 
  has some randomly determined exogenous level of social skill or social
  capital 
-\begin_inset Formula $\kappa_{x}$
+\begin_inset Formula $\kappa_{x}>0$
 \end_inset
 
 .
- If the process for generating 
-\begin_inset Formula $\kappa$
+ Social capital follows a gamma distribution with shape parameter 
+\begin_inset Formula $k$
 \end_inset
 
- has distribution function 
-\begin_inset Formula $F_{\kappa}$
+ and shape parameter 
+\begin_inset Formula $\theta$
 \end_inset
 
-, then without loss of generality, we can order the indices so that 
-\begin_inset Formula $F_{\kappa}(\kappa_{x})=Pr(\kappa\leq\kappa_{x})=x$
+:
+\begin_inset Formula 
+\[
+f_{\kappa}(\kappa_{x})=\frac{\kappa_{x}^{k-1}e^{-\kappa_{x}/\theta}}{\Gamma(k)\theta^{k}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+F_{\kappa}(\kappa_{x})=\frac{\gamma(k,\beta\kappa_{x})}{\Gamma(k)}=\frac{\int_{0}^{\beta\kappa_{x}}t^{k-1}e^{-t}\;dt}{\int_{0}^{\infty}t^{k-1}e^{-t}\;dt}
+\]
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-Each person chooses how many 
-\begin_inset Formula $n\geq0$
+Each person chooses what level of 
+\begin_inset Formula $n\in\mathbb{R}_{+}$
 \end_inset
 
- social connections (edges in the social graph) they wish to maintain, and
- uses these connections to improve their own welfare.
+ social connections they wish to maintain, and uses this connection with
+ others to improve their own welfare.
  These connections could be thought of employment which allows the person
- to buy sandwiches, agreements with neighbors to cooperate on household-producti
-on, or intrinsically rewarding social interactions like friendships and
- dance partners.
+ to buy goods, agreements with neighbors to cooperate on home-production
+ activities like childcare, or intrinsically rewarding social interactions
+ like friendships and dance partners.
  Higher levels of social capital enable a person to get more utility out
  of each connection, but there are diminishing returns to seeking out new
  connections.
- The utility that person 
+ 
+\end_layout
+
+\begin_layout Standard
+The utility that person 
 \begin_inset Formula $x$
 \end_inset
 
- with social capital 
+, with social capital 
 \begin_inset Formula $\kappa_{x}$
 \end_inset
 
- gains from maintaining 
+, gains from choosing to maintain 
 \begin_inset Formula $n$
 \end_inset
 
  connections is 
-\begin_inset Formula $\frac{1}{1-\alpha}\kappa_{x}n^{1-\alpha}$
+\begin_inset Formula $A\kappa_{x}^{\alpha}n^{1-\alpha}$
 \end_inset
 
  where 
 \begin_inset Formula $\alpha\in(0,1)$
 \end_inset
 
- is a parameter common across people.
- Here, the connections are formed randomly, with each person not knowing
- the index or social capital of their neighbors.
- And non-integer numbers of connections are allowed.
- 
+ and 
+\begin_inset Formula $A$
+\end_inset
+
+ are parameters common across all people.
+ Here, a person can only choose how much they interact with others and cannot,
+ for example, choose to only connect with other people who have low social
+ capital.
 \end_layout
 
 \begin_layout Standard
-If the maintenance of each social connection requires effort which incurs
- exogenous disutility 
+If the maintenance of each unit of social connection requires effort which
+ incurs exogenous disutility 
 \begin_inset Formula $\varpi$
 \end_inset
 
@@ -262,31 +278,236 @@ If the maintenance of each social connection requires effort which incurs
 's utility as a function of their choice of social connections is 
 \begin_inset Formula 
 \[
-U_{x}(n)=\frac{1}{1-\alpha}\kappa_{x}n^{1-\alpha}-\varpi n
+U_{x}(n)=A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n
 \]
 
 \end_inset
 
  If 
-\begin_inset Formula $n(x)$
+\begin_inset Formula $n_{x}=n(\kappa_{x})$
 \end_inset
 
  denotes person 
 \begin_inset Formula $x$
 \end_inset
 
-'s optimal number of social connections, then 
+'s optimal amount of social connections, then 
 \begin_inset Formula 
 \[
-n(x)=\left(\frac{\kappa_{x}}{\varpi}\right)^{1/\alpha}
+n_{x}=n(\kappa_{x})=\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}\kappa_{x}
 \]
 
 \end_inset
 
-The above equation on also gives us the distribution over degrees in the
- social graph.
+
+\begin_inset Formula 
+\[
+\kappa_{x}=n^{-1}(n_{x})=\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{-1}{\alpha}}n_{x}
+\]
+
+\end_inset
+
+Because 
+\begin_inset Formula $n(\kappa_{x})$
+\end_inset
+
+ is strictly increasing and differentiable over the support for the distribution
+ of 
+\begin_inset Formula $\kappa$
+\end_inset
+
+, we can relate the two random variables like so:
+\begin_inset Formula 
+\[
+F_{\kappa}(\kappa_{x})=F_{N}\left(\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}\kappa_{x}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+F_{N}(n_{x})=F_{\kappa}\left(\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{-1}{\alpha}}n_{x}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+f_{\kappa}(\kappa_{x}) & =f_{N}\left(\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}\kappa_{x}\right)\cdot\frac{d}{d\kappa}\left[\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}\kappa_{x}\right]\\
+ & =f_{N}\left(\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}\kappa_{x}\right)\cdot\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So if we know [BASED ON INSERT CITE HERE] that social connectivity follows
+ a gamma distribution (of which the exponential distribution is a particular
+ case) with shape parameter 
+\begin_inset Formula $k$
+\end_inset
+
+ and rate 
+\begin_inset Formula $\beta$
+\end_inset
+
+ :
+\begin_inset Formula 
+\[
+f_{N}(n_{x})=\frac{\beta^{k}n_{x}^{k-1}e^{-\beta n_{x}}}{\Gamma(k)}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+f_{\kappa}(\kappa_{x}) & =f_{N}\left(\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}\kappa_{x}\right)\cdot\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}\\
+ & =\frac{1}{\Gamma(k)}\cdot\beta^{k}\cdot\left(\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}\kappa_{x}\right)^{k-1}\cdot\exp\left(-\beta\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}\kappa_{x}\right)\cdot\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}\\
+ & =\frac{1}{\Gamma(k)}\cdot\beta^{k}\cdot\left(\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}\right)^{k-1}\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}\cdot\kappa_{x}^{k-1}\cdot\exp\left(-\beta\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}\kappa_{x}\right)\cdot\\
+ & =\frac{1}{\Gamma(k)}\cdot\beta^{k}\cdot\left(\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}\right)^{k}\cdot\kappa_{x}^{k-1}\cdot\exp\left(-\beta\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}\kappa_{x}\right)\\
+ & =\frac{1}{\Gamma(k)}\cdot\left[\beta\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}\right]^{k}\cdot\kappa_{x}^{k-1}\cdot\exp\left(-\left[\beta\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}\right]\kappa_{x}\right)\\
+ & =\frac{\left[\beta\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}\right]^{k}\kappa_{x}^{k-1}e^{-\left[\beta\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}\right]\kappa_{x}}}{\Gamma(k)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore social capital 
+\begin_inset Formula $\kappa$
+\end_inset
+
+ is also distributed 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Need to clean up some of the redundancy, make it look like I'm just working
+ forwards, and then plug it into the infections to see how various interventions
+ impact distribution and R_0
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\kappa=A\cdot n$
+\end_inset
+
+ and 
+\begin_inset Formula $n$
+\end_inset
+
+ distributed gamma-wise, then 
+\begin_inset Formula 
+\[
+f_{N}(n)=\frac{\beta^{k}n^{k-1}e^{-\beta n}}{\Gamma(k)}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+f_{K}(\kappa) & =\frac{\beta^{k}\left(A\kappa\right)^{k-1}e^{-\beta A\kappa}}{\Gamma(k)}\cdot A\\
+ & =\frac{\beta^{k}\left(A\cdot A^{k-1}\right)\kappa^{k-1}e^{-\beta A\kappa}}{\Gamma(k)}\\
+ & =\frac{\beta^{k}A^{k}\kappa^{k-1}e^{-\beta A\kappa}}{\Gamma(k)}\\
+ & =\frac{\left(A\beta\right)^{k}A^{k}\kappa^{k-1}e^{-\left(\beta A\right)\kappa}}{\Gamma(k)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So then 
+\begin_inset Formula $\kappa$
+\end_inset
+
+ is also gamma distributed with same k but different 
+\begin_inset Formula $\beta$
+\end_inset
+
+ and thus different mean.
  
-\begin_inset Formula $F_{N}\left(n(x)\right)=Pr\left(n(x)\leq\kappa_{x}\right)=x$
+\end_layout
+
+\begin_layout Standard
+So if we know [BASED ON INSERT CITE HERE] that social connections follow
+ a gamma distribution (of which the exponential distribution is a particular
+ case) with shape parameter 
+\begin_inset Formula $k$
+\end_inset
+
+ and mean 
+\begin_inset Formula $\mu$
+\end_inset
+
+ :
+\begin_inset Formula 
+\[
+F_{N}(n_{x})=\frac{\gamma(k,\frac{kn_{x}}{\mu})}{\Gamma(k)}=\frac{\int_{0}^{\frac{kn_{x}}{\mu}}t^{k-1}e^{-t}\;dt}{\int_{0}^{\infty}t^{k-1}e^{-t}\;dt}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F_{\kappa}(\kappa_{x})=F_{N}\left(\left(\frac{\kappa_{x}}{\varpi}\right)^{1/\alpha}\right)=\frac{\gamma(k,\frac{kn_{x}}{\mu})}{\Gamma(k)}=\frac{\int_{0}^{\frac{kn_{x}}{\mu}}t^{k-1}e^{-t}\;dt}{\int_{0}^{\infty}t^{k-1}e^{-t}\;dt}
+\]
+
+\end_inset
+
+So if we know [BASED ON INSERT CITE HERE] that social connections follow
+ a gamma distribution (of which the exponential distribution is a particular
+ case) with shape parameter 
+\begin_inset Formula $k$
+\end_inset
+
+ and rate 
+\begin_inset Formula $\beta$
+\end_inset
+
+ :
+\begin_inset Formula 
+\[
+F_{N}(n_{x})=\frac{\gamma(k,\beta n_{x})}{\Gamma(k)}=\frac{\int_{0}^{\beta n_{x}}t^{k-1}e^{-t}\;dt}{\int_{0}^{\infty}t^{k-1}e^{-t}\;dt}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+F_{\kappa}(\kappa_{x}) & =F_{N}\left(\left(\frac{\kappa_{x}}{\varpi}\right)^{1/\alpha}\right)=\frac{\gamma(k,\beta n_{x})}{\Gamma(k)}=\frac{\int_{0}^{\beta n_{x}}t^{k-1}e^{-t}\;dt}{\int_{0}^{\infty}t^{k-1}e^{-t}\;dt}\\
+ & =\frac{\gamma(k,\beta\left(\frac{\kappa_{x}}{\varpi}\right)^{1/\alpha})}{\Gamma(k)}\\
+ & =\frac{\gamma(k,\beta\varpi^{\frac{-1}{\alpha}}\kappa_{x}^{1/\alpha})}{\Gamma(k)}=\frac{\int_{0}^{\beta\varpi^{\frac{-1}{\alpha}}\kappa_{x}^{1/\alpha}}t^{k-1}e^{-t}\;dt}{\Gamma(k)}
+\end{align*}
+
 \end_inset
 
 

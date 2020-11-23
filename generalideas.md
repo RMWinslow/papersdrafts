@@ -26,7 +26,7 @@
 - American Pie parody but lyrics are about forcibly collectivizing aggriculture
 
 
-
+Using a footpedal peripheral for shift and ctrl and all that jazz instead of being forced to rely on my poor pinky fingers
 
 
 

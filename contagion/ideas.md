@@ -32,7 +32,6 @@
 
 
 
-
 # Running out of time. Where do I take the quick paper.
 
 Think. It's due at 4pm. So allocate an hour to reformatting text, and give it an hour per page of writing. and an hour for lining up the sources, then I need started writing hardcore by 4 in the morning. 
