@@ -1,0 +1,8 @@
+Step one: note that SARS 2 is fat tailed
+https://www.pnas.org/content/early/2020/10/30/2018490117
+
+Step two: note that real world networks usually have log-normal, not scale-free distribution of connections
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6399239/
+
+Step three, use different distributions to tweak the implications of that classic paper
+https://www.nature.com/articles/nature04153

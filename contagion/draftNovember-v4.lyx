@@ -335,11 +335,76 @@ f_{N}(n_{x}) & =f_{\kappa}\left(n^{-1}(n_{x})\right)\cdot\frac{\partial}{\partia
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 I was thinking about trying to generalize and simplify this using pgfs,
  but then remembered that these will be continuous instead of discrete.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Oof.
+ This is weird in that it implies a fraction 
+\begin_inset Formula $\frac{1}{\Gamma(k)\theta^{k}}$
+\end_inset
+
+ of people have no social connections whatsoever.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Across these networks, we find robust evidence that strongly scale-free
+ structure is empirically rare, while for most networks, log-normal distribution
+s fit the data as well or better than power laws.
+ Furthermore, social networks are at best weakly scale free
+\end_layout
+
+\begin_layout Plain Layout
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6399239/
+\end_layout
+
+\begin_layout Plain Layout
+pdf of log normal is 
+\begin_inset Formula 
+\[
+\frac{1}{x\sigma\sqrt{2\pi}}\exp\left(-\frac{\left(\ln x-\mu\right)^{2}}{2\sigma^{2}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Also, loga normal distributions happen to be fat-tailed, which is consistent
+ with the results from here: https://www.pnas.org/content/pnas/early/2020/10/30/20
+18490117.full.pdf
+\end_layout
+
+\begin_layout Plain Layout
+Stop chaning things! You have less than 12 hours to set up a presentation
+ and you need a damn model! WRITE, then revise.
+ Don't keep revising things in your head and forgetting about them.
+\end_layout
+
+\begin_layout Plain Layout
+Maybe you can think about how a change to log normal contacts changes consequenc
+es of that seminal paper 
+\emph on
+after
+\emph default
+ you get something else worked out.
 \end_layout
 
 \end_inset
@@ -682,7 +747,7 @@ f_{Z}(z) & =\int_{0}^{\infty}f_{v}(v)\cdot f_{Poisson(v)}(z)\ dv\\
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 mean=
@@ -713,6 +778,55 @@ Also something is wrong with the above math, where I may have plugged in
 \begin_layout Plain Layout
 TODO: Update the formula above to use the flipped version of p and q IFF
  that is in fact the standard.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Maybe a gamma-poisson mixture is bungus
+\end_layout
+
+\begin_layout Plain Layout
+https://www.pnas.org/content/pnas/early/2020/10/30/2018490117.full.pdf
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+First, the fat tail of Z makes the distribution of Z inconsistent with a
+ negative binomial distribution, and the consistency of the tail with a
+ generalized Pareto distribution suggests that it arises from branching
+ processes in which the time to infection, instead of v, is gamma-distributed
+ (so that the tails of Z correspond to an exponential-gamma mixture); this
+ prediction is consistent with studies that have fitted serial intervals
+ to gamma distributions (8, 9).
+ Second, since the second moment of Z diverges if α < 2, the occurrence
+ of SSEs suggests that measuring variances of empirical samples of Z can
+ be misleading.
+ Third, fat-tailed distributions generate extreme risk, and superspreading
+ should be mitigated by measures that reduce tail events instead of focusing
+ on the bulk of the distribution.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+https://math.stackexchange.com/questions/646852/compound-of-gamma-and-exponential-
+distribution/
+\end_layout
+
+\begin_layout Plain Layout
+https://en.wikipedia.org/wiki/Beta_prime_distribution#Compound_gamma_distribution
 \end_layout
 
 \end_inset
@@ -824,7 +938,7 @@ G_{z}(\smiley) & =\sum_{z}\left[f_{Z}(z)\smiley^{z}\right]\\
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 From the supplemental notes here: https://static-content.springer.com/esm/art%3A10.
@@ -1043,7 +1157,7 @@ D_{z} & =\frac{\sigma_{v}^{2}+\mu_{v}}{\mu_{v}}=D_{v}+1\\
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Binomial pmf: 
@@ -1396,16 +1510,383 @@ But for Gamma-dist contacts,
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Based on https://www.pnas.org/content/pnas/early/2020/10/30/2018490117.full.pdf
+\end_layout
+
+\begin_layout Plain Layout
+It might more sense to model as an exponential process where the time to
+ infection is gamma-distributed instead of individual attack rate?
+\end_layout
+
+\begin_layout Plain Layout
+Expoenential pmf: 
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Oh no.
+ Can't use pgfs because it isn't discrete.
+ But the geometric is discrete version of exponential I guess?
+\end_layout
+
+\begin_layout Plain Layout
+geometric pmf: 
+\begin_inset Formula $p\cdot(1-p)^{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+geometric pgf: 
+\begin_inset Formula $\sum_{k}\left[p\cdot(1-p)^{k}\smiley^{k}\right]=p\sum_{k}\left[\left[(1-p)\smiley\right]^{k}\right]=\frac{p}{1-(1-p)\smiley}$
+\end_inset
+
+ when 
+\begin_inset Formula $|(1-p)\smiley|<1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Mean of geometric: 
+\begin_inset Formula $\mu=G^{\prime}(1)$
+\end_inset
+
+, 
+\begin_inset Formula $G^{\prime}(\smiley)=\frac{d}{d\smiley}[\frac{p}{1-(1-p)\smiley}]=\frac{(1-p)p}{\left(1-(1-p)\smiley\right)^{2}}$
+\end_inset
+
+, and so 
+\begin_inset Formula $G^{\prime}(1)=\frac{(1-p)p}{p^{2}}=\frac{1-p}{p}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+-...
+\end_layout
+
+\begin_layout Plain Layout
+Shouldbn't really be focussing on this right now
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Extinction probability
 \end_layout
 
-\begin_layout Subsubsection
-Growth of Disease
+\begin_layout Standard
+Solution to 
+\begin_inset Formula $G_{z}(\smiley)=\smiley$
+\end_inset
+
+, which can be found numerically.
+\end_layout
+
+\begin_layout Standard
+For example, if 
+\begin_inset Formula $R_{0}=3$
+\end_inset
+
+ and 
+\begin_inset Formula $k=0.2$
+\end_inset
+
+, which is in line with estimates of the parameters for SARS-CoV-2, then
+ the 
+\begin_inset Formula $\smiley\in(0,1)$
+\end_inset
+
+ which solves the following will be the ultimate extinction probability:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\smiley=\left(\left(1-\smiley\right)\cdot15+1\right)^{-1/5}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this case, 
+\begin_inset Formula $\smiley\approx0.718493$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+For example, if 
+\begin_inset Formula $R_{0}=2$
+\end_inset
+
+ and 
+\begin_inset Formula $k=0.5$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\smiley=\frac{1}{\sqrt{\left(1-\smiley\right)\cdot4+1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+In this case, 
+\begin_inset Formula $\smiley=\frac{1+\sqrt{17}}{8}\approx0.6403882$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+https://www.wolframalpha.com/input/?i=x%3D%28%281-A%29%2F%281-A*x%29%29%5E%28k%29
+\end_layout
+
+\begin_layout Plain Layout
+Useless
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
-Eventual Portion of the population which 
+Eventual Portion of the population which becomes infected
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R_{0}=G^{\prime}(1)$
+\end_inset
+
+.
+ For Gamma-Poisson mixture, this is 
+\begin_inset Formula 
+\begin{align*}
+G^{\prime}(\smiley) & =\frac{\partial}{\partial\smiley}\int_{0}^{\infty}f_{v}(\lambda)e^{-\lambda(1-\smiley)}\ d\lambda\\
+ & =\int_{0}^{\infty}\frac{\partial}{\partial\smiley}\left[f_{v}(\lambda)e^{-\lambda(1-\smiley)}\right]\ d\lambda\\
+ & =\int_{0}^{\infty}\left[f_{v}(\lambda)\cdot\lambda e^{-\lambda(1-\smiley)}\right]\ d\lambda\\
+G^{\prime}(1) & =\int_{0}^{\infty}\left[f_{v}(\lambda)\cdot\lambda e^{0}\right]\ d\lambda\\
+ & =\int_{0}^{\infty}\left[f_{v}(\lambda)\cdot\lambda\right]\ d\lambda\\
+ & =\mu_{\lambda}=R_{0}=E[v]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+In simple model: Need at least 
+\begin_inset Formula $1-\frac{1}{R_{0}}$
+\end_inset
+
+ of population immune to prevent growth of spread.
+ (In steady state of endemic disease, 
+\begin_inset Formula $\frac{1}{R_{0}}$
+\end_inset
+
+ is S at any given time.)
+\end_layout
+
+\begin_layout Plain Layout
+Setup of basic SIR model without vital dynamics:
+\begin_inset Formula 
+\begin{align*}
+\frac{d}{dt}S & =-\frac{\beta IS}{N}\\
+\frac{d}{dt}I & =\frac{\beta IS}{N}-\gamma I\\
+\frac{d}{dt}R & =\gamma I
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{0}=\beta/\gamma$
+\end_inset
+
+.
+ Then if 
+\begin_inset Formula $s_{t}$
+\end_inset
+
+ and 
+\begin_inset Formula $r_{t}$
+\end_inset
+
+ are fraction of susceptible and recovered population at time 
+\begin_inset Formula $t$
+\end_inset
+
+, the people uneffect by the disease after it's passed will be.
+\begin_inset Formula 
+\[
+s_{\infty}=1-r_{\infty}=s_{\infty}e^{-R_{0}\cdot(r_{\infty}-r_{0})}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+s_{\infty}=1-r_{\infty}=e^{-R_{0}\cdot r_{\infty}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Solutions in terms of Lambert W function (Called productLog by mathematica
+\begin_inset Formula 
+\[
+s_{\infty}=1-r_{\infty}=-\frac{1}{R_{0}}W\left(-s_{0}R_{0}e^{-R_{0}\cdot(1-r_{0})}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+s_{\infty}=1-r_{\infty}=-\frac{1}{R_{0}}W\left(-R_{0}e^{-R_{0}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+http://grallator.co.uk/modsim_sir.html
+\end_layout
+
+\begin_layout Plain Layout
+This is because if 
+\begin_inset Formula $e^{-cx}=a\cdot(x-r)$
+\end_inset
+
+ , then 
+\begin_inset Formula $x=r+\frac{1}{c}W\left(\frac{ce^{-cr}}{a}\right)$
+\end_inset
+
+.
+ In the above, 
+\begin_inset Formula $x=r_{\infty},R_{0}=c,a=-1,r=1$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $r_{\infty}=1+\frac{1}{R_{0}}W\left(\frac{R_{0}e^{-R_{0}\cdot1}}{-1}\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Lambert.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename R_infty_hires.png
+	lyxscale 30
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If the contagion goes extinct in the branching model, then the outbreak
+ (likely) only affects a negligible fraction of the entire population.
+\end_layout
+
+\begin_layout Standard
+If the contagion doesn't go extinct, then the ultimate portion of the population
+ that gets infected in a simple SIR model will be 
+\begin_inset Formula $r_{\infty}$
+\end_inset
+
+, which can be expressed by 
+\begin_inset Formula $1-r_{\infty}=e^{-R_{0}\cdot r_{\infty}}$
+\end_inset
+
+, and solved to yield 
+\begin_inset Formula $r_{\infty}=1+\frac{1}{R_{0}}W\left(-R_{0}e^{-R_{0}}\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $W$
+\end_inset
+
+ is the product log or Lambert W function.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename R_infty_hires.png
+	lyxscale 30
+	width 50col%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1414,7 +1895,7 @@ Transmission of the contagion with endogenous changes
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Wait, I need to figure out what the R_
@@ -1466,9 +1947,135 @@ When a person first hears about the epidemic, they choose how many social
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\mathbb{E}\left[U_{x}(n,\frownie)\right] & =\mathbb{E}\left[A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n-I_{\delta x}\frownie\right]\\
+\mathbb{E}\left[U_{x}(n;\frownie)\right] & =\mathbb{E}\left[A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n-I_{\delta x}\frownie\right]\\
  & =A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n-Pr(I_{\delta x}=1)\cdot\frownie
 \end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What is the probability that a person gets infected? 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Poisson
+\series default
+: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Here I forgot to factor in that not everyone will actually get sick
+\end_layout
+
+\begin_layout Plain Layout
+If infection happens at rate 
+\begin_inset Formula $rn_{x}$
+\end_inset
+
+, the same rate you transfer to others, and we model your risk as a Poisson(rn)
+ process, then 
+\begin_inset Formula 
+\[
+I_{\delta x}=Pr\left(Poisson(rn)\geq1\right)=1-Pr\left(Poisson(rn)=0\right)=1-e^{-rn}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathbb{E}\left[U_{x}(n;\frownie)\right]=A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n-\left(1-e^{-rn}\right)\cdot\frownie
+\]
+
+\end_inset
+
+To maximize expected utility, we need to find 
+\begin_inset Formula $n$
+\end_inset
+
+ which solves 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+Binomial
+\series default
+ (continuous 
+\begin_inset Formula $n$
+\end_inset
+
+ generalization): n contacts.
+ Chance of no transmission to you is 
+\begin_inset Formula $1-(1-r)^{n}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+U_{x}(n)=A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n
+\]
+
+\end_inset
+
+ If 
+\begin_inset Formula $n_{x}=n(\kappa_{x})$
+\end_inset
+
+ denotes person 
+\begin_inset Formula $x$
+\end_inset
+
+'s optimal amount of social connections, then 
+\begin_inset Formula 
+\[
+n_{x}=n(\kappa_{x})=\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{1}{\alpha}}\kappa_{x}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\kappa_{x}=n^{-1}(n_{x})=\left(\frac{A\cdot(1-\alpha)}{\varpi}\right)^{\frac{-1}{\alpha}}n_{x}
+\]
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
