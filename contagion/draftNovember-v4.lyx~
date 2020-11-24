@@ -1631,7 +1631,8 @@ In this case,
 \begin_inset Formula $\smiley\approx0.718493$
 \end_inset
 
-
+.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1664,6 +1665,10 @@ In this case,
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+These things converge super quickly btw.
 \end_layout
 
 \end_inset
@@ -1911,12 +1916,12 @@ infty is as a function of the distribution of social connections.
 \end_layout
 
 \begin_layout Standard
-Now suppose that if a person is infected with the contagion, then they experienc
-e additional disutility 
-\begin_inset Formula $\frownie$
+Now suppose that if a person is infected with the contagion, then they just
+ bloody die, and get 
+\begin_inset Formula $0$
 \end_inset
 
-.
+ utils.
  Multiple infectious exposures don't incur any additional disutility, as
  a person is presumed to become immune (or dead) after the first exposure.
 \end_layout
@@ -1939,15 +1944,272 @@ Let
 \end_layout
 
 \begin_layout Standard
+Expected utility is then 
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}\left[U_{x}(n;I_{\delta x})\right] & =\mathbb{E}\left[U_{x}(n)\cdot\left(1-I_{\delta x}\right)\right]\\
+ & \mathbb{=E}\left[U_{x}(n)\cdot\left(1-I_{\delta x}\right)\right]
+\end{align*}
+
+\end_inset
+
+What is the probability that a person gets infected? A fraction 
+\begin_inset Formula $R_{\infty}$
+\end_inset
+
+ of the person's contacts will become infected throughout the course of
+ the epidemic.
+ And this person has a risk of being transmitted to at a rate of 
+\begin_inset Formula $r$
+\end_inset
+
+ per unit of connection they have with infected people.
+ Thus the chance of person 
+\begin_inset Formula $x$
+\end_inset
+
+ getting infected is modeled by 
+\begin_inset Formula 
+\[
+I_{\delta x}=Pr\left(Poisson(rnR_{\infty})\geq1\right)=1-Pr\left(Poisson(rnR_{\infty})=0\right)=1-e^{-rnR_{\infty}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}\left[U_{x}(n;\frownie,I_{\delta x})\right] & =\mathbb{E}\left[\left(A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n\right)\cdot\left(1-\left(1-e^{-rnR_{\infty}}\right)\right)\right]\\
+ & =\mathbb{E}\left[\left(A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n\right)\cdot\left(e^{-rnR_{\infty}}\right)\right]
+\end{align*}
+
+\end_inset
+
+To maximize 
+\begin_inset Formula $x$
+\end_inset
+
+'s expected utility, find 
+\begin_inset Formula $n$
+\end_inset
+
+ which solves 
+\begin_inset Formula 
+\[
+0=\frac{d}{dn}\mathbb{E}\left[U_{x}(n;\frownie,I_{\delta x})\right]=\left[\left(1-\alpha\right)\cdot A\kappa_{x}^{\alpha}n^{-\alpha}-\varpi\right]\left[e^{-rnR_{\infty}}\right]+\left[A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n\right]\left[-rR_{\infty}e^{-rnR_{\infty}}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(1-\alpha\right)\cdot A\kappa_{x}^{\alpha}n^{-\alpha}e^{-rnR_{\infty}}-A\kappa_{x}^{\alpha}n^{1-\alpha}rR_{\infty}e^{-rnR_{\infty}} & =\varpi\\
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+0=\left[\left(1-\alpha\right)\cdot A\kappa_{x}^{\alpha}n^{-\alpha}-\varpi\right]\left[e^{-rnR_{\infty}}\right]+\left[A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n\right]\left[-rR_{\infty}\right]\left[e^{-rnR_{\infty}}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+0=\left[\left(1-\alpha\right)\cdot A\kappa_{x}^{\alpha}n^{-\alpha}-\varpi\right]+\left[A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n\right]\left[-rR_{\infty}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(1-\alpha\right)\cdot A\kappa_{x}^{\alpha}n^{-\alpha}-\varpi & =rR_{\infty}A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n\\
+\left(1-\alpha\right)\cdot\left[A\kappa_{x}^{\alpha}n^{-\alpha}\right]-\varpi & =n\left[rR_{\infty}\left[A\kappa_{x}^{\alpha}n^{-\alpha}\right]-\varpi\right]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(1-\alpha\right)\cdot A\kappa_{x}^{\alpha}n^{-\alpha}-\varpi & =rR_{\infty}A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n\\
+\left(1-\alpha\right)\cdot A\kappa_{x}^{\alpha}n^{-\alpha}-rR_{\infty}A\kappa_{x}^{\alpha}n^{1-\alpha} & =\varpi-\varpi n\\
+\left[\right] & \left[A\kappa_{x}^{\alpha}n^{-\alpha}\right]=\varpi-\varpi n
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Newline linebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Now suppose that if a person is infected with the contagion, then they lose
+ a fraction of their utility and experience 
+\begin_inset Formula $\frownie U_{x}(n)$
+\end_inset
+
+ utils where 
+\begin_inset Formula $\frownie\in(0,1)$
+\end_inset
+
+.
+ Multiple infectious exposures don't incur any additional disutility, as
+ a person is presumed to become immune (or dead) after the first exposure.
+\end_layout
+
+\begin_layout Plain Layout
+Let 
+\begin_inset Formula $I_{\delta x}=1$
+\end_inset
+
+ iff person 
+\begin_inset Formula $x$
+\end_inset
+
+ is exposed to the contagion at some point during the epidemic, and 
+\begin_inset Formula $0$
+\end_inset
+
+ otherwise.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Expected utility is then 
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}\left[U_{x}(n;\frownie,I_{\delta x})\right] & =\mathbb{E}\left[U_{x}(n)\cdot\left(1-I_{\delta x}\right)+\frownie\cdot U_{x}(n)\cdot I_{\delta x}\right]\\
+ & \mathbb{=E}\left[U_{x}(n)\cdot\left(1-I_{\delta x}+\frownie I_{\delta x}\right)\right]
+\end{align*}
+
+\end_inset
+
+What is the probability that a person gets infected? A fraction 
+\begin_inset Formula $R_{\infty}$
+\end_inset
+
+ of the person's contacts will become infected throughout the course of
+ the epidemic.
+ And this person has a risk of being transmitted to at a rate of 
+\begin_inset Formula $r$
+\end_inset
+
+ per unit of connection they have with infected people.
+ Thus the chance of person 
+\begin_inset Formula $x$
+\end_inset
+
+ getting infected is modeled by 
+\begin_inset Formula 
+\[
+I_{\delta x}=Pr\left(Poisson(rnR_{\infty})\geq1\right)=1-Pr\left(Poisson(rnR_{\infty})=0\right)=1-e^{-rnR_{\infty}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}\left[U_{x}(n;\frownie,I_{\delta x})\right] & =\mathbb{E}\left[\left(A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n\right)\cdot\left(1-\left(1-e^{-rnR_{\infty}}\right)+\frownie\left(1-e^{-rnR_{\infty}}\right)\right)\right]\\
+ & =\mathbb{E}\left[\left(A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n\right)\cdot\left(e^{-rnR_{\infty}}+\frownie-\frownie e^{-rnR_{\infty}}\right)\right]
+\end{align*}
+
+\end_inset
+
+To maximize 
+\begin_inset Formula $x$
+\end_inset
+
+'s expected utility, find 
+\begin_inset Formula $n$
+\end_inset
+
+ which solves 
+\begin_inset Formula 
+\[
+0=\frac{d}{dn}\mathbb{E}\left[U_{x}(n;\frownie,I_{\delta x})\right]=\left[\left(1-\alpha\right)\cdot A\kappa_{x}^{\alpha}n^{-\alpha}-\varpi\right]\left[\left(1-\frownie\right)e^{-rnR_{\infty}}+\frownie\right]+\left[A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n\right]\left[-rR_{\infty}\left(1-\frownie\right)e^{-rnR_{\infty}}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left[\left(1-\alpha\right)\cdot A\kappa_{x}^{\alpha}n^{-\alpha}-\varpi\right]\left[\left(1-\frownie\right)e^{-rnR_{\infty}}+\frownie\right] & =\left[A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n\right]\left[rR_{\infty}\left(1-\frownie\right)e^{-rnR_{\infty}}\right]\\
+\left[\left(1-\alpha\right)\cdot A\kappa_{x}^{\alpha}n^{-\alpha}-\varpi\right]\left[\frac{\left(1-\frownie\right)}{e^{rnR_{\infty}}}+\frac{\frownie e^{rnR_{\infty}}}{e^{rnR_{\infty}}}\right] & =\left[A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n\right]\left[rR_{\infty}\left(1-\frownie\right)e^{-rnR_{\infty}}\right]\\
+\ln\left(\left[\left(1-\alpha\right)\cdot A\kappa_{x}^{\alpha}n^{-\alpha}-\varpi\right]\left[\frac{\left(1-\frownie\right)}{e^{rnR_{\infty}}}+\frac{\frownie e^{rnR_{\infty}}}{e^{rnR_{\infty}}}\right]\right) & =\ln\left(\left[A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n\right]\left[rR_{\infty}\left(1-\frownie\right)e^{-rnR_{\infty}}\right]\right)\\
+\ln\left(\left(1-\alpha\right)\cdot A\kappa_{x}^{\alpha}n^{-\alpha}-\varpi\right)\cdot\ln\left(\frac{\left(1-\frownie\right)}{e^{rnR_{\infty}}}+\frac{\frownie e^{rnR_{\infty}}}{e^{rnR_{\infty}}}\right) & =\ln\left[A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n\right]\cdot\ln\left[rR_{\infty}\left(1-\frownie\right)e^{-rnR_{\infty}}\right]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Now suppose that if a person is infected with the contagion, then they experienc
+e additional dis-utility 
+\begin_inset Formula $\frownie$
+\end_inset
+
+.
+ Multiple infectious exposures don't incur any additional disutility, as
+ a person is presumed to become immune (or dead) after the first exposure.
+\end_layout
+
+\begin_layout Plain Layout
+Let 
+\begin_inset Formula $I_{\delta x}=1$
+\end_inset
+
+ iff person 
+\begin_inset Formula $x$
+\end_inset
+
+ is exposed to the contagion at some point during the epidemic, and 
+\begin_inset Formula $0$
+\end_inset
+
+ otherwise.
+ 
+\end_layout
+
+\begin_layout Plain Layout
 When a person first hears about the epidemic, they choose how many social
  connections to maintain for it's duration.
  Their expected utility is 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula 
 \begin{align*}
-\mathbb{E}\left[U_{x}(n,\frownie)\right] & =\mathbb{E}\left[A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n-I_{\delta x}\frownie\right]\\
+\mathbb{E}\left[U_{x}(n;\frownie)\right] & =\mathbb{E}\left[A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n-I_{\delta x}\frownie\right]\\
  & =A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n-Pr(I_{\delta x}=1)\cdot\frownie
 \end{align*}
 
@@ -1956,16 +2218,162 @@ When a person first hears about the epidemic, they choose how many social
 
 \end_layout
 
-\begin_layout Standard
-What is the probability that a person gets infected? 
+\begin_layout Plain Layout
+What is the probability that a person gets infected? A fraction 
+\begin_inset Formula $R_{\infty}$
+\end_inset
+
+ of the person's contacts will become infected throughout the course of
+ the epidemic.
+ And this person has a risk of being transmitted to at a rate of 
+\begin_inset Formula $r$
+\end_inset
+
+ per unit of connection they have with infected people.
+ Thus the chance of person 
+\begin_inset Formula $x$
+\end_inset
+
+ getting infected is modeled by 
+\begin_inset Formula 
+\[
+I_{\delta x}=Pr\left(Poisson(rnR_{\infty})\geq1\right)=1-Pr\left(Poisson(rnR_{\infty})=0\right)=1-e^{-rnR_{\infty}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+\mathbb{E}\left[U_{x}(n;\frownie)\right]=A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n-\left(1-e^{-rnR_{\infty}}\right)\cdot\frownie
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+To maximize 
+\begin_inset Formula $x$
+\end_inset
+
+'s expected utility, find 
+\begin_inset Formula $n$
+\end_inset
+
+ which solves 
+\begin_inset Formula 
+\[
+0=\frac{d}{dn}\mathbb{E}\left[U_{x}(n;\frownie)\right]=\left(1-\alpha\right)\cdot A\kappa_{x}^{\alpha}n^{-\alpha}-\varpi-\left[\frownie rR_{\infty}\cdot e^{-rnR_{\infty}}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+A\kappa_{x}^{\alpha}n^{-\alpha}=\varpi+\frownie rR_{\infty}e^{-rnR_{\infty}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\ln\left(A\kappa_{x}^{\alpha}n^{-\alpha}\right) & =\ln\left(\varpi+\frownie rR_{\infty}e^{-rnR_{\infty}}\right)\\
+\ln A+\alpha\ln\kappa_{x}-\alpha\ln n & =''
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Maybe use a generating function approach?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Note that 
+\begin_inset Formula $I\in[1-e^{-0},1-e^{-\infty})=[0,1)$
+\end_inset
+
+, and equals 
+\begin_inset Formula $1$
+\end_inset
+
+ only when 
+\begin_inset Formula $R_{\infty}=0$
+\end_inset
+
+, which happens when 
+\begin_inset Formula $R_{0}<1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Current weakness: There is an inconsistency wherein I am modeling things
+ so highly-connected people have higher risk of becoming infected, but at
+ the same time, infections are transmitted to people uniformly over 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
 
 \series bold
 Poisson
 \series default
-: If infection happens at rate 
+: Here I forgot to factor in that not everyone will actually get sick
+\end_layout
+
+\begin_layout Plain Layout
+If infection happens at rate 
 \begin_inset Formula $rn_{x}$
 \end_inset
 
@@ -1981,12 +2389,21 @@ I_{\delta x}=Pr\left(Poisson(rn)\geq1\right)=1-Pr\left(Poisson(rn)=0\right)=1-e^
 
 \begin_inset Formula 
 \[
-\mathbb{E}\left[U_{x}(n,\frownie)\right]=A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n-\left(1-e^{-rn}\right)\cdot\frownie
+\mathbb{E}\left[U_{x}(n;\frownie)\right]=A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n-\left(1-e^{-rn}\right)\cdot\frownie
 \]
 
 \end_inset
 
- 
+To maximize expected utility, we need to find 
+\begin_inset Formula $n$
+\end_inset
+
+ which solves 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2007,6 +2424,22 @@ Binomial
  generalization): n contacts.
  Chance of no transmission to you is 
 \begin_inset Formula $1-(1-r)^{n}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathbb{E}\left[U_{x}(n;\frownie)\right]=A\kappa_{x}^{\alpha}n^{1-\alpha}-\varpi n-\left(1-(1-r)^{n}\right)\cdot\frownie
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+0=\frac{d}{dn}\mathbb{E}\left[U_{x}(n;\frownie)\right]=\left(1-\alpha\right)\cdot A\kappa_{x}^{\alpha}n^{-\alpha}-\varpi+\left[(1-r)^{n}\ln(1-r)\right]
+\]
+
 \end_inset
 
 
