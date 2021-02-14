@@ -851,6 +851,23 @@ Given that
 Implications for Disease Outbreaks
 \end_layout
 
+\begin_layout Section
+Vaccinations
+\end_layout
+
+\begin_layout Standard
+Markets work by allinging the marginal costs and benefits of scoiety.
+ Above, the most highly connected people are at highest risk, and they're
+ the ones that we both want to be vaccinated, and the ones we most want
+ to vaccinate.
+ But if (something something, partially effective vaccine?), can we make
+ it so highly connected people are less likely to vaccinate.
+ Or do we need dheterogenous suceptible of neighbor (docotrs interacting
+ with old people?) Or maybe people vary in terms of risk tolerance.
+ Then it could be that most paranoid and disconnected (who are already isolated)
+ are the ones who get vaccinated but we don't want them to.
+\end_layout
+
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem

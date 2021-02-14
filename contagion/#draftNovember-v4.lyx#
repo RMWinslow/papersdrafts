@@ -1899,7 +1899,39 @@ Transmission of the contagion with endogenous changes
 \end_layout
 
 \begin_layout Standard
+I've tried lots of stuff and none of it simplifies cleanly.
+ 
+\end_layout
 
+\begin_layout Standard
+General version: 
+\begin_inset Formula $risk(n)$
+\end_inset
+
+ is risk of catching disease as a function of contacts.
+ 
+\begin_inset Formula $U(n)$
+\end_inset
+
+ is utility from having 
+\begin_inset Formula $n$
+\end_inset
+
+ contacts.
+ 
+\begin_inset Formula $risk(n)$
+\end_inset
+
+ can depend on 
+\begin_inset Formula $R_{\infty}$
+\end_inset
+
+ and 
+\begin_inset Formula $r$
+\end_inset
+
+ .
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2159,10 +2191,6 @@ To maximize
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
--
 \end_layout
 
 \begin_layout Standard

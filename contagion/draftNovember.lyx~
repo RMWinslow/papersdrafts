@@ -364,7 +364,8 @@ f_{\kappa}(\kappa_{x}) & =f_{N}\left(\left(\frac{\kappa_{x}}{\varpi}\right)^{1/\
  & =\frac{1}{\alpha}\Gamma(k)\cdot\beta^{k}e^{-\beta\left(\frac{\kappa_{x}}{\varpi}\right)^{1/\alpha}}\cdot\varpi^{\frac{-1}{\alpha}}\varpi^{-\frac{k-1}{\alpha}}\cdot\kappa_{x}^{\frac{1-\alpha}{\alpha}}\kappa_{x}^{\frac{k-1}{\alpha}}\\
  & =\frac{1}{\alpha}\Gamma(k)\cdot\beta^{k}e^{-\beta\left(\frac{\kappa_{x}}{\varpi}\right)^{1/\alpha}}\cdot\left(\varpi^{\frac{-1}{\alpha}}\right)^{k}\cdot\kappa_{x}^{\frac{k-\alpha}{\alpha}}\\
  & =\frac{1}{\alpha}\Gamma(k)\cdot\left(\beta\varpi^{\frac{-1}{\alpha}}\right)^{k}e^{-\left(\beta\varpi^{\frac{-1}{\alpha}}\right)\kappa_{x}^{1/\alpha}}\cdot\left(\kappa_{x}^{\frac{1}{\alpha}}\right)^{k-\alpha}\\
- & =\frac{1}{\alpha}\Gamma(k)\cdot\left(\beta\varpi^{\frac{-1}{\alpha}}\right)^{k}e^{-\left(\beta\varpi^{\frac{-1}{\alpha}}\right)\kappa_{x}^{1/\alpha}}\cdot\left(\kappa_{x}^{\frac{1}{\alpha}}\right)^{k-\alpha}
+ & =\frac{1}{\alpha}\Gamma(k)\cdot\left(\beta\varpi^{\frac{-1}{\alpha}}\right)^{k}e^{-\left(\beta\varpi^{\frac{-1}{\alpha}}\right)\kappa_{x}^{1/\alpha}}\cdot\left(\kappa_{x}^{\frac{1}{\alpha}}\right)^{k}\left(\kappa_{x}^{\frac{1}{\alpha}}\right)^{-\alpha}\\
+ & =\frac{1}{\alpha}\Gamma(k)\cdot\left(\beta\varpi^{\frac{-1}{\alpha}}\right)^{k}e^{-\left(\beta\varpi^{\frac{-1}{\alpha}}\right)\kappa_{x}^{1/\alpha}}\cdot\left(\kappa_{x}^{\frac{1}{\alpha}}\right)^{k}\left(\kappa_{x}^{-1}\right)^{}
 \end{align*}
 
 \end_inset
