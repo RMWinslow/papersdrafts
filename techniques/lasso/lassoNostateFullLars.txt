@@ -1,0 +1,292 @@
+With CV=10, and dummies for 'classwly',
+
+\lambda:  3.4869149489190315e-05 -4.457558645588066
+[235]
+
+
+
+# %% evaluate the model...
+Mean squared error: 0.27
+Coefficient of determination: 0.60
+id : 0.010 
+age : 0.036 
+male : 0.138 
+hhtenure : -0.016 
+metarea : 0.008 
+cbsasz : 0.043 
+house_return : -0.049 
+unitsstr : 0.003 
+ncouples : -0.006 
+relate : -0.015 
+marst : -0.001 
+famkind : 0.020 
+famrel : -0.008 
+citizen : -0.001 
+occ2010 : -0.024 
+occ1990 : -0.088 
+educ99 : 0.055 
+occ50ly : -0.029 
+indly : -0.022 
+ind50ly : -0.009 
+pension_at_w_ly : 0.095 
+firmsize_ly : 0.006 
+num_emps_ly : -0.014 
+actnlfly : -0.092 
+house_sub_val : -0.018 
+spmpov : -0.153 
+spmmort : -0.030 
+spmcapxpns : 0.035 
+health : -0.023 
+employer_contr_for_hi : 0.361 
+medicaid_months : -0.011 
+family_out_of_pocket_med_exp : 0.029 
+union : 0.000 
+heat_sub : -0.011 
+food_stamp : -0.044 
+sch_lunch_sub : -0.014 
+got_gotwic : -0.009 
+diff_rem : -0.010 
+diff_any : -0.006 
+has_siblings_in_hh : -0.002 
+no_mother_present : 0.023 
+no_father_present : 0.017 
+armed_forces_p : 0.019 
+disab_prev_work : -0.026 
+same_resp : -0.000 
+quit_sick : -0.012 
+not_incl_in_employer_ghp : 0.034 
+employer_paid_full_ghp : -0.073 
+employer_paid_no_ghp : 0.070 
+employer_contr_for_hi_top_code : 0.072 
+medicare : -0.020 
+employment_hi_covered_dependent : 0.046 
+employment_hi_family_plan : -0.066 
+self_ebhi_ly : 0.045 
+militva_hi : -0.003 
+covered_by_out_of_hh_hi : 0.001 
+any_ins : 0.056 
+any_ins_priv : -0.112 
+any_public_hi : -0.002 
+any_medicaid : -0.030 
+q_heat_sub : -0.031 
+q_actnlfly : -0.004 
+q_firmsize_ly : -0.001 
+q_num_emps_ly : -0.002 
+qdpownlyd : 0.005 
+q_uninsured : 0.002 
+q_vet_status : 0.002 
+q_unitsstr : 0.013 
+q_pension_at_w_ly : -0.001 
+race_cat_1.0 : 0.005 
+educ_cat_3.0 : -0.001 
+educ_cat_4.0 : 0.021 
+educ_cat_5.0 : 0.060 
+classwly_13 : -0.072 
+classwly_14 : 0.035 
+classwly_25 : 0.017 
+classwly_27 : -0.012 
+classwly_28 : -0.009 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+With CV=20
+
+
+
+
+\lambda:  4.7984847144386405e-05 -4.318895884302021
+[183]
+
+
+
+# %% evaluate the model...
+Mean squared error: 0.29
+Coefficient of determination: 0.57
+pernum : -0.004 
+age : 0.028 
+male : 0.135 
+hhtenure : -0.002 
+cbsasz : 0.037 
+house_return : -0.026 
+famrel : -0.005 
+occ2010 : -0.013 
+occ1990 : -0.096 
+educ : -0.000 
+educ99 : 0.069 
+occ50ly : -0.026 
+indly : -0.021 
+ind50ly : -0.004 
+pension_at_w_ly : 0.091 
+num_emps_ly : -0.015 
+actnlfly : -0.087 
+house_sub_val : -0.012 
+spmpov : -0.149 
+spmmort : -0.031 
+spmcapxpns : 0.029 
+health : -0.018 
+employer_contr_for_hi : 0.252 
+family_out_of_pocket_med_exp : 0.020 
+heat_sub : -0.007 
+food_stamp : -0.046 
+sch_lunch_sub : -0.014 
+got_gotwic : -0.004 
+diff_rem : -0.005 
+diff_any : -0.003 
+no_mother_present : 0.018 
+no_father_present : 0.015 
+armed_forces_p : 0.022 
+disab_prev_work : -0.024 
+quit_sick : -0.008 
+not_incl_in_employer_ghp : 0.008 
+employer_paid_full_ghp : -0.045 
+employer_paid_no_ghp : 0.033 
+employer_contr_for_hi_top_code : 0.077 
+medicaid : 0.000 
+medicare : -0.011 
+employment_hi_family_plan : -0.005 
+self_ebhi_ly : 0.039 
+any_medicaid : -0.015 
+q_heat_sub : -0.018 
+q_unitsstr : 0.000 
+educ_cat_3.0 : -0.000 
+educ_cat_4.0 : 0.007 
+educ_cat_5.0 : 0.046 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+With CV=10
+
+\lambda:  1.1874221470674362e-05 -4.925394855140902
+[214]
+
+
+
+# %% evaluate the model...
+Mean squared error: 0.29
+Coefficient of determination: 0.57
+pernum : -0.004 
+age : 0.028 
+male : 0.135 
+hhtenure : -0.002 
+cbsasz : 0.037 
+house_return : -0.026 
+famrel : -0.005 
+occ2010 : -0.013 
+occ1990 : -0.096 
+educ : -0.000 
+educ99 : 0.069 
+occ50ly : -0.026 
+indly : -0.021 
+ind50ly : -0.004 
+pension_at_w_ly : 0.091 
+num_emps_ly : -0.015 
+actnlfly : -0.087 
+house_sub_val : -0.012 
+spmpov : -0.149 
+spmmort : -0.031 
+spmcapxpns : 0.029 
+health : -0.018 
+employer_contr_for_hi : 0.252 
+family_out_of_pocket_med_exp : 0.020 
+heat_sub : -0.007 
+food_stamp : -0.046 
+sch_lunch_sub : -0.014 
+got_gotwic : -0.004 
+diff_rem : -0.005 
+diff_any : -0.003 
+no_mother_present : 0.018 
+no_father_present : 0.015 
+armed_forces_p : 0.022 
+disab_prev_work : -0.024 
+quit_sick : -0.008 
+not_incl_in_employer_ghp : 0.008 
+employer_paid_full_ghp : -0.045 
+employer_paid_no_ghp : 0.033 
+employer_contr_for_hi_top_code : 0.077 
+medicaid : 0.000 
+medicare : -0.011 
+employment_hi_family_plan : -0.005 
+self_ebhi_ly : 0.039 
+any_medicaid : -0.015 
+q_heat_sub : -0.018 
+q_unitsstr : 0.000 
+educ_cat_3.0 : -0.000 
+educ_cat_4.0 : 0.007 
+educ_cat_5.0 : 0.046 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

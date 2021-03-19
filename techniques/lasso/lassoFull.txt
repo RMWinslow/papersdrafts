@@ -1,0 +1,302 @@
+
+\lambda:  4.7984847144386405e-05 -4.318895884302021
+[164]
+
+
+
+# %% evaluate the model...
+Mean squared error: 0.29
+Coefficient of determination: 0.57
+pernum : -0.004 
+age : 0.028 
+male : 0.135 
+hhtenure : -0.002 
+cbsasz : 0.037 
+house_return : -0.026 
+famrel : -0.005 
+occ2010 : -0.013 
+occ1990 : -0.096 
+educ : -0.000 
+educ99 : 0.069 
+occ50ly : -0.026 
+indly : -0.021 
+ind50ly : -0.004 
+pension_at_w_ly : 0.091 
+num_emps_ly : -0.015 
+actnlfly : -0.087 
+house_sub_val : -0.012 
+spmpov : -0.149 
+spmmort : -0.031 
+spmcapxpns : 0.029 
+health : -0.018 
+employer_contr_for_hi : 0.252 
+family_out_of_pocket_med_exp : 0.020 
+heat_sub : -0.007 
+food_stamp : -0.046 
+sch_lunch_sub : -0.014 
+got_gotwic : -0.004 
+diff_rem : -0.005 
+diff_any : -0.003 
+no_mother_present : 0.018 
+no_father_present : 0.015 
+armed_forces_p : 0.022 
+disab_prev_work : -0.024 
+quit_sick : -0.008 
+not_incl_in_employer_ghp : 0.008 
+employer_paid_full_ghp : -0.045 
+employer_paid_no_ghp : 0.033 
+employer_contr_for_hi_top_code : 0.077 
+medicaid : 0.000 
+medicare : -0.011 
+employment_hi_family_plan : -0.005 
+self_ebhi_ly : 0.039 
+any_medicaid : -0.015 
+q_heat_sub : -0.018 
+q_unitsstr : 0.000 
+educ_cat_3.0 : -0.000 
+educ_cat_4.0 : 0.007 
+educ_cat_5.0 : 0.046 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\lambda:  2.46355779237159e-05 -4.608437245195981
+[156]
+
+
+
+# %% evaluate the model...
+Mean squared error: 0.27
+Coefficient of determination: 0.60
+id : 0.013 
+age : 0.026 
+male : 0.148 
+metarea : 0.003 
+cbsasz : 0.036 
+house_return : 0.008 
+unitsstr : 0.002 
+ncouples : -0.009 
+nfathers : -0.002 
+relate : -0.018 
+marst : -0.021 
+nchild : 0.003 
+famkind : 0.042 
+famrel : -0.010 
+citizen : -0.003 
+hispan : -0.001 
+occ2010 : -0.020 
+occ1990 : -0.096 
+educ99 : 0.051 
+lfproxy : 0.005 
+occ50ly : -0.027 
+indly : -0.020 
+ind50ly : -0.016 
+pension_at_w_ly : 0.090 
+firmsize_ly : 0.007 
+num_emps_ly : -0.025 
+actnlfly : -0.094 
+house_sub_val : -0.018 
+spmpov : -0.151 
+spmmort : -0.026 
+spmcapxpns : 0.037 
+health : -0.022 
+employer_contr_for_hi : 0.385 
+medicaid_months : -0.002 
+family_out_of_pocket_med_exp : 0.029 
+vet2 : 0.001 
+union : 0.001 
+heat_sub : -0.011 
+food_stamp : -0.041 
+sch_lunch_sub : -0.013 
+got_gotwic : -0.010 
+diff_rem : -0.011 
+diff_any : -0.007 
+has_siblings_in_hh : -0.003 
+no_mother_present : 0.029 
+no_father_present : 0.015 
+armed_forces_p : 0.029 
+not_hispanic : 0.000 
+disab_prev_work : -0.026 
+same_resp : -0.001 
+quit_sick : -0.013 
+not_incl_in_employer_ghp : 0.020 
+employer_paid_full_ghp : -0.079 
+employer_paid_no_ghp : 0.079 
+employer_contr_for_hi_top_code : 0.073 
+medicare : -0.018 
+employment_hi_covered_dependent : 0.021 
+empl_hi_covered_by_non_hh : 0.001 
+employment_hi_family_plan : -0.135 
+direct_purch_hi_family : 0.001 
+trccov_hi : 0.007 
+militva_hi : -0.000 
+any_medicaid : -0.014 
+q_heat_sub : -0.037 
+q_actnlfly : -0.006 
+q_firmsize_ly : -0.002 
+q_num_emps_ly : -0.003 
+q_empl_hi_covered_by_non_hh : 0.009 
+q_uninsured : 0.012 
+q_vet_status : 0.005 
+q_unitsstr : 0.014 
+q_pension_at_w_ly : -0.003 
+race_cat_1.0 : 0.009 
+educ_cat_2.0 : -0.001 
+educ_cat_3.0 : -0.001 
+educ_cat_4.0 : 0.023 
+educ_cat_5.0 : 0.057 
+statefip_2 : 0.005 Alaska
+statefip_11 : 0.021 DC
+statefip_12 : 0.004 Florida
+statefip_13 : 0.001 Georgia
+statefip_16 : -0.003 Idaho
+statefip_17 : -0.001 Illinois
+statefip_20 : -0.004 Kansas
+statefip_23 : -0.003 Maine
+statefip_24 : 0.014 Maryland
+statefip_26 : -0.002 Michigan
+statefip_27 : -0.001 Minnesota
+statefip_29 : -0.006 Missouri
+statefip_34 : 0.003 New Jersey
+statefip_36 : 0.001 New York
+statefip_39 : -0.006 Ohio
+statefip_41 : -0.006 Oregon
+statefip_48 : 0.009 Texas
+statefip_51 : 0.008 Virginia
+statefip_53 : -0.004 Washington
+statefip_55 : -0.002 Wisconsin
+statefip_56 : 0.005 Wyoming
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\lambda:  4.616068631496544e-06 -5.335727742733899
+[147]
+
+
+
+# %% evaluate the model...
+Mean squared error: 0.31
+Coefficient of determination: 0.55
+age : 0.005 
+male : 0.121 
+hhtenure : -0.000 
+cbsasz : 0.016 
+house_return : 0.000 
+occ2010 : -0.016 
+occ1990 : -0.081 
+educ : 0.012 
+educ99 : 0.065 
+occ50ly : -0.020 
+indly : -0.005 
+pension_at_w_ly : 0.089 
+num_emps_ly : -0.001 
+actnlfly : -0.071 
+offpov : 0.099 
+spmmort : -0.017 
+spmcapxpns : 0.012 
+health : -0.007 
+employer_contr_for_hi : 0.234 
+family_out_of_pocket_med_exp : 0.000 
+above_pov_line : 0.093 
+food_stamp : -0.029 
+sch_lunch_sub : -0.005 
+no_mother_present : 0.015 
+no_father_present : 0.006 
+disab_prev_work : -0.018 
+employer_paid_full_ghp : -0.009 
+employer_paid_no_ghp : 0.012 
+employer_contr_for_hi_top_code : 0.060 
+phi : 0.005 
+self_ebhi_ly : 0.010 
+any_medicaid : -0.009 
+q_heat_sub : -0.008 
+educ_cat_5.0 : 0.027 

@@ -720,7 +720,7 @@ Derivative of disutility wrt
 :
 \begin_inset Formula 
 \[
--\delta\ln\left(\left[1-TR_{\infty}\right]^{n}\right)
+-\delta\left[1-TR_{\infty}\right]^{n}
 \]
 
 \end_inset

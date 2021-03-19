@@ -1,0 +1,35 @@
+\lambda:  2.7966026231085828e-06 -5.553369239331611
+
+
+Mean squared error: 0.12
+Coefficient of determination: 0.83
+age : -0.002 
+male : 0.028 
+occ : 0.001 
+occ1950 : -0.022 
+ind90ly : -0.003 
+classwly : 0.005 
+pension_at_w_ly : 0.042 
+actnlfly : -0.043 
+incwage : 0.610 
+poverty : 0.096 
+house_sub_val : -0.000 
+spmwkxpns : 0.000 
+employer_contr_for_hi : 0.015 
+medicaid_months : -0.000 
+below_pov_line : -0.047 
+food_stamp : -0.013 
+got_gotwic : -0.001 
+diff_rem : -0.004 
+no_mother_present : 0.006 
+no_father_present : 0.004 
+disab_prev_work : -0.018 
+quit_sick : -0.005 
+incl_in_employer_ghp : 0.057 
+employer_contr_for_hi_top_code : -0.045 
+medicaid : -0.001 
+medicare : -0.005 
+ghi : 0.000 
+phi : 0.001 
+phi_own_name : 0.014 
+any_medicaid : -0.004
