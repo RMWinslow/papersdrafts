@@ -15,16 +15,13 @@
 - The expected disutility from disease exposure is thus $\delta - \left[1-TR_{\infty}\right]^{n}\delta$
     - negative, within $[0,\delta)$
     - increasing in $n$
-    - marginal disutility from infection risk:
+    - marginal disutility from increasing n:
         - discrete change from increase in $n$ by 1: 
             - $\delta - \left[1-TR_{\infty}\right]^{n+1}\delta - \delta + \left[1-TR_{\infty}\right]^{n}\delta$
             - $=[1-TR_{\infty}]^{n}\delta-[1-TR_{\infty}]^{n+1}\delta$
             - $=[1-TR_{\infty}]^{n}TR_{\infty}\delta$
             - positive and decreasing in n
-        - continuous: $-n[1-TR_{\infty}]^{n-1} \delta$
-        - second derivative $-n(n-1)[1-TR_{\infty}]^{n-2} \delta$
-            - positive if $n\in (0,1)$
-            - negative if $n > 1$
+        - continuous: $-[1-TR_{\infty}]^{n} \ln [1-TR_{\infty}] \delta$
 
 
 

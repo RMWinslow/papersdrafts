@@ -672,7 +672,7 @@ If people choose their social connections for the duration of the epidemic
  satisfies
 \begin_inset Formula 
 \[
-0=\kappa_{x}n(x,\delta)^{-\alpha}-\varpi+\delta n(x,\delta)\left[1-TR_{\infty}\right]^{n(x,\delta)-1}
+0=\kappa_{x}n(x,\delta)^{-\alpha}-\varpi+\delta\ln\left(1-TR_{\infty}\right)\left[1-TR_{\infty}\right]^{n(x,\delta)}
 \]
 
 \end_inset
@@ -688,7 +688,7 @@ If people choose their social connections for the duration of the epidemic
 
 \begin_inset Formula 
 \[
-0=\kappa_{x}n^{-a}-\varpi+\delta n\saturn^{n-1}
+0=\kappa_{x}n^{-a}-\varpi+\delta\ln\left(\saturn\right)\saturn^{n}
 \]
 
 \end_inset
@@ -696,7 +696,7 @@ If people choose their social connections for the duration of the epidemic
 
 \begin_inset Formula 
 \[
-\varpi=\kappa_{x}n^{-a}+\delta n\saturn^{n-1}
+\varpi=\kappa_{x}n^{-a}+\delta\ln\left(\saturn\right)\saturn^{n}
 \]
 
 \end_inset
@@ -720,8 +720,51 @@ Derivative of disutility wrt
 :
 \begin_inset Formula 
 \[
--\delta\ln\left(\left[1-TR_{\infty}\right]^{n}\right)
+-\left[1-TR_{\infty}\right]^{n}\ln\left(1-TR_{\infty}\right)\delta
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+same thing but scaled really.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+R_{0}=\frac{\beta}{\delta}\frac{\sum\alpha_{k}i_{k}^{2}}{\sum\alpha_{k}i_{k}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+R_{0}^{\prime}=\frac{\beta}{\delta}\cdot\frac{2\alpha_{k}i_{k}\sum\alpha_{k}i_{k}-\alpha_{k}\sum\alpha_{k}i_{k}^{2}}{\left(\sum\alpha_{k}i_{k}\right)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Positive iff 
+\begin_inset Formula $2i_{k}\sum\alpha_{k}i_{k}>\sum\alpha_{k}i_{k}^{2}$
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
