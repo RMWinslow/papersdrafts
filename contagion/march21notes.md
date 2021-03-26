@@ -1,4 +1,27 @@
+---
+title: contagion notes march 2021
+---
 
+## Main influences
+
+Kremer, M. (1996). **Integrating behavioral choice into epidemiological models of AIDS.** *The Quarterly Journal of Economics, 111(2)*, 549-573.
+: Models and compares steady states of endemic disease. People have preferences over the number of partners they have, and are also concerned about the chance they become infected $p(i)$. Multiple equilibria are possible. Increased prevelance can somtimes increase activity among high-activity groups. I use the same basic concepts, but try to adapt them to looking at the final outcome of a transient epidemic rather than an endmic steady state. [Link](https://www.nber.org/papers/w5428).
+
+Newman, M. E. (2002). **Spread of epidemic disease on networks.** *Physical review E, 66(1)*, 016128.
+: Solves for the distribution of disease spread on networks. Uses probability generating functions. Views epidemic from timeless network perspective.  [Link](https://arxiv.org/abs/cond-mat/0205009).
+
+---
+
+
+
+
+
+
+
+
+
+
+---
 
 ## Cost from contagion risk.
 
