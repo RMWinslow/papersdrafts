@@ -107,14 +107,41 @@ customHeadersFooters
 \begin_body
 
 \begin_layout Standard
-Timeless perspective
-\end_layout
-
-\begin_layout Standard
-maximize
 \begin_inset Formula 
 \[
-u(n)-Ap(n)
+\langle s\rangle=1+\frac{\frac{\langle k\rangle}{\langle k^{2}\rangle-\langle k\rangle}\langle k\rangle}{1-\frac{\langle k\rangle}{\langle k^{2}\rangle-\langle k\rangle}\frac{\langle k^{2}\rangle}{\langle k\rangle-1}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\langle s\rangle=\frac{\frac{\langle k\rangle}{\langle k^{2}\rangle-\langle k\rangle}\langle k\rangle+1-\frac{\langle k\rangle}{\langle k^{2}\rangle-\langle k\rangle}\frac{\langle k^{2}\rangle}{\langle k\rangle-1}}{1-\frac{\langle k\rangle}{\langle k^{2}\rangle-\langle k\rangle}\frac{\langle k^{2}\rangle}{\langle k\rangle-1}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\langle s\rangle=\frac{\frac{\langle k\rangle}{\langle k^{2}\rangle-\langle k\rangle}\langle k\rangle+1-\frac{\langle k\rangle\langle k^{2}\rangle}{\langle k^{2}\rangle\langle k\rangle-\langle k^{2}\rangle-\langle k\rangle\langle k\rangle+\langle k\rangle}}{1-\frac{\langle k\rangle\langle k^{2}\rangle}{\langle k^{2}\rangle\langle k\rangle-\langle k^{2}\rangle-\langle k\rangle\langle k\rangle+\langle k\rangle}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\langle s\rangle=\frac{\frac{\langle k\rangle}{\langle k^{2}\rangle-\langle k\rangle}\langle k\rangle+\frac{\langle k^{2}\rangle\langle k\rangle-\langle k^{2}\rangle-\langle k\rangle\langle k\rangle+\langle k\rangle-\langle k\rangle\langle k^{2}\rangle}{\langle k^{2}\rangle\langle k\rangle-\langle k^{2}\rangle-\langle k\rangle\langle k\rangle+\langle k\rangle}}{\frac{\langle k^{2}\rangle\langle k\rangle-\langle k^{2}\rangle-\langle k\rangle\langle k\rangle+\langle k\rangle-\langle k\rangle\langle k^{2}\rangle}{\langle k^{2}\rangle\langle k\rangle-\langle k^{2}\rangle-\langle k\rangle\langle k\rangle+\langle k\rangle}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\langle s\rangle=\frac{\frac{\langle k\rangle}{\langle k^{2}\rangle-\langle k\rangle}\langle k\rangle+\frac{-\langle k^{2}\rangle-\langle k\rangle\langle k\rangle+\langle k\rangle}{\langle k^{2}\rangle\langle k\rangle-\langle k^{2}\rangle-\langle k\rangle\langle k\rangle+\langle k\rangle}}{\frac{-\langle k^{2}\rangle-\langle k\rangle\langle k\rangle+\langle k\rangle}{\langle k^{2}\rangle\langle k\rangle-\langle k^{2}\rangle-\langle k\rangle\langle k\rangle+\langle k\rangle}}
 \]
 
 \end_inset
@@ -123,24 +150,17 @@ u(n)-Ap(n)
 \end_layout
 
 \begin_layout Standard
-How to limit 
-\begin_inset Formula $n$
-\end_inset
-
- in the case with no contagion? Cost of connections? Max connections (Kremer),...
+-
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $u''<0$
-\end_inset
-
-
+-
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-p(n)=1-(1-\beta R_{\infty})^{n}
+\langle s\rangle=1+\frac{\frac{\langle k\rangle}{\langle k^{2}\rangle-\langle k\rangle}\langle k\rangle}{1-\frac{\langle k\rangle}{\langle k^{2}\rangle-\langle k\rangle}\frac{\langle k^{2}\rangle}{\langle k\rangle-1}}
 \]
 
 \end_inset
@@ -148,7 +168,7 @@ p(n)=1-(1-\beta R_{\infty})^{n}
 
 \begin_inset Formula 
 \[
-\frac{\partial p}{\partial n}=-(1-\beta R_{\infty})^{n}\ln(1-\beta R_{\infty})
+A\equiv\frac{\langle k\rangle}{\langle k^{2}\rangle-\langle k\rangle}
 \]
 
 \end_inset
@@ -156,61 +176,7 @@ p(n)=1-(1-\beta R_{\infty})^{n}
 
 \begin_inset Formula 
 \[
-\frac{\partial^{2}p}{\partial n\partial R_{\infty}}=\beta\cdot(1-\beta R_{\infty})^{n-1}\cdot\left(n\ln(1-\beta R_{\infty})+1\right)
-\]
-
-\end_inset
-
-??? Is this right? Need to double check.
-\end_layout
-
-\begin_layout Standard
-Negative iff
-\begin_inset Formula 
-\begin{align*}
-n\ln(1-\beta R_{\infty})+1 & >0\\
-\ln(1-\beta R_{\infty})> & -1/n\\
-1-\beta R_{\infty} & >e^{-1/n}\\
-n & >-1/\ln(1-\beta R_{\infty})=1/\ln(1/\left(1-\beta R_{\infty}\right))
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Solve for n?
-\end_layout
-
-\begin_layout Standard
-Also in equilibrium, 
-\begin_inset Formula $R_{\infty}=p(n^{*})=1-(1-\beta R_{\infty})^{n}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $R_{0}=\beta n$
-\end_inset
-
-?
-\end_layout
-
-\begin_layout Standard
-Non-zero solution when 
-\begin_inset Formula $\frac{\partial p}{\partial R_{\infty}}(0)>1$
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Formula 
-\[
-1<\frac{\partial p}{\partial R_{\infty}}=\beta n(1-\beta R_{\infty})^{n-1}
+\langle s\rangle=1+\frac{A\langle k\rangle}{1-\frac{A\langle k^{2}\rangle}{\langle k\rangle-1}}
 \]
 
 \end_inset
@@ -218,7 +184,7 @@ status collapsed
 
 \begin_inset Formula 
 \[
-(1-\beta R_{\infty})^{n-1}>\frac{1}{\beta n}
+\langle s\rangle=1+\frac{A\langle k\rangle}{\left(\frac{\langle k\rangle-1-A\langle k^{2}\rangle}{\langle k\rangle-1}\right)}
 \]
 
 \end_inset
@@ -226,7 +192,7 @@ status collapsed
 
 \begin_inset Formula 
 \[
-(1-\beta R_{\infty})>\left(\frac{1}{\beta n}\right)^{n-1}
+\langle s\rangle=\frac{\langle k\rangle-1-A\langle k^{2}\rangle+A\langle k\rangle(\langle k\rangle-1)}{\langle k\rangle-1-A\langle k^{2}\rangle}
 \]
 
 \end_inset
@@ -234,42 +200,9 @@ status collapsed
 
 \begin_inset Formula 
 \[
-\beta R_{\infty}<1-\left(\frac{1}{\beta n}\right)^{n-1}
+\langle s\rangle=\frac{\langle k\rangle-1+A\left(\langle k\rangle(\langle k\rangle-1)-\langle k^{2}\rangle\right)}{\langle k\rangle-1-A\langle k^{2}\rangle}
 \]
 
-\end_inset
-
-
-\begin_inset Formula 
-\[
-0<1-\left(\frac{1}{\beta n}\right)^{n-1}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\left(\frac{1}{\beta n}\right)^{n-1}<1
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-1<\beta n
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-, which happens when 
-\begin_inset Formula $\beta n>1$
 \end_inset
 
 

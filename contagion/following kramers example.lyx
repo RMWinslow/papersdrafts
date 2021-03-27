@@ -130,6 +130,69 @@ How to limit
  in the case with no contagion? Cost of connections? Max connections (Kremer),...
 \end_layout
 
+\begin_layout Subsection*
+If fixed cost
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\max_{n}u(n)-cn
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+At optimum
+\begin_inset Formula 
+\[
+u'(n)=c
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With contagion
+\begin_inset Formula 
+\[
+\max_{n}u(n)-cn-Ap(n)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+at optimum
+\begin_inset Formula 
+\[
+u'(n)=c+Ap'(n)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No garuntee of a single crossing???
+\end_layout
+
+\begin_layout Standard
+But only some crossings are stable.
+\end_layout
+
+\begin_layout Standard
+-
+\end_layout
+
 \begin_layout Standard
 \begin_inset Formula $u''<0$
 \end_inset
