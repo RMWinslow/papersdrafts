@@ -107,14 +107,9 @@ customHeadersFooters
 \begin_body
 
 \begin_layout Standard
-Timeless perspective
-\end_layout
-
-\begin_layout Standard
-maximize
 \begin_inset Formula 
 \[
-u(n)-Ap(n)
+RT(1-RT)^{n}
 \]
 
 \end_inset
@@ -123,21 +118,33 @@ u(n)-Ap(n)
 \end_layout
 
 \begin_layout Standard
-How to limit 
-\begin_inset Formula $n$
-\end_inset
-
- in the case with no contagion? Cost of connections? Max connections (Kremer),...
-\end_layout
-
-\begin_layout Subsection*
-If fixed cost
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
-\max_{n}u(n)-cn
+T(1-RT)^{n}+R\frac{d}{dR}T(1-RT)^{n}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+T(1-RT)^{n}+RTn(1-RT)^{n-1}(-T)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+T(1-RT)^{n}-RT^{2}n(1-RT)^{n-1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left[1-RT-RTn\right]T(1-RT)^{n-1}
 \]
 
 \end_inset
@@ -146,10 +153,26 @@ If fixed cost
 \end_layout
 
 \begin_layout Standard
-At optimum
+Positive iff
 \begin_inset Formula 
 \[
-u'(n)=c
+\left[1-RT-RTn\right]>0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+1>RT(1+n)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{1}{RT}-1>n
 \]
 
 \end_inset
@@ -158,52 +181,14 @@ u'(n)=c
 \end_layout
 
 \begin_layout Standard
-With contagion
-\begin_inset Formula 
-\[
-\max_{n}u(n)-cn-Ap(n)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-at optimum
-\begin_inset Formula 
-\[
-u'(n)=c+Ap'(n)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-No garuntee of a single crossing???
-\end_layout
-
-\begin_layout Standard
-But only some crossings are stable.
-\end_layout
-
-\begin_layout Standard
--
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $u''<0$
-\end_inset
-
-
+What is the disesase risk at the transition to lower marginal risk wrt transmiss
+ion
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-p(n)=1-(1-\beta R_{\infty})^{n}
+n<\frac{1}{RT}-1
 \]
 
 \end_inset
@@ -211,7 +196,7 @@ p(n)=1-(1-\beta R_{\infty})^{n}
 
 \begin_inset Formula 
 \[
-\frac{\partial p}{\partial n}=-(1-\beta R_{\infty})^{n}\ln(1-\beta R_{\infty})
+n+1=\frac{1}{RT}
 \]
 
 \end_inset
@@ -219,61 +204,7 @@ p(n)=1-(1-\beta R_{\infty})^{n}
 
 \begin_inset Formula 
 \[
-\frac{\partial^{2}p}{\partial n\partial R_{\infty}}=\beta\cdot(1-\beta R_{\infty})^{n-1}\cdot\left(n\ln(1-\beta R_{\infty})+1\right)
-\]
-
-\end_inset
-
-??? Is this right? Need to double check.
-\end_layout
-
-\begin_layout Standard
-Negative iff
-\begin_inset Formula 
-\begin{align*}
-n\ln(1-\beta R_{\infty})+1 & >0\\
-\ln(1-\beta R_{\infty})> & -1/n\\
-1-\beta R_{\infty} & >e^{-1/n}\\
-n & >-1/\ln(1-\beta R_{\infty})=1/\ln(1/\left(1-\beta R_{\infty}\right))
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Solve for n?
-\end_layout
-
-\begin_layout Standard
-Also in equilibrium, 
-\begin_inset Formula $R_{\infty}=p(n^{*})=1-(1-\beta R_{\infty})^{n}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $R_{0}=\beta n$
-\end_inset
-
-?
-\end_layout
-
-\begin_layout Standard
-Non-zero solution when 
-\begin_inset Formula $\frac{\partial p}{\partial R_{\infty}}(0)>1$
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Formula 
-\[
-1<\frac{\partial p}{\partial R_{\infty}}=\beta n(1-\beta R_{\infty})^{n-1}
+p(n)=R=1-(1-RT)^{n}
 \]
 
 \end_inset
@@ -281,7 +212,7 @@ status collapsed
 
 \begin_inset Formula 
 \[
-(1-\beta R_{\infty})^{n-1}>\frac{1}{\beta n}
+p(n)=R=1-(1-\frac{1}{1+n})^{n}
 \]
 
 \end_inset
@@ -289,7 +220,7 @@ status collapsed
 
 \begin_inset Formula 
 \[
-(1-\beta R_{\infty})>\left(\frac{1}{\beta n}\right)^{n-1}
+p(n)=1-(\frac{n}{1+n})^{n}
 \]
 
 \end_inset
@@ -297,42 +228,9 @@ status collapsed
 
 \begin_inset Formula 
 \[
-\beta R_{\infty}<1-\left(\frac{1}{\beta n}\right)^{n-1}
+p(n)=R=1-(1-RT)^{\frac{1}{RT}-1}
 \]
 
-\end_inset
-
-
-\begin_inset Formula 
-\[
-0<1-\left(\frac{1}{\beta n}\right)^{n-1}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\left(\frac{1}{\beta n}\right)^{n-1}<1
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-1<\beta n
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-, which happens when 
-\begin_inset Formula $\beta n>1$
 \end_inset
 
 
@@ -343,14 +241,29 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
--
+What is the solution for R in terms of n?
+\begin_inset Formula 
+\[
+\frac{d}{dR}[1-(1-RT)^{n}]=nT(1-RT)^{n-1}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
--
-\end_layout
+Unique non-zero solution when 
+\begin_inset Formula $nT(1-RT)^{n-1}>1$
+\end_inset
 
-\begin_layout Standard
+, which happens when
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
 
 \end_layout
 
