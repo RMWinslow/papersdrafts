@@ -257,10 +257,65 @@ Unique non-zero solution when
 \begin_inset Formula $nT(1-RT)^{n-1}>1$
 \end_inset
 
+ at 
+\begin_inset Formula $R=0$
+\end_inset
+
 , which happens when
 \begin_inset Formula 
 \[
+nt>1
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this case 
+\begin_inset Formula 
+\[
+R=1-(1-RT)^{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+-
+\end_layout
+
+\begin_layout Standard
+-
+\end_layout
+
+\begin_layout Subsection*
+binomial offspring pgf
+\end_layout
+
+\begin_layout Standard
+PGF for offspring with with 
+\begin_inset Formula $n$
+\end_inset
+
+ potential offspring, each of which has 
+\begin_inset Formula $T$
+\end_inset
+
+ chance iid of being filled
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+G_{0}(x) & =\sum_{k}p_{k}x^{k}=\sum_{k=0}^{n}x^{k}\binom{n}{k}T^{k}(1-T)^{n-k}\\
+ & =(xT+1-T)^{n}\\
+ & =(1-T)^{n}\sum_{k=0}^{n}\frac{x^{k}\binom{n}{k}T^{k}}{(1-T)^{k}}\\
+ & =(1-T)^{n}\sum_{k=0}^{n}\binom{n}{k}\left(\frac{xT}{1-T}\right)^{k}
+\end{align*}
 
 \end_inset
 

@@ -240,5 +240,32 @@ p(n)=R=1-(1-RT)^{\frac{1}{RT}-1}
 -
 \end_layout
 
+\begin_layout Standard
+What is the solution for R in terms of n?
+\begin_inset Formula 
+\[
+\frac{d}{dR}[1-(1-RT)^{n}]=nT(1-RT)^{n-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Unique non-zero solution when 
+\begin_inset Formula $nT(1-RT)^{n-1}>1$
+\end_inset
+
+, which happens when
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document

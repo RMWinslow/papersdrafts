@@ -249,7 +249,20 @@ max= 70.9728444744 ; argmax= 10 ; R= 0.9675718247229487
 
 
 
+Make an intuition about stability of equilibrium.
+If you think R-0.5, then more likely
+If everyone sick, you still might not be.
 
+Critical portion of extraverts that keep the beaches open?
+
+Hopping on a plane raises R to 1.
+
+- heterogeneity
+- extra layers on decision process.
+
+Someone like aldo or Jan
+
+- Joe pikcens unions
 
 
 
