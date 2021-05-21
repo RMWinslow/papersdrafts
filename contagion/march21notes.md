@@ -121,6 +121,9 @@ $n=10,R=.968,U=70.1$
 max= 75.4502726176 ; argmax= 9 ; R= 0.7849906785780745
 max= 70.9728444744 ; argmax= 10 ; R= 0.9675718247229487
 
+
+
+
 ### Infection Probability, continuous n
 
 - Rate of transmission per unit of contact $\equiv RT$
@@ -134,6 +137,28 @@ max= 70.9728444744 ; argmax= 10 ; R= 0.9675718247229487
 
 
 
+- I have contacts at rate
+
+
+
+
+
+
+- Rate of disease-causing contacts $r$
+- Duration of infectiousness $\tau$
+- Chance no infection occurs during time fragment $\delta t$: $$1-r \delta t$$
+
+
+
+- transmission happens at individual poisson rate $\nu$
+
+
+
+
+
+
+
+
 
 
 
@@ -143,6 +168,30 @@ max= 70.9728444744 ; argmax= 10 ; R= 0.9675718247229487
 
 ---
 ---
+---
+
+
+
+
+
+
+
+
+
+
+
+
+---
+---
+---
+
+
+
+
+
+
+---
+
 
 - Continuous version just collapses to Clauset paper.
 - multiple types
