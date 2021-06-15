@@ -72,11 +72,24 @@ $$U(v) \equiv u(v) - \Pr (\text{infected} | v)
 = u(v) - (1-e^{-vr\tau R}) \\
 = u(v) + e^{-vr\tau R}$$
 
-where $$u(v)$$ is the utility from social activity in the absence of a contagion
+where $$u(v)$$ is the utility from social activity in the absence of a contagion. 
 
 <!--TODO: What if u(v) and p(v) are not additively seperable?-->
 
+Another way of interpreting: agent gets +1 util for healthiness, and this util exponentially decays as contact rate goes up. What is the half-life of expected health? $$\frac{-\ln (1/2)}{r\tau R} \approx \frac{0.69}{r\tau R}$$. This means when $$r\tau R\approx 0.69$$, +1 contact per period halves remaining expected utility from health. Likewise, when $$rR\approx 0.69$$, +1 contact per *infectious time* halves remaining expected utility from health. This could be when everyone is eventually gets sick, but tranmission only occurs along 69% of contacts, or the disease always transmits but only has an ultimate prevalence of 69%.
 
+The marginal utility from additional social contact is
+
+$$u'(v) - e^{-vr\tau R}$$
+
+- can be either positive or negative
+- within range, right term always negative
+- potential optimums wherever normal marginal utility equal to marginal disease disutility
+
+
+# TODO tomorrow:
+- Second derivatives
+- what conditions needed on u to garuntee unique optimum?
 
 
 
