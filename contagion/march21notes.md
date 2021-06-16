@@ -259,6 +259,32 @@ max= 70.9728444744 ; argmax= 10 ; R= 0.9675718247229487
         - continuous: $$-[1-TR_{\infty}]^{n} \ln [1-TR_{\infty}] \delta$$
 
 
+Then the change in marginal disutility as prevalence increases is 
+
+$$\frac{d}{dR}[1-TR_{\infty}]^{n}TR_{\infty}\delta =
+-T^2n\delta R (1-TR)^{n-1}+(1-TR)^n \\
+= [(1-TR)^{n-1}T\delta][1-TR-TRn]$$
+
+
+<!--RIP Fishburn Combinatorics ("His handicap was that he was too good.") Beth Allen said at Bell Labs he wouldn't go home until writing five pages of research papers.-->
+
+Even more clear if we reframe at looking at the marginal utility from going from $$n-1$$ connections to $$n$$ connections. In that case, the increase in expected disutility is $$[1-TR]^{n-1}TR\delta$$ and the change in marginal risk as $$R$$ increases:
+
+$$\frac{d}{dR}[1-TR_{\infty}]^{n-1}TR_{\infty}\delta =
+-T^2(n-1)\delta R (1-TR)^{n-2}+(1-TR)^{n-1} \\
+= [(1-TR)^{n-2}T\delta][1-TR-TR(n-1)] \\
+= [''][1-TRn]$$
+
+An increase in prevalence decreases the marginal risk of going from $$n-1$$ to $$n$$ connections iff $$n < 1/(TR)$$. 
+
+The continuous version has 
+
+$$\frac{d}{dR}-[1-TR_{\infty}]^{n} \ln [1-TR_{\infty}] \delta
+= T(1-TR)^{n-1}[n\ln(1-TR)+1]$$
+
+which is positive iff $$n>\frac{-1}{\ln(1-RT)}$$, but this doesn't really matter because I don't think this is a sensible way to handle continuity anyways.
+
+<!--TODO: Possible hook: influence of contact structure on fatalism-->
 
 
 
@@ -272,8 +298,7 @@ max= 70.9728444744 ; argmax= 10 ; R= 0.9675718247229487
 
 
 
-
-
+---
 
 
 

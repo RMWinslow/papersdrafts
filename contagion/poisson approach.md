@@ -85,6 +85,14 @@ $$u'(v) - e^{-vr\tau R}$$
 - can be either positive or negative
 - within range, right term always negative
 - potential optimums wherever normal marginal utility equal to marginal disease disutility
+- marginal disutility from disease risk is strictly decreasing. Most of the risk is front loaded on those first few connections.
+
+### Second derivatives
+
+$$$$
+
+
+
 
 
 # TODO tomorrow:
