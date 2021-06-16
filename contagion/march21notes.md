@@ -280,9 +280,9 @@ An increase in prevalence decreases the marginal risk of going from $$n-1$$ to $
 The continuous version has 
 
 $$\frac{d}{dR}-[1-TR_{\infty}]^{n} \ln [1-TR_{\infty}] \delta
-= T(1-TR)^{n-1}[n\ln(1-TR)+1]$$
+= T(1-TR)^{n-1}[n\ln(1-TR)+1]\delta$$
 
-which is positive iff $$n>\frac{-1}{\ln(1-RT)}$$, but this doesn't really matter because I don't think this is a sensible way to handle continuity anyways.
+which is positive iff $$n < \frac{-1}{\ln(1-RT)}$$, but this doesn't really matter because I don't think this is a sensible way to handle continuity anyways.
 
 <!--~~Possible hook: influence of contact structure on fatalism~~ (meh. I wasted an hour pondering this when it was just a math mistake.)-->
 
