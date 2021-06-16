@@ -284,7 +284,7 @@ $$\frac{d}{dR}-[1-TR_{\infty}]^{n} \ln [1-TR_{\infty}] \delta
 
 which is positive iff $$n>\frac{-1}{\ln(1-RT)}$$, but this doesn't really matter because I don't think this is a sensible way to handle continuity anyways.
 
-<!--TODO: Possible hook: influence of contact structure on fatalism-->
+<!--~~Possible hook: influence of contact structure on fatalism~~ (meh. I wasted an hour pondering this when it was just a math mistake.)-->
 
 
 

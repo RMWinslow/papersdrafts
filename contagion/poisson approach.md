@@ -70,7 +70,7 @@ Our little agent treats $$R,r,\tau$$ as exogenous and chooses $$v$$ to maximize
 
 $$U(v) \equiv u(v) - \Pr (\text{infected} | v) 
 = u(v) - (1-e^{-vr\tau R}) \\
-= u(v) + e^{-vr\tau R}$$
+= u(v) -1 + e^{-vr\tau R}$$
 
 where $$u(v)$$ is the utility from social activity in the absence of a contagion. 
 
@@ -80,24 +80,38 @@ Another way of interpreting: agent gets +1 util for healthiness, and this util e
 
 The marginal utility from additional social contact is
 
-$$u'(v) - e^{-vr\tau R}$$
+$$u'(v) - r\tau R e^{-vr\tau R}$$
 
 - can be either positive or negative
 - within range, right term always negative
 - potential optimums wherever normal marginal utility equal to marginal disease disutility
 - marginal disutility from disease risk is strictly decreasing. Most of the risk is front loaded on those first few connections.
 
+Marginal disutility from disease risk specificially (=marginal chance of getting sick) is 
+
+$$\frac{d}{dv} 1-e^{-vr\tau R} = r\tau Re^{-vr\tau R}$$
+
 ### Second derivatives
 
-$$$$
+Then as $$R$$ increases, we get that 
+
+$$\frac{d}{dR} r\tau Re^{-vr\tau R} = -vr\tau \cdot r\tau R e^{-vrR\tau} + r\tau e^{-vr\tau R} \\
+= r \tau e^{-vr\tau R} \cdot [1-vr\tau R]$$
+
+This means that increasing the prevalence of the disease actually decreases the marginal disutility from the disease when $$v > 1/r\tau R$$, meaning that the rate of contact exceeds the inverse of (the total disease time times the chance an infectious contact transmits ("total expected transmission time"?)). Or similarly, when $$v\tau > 1/rR$$ meaning that the number of contacts per disease-period exceeds the inverse of (final size of pandemic times chance an infectious contact transmits).
+
+<!--For this setup, this threshold happens to be where the disutility and marginal disutility cross. $$1-e^{-vrR\tau}$$ equals $$rR\tau e^{-vrR\tau}$$ when DISREGARD I AM A DINGUS-->
 
 
 
 
 
 # TODO tomorrow:
-- Second derivatives
-- what conditions needed on u to garuntee unique optimum?
+- [x] Second derivatives
+- [ ] what conditions needed on u to garuntee unique optimum in individual's prob
+- [ ] Tie this back into the equilbrium setup
+- [] Extend equilibrium to multiple types?
+
 
 
 
