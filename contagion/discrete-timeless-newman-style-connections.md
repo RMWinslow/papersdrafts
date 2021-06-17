@@ -32,7 +32,7 @@
 
 
         - iff $$n > 1/(TR)$$, then the marginal expected disutility from your $$nth$$ connection actually decreases as epidemic becomes more severe.
-        - This threshold occurs at different values of $$p(n)$$ depending on the the value of $$TR$$, but is bounded above by $$p(\frac{1}{TR}) < \frac{1}{e}$$. 
+        - This threshold occurs at different values of $$p(n)$$ depending on the the value of $$TR$$, but is bounded above by $$p(\frac{1}{TR}) < \frac{1}{e} \approx 37\%$$. 
 
 ## Contagion spread, singular degree distribution
 
@@ -45,14 +45,20 @@ Following Newman, look at the the probability generating functions for the sprea
 - PGF for number of transmissible connections: $$G_0(x;T)=G_0(1-(1-x)T)=(1-[1-x]T)^n$$
 - PGF for number of neighbor's transmissible excess edges: $$G_1(x;T)=G_1(1-(1-x)T)=(1-[1-x]T)^{n-1}$$
 - Critical Transmissibility threshold $$T_c = 1/G'_1(1) = \frac{1}{n-1}$$
+- (Meyers Newman et al 2004) $$R_0 = T\frac{E[k^2]}{E[k]}-T = T(n-1)$$
 - Chance that end of random edge remains uninfected determined implicitly by $$U=G_1(U;T) = (1-(1-U)T)^{n-1}$$
-    - 
-- Chance that outbreak causes epidemic = fraction of population that gets infected = 
+    - No disease $$U=1$$ is always a solution, 
+        - and is the only solution if $$G'_1(1;T)=(n-1)T\geq 1$$ <!--because of concavity-->
+    - Full infection $$U=0$$ is only a solution if $$T=1$$.
+    - Otherwise if $$(n-1)T < 1$$, there exists a unique solution $$U\in(0,1)$$.
+        - Unfortunately, can't be  solved in closed-form, but easy to approximate numerically
+        - See [numerical-contagion-solver newman-singular.py](numerical-contagion-solver-newman-singular.py) for an example using numpy
+- Chance that outbreak causes epidemic = fraction of population that gets infected = $$R_\infty = 1-G_0(U;T)$$ (called S(T) in Newman)
+    - Also must, in general, be numerically solved.
+
+<!--March 21 notes are different because I ignored the excess degree construction from Newman. If every vertex has degree three, then critical T_c is 1/2 because one of those edges is how people *get sick* in the first place. The chance that a random outbreak causes a pandemic (equal to size of pandemic) is the chance that at least one of those *3* initial neighbors -->
 
 
-
-
-<!--March 21 notes are different because I ignored the excess degree construction from Newman. If every vertex has degree three, then critical T_c is 1/2 because one of those edges is how people *get sick* in the first place. The chance that a random outbreak causes a pandemic (equal to size of pandemic) is the chance that at least one of those *3* initial neighbors 
 
 
 
