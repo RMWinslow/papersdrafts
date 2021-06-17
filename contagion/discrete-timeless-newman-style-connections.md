@@ -6,6 +6,13 @@
 
 Suppose every agent is identical and chooses $$n$$ connections. The degree distribution is described by $$p_n=1$$.
 
+$$x^2+\sum_\infty \beta$$
+
+- Var $$T$$ is transmissibility of the contagion. 
+    - Assume $$T$$ is the same for all connections.
+    - It can be interpreted as the apriori chance that the disease potentially transmits along an edge (meaning the edge is "open"; transmission won't actually occur if neither person involved gets sick.)
+    - Don't worry about the timing involved. (percolation theory)
+
 Following Newman, look at the the probability generating functions for the spread of this disease.
 
 - PGF for number of neighbors: $$G_0(x)=\sum_k p_k x^k = x^n$$
@@ -26,11 +33,9 @@ Following Newman, look at the the probability generating functions for the sprea
     - In this case, $$R=1-(1-T+TU)U=1-(1-T)U-TU^2$$, so holding T fixed, $$1-R$$ will be a weighted average of $$U$$ and $$U^2$$
         - That is, the chance that one of your neighbors stays healthy is at most the chance *nobody else* gets them sick, and at least that chance squared.
         - Higher transmission means $$1-R$$ closer to $$U$$, lower transmission means its farther away (holding U equal, allowing n to vary)
-        - 
+        - Also, in this case $$U = \sqrt{\frac{1-R}{T} + \left(\frac{1-T}{2T}\right)} - \frac{1-T}{2T}$$, but that doesn't have any intuitively obvious interpretation.
 
-<!--March 21 notes are different because I ignored the excess degree construction from Newman. If every vertex has degree three, then critical T_c is 1/2 because one of those edges is how people *get sick* in the first place. The chance that a random outbreak causes a pandemic (equal to size of pandemic) is the chance that at least one of those *3* initial neighbors -->
-
-
+<!--March 21 notes are different because I ignored the excess degree construction from Newman. If every vertex has degree three, then critical T_c is 1/2 because one of those edges is how people *get sick* in the first place. The chance that a random outbreak causes a pandemic (equal to size of pandemic) is the chance that at least one of those *3* initial neighbors -->,
 
 ## Cost from contagion risk.
 
