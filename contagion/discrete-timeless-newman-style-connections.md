@@ -42,13 +42,13 @@
 
 
 # TODO Tomorrow
-- [] Finish copying over discrete version (streamlined without fluff)
+- [] Finish copying over discrete version (setup)(streamlined without fluff)
 - [] Combine Poisson and Discrete nieghbors:
     - Start with discrete results
     - Set that number of neighbors as the mean in a poisson distribution
     - Integrate the discrete results over that poisson distribution.
     - Will it collapse to be the same as poisson or will it turn into something more interesting?
-
+- [] Figure out what I meant by "Continuous version just collapses to [Clauset](https://scholar.google.com/citations?user=e7VI_HcAAAAJ&hl=en&oi=sra) paper."
 
 
 
