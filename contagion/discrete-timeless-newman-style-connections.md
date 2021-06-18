@@ -74,8 +74,7 @@ Now suppose the individual takes $$U$$ for granted, and wants to go about myopic
     = [1-\Psi]^{n-2}[-(n-1) + n[1-\Psi]] \\
     = [1-\Psi]^{n-2}[1-n\Psi]$$
 
-- iff $$n > 1/\Psi$$, then the marginal disease risk from your $$nth$$ connection actually *decreases* as each individual contact becomes more dangerous. **TODO: WRONG - NEED TO FIX**
-    - No wait, the threshold thing is actually correct despite my mistake. Just need to rewrite justtification.
+- iff $$n > 1/\Psi$$, then the marginal disease risk from your $$nth$$ connection actually *decreases* as each individual contact becomes more dangerous. 
 
 ![](graph_newman_singular_pdiffexperiment2.svg)
 
@@ -124,19 +123,12 @@ $$1-V = (1-V^{n-1})T \tag{contact risk}$$
 
 
 # TODO Tomorrow
-- [x] Finish copying over discrete version (setup)(streamlined without fluff)
-    - Mostly done. Left some numerical examples behind (which are based on slightly incorrect setup.
-    - [x] double check previous to make sure didn't miss anything (except for examples)
-    - [x] double check that I'm handling the utility correctly. After all, there is a chance that the pandemic *doesn't* happen. Sure, in this case $$R$$ is the overall prevelance and equals $$1-U^{n \over n-1}$$ in equilibrium.
-- [ ] CRUD. Need to reinterpret the cross marginal risk increase. Might not work how I thought it did because both terms can be negative.
-    - [ ] Proper graph showing off the threshold whatsists
 - [ ] Graph somehow showing U,n equilibrium?
     - [x] Contour plot for U(n,t), also p and R? Psi?
     - [ ] Optimum n, given utility?
         - Graph u(n) and p(n) as function of n
         - Find some spiffy way to numerical solve
-- [ ] Is equilibrium efficient? What about directly choosing n* to get a good outcome?
-- [x] Fix description of infection chance (R is the chance your neighbor gets sick, but (1-U) is the chance that they get sick in a way that potentially transmits to you.
+    - [ ] Is equilibrium efficient? What about directly choosing n* to get a good outcome?
 - [ ] Version with two types. The *fatalism* is the interesting part!
 - [ ] Combine Poisson and Discrete nieghbors:
     - Start with discrete results
@@ -144,6 +136,7 @@ $$1-V = (1-V^{n-1})T \tag{contact risk}$$
     - Integrate the discrete results over that poisson distribution.
     - Will it collapse to be the same as poisson or will it turn into something more interesting?
     - (target connections can thus be continuous!
+- [ ] Improve understanding of threshold? Maybe just move on?
 - [ ] Figure out what I meant by "Continuous version just collapses to [Clauset](https://scholar.google.com/citations?user=e7VI_HcAAAAJ&hl=en&oi=sra) paper."
 - Longer term ideas:
     - Make comparison to SIR predictions
