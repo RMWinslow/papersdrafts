@@ -54,22 +54,27 @@ This section covers the spread to an individual
     - Var $$U$$ is the chance that absent your connection with them, that neighbor would not get sick.
         - Thus $$1-U$$ is the chance that they have the possibility of passing it on to you.
 - The chance that the contagion is transmitted to you from any particular neighbor is $$(1-U)T$$.
-    -  Var $$\psi \equiv (1-U)T$$ 
-- The chance that none of your neighbors transmits to you is $$\left[1-(1-U)T\right]^{n}$$.
-- The chance that *at least* one neighbor transmits to you is $$p(n) = 1-\left[1-T+TU \right]^{n}$$.
+    -  Var $$\Psi \equiv (1-U)T$$ 
+- The chance that none of your neighbors transmits to you is $$\left[1-\Psi\right]^{n}$$.
+- The chance that *at least* one neighbor transmits to you is $$p(n) = 1-\left[1-\Psi \right]^{n}$$.
     - In this setup, $$p(n)=R_\infty$$, though with variation in degree, this wouldn't necessarily hold.     
     - Range of $$[0,1)$$ if $$T\in(0,1)$$
-    - Strictly increasing in $$n$$ over this domain.
 
 Now suppose the individual takes $$U$$ for granted, and wants to go about myopically choosing $$n$$.
 
-- For convinence, suppose that the person cares directly about $$p(n)$$
+- For convinence, suppose that the person cares directly about disease risk $$p(n)$$
 - The risk of getting sick is increasing in $$n$$, and the marginal increase in disease risk in going from $$n-1$$ connections to $$n$$ connections is 
         
-    $$\frac{dp(n)}{dn} = \left(1 - \left[1-T+TU\right]^{n}\right) - \left(1 - \left[1-T+TU\right]^{n-1}\right) \\
-    =[1-T+TU]^{n-1}(U-1)T$$
+    $$\frac{dp(n)}{dn} = \left(1 - \left[1-\Psi\right]^{n}\right) - \left(1 - \left[1-\Psi\right]^{n-1}\right) \\
+    =[1-\Psi]^{n-1}\Psi > 0$$
 
+- For any given $$n$$, as $$\Psi$$ increases, (increasing transmissibility or final prevalence), the marginal disease risk can either increase *or* decrease.
+  
+    $$\frac{d}{d\Psi}\frac{dp(n)}{dn}  
+    = [1-\Psi]^{n-1}-(n-1)[1-\Psi]^{n-2} \\
+    = [1-\Psi]^{n-2}[(1-\Psi)-(n-1)]$$
 
+    
 
 
 
@@ -105,15 +110,3 @@ $$\frac{d}{dR}[1-TR_{\infty}]^{n-1}TR_{\infty} =
     - Integrate the discrete results over that poisson distribution.
     - Will it collapse to be the same as poisson or will it turn into something more interesting?
 - [] Figure out what I meant by "Continuous version just collapses to [Clauset](https://scholar.google.com/citations?user=e7VI_HcAAAAJ&hl=en&oi=sra) paper."
-
-
-
-
-
-
-
-
-
-
-
-
