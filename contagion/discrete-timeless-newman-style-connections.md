@@ -65,45 +65,54 @@ Now suppose the individual takes $$U$$ for granted, and wants to go about myopic
 - For convinence, suppose that the person cares directly about disease risk $$p(n)$$
 - The risk of getting sick is increasing in $$n$$, and the marginal increase in disease risk in going from $$n-1$$ connections to $$n$$ connections is 
         
-    $$\frac{dp(n)}{dn} = \left(1 - \left[1-\Psi\right]^{n}\right) - \left(1 - \left[1-\Psi\right]^{n-1}\right) \\
+    $$p(n) - p(n-1) = \left(1 - \left[1-\Psi\right]^{n}\right) - \left(1 - \left[1-\Psi\right]^{n-1}\right) \\
+    = [1-\Psi]^{n-1} - [1-\Psi]^{n} \\
     =[1-\Psi]^{n-1}\Psi > 0$$
 
 - For any given $$n$$, as $$\Psi$$ increases, (increasing transmissibility or final prevalence), the marginal disease risk can either increase *or* decrease.
   
-    $$\frac{d}{d\Psi}\frac{dp(n)}{dn}  
-    = [1-\Psi]^{n-1}-(n-1)[1-\Psi]^{n-2} \\
-    = [1-\Psi]^{n-2}[(1-\Psi)-(n-1)]$$
+    $$\frac{d}{d\Psi}[p(n) - p(n-1)]  
+    = -(n-1)[1-\Psi]^{n-2} + n[1-\Psi]^{n-1} \\
+    = [1-\Psi]^{n-2}[-(n-1) + n[1-\Psi]] \\
+    = [1-\Psi]^{n-2}[1-n\Psi]$$
 
-    
+- iff $$n > 1/\Psi$$, then the marginal disease risk from your $$nth$$ connection actually *decreases* as each individual contact becomes more dangerous.
+- This threshold occurs at different values of $$p(n)$$ depending on the the value of $$\Psi$$, but is bounded above by $$p(\frac{1}{\Psi}) < \frac{1}{e} \approx 37\%$$.
+    - That is, if you are already more than 37% likely to get sick, a more hazardous disease might actually make you worry less about the marginal connection.
+    - **Fatalism** ala Kremer 
 
-
-
----
-
-## Old contagion risk
-
-
-- for any given $$n$$, the marginal risk can be either increasing or decreasing:
+<!--continuous version d/dn d/d\Psi) has threshold -1/lnV)-->
 
 
-$$\frac{d}{dR}[1-TR_{\infty}]^{n-1}TR_{\infty} =
--T^2(n-1) R (1-TR)^{n-2}+(1-TR)^{n-1} \\
-= [(1-TR)^{n-2}T][1-TR-TR(n-1)] \\
-= [''][1-TRn]$$
+## Individual decision about contacts
 
+- Var $$\delta$$ is the cost incurred by illness
+- Aside from contagion, person recieves some utility $$u(n)$$ from contacts.
+- Preferences are represented by $$U(n)=u(n)-\delta p(n)$$
+- Myopic individual, taking $$\Psi$$ as given, chooses $$n\in\Z_+$$ to solve
 
-- iff $$n > 1/(TR)$$, then the marginal expected disutility from your $$nth$$ connection actually decreases as epidemic becomes more severe.
-- This threshold occurs at different values of $$p(n)$$ depending on the the value of $$TR$$, but is bounded above by $$p(\frac{1}{TR}) < \frac{1}{e} \approx 37\%$$. 
+    $$\max_n [u(n)-\delta p(n)] = \max_n [u(n) - \delta (1-[1-\Psi]^n)]$$
 
+<!--maximimum connection number a la Kremer?-->    
 
+## Equilibrium with singular distribution
 
+Given $$T$$, a regular contagion equilbrium consists of a degree $$n\in \Z_+$$ and an edge unprevalence $$U$$ such that 
+- Taking $$U$$ as given, $$n$$ solves 
 
+    $$\argmax_n [u(n) - \delta + \delta (1-T+TU)^n ] \tag{incentives}$$
 
+- This choice of $$n$$ causes the ultimate edge prevalence to be $$U$$ satisfying:
 
+    $$U = (1-T+UT)^{n-1} \tag{unprevalence}$$
 
 # TODO Tomorrow
 - [] Finish copying over discrete version (setup)(streamlined without fluff)
-- [] Fix description of infection chance (R is the chance your neighbor gets sick, but (1-U) is the chance that they get sick in a way that potentially transmits to you.
+    - Mostly done. Left some numerical examples behind.
+    - [] double check previous to make sure didn't miss anything (except for examples).
+    - [] double check that I'm handling the utility correctly. After all, there is a chance that the pandemic *doesn't* happen.
+    - [] Graph somehow showing U,n equilibrium?
+- [x] Fix description of infection chance (R is the chance your neighbor gets sick, but (1-U) is the chance that they get sick in a way that potentially transmits to you.
 - [] Combine Poisson and Discrete nieghbors:
     - Start with discrete results
     - Set that number of neighbors as the mean in a poisson distribution
