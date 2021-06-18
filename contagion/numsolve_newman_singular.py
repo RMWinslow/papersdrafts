@@ -20,15 +20,53 @@ import numpy as np
 
 #test = poly([1,2,3,4,5,6,7,8,9,10,11,12,13])
 
-
-
-
-
-
-#%% Calculate U, the chance that a random edge traversal leads to uninfected person
-
 def pp(p):
     print(f"{p:unicode}")
+
+#%% Calculate V = 1-T+TU = 1-Psi
+#   V is the chance that a particular neighbor does not transmit to you.
+#   Rewrite of the below, but the math for solving for V should be simpler.
+#   This is still dependent on the singular distribution assumption.
+
+def createVpolynomial(n,T):
+    #(1-T)  -V + T*V**(n-1)
+    assert n>1, "n needs to be at least 2 if you're plugging it in here."
+    coefficients = [0]*n
+    coefficients[0] = (1-T)
+    coefficients[1] = (-1)
+    coefficients[-1] += T
+    return poly(coefficients)
+
+def approximateV(n,T):
+    if (T*(n-1) <= 1):                                                         #(*)
+        return 1
+    Vpoly = createVpolynomial(n,T)
+    Vroots = Vpoly.roots()
+    for root in Vroots:
+        if (0 < root.real < 1) and np.isreal(root):
+            return root.real
+    print("Hey, what are you doing here?", n, T)
+    
+#Note to self, weird floating point precision problems with doing it this way
+# It is about twice as fast, so I've got that going for me.
+#print(approximateV(3, 2/3))
+
+def calcUviaV(n,T,V=None):
+    if not V:
+        V = approximateV(n,T)
+        assert V > 0
+    return 1 - (1-V)/T
+
+def calcRviaV(n,T,V=None):
+    if not V:
+        V = approximateV(n,T)
+    return V**n                                                                #(*)
+
+def calcMyopicIllnessRisk(n,V):
+    #Here, the n is the individual's choice of neighbors.
+    return 1 - V**n
+
+#%% Calculate U, the chance that a random edge traversal leads to uninfected person
 
 def G1xTpoly(n,T):
     basepoly = poly([1-T,T]) #(1-(1-x)T)
@@ -43,11 +81,6 @@ def approximateUroots(n,T):
     lonelyU = poly([0,1])
     implicitUpoly = G1xT - lonelyU
     return implicitUpoly.roots()
-
-def isUroughlycorrect(U):
-    #need to select correct root
-    #problem: 
-        return None
 
 def approximateU(n,T):
     #assert 0 < T < 1, "T outside of (0,1)"
@@ -88,9 +121,7 @@ def calculateRinfty(n,T,U=None):
     G0xT=G0xTpoly(n, T)
     return 1 - G0xT(U)
 
-def calcMyopicIllnessRisk(n,T,U):
-    #Here, the n is the individual's choice of neighbors.
-    return 1 - (1-T+T*U)**n
+
 
 #%% Simple output to console using global variables
 '''

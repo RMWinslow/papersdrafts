@@ -110,6 +110,12 @@ Alternatively, in terms of the threat each neighbor poses for you, $$\Psi$$:
 $$n = \argmax_n [u(n) - \delta + \delta (1-\Psi)^n ] \tag{preferences}$$
 $$\Psi = (1-[1-\Psi]^{n-1})T \tag{contact risk}$$
 
+Alternatively, in terms of $$V$$, the chance that a particular neighbor doesn't transmit to you:
+
+$$n = \argmax_n [u(n) - (1-V^n)\delta ] \tag{preferences}$$
+$$1-V = (1-V^{n-1})T \tag{contact risk}$$
+
+
 # TODO Tomorrow
 - [x] Finish copying over discrete version (setup)(streamlined without fluff)
     - Mostly done. Left some numerical examples behind (which are based on slightly incorrect setup.
