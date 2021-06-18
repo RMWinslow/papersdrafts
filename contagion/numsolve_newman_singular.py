@@ -49,6 +49,8 @@ def approximateV(n,T):
     
 #Note to self, weird floating point precision problems with doing it this way
 # It is about twice as fast, so I've got that going for me.
+# The direct root approximation is incredibly precise, more precise than floating point.
+
 #print(approximateV(3, 2/3))
 
 def calcUviaV(n,T,V=None):
@@ -60,7 +62,7 @@ def calcUviaV(n,T,V=None):
 def calcRviaV(n,T,V=None):
     if not V:
         V = approximateV(n,T)
-    return V**n                                                                #(*)
+    return 1-V**n                                                                #(*)
 
 def calcMyopicIllnessRisk(n,V):
     #Here, the n is the individual's choice of neighbors.
@@ -95,6 +97,10 @@ def approximateU(n,T):
             return root.real
     print(n,T)
 
+def calcVfromU(n,T,U=None):
+    if not U:
+        U = approximateU(n, T)
+    return (1-T+T*U)
 
 #Note to self, using fractions seems to return error 
 #    "ufunc 'isfinite' not supported for the input types"
