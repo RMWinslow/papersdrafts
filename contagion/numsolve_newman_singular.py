@@ -20,6 +20,11 @@ import numpy as np
 
 #test = poly([1,2,3,4,5,6,7,8,9,10,11,12,13])
 
+
+
+
+
+
 #%% Calculate U, the chance that a random edge traversal leads to uninfected person
 
 def pp(p):
@@ -55,7 +60,7 @@ def approximateU(n,T):
     for root in approximateUroots(n,T):
         if (0 < root.real < 1) and np.isreal(root):
             return root.real
-    print(n,t)
+    print(n,T)
 
 
 #Note to self, using fractions seems to return error 

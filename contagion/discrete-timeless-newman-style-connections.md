@@ -120,6 +120,7 @@ $$\Psi = (1-[1-\Psi]^{n-1})T \tag{contact risk}$$
         - [] Optimum n, given utility?
     - [] Is equilibrium efficient? What about directly choosing n* to get a good outcome?
 - [x] Fix description of infection chance (R is the chance your neighbor gets sick, but (1-U) is the chance that they get sick in a way that potentially transmits to you.
+- [ ] Version with two types. The *fatalism* is the interesting part!
 - [] Combine Poisson and Discrete nieghbors:
     - Start with discrete results
     - Set that number of neighbors as the mean in a poisson distribution
