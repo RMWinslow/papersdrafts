@@ -127,8 +127,9 @@ $$1-V = (1-V^{n-1})T \tag{contact risk}$$
     - [x] Contour plot for U(n,t), also p and R? Psi?
     - [ ] Optimum n, given utility?
         - Graph u(n) and p(n) as function of n
-        - Find some spiffy way to numerical solve
+        - Find some spiffy way to numerically solve
     - [ ] Is equilibrium efficient? What about directly choosing n* to get a good outcome?
+    - [ ] Do that for a few different u functions.
 - [ ] Version with two types. The *fatalism* is the interesting part!
 - [ ] Combine Poisson and Discrete nieghbors:
     - Start with discrete results

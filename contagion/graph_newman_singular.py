@@ -90,7 +90,7 @@ ax5.grid()
 
 
 fig.suptitle('Newman, Singular Degree Distribution, equilibrium whatsits')
-plt.savefig('graph_newman_singular.png')
+plt.savefig('graph_newman_singular.svg')
 
 #%% Plot p(n;Psi)-p(n+1;Psi) 
 #   roc in marginal infection risk as connection danger increases
@@ -100,8 +100,6 @@ def riskchange(n,Psi):
 
 n_grid2 = np.arange(0,31)
 margrisk = [[riskchange(n,Psi) for Psi in Psi_grid] for n in n_grid2]
-
-
 
 fig, ax = plt.subplots(figsize=(15,10))
 plt.grid()
@@ -115,20 +113,21 @@ plt.savefig('graph_newman_singular_pdiffexperiment1.png')
 #   roc in marginal infection risk as connection danger increases
 
 def ddPsi_riskchange(n,Psi):
-    return (1-(1-Psi)**n)-(1-(1-Psi)**(n-1))
+    return (1-n*Psi)*(1-Psi)**(n-2)
 
-n_grid2 = np.arange(0,31)
-changemargrisk = [[ddPsi_riskchange(n,Psi) for Psi in Psi_grid] for n in n_grid2]
-
-
+n_grid2 = np.arange(1,11)
+Psi_grid2 = np.arange(0,1.0001,0.001)
+changemargrisk = [[ddPsi_riskchange(n,Psi) for Psi in Psi_grid2] for n in n_grid2]
 
 fig, ax = plt.subplots(figsize=(15,10))
-plt.grid()
-ax.set_title(r'Newman, Singular Degree Distribution, $d/d\Psi p(n)-p(n-1)$')
-CS = ax.contourf(Psi_grid,n_grid2,changemargrisk,
-                np.arange(-.1,.1,.01))
-ax.clabel(CS,CS.levels,inline=True,fontsize=10,fmt='{:.5}'.format)
-plt.savefig('graph_newman_singular_pdiffexperiment2.png')
+#plt.grid()
+ax.set_title(r'Newman, Singular Degree Distribution, $\frac{d}{d\Psi} p(n)-p(n-1)$')
+CS = ax.contour(Psi_grid2,n_grid2,changemargrisk,60,colors='k')
+
+plt.plot([1/n for n in n_grid2],n_grid2)
+
+#ax.clabel(CS,CS.levels,inline=True,fontsize=10,fmt='{:.5}'.format)
+plt.savefig('graph_newman_singular_pdiffexperiment2.svg')
 
 
 
