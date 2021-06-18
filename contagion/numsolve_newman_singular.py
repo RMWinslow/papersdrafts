@@ -39,14 +39,16 @@ def approximateUroots(n,T):
     return implicitUpoly.roots()
 
 def approximateU(n,T):
-    assert 0 < T < 1, "T outside of (0,1)"
-    assert T*(n-1) > 1, "T not above critical threshold"                       #(*)
+    #assert 0 < T < 1, "T outside of (0,1)"
+    #assert T*(n-1) > 1, "T not above critical threshold"                      #(*)
+    if (T*(n-1) <= 1):                                                         #(*)
+        return 1
     #given the roots to U=G1(x;T), select the unique solution in (0,1)
     # (if it doesn't exist, then return None, but those should be caught by the assertions)
     # numpy approximates roots by approimating eigenvalues of companion matrix.
     for root in approximateUroots(n,T):
         if 0 < root.real < 1:
-            return root
+            return root.real
 
 
 #Note to self, using fractions seems to return error 
@@ -74,8 +76,12 @@ def calculateRinfty(n,T,U=None):
     G0xT=G0xTpoly(n, T)
     return 1 - G0xT(U)
 
-#%% Simple output to console using global variables
+def calcMyopicIllnessRisk(n,T,U):
+    #Here, the n is the individual's choice of neighbors.
+    return 1 - (1-T+T*U)**n
 
+#%% Simple output to console using global variables
+'''
 n = 3
 T = 2/3
 
@@ -84,6 +90,8 @@ R = calculateRinfty(n,T,U)
     
 print('R_\infty = ',R)
 print('U = ',U)
+'''
 
+#%%
 
 

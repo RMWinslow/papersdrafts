@@ -1,6 +1,5 @@
 # Newman-style disease network, discrete choice over number of neighbors.
 
-Test
 
 ## Contagion spread, singular degree distribution
 
@@ -100,22 +99,31 @@ Now suppose the individual takes $$U$$ for granted, and wants to go about myopic
 Given $$T$$, a regular contagion equilbrium consists of a degree $$n\in \Z_+$$ and an edge unprevalence $$U$$ such that 
 - Taking $$U$$ as given, $$n$$ solves 
 
-    $$\argmax_n [u(n) - \delta + \delta (1-T+TU)^n ] \tag{incentives}$$
+    $$n = \argmax_n [u(n) - \delta + \delta (1-T+TU)^n ] \tag{preferences}$$
 
-- This choice of $$n$$ causes the ultimate edge prevalence to be $$U$$ satisfying:
+- This choice of $$n$$ causes the ultimate edge unprevalence to be $$U$$ satisfying:
 
     $$U = (1-T+UT)^{n-1} \tag{unprevalence}$$
 
+Alternatively, in terms of the threat each neighbor poses for you, $$\Psi$$: 
+
+$$n = \argmax_n [u(n) - \delta + \delta (1-\Psi)^n ] \tag{preferences}$$
+$$\Psi = (1-[1-\Psi]^{n-1})T \tag{contact risk}$$
+
 # TODO Tomorrow
-- [] Finish copying over discrete version (setup)(streamlined without fluff)
-    - Mostly done. Left some numerical examples behind.
-    - [] double check previous to make sure didn't miss anything (except for examples).
-    - [] double check that I'm handling the utility correctly. After all, there is a chance that the pandemic *doesn't* happen.
+- [x] Finish copying over discrete version (setup)(streamlined without fluff)
+    - Mostly done. Left some numerical examples behind (which are based on slightly incorrect setup.
+    - [x] double check previous to make sure didn't miss anything (except for examples)
+    - [x] double check that I'm handling the utility correctly. After all, there is a chance that the pandemic *doesn't* happen. Sure, in this case $$R$$ is the overall prevelance and equals $$1-U^{n \over n-1}$$ in equilibrium.
     - [] Graph somehow showing U,n equilibrium?
+        - [] Contour plot for U(n,t), also p and R? Psi?
+        - [] Optimum n, given utility?
+    - [] Is equilibrium efficient? What about directly choosing n* to get a good outcome?
 - [x] Fix description of infection chance (R is the chance your neighbor gets sick, but (1-U) is the chance that they get sick in a way that potentially transmits to you.
 - [] Combine Poisson and Discrete nieghbors:
     - Start with discrete results
     - Set that number of neighbors as the mean in a poisson distribution
     - Integrate the discrete results over that poisson distribution.
     - Will it collapse to be the same as poisson or will it turn into something more interesting?
+    - (target connections can thus be continuous!
 - [] Figure out what I meant by "Continuous version just collapses to [Clauset](https://scholar.google.com/citations?user=e7VI_HcAAAAJ&hl=en&oi=sra) paper."
