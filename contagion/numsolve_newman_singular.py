@@ -14,6 +14,7 @@ Also, of course any function with n as an input also only makes sense with this 
 """
 
 from numpy.polynomial import Polynomial as poly
+import numpy as np
 #https://numpy.org/doc/stable/reference/routines.polynomials.classes.html
 #from fractions import Fraction as frac
 
@@ -38,17 +39,23 @@ def approximateUroots(n,T):
     implicitUpoly = G1xT - lonelyU
     return implicitUpoly.roots()
 
+def isUroughlycorrect(U):
+    #need to select correct root
+    #problem: 
+        return None
+
 def approximateU(n,T):
     #assert 0 < T < 1, "T outside of (0,1)"
     #assert T*(n-1) > 1, "T not above critical threshold"                      #(*)
     if (T*(n-1) <= 1):                                                         #(*)
         return 1
-    #given the roots to U=G1(x;T), select the unique solution in (0,1)
+    #given the roots to U=G1(x;T), select the unique real solution in (0,1)
     # (if it doesn't exist, then return None, but those should be caught by the assertions)
     # numpy approximates roots by approimating eigenvalues of companion matrix.
     for root in approximateUroots(n,T):
-        if 0 < root.real < 1:
+        if (0 < root.real < 1) and np.isreal(root):
             return root.real
+    print(n,t)
 
 
 #Note to self, using fractions seems to return error 
