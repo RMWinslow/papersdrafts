@@ -155,10 +155,9 @@ So solid intuition for why that is except just "externalities".
     - [x] Contour plot for U(n,t), also p and R? Psi?
     - [x] Optimum n, given utility?
         - Equilibrium doesn't always exist for singular distribution
-    - [ ] Find a utility function such that equilibrium does exist?
     - [ ] Mixed strategy equilibrium?
-    - [ ] Is equilibrium efficient? What about directly choosing n* to get a good outcome?
-    - [ ] Do that for a few different u functions.
+    - [x] Is equilibrium efficient? What about directly choosing n* to get a good outcome?
+    - [ ] Do that for a few different u functions. (Find a utility function such that equilibrium does exist?)
 - [ ] Version with two types. The *fatalism* is the interesting part!
 - [ ] Combine Poisson and Discrete nieghbors:
     - Start with discrete results
