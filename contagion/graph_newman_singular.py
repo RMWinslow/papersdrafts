@@ -12,7 +12,7 @@ import numpy as np
 #%% Set up field of variables
 T_grid = np.arange(0,1,0.01)
 Psi_grid = T_grid
-n_grid = np.arange(0,31)
+n_grid = np.arange(0,51)
 TT,nn = np.meshgrid(T_grid,n_grid)
 
 #%% Calc third dimension
@@ -92,8 +92,38 @@ ax5.grid()
 fig.suptitle('Newman, Singular Degree Distribution, equilibrium whatsits')
 plt.savefig('graph_newman_singular.svg')
 
+#%% For each point in the grid,
+#       Find V(n,T)
+#       Find the n* that maximizes utility, taking V,T for granted.
+#       If matches up with n, then add point to graph
+
+
+
+
+
+# loop to find equilibriums
+equilibriums = []
+for T in T_grid:
+    for n in n_grid:
+        V = approximateV(n,T)
+        BRn = findMyopicBest_n(V,neginverse_u)
+        #print(n,BRn)
+        if n in BRn:
+            equilibriums.append([n,T])
+            
+n_equilibria = [equi[0] for equi in equilibriums]   
+T_equilibria = [equi[1] for equi in equilibriums]    
+plt.scatter(T_equilibria,n_equilibria)
+plt.title(r"newman,singular,equilibria,$U=2-\frac{1}{n}-p(n)$")
+plt.xlabel('T')
+plt.ylabel('n')
+plt.savefig('graph_newman_singular_equilibria_neginverse.png')
+
+
+
 #%% Plot p(n;Psi)-p(n+1;Psi) 
 #   roc in marginal infection risk as connection danger increases
+#   This section is kinda janky TODO: clean it up
 
 def riskchange(n,Psi):
     return (1-(1-Psi)**n)-(1-(1-Psi)**(n-1))
@@ -111,6 +141,7 @@ plt.savefig('graph_newman_singular_pdiffexperiment1.png')
 
 #%% Plot d/d\Psi p(n;Psi)-p(n+1;Psi) 
 #   roc in marginal infection risk as connection danger increases
+#   This section is kinda janky TODO: clean it up
 
 def ddPsi_riskchange(n,Psi):
     return (1-n*Psi)*(1-Psi)**(n-2)
@@ -130,4 +161,6 @@ plt.plot([1/n for n in n_grid2],n_grid2)
 plt.savefig('graph_newman_singular_pdiffexperiment2.svg')
 
 
+
+#%% 
 

@@ -64,9 +64,34 @@ def calcRviaV(n,T,V=None):
         V = approximateV(n,T)
     return 1-V**n                                                                #(*)
 
-def calcMyopicIllnessRisk(n,V):
+
+#%% functions for individual decisions
+
+def calcMyopicRisk(n,V):
     #Here, the n is the individual's choice of neighbors.
     return 1 - V**n
+
+def neginverse_u(n):
+    if 0 == n:
+        return -1000
+    return 2 - (1 / n)
+
+def calcMyopicU(V,utilfunc):
+    max_n = 200
+    util_grid = np.array([utilfunc(n)-calcMyopicRisk(n,V) for n in range(max_n)])
+    return util_grid
+
+def findMyopicBest_n(V,utilfunc):
+    #only works on discrete n
+    # in this function, n is myopic. not society wide n
+    # uses numpy to speed things up. could be more clear. 
+    #   it just finds index of max util
+    util_grid = calcMyopicU(V,utilfunc)
+    best_outcomes = np.where(util_grid==max(util_grid))[0]
+    return best_outcomes
+    
+
+
 
 #%% Calculate U, the chance that a random edge traversal leads to uninfected person
 

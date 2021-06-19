@@ -112,12 +112,35 @@ Given $$T$$, a regular contagion equilbrium consists of a degree $$n\in \Z_+$$ a
 Alternatively, in terms of the threat each neighbor poses for you, $$\Psi$$: 
 
 $$n = \argmax_n [u(n) - \delta + \delta (1-\Psi)^n ] \tag{preferences}$$
+
 $$\Psi = (1-[1-\Psi]^{n-1})T \tag{contact risk}$$
 
 Alternatively, in terms of $$V$$, the chance that a particular neighbor doesn't transmit to you:
 
 $$n = \argmax_n [u(n) - (1-V^n)\delta ] \tag{preferences}$$
+
 $$1-V = (1-V^{n-1})T \tag{contact risk}$$
+
+### Difference between equilibrium and societal optimum.
+
+In equilibrium, people choose some $$n$$ such that $$n\in BR(V(n,T),T)$$. 
+Multiple equilibria possible.
+
+In societal optimum, we choose the $$n$$ that directly maximizes $$u(n)-(1-V^n)^\delta$$.
+
+### Example 1 - $$U(n)= \frac{-1}{n} - p(n)$$
+
+In this case, many (most?) values of $$T$$ don't have an associated equilibrium.\\
+
+![](graph_newman_singular_equilibria_neginverse.png)
+
+For example, let $$T=0.2$$. Then 
+- for $$n \leq 6$$, $$(n-1)T \leq 1$$, so no epidemic occurs, and the optimum $$n^*$$ is arbitratily high.
+- for $$n=7$$,  there's about a 7.35% chance that any particular neighbor transmits to you, and the optimum is $$N^*=4$$. 
+    - This is below the threshold: $$4 < \frac{1}{\Psi}\approx13.61$$, so increasing the stranger danger at the margin will only make that 5th potential connection even costlier.
+- At the limit as $$n\to\infty$$, and everyone else gets sick, $$\Psi$$ maxes out at $$\Psi=T=0.2$$, and at this level of risk, still $$n^*=4$$
+
+
 
 
 
