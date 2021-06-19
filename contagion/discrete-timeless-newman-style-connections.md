@@ -140,7 +140,10 @@ For example, let $$T=0.2$$. Then
     - This is below the threshold: $$4 < \frac{1}{\Psi}\approx13.61$$, so increasing the stranger danger at the margin will only make that 5th potential connection even costlier.
 - At the limit as $$n\to\infty$$, and everyone else gets sick, $$\Psi$$ maxes out at $$\Psi=T=0.2$$, and at this level of risk, still $$n^*=4$$
 
-
+| | $$HOME_{i}$$ | $$PARTY_{i}$$ |
+|-:|:-:|:-:|
+| $$HOME_{-i}$$ | $$u_{i}=1.66$$ | $$u_{i}=2$$ |
+| $$PARTY_{-i}$$ | $$u_{i}=1.6$$ | $$u_{i}=1$$ |
 
 
 
@@ -148,9 +151,10 @@ For example, let $$T=0.2$$. Then
 # TODO Tomorrow
 - [ ] Graph somehow showing U,n equilibrium?
     - [x] Contour plot for U(n,t), also p and R? Psi?
-    - [ ] Optimum n, given utility?
-        - Graph u(n) and p(n) as function of n
-        - Find some spiffy way to numerically solve
+    - [x] Optimum n, given utility?
+        - Equilibrium doesn't always exist for singular distribution
+    - [ ] Find a utility function such that equilibrium does exist?
+    - [ ] Mixed strategy equilibrium?
     - [ ] Is equilibrium efficient? What about directly choosing n* to get a good outcome?
     - [ ] Do that for a few different u functions.
 - [ ] Version with two types. The *fatalism* is the interesting part!

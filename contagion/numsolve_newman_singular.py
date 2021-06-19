@@ -66,6 +66,8 @@ def calcRviaV(n,T,V=None):
 
 
 #%% functions for individual decisions
+max_n = 200
+
 
 def calcMyopicRisk(n,V):
     #Here, the n is the individual's choice of neighbors.
@@ -77,7 +79,6 @@ def neginverse_u(n):
     return 2 - (1 / n)
 
 def calcMyopicU(V,utilfunc):
-    max_n = 200
     util_grid = np.array([utilfunc(n)-calcMyopicRisk(n,V) for n in range(max_n)])
     return util_grid
 
@@ -90,8 +91,12 @@ def findMyopicBest_n(V,utilfunc):
     best_outcomes = np.where(util_grid==max(util_grid))[0]
     return best_outcomes
     
-
-
+def SPPu(T,utilfunc):
+    #This one is different. It finds the n that maximizes societal utility
+    util_grid = np.array([utilfunc(n)-calcMyopicRisk(n,approximateV(n, T)) 
+                          for n in range(max_n)])
+    best_outcomes = np.where(util_grid==max(util_grid))[0]
+    return best_outcomes
 
 #%% Calculate U, the chance that a random edge traversal leads to uninfected person
 
