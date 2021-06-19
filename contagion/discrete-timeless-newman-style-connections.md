@@ -23,7 +23,7 @@ Following Newman, look at the the probability generating functions for the sprea
     - Full infection $$U=0$$ is only a solution if $$T=1$$.
     - Otherwise if $$(n-1)T < 1$$, there exists a unique solution $$U\in(0,1)$$.
         - Unfortunately, can't be  solved in closed-form, but easy to approximate numerically
-        - See [numerical-contagion-solver newman-singular.py](numerical-contagion-solver-newman-singular.py) for an example using numpy
+        - See [numsolve_newman_singular.py](numsolve_newman_singular.py) for an example using numpy
 - Chance that outbreak causes epidemic = fraction of population that gets infected = $$R_\infty = 1-G_0(U;T) =1-(1-T+TU)^n$$ (called S(T) in Newman)
     - Also must, in general, be numerically solved.
     - In this case, $$R=1-(1-T+TU)U=1-(1-T)U-TU^2$$, so holding T fixed, $$1-R$$ will be a weighted average of $$U$$ and $$U^2$$
