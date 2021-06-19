@@ -12,7 +12,7 @@ import numpy as np
 #%% Set up field of variables
 T_grid = np.arange(0,1,0.01)
 Psi_grid = T_grid
-n_grid = np.arange(0,51)
+n_grid = np.arange(0,31)
 TT,nn = np.meshgrid(T_grid,n_grid)
 
 #%% Calc third dimension
@@ -112,12 +112,19 @@ for T in T_grid:
             equilibriums.append([n,T])
             
 n_equilibria = [equi[0] for equi in equilibriums]   
-T_equilibria = [equi[1] for equi in equilibriums]    
-plt.scatter(T_equilibria,n_equilibria)
-plt.title(r"newman,singular,equilibria,$U=2-\frac{1}{n}-p(n)$")
+T_equilibria = [equi[1] for equi in equilibriums]   
+
+# Plot equilibrium points and societal optimums 
+plt.scatter(T_grid,[SPPu(T,neginverse_u)[0] for T in T_grid], marker='.')
+plt.scatter(T_equilibria,n_equilibria,marker='x')
+
+plt.grid()
+plt.ylim(0,30)
+plt.title(r"newman,singular,equilibria(x) and SPP(.),$U=2-\frac{1}{n}-p(n)$")
 plt.xlabel('T')
 plt.ylabel('n')
 plt.savefig('graph_newman_singular_equilibria_neginverse.png')
+
 
 
 

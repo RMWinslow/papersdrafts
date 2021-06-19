@@ -145,6 +145,8 @@ For example, let $$T=0.2$$. Then
 | $$HOME_{-i}$$ | $$u_{i}=1.66$$ | $$u_{i}=2$$ |
 | $$PARTY_{-i}$$ | $$u_{i}=1.6$$ | $$u_{i}=1$$ |
 
+Also interesting is that in this setup, wherever the equilibrium exists, the societally optimal $$n$$ is one below the equilibrium $$n$$. 
+So solid intuition for why that is except just "externalities".
 
 
 
