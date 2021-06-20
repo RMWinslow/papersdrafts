@@ -1,4 +1,6 @@
-
+---
+title: Contagion Summary
+---
 
 I'm playing around with combining 
 the graph-theory-based description of epidemics 
