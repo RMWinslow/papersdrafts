@@ -128,7 +128,7 @@ Multiple equilibria possible.
 
 In societal optimum, we choose the $$n$$ that directly maximizes $$u(n)-(1-V^n)^\delta$$.
 
-### Example 1 - $$U(n)= \frac{-1}{n} - p(n)$$
+### Example 1: $$U(n)= \frac{-1}{n} - p(n)$$
 
 In this case, many (most?) values of $$T$$ don't have an associated equilibrium.\\
 
@@ -148,6 +148,17 @@ For example, let $$T=0.2$$. Then
 Also interesting is that in this setup, wherever the equilibrium exists, the societally optimal $$n$$ is one below the equilibrium $$n$$. 
 So solid intuition for why that is except just "externalities".
 
+### Example 2:  $$U(n)= \frac{-5}{n} - p(n)$$
+
+
+![](graph_newman_singular_equilibria_bigneginverse.png)
+
+In this example, the SPP optimum goes to max social connections past $$T=0.25$$. 
+The $$u$$ value of going from 4 to 5 connections is $$+0.25$$,
+and the disease risk of that increase is at most $$0.25$$ 
+(because it's less than $$0.25$$ at $$T=0.26$$, and that's past the threshold, so additional prevalence will lower the disease risk further.
+
+(Equivalent to lowering cost of the disease.)
 
 
 # TODO Tomorrow

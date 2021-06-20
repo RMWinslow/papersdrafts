@@ -66,7 +66,7 @@ def calcRviaV(n,T,V=None):
 
 
 #%% functions for individual decisions
-max_n = 200
+max_n = 50
 
 
 def calcMyopicRisk(n,V):
@@ -77,6 +77,11 @@ def neginverse_u(n):
     if 0 == n:
         return -1000
     return 2 - (1 / n)
+
+def big_neginverse_u(n):
+    if 0 == n:
+        return -1000
+    return 2 - (5 / n)
 
 def calcMyopicU(V,utilfunc):
     util_grid = np.array([utilfunc(n)-calcMyopicRisk(n,V) for n in range(max_n)])

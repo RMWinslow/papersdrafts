@@ -126,6 +126,39 @@ plt.ylabel('n')
 plt.savefig('graph_newman_singular_equilibria_neginverse.png')
 
 
+#%% same but for 5/n instead of 1/n
+
+
+def plotEquilAndOptim(utilityfunc,filename,title):
+    # loop to find equilibriums
+    equilibriums = []
+    for T in T_grid:
+        for n in n_grid:
+            V = approximateV(n,T)
+            BRn = findMyopicBest_n(V,utilityfunc)
+            #print(n,BRn)
+            if n in BRn:
+                equilibriums.append([n,T])
+                
+    n_equilibria = [equi[0] for equi in equilibriums]   
+    T_equilibria = [equi[1] for equi in equilibriums]   
+    
+    # Plot equilibrium points and societal optimums 
+    plt.scatter(T_grid,[SPPu(T,utilityfunc)[0] for T in T_grid], marker='.')
+    plt.scatter(T_equilibria,n_equilibria,marker='x')
+    
+    plt.grid()
+    plt.ylim(0,30)
+    plt.title(title)
+    plt.xlabel('T')
+    plt.ylabel('n')
+    plt.savefig(filename)
+
+plotEquilAndOptim(big_neginverse_u,
+                  'graph_newman_singular_equilibria_bigneginverse.png',
+                  r"newman,singular,equilibria(x) and SPP(.),$U=2-\frac{5}{n}-p(n)$")
+
+
 
 
 #%% Plot p(n;Psi)-p(n+1;Psi) 
