@@ -134,6 +134,8 @@ In this case, many (most?) values of $$T$$ don't have an associated equilibrium.
 
 ![](graph_newman_singular_equilibria_neginverse.png)
 
+*(Orange X are equilibria, blue . are SPP optima.)*
+
 For example, let $$T=0.2$$. Then 
 - for $$n \leq 6$$, $$(n-1)T \leq 1$$, so no epidemic occurs, and the optimum $$n^*$$ is arbitratily high.
 - for $$n=7$$,  there's about a 7.35% chance that any particular neighbor transmits to you, and the optimum is $$N^*=4$$. 
@@ -161,14 +163,48 @@ and the disease risk of that increase is at most $$0.25$$
 (Equivalent to lowering cost of the disease.)
 
 
+### Example 3: $$U(n) = \frac{1}{2}n-\frac{1}{40}n^2 - p(n)$$
+
+
+![](graph_newman_singular_equilibria_kremertest.png)
+
+Here, equilibrium and social optimum are only misaligned over a small window. 
+Absent a contagion, $$n^*=10$$.
+There is a small window of transmisiveness in which it is societally optimal to come together and prevent an epidemic from occuring.
+There is an *even smaller* window in which individuals will *choose* to reduce connections a tiny bit.
+
+
+### Example 4: $$U(n) = \frac{-5}{n}-\frac{1}{1000}n^2 - p(n)$$
+
+![](graph_newman_singular_equilibria_neginvtaper.png)
+
+This one is interesting:
+-  Both individuals and SPP both get fatalistic
+- Fatalism slowly tapers a bit.
+- Individuals become less socially distant as tranmissivity rises, while SPP becomes less 
+- There is still a tiny window of no equilibria, as in examples 1 and 2.
+
+### Example 5: $$U(n) = \frac{-1}{n}-\frac{1}{5000}n^2 - p(n)$$
+
+![](graph_newman_singular_equilibria_neginvtaper(small).png)
+
+Same as Ex4 but the disease is comparatively more costly to catch. 
+This one has the works:
+- SPP never becomes fatalistic even though individuals do.
+- There are periods in which there is no pure strategy equilibrium.
+- Plus there is also a range in which there are multiple equilibria.
+    - The quarantine equilibrium has higher utility, but 
+        - if eveyone else is partying, it is individually optimal to party.
+        - If everyone else is quarantining, it is individually optimal to quaratine.
+
+
 # TODO Tomorrow
-- [ ] Graph somehow showing U,n equilibrium?
+- [x] Graph somehow showing U,n equilibrium?
     - [x] Contour plot for U(n,t), also p and R? Psi?
     - [x] Optimum n, given utility?
         - Equilibrium doesn't always exist for singular distribution
-    - [ ] Mixed strategy equilibrium?
     - [x] Is equilibrium efficient? What about directly choosing n* to get a good outcome?
-    - [ ] Do that for a few different u functions. (Find a utility function such that equilibrium does exist?)
+    - [x] Do that for a few different u functions. (Find a utility function such that equilibrium does exist?)
 - [ ] Version with two types. The *fatalism* is the interesting part!
 - [ ] Combine Poisson and Discrete nieghbors:
     - Start with discrete results
@@ -176,6 +212,7 @@ and the disease risk of that increase is at most $$0.25$$
     - Integrate the discrete results over that poisson distribution.
     - Will it collapse to be the same as poisson or will it turn into something more interesting?
     - (target connections can thus be continuous!
+- [ ] Mixed strategy equilibrium?
 - [ ] Improve understanding of threshold? Maybe just move on?
 - [ ] Figure out what I meant by "Continuous version just collapses to [Clauset](https://scholar.google.com/citations?user=e7VI_HcAAAAJ&hl=en&oi=sra) paper."
 - Longer term ideas:

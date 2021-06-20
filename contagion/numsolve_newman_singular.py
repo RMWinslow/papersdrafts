@@ -65,9 +65,7 @@ def calcRviaV(n,T,V=None):
     return 1-V**n                                                                #(*)
 
 
-#%% functions for individual decisions
-max_n = 50
-
+#%% utility functions
 
 def calcMyopicRisk(n,V):
     #Here, the n is the individual's choice of neighbors.
@@ -82,6 +80,23 @@ def big_neginverse_u(n):
     if 0 == n:
         return -1000
     return 2 - (5 / n)
+
+def u_kremertest(n):
+    return 0.5*n - 0.025*n*n
+
+def u_neginv_withtaper(n):
+    if 0 == n:
+        return -1000
+    return 5*(1-(1/n)) - 0.001*n*n
+
+
+def u_smol_neginv_withtaper(n):
+    if 0 == n:
+        return -1000
+    return (1-(1/n)) - 0.0002*n*n
+
+#%% Functions for calculating individual and SPP decisions
+max_n = 50
 
 def calcMyopicU(V,utilfunc):
     util_grid = np.array([utilfunc(n)-calcMyopicRisk(n,V) for n in range(max_n)])

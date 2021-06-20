@@ -96,6 +96,7 @@ plt.savefig('graph_newman_singular.svg')
 #       Find V(n,T)
 #       Find the n* that maximizes utility, taking V,T for granted.
 #       If matches up with n, then add point to graph
+#   Also, for each T, find the n that maximizes u(n)-p(n;V(n,T))
 
 
 
@@ -128,7 +129,6 @@ plt.savefig('graph_newman_singular_equilibria_neginverse.png')
 
 #%% same but for 5/n instead of 1/n
 
-
 def plotEquilAndOptim(utilityfunc,filename,title):
     # loop to find equilibriums
     equilibriums = []
@@ -144,8 +144,9 @@ def plotEquilAndOptim(utilityfunc,filename,title):
     T_equilibria = [equi[1] for equi in equilibriums]   
     
     # Plot equilibrium points and societal optimums 
-    plt.scatter(T_grid,[SPPu(T,utilityfunc)[0] for T in T_grid], marker='.')
-    plt.scatter(T_equilibria,n_equilibria,marker='x')
+    plt.scatter(T_equilibria,n_equilibria,marker='x',c='orange')
+    plt.scatter(T_grid,[SPPu(T,utilityfunc)[0] for T in T_grid], marker='.',c='blue')
+    
     
     plt.grid()
     plt.ylim(0,30)
@@ -154,9 +155,10 @@ def plotEquilAndOptim(utilityfunc,filename,title):
     plt.ylabel('n')
     plt.savefig(filename)
 
-plotEquilAndOptim(big_neginverse_u,
-                  'graph_newman_singular_equilibria_bigneginverse.png',
-                  r"newman,singular,equilibria(x) and SPP(.),$U=2-\frac{5}{n}-p(n)$")
+#plotEquilAndOptim(big_neginverse_u, 'graph_newman_singular_equilibria_bigneginverse.png',r"newman,singular,equilibria(x) and SPP(.),$U=2-\frac{5}{n}-p(n)$")
+#plotEquilAndOptim(u_kremertest, 'graph_newman_singular_equilibria_kremertest.png',r"newman,singular,equilibria(x) and SPP(.),$U=\frac{1}{2}n-\frac{1}{40}n^2-p(n)$")
+#plotEquilAndOptim(u_neginv_withtaper, 'graph_newman_singular_equilibria_neginvtaper.png',r"newman,singular,equilibria(x) and SPP(.),$U=\frac{-5}{n}-\frac{1}{1000}n^2-p(n)$")
+plotEquilAndOptim(u_smol_neginv_withtaper, 'graph_newman_singular_equilibria_neginvtaper(small).png',r"newman,singular,equilibria(x) and SPP(.),$U=\frac{-1}{n}-\frac{1}{5000}n^2-p(n)$")
 
 
 
