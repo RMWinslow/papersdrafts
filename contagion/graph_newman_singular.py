@@ -98,37 +98,6 @@ plt.savefig('graph_newman_singular.svg')
 #       If matches up with n, then add point to graph
 #   Also, for each T, find the n that maximizes u(n)-p(n;V(n,T))
 
-
-
-
-
-# loop to find equilibriums
-equilibriums = []
-for T in T_grid:
-    for n in n_grid:
-        V = approximateV(n,T)
-        BRn = findMyopicBest_n(V,neginverse_u)
-        #print(n,BRn)
-        if n in BRn:
-            equilibriums.append([n,T])
-            
-n_equilibria = [equi[0] for equi in equilibriums]   
-T_equilibria = [equi[1] for equi in equilibriums]   
-
-# Plot equilibrium points and societal optimums 
-plt.scatter(T_grid,[SPPu(T,neginverse_u)[0] for T in T_grid], marker='.')
-plt.scatter(T_equilibria,n_equilibria,marker='x')
-
-plt.grid()
-plt.ylim(0,30)
-plt.title(r"newman,singular,equilibria(x) and SPP(.),$U=2-\frac{1}{n}-p(n)$")
-plt.xlabel('T')
-plt.ylabel('n')
-plt.savefig('graph_newman_singular_equilibria_neginverse.png')
-
-
-#%% same but for 5/n instead of 1/n
-
 def plotEquilAndOptim(utilityfunc,filename,title):
     # loop to find equilibriums
     equilibriums = []
@@ -154,11 +123,13 @@ def plotEquilAndOptim(utilityfunc,filename,title):
     plt.xlabel('T')
     plt.ylabel('n')
     plt.savefig(filename)
-
+    
+    
+plotEquilAndOptim(neginverse_u, 'graph_newman_singular_equilibria_neginverse.png',r"newman,singular,equilibria(x) and SPP(.),$U=2-\frac{1}{n}-p(n)$")
 #plotEquilAndOptim(big_neginverse_u, 'graph_newman_singular_equilibria_bigneginverse.png',r"newman,singular,equilibria(x) and SPP(.),$U=2-\frac{5}{n}-p(n)$")
 #plotEquilAndOptim(u_kremertest, 'graph_newman_singular_equilibria_kremertest.png',r"newman,singular,equilibria(x) and SPP(.),$U=\frac{1}{2}n-\frac{1}{40}n^2-p(n)$")
 #plotEquilAndOptim(u_neginv_withtaper, 'graph_newman_singular_equilibria_neginvtaper.png',r"newman,singular,equilibria(x) and SPP(.),$U=\frac{-5}{n}-\frac{1}{1000}n^2-p(n)$")
-plotEquilAndOptim(u_smol_neginv_withtaper, 'graph_newman_singular_equilibria_neginvtaper(small).png',r"newman,singular,equilibria(x) and SPP(.),$U=\frac{-1}{n}-\frac{1}{5000}n^2-p(n)$")
+#plotEquilAndOptim(u_smol_neginv_withtaper, 'graph_newman_singular_equilibria_neginvtaper(small).png',r"newman,singular,equilibria(x) and SPP(.),$U=\frac{-1}{n}-\frac{1}{5000}n^2-p(n)$")
 
 
 
