@@ -255,25 +255,38 @@ Remember, $$T$$ here is the chance that a transmission potentially occurs along 
 A very high $$T$$ is unlikely. After all, there's a chance that you don't happen to visit them when they're transmissive, or potentially even at all.
 
 
+
+
+
+
+
+
+
+
 ### Plan for calculating two-type equilibriums.
 - Setup
-    - Decide what the utility functions will look like.
+    - [ ] Decide what the utility functions will look like.
         - Need a parameterized function.
         - want H type to have more connections in base case.
         - want $$n^*$$ functions to be smooth.
         - Highly elastic to disease risk
         - (Find util where increase in risk causes equal reductions in contact for each type, ala Kremer?)
-    - Fix population sizes
-- Calculate detailed grid for $$n^*_i(V)$$ for each $$i$$.
+    - Fix population sizes at 0.5,0.5?
+- [ ] Calculate detailed grid for $$n^*_i(V)$$ for each $$i$$.
     - Linearly interpolate to get object which maps $$V$$ to $$n^*_i$$?
+        - Doesn't really make sense for discrete output. 
 - Choose a value for $$T$$
-- Iterating over V grid:
+- [ ] Iterating over V grid:
     - Plug in V to get $$n*_i(V)$$ for each $$i$$
     - Use these to get $$V(\{n_i\};T)$$
     - Call this quantity the "newV", and plot V vs newV
     - Phase diagram?
     - Visualization of how phase diagram changes as T changes?
     - Somehow visualize $$R_\infty$$ as well. Plot V vs R?
+- [ ] Plot n and V relationship
+    - n_i(V) as described above
+    - V(n,n) contour map
+    - plot [n_H(V),n_L(V)] pairs as path on contour map.
 
 
 
