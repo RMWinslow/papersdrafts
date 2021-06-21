@@ -256,8 +256,23 @@ A very high $$T$$ is unlikely. After all, there's a chance that you don't happen
 
 
 
+## Two-type Example 1
 
+*NOTE: Different choices of parameters can lead to non-continous $$n^*_i(V)$$.*
 
+Let $$u_H(n) = \frac{1}{2}[\ln(n) - \frac{1}{1250} x^2]$$
+and let $$u_L(n) = \frac{1}{2}[\ln(n) - \frac{1}{200} x^2]$$.
+
+<!--second parameter 1/(2*X^2) where X is the optimum to be without risk-->
+
+These utility functions were chosen so that
+- the first few connections have very high marginal utility, 
+- but eventually the utility from connections tapers off and starts decreasing.
+- The response to disease risk is large enough to be noticeable.
+
+![Blue line showing n_H^* as a function of V, and an orange line showing the same for L types.](graph_newman_twotype_n(V).svg)
+
+*Notice how both types start becoming increasingly fatalistic after crossing the threshold.*
 
 
 
@@ -265,14 +280,14 @@ A very high $$T$$ is unlikely. After all, there's a chance that you don't happen
 
 ### Plan for calculating two-type equilibriums.
 - Setup
-    - [ ] Decide what the utility functions will look like.
+    - [x] Decide what the utility functions will look like.
         - Need a parameterized function.
         - want H type to have more connections in base case.
         - want $$n^*$$ functions to be smooth.
         - Highly elastic to disease risk
         - (Find util where increase in risk causes equal reductions in contact for each type, ala Kremer?)
     - Fix population sizes at 0.5,0.5?
-- [ ] Calculate detailed grid for $$n^*_i(V)$$ for each $$i$$.
+- [x] Calculate detailed grid for $$n^*_i(V)$$ for each $$i$$.
     - Linearly interpolate to get object which maps $$V$$ to $$n^*_i$$?
         - Doesn't really make sense for discrete output. 
 - Choose a value for $$T$$
@@ -287,6 +302,7 @@ A very high $$T$$ is unlikely. After all, there's a chance that you don't happen
     - n_i(V) as described above
     - V(n,n) contour map
     - plot [n_H(V),n_L(V)] pairs as path on contour map.
+- [ ] Plot elasticities of connections wrt disease risk maybe?
 
 
 
@@ -315,6 +331,7 @@ A very high $$T$$ is unlikely. After all, there's a chance that you don't happen
     - [x] Equilibrium definition
     - [x] Plot $$T_c$$ contours on $$n_H,n_L$$ graph.
     - [ ] Visualize equilibria using phase diagrams?
+- [ ] Figure out conditions on utility that lead to unique equilibrium, lack of equilibrium, etc. (6-21 B?)
 - [ ] Combine Poisson and Discrete nieghbors:
     - Start with discrete results
     - Set that number of neighbors as the mean in a poisson distribution

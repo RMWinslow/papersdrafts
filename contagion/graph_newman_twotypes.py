@@ -17,7 +17,8 @@ CL_percentile = np.arange(0,1.0001,0.01)
 
 #%% Grid creation. Input variables to iterate over.
 n_grid = np.arange(0,31)
-
+Ψ_grid = np.arange(0,1.00001,.001)
+V_grid = np.arange(0,1.00001,.001)
 
 
 #%% PLot a contour graph showing critical threshold given nH,nL
@@ -33,8 +34,16 @@ plt.savefig('graph_newman_twotype_Tc.svg')
 
 
 
+#%% Graph Two Types of people, Plot n(V) for each type
 
-
+#parameters for choice of each type in absence of contagion
+fig,ax = plt.subplots(figsize=(8,5),constrained_layout=True)
+plt.plot(Ψ_grid,[findMyopicBest_n(1-Ψ,u_nlogtaper_H) for Ψ in Ψ_grid])
+plt.plot(Ψ_grid,[findMyopicBest_n(1-Ψ,u_nlogtaper_L) for Ψ in Ψ_grid])
+plt.plot(Ψ_grid,[1/Ψ for Ψ in Ψ_grid])
+labelSubplot(ax, r'newman,two types, $n_H(V)$,$n_L(V)$, and threshold $n > \frac{1}{\Psi}$', r'$\Psi = 1-V$', r'$n^*_i(V)$')
+ax.set_ylim([0,30])
+plt.savefig('graph_newman_twotype_n(V).svg')
 
 
 
