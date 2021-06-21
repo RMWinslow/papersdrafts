@@ -293,6 +293,50 @@ which is positive iff $$n < \frac{-1}{\ln(1-RT)}$$, but this doesn't really matt
 
 
 
+## Equilbrium, Singular, 1 type (connections are one way, doesn't really make much sense. Maybe have an indegree and an outdegree? :shrug:)
+
+Given $$T$$, an equilbrium consists of $$n,R$$ such that:
+
+- Taking $$R$$ as given, $$n$$ solves
+
+    $$\max_n [u(n) - p(n;R,T)]$$
+
+    $$p(n;R,T) = 1 - [1 - TR]^n$$
+
+- The prevalence is consistent with the amoutn of contact:
+
+    $$R = p(n;R,T) = 1 - [1 - TR]^n$$
+
+
+## Equilibrium yada yada messed up version but multiple types
+
+
+Given $$T$$, and population portions $$\{A_i\}$$ an equilbrium consists of $$\{n\},R, W$$ such that:
+
+- Taking $$R,W$$ as given, each $$n_i$$ solves
+
+    $$\max_n [u(n) - p(n_i;W,T)]$$
+
+    $$p(n_i;W,T) = 1 - [1 - TW]^{n_i}$$
+
+- The prevalence is consistent with the amoutn of contact:
+
+    $$R = \sum_i A_i p(n_i;R,T) = \sum_i A_i (1 - [1 - TR]^{n_1})
+    = 1 - \sum_i A_i [1-TR]^{n-1}$$
+
+- The contact prevalence is consistent with the amount of contact:
+
+    $$W = \sum_i  \frac{A_i n_i p(n_i;W,T)}{\sum_i A_i n_i}
+    = \sum_i  \frac{A_i n_i (1 - [1 - TW]^{n_i})}{\sum_i A_i n_i}
+    = 1 - \sum_i  \frac{A_i n_i [1 - TW]^{n_i}}{\sum_i A_i n_i} $$
+
+
+Okay, this isn't useful by itself, but working through this made me realize that the mistake made here (no excess degree whatzit) doesn't actually make the multiple-type case significantly easier.
+And that's a relief in a weird way.
+
+
+
+
 
 
 
@@ -334,9 +378,15 @@ Hopping on a plane raises R to 1.
 - heterogeneity
 - extra layers on decision process.
 
-Someone like aldo or Jan
-
-- Joe pikcens unions
 
 
 
+
+
+
+# TODO
+
+- [ ] Take the extra math from the corrected version
+- [ ] Redo the multiple types 
+    - [ ] Without the excess degree construct
+    - [ ] With just simple poisson contact

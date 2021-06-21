@@ -38,7 +38,7 @@ Unfortunately, this can't be expressed in terms of more elementary functions, so
 
 ### Chance an epidemic occurs
 
-So $$e^{R_\infty R_0}$$ is chance I don't get sick.
+So $$e^{-R_\infty R_0}$$ is chance I don't get sick.
 
 But assuming that I do, how many do I transmit to? What's the child distribution?
 
@@ -103,27 +103,59 @@ This means that increasing the prevalence of the disease actually decreases the 
 <!--For this setup, this threshold happens to be where the disutility and marginal disutility cross. $$1-e^{-vrR\tau}$$ equals $$rR\tau e^{-vrR\tau}$$ when DISREGARD I AM A DINGUS-->
 
 
+## Equilibrium with one type
+
+Given $$\tau, r$$, equilibrium consists of $$v, R$$ such that:
+
+- Given $$\tau,r,R$$, $$v$$ solves
+
+    $$\max_v [u(v) - (1-e^{v r \tau R})]$$
+
+- The epidemic prevalence is consistent with the individual's choices:
+
+    $$R = p(v;R,\tau,r) = 1-e^{-v \ r \tau R}$$
+
+## Equilibrium with multiple types
+
+Given $$\tau, r$$, and populations $$A_H,A_L$$ equilibrium consists of $$v_H,V_L, R_H,R_L,R$$ such that:
+
+- For each $$i\in\{H,L\}$$, given $$\tau,r,R$$, $$v_i$$ solves
+
+    $$\max_{v_i} [u(v_i) - (1-e^{v_i r \tau R})]$$
+
+- The epidemic prevalence is consistent with the individual's choices:
+
+    $$R = \sum_i A_i R_i = \sum_i A_i (1-e^{-v_i \ r \tau R}) 
+    = 1- \sum_i A_i e^{-v_i \ r \tau R}$$
+
+
+The latter condition might be more easily conceptualized in terms of 
+
+$$R_\infty = 1- \sum_i A_i e^{-R_{0i}R_\infty}$$
+
+Unfortunately, this also must be solved numerically, 
+and unlike the Lambert W up above or the polynomials in the discrete case, 
+there isn't a snappy premade way of calculating it.
+Would just have to find fixed points I suppose.
+
+- Calculate detailed grid for each $$v_i(R)$$
+- Iterating over R grid:
+    - Plug in R to get $$v_i(R)$$ for each $$i$$
+    - Use these to get $$1 - \sum_i A_i e^{-R_{0i}R}$$
+    - Call this quantity the "new R", and plot vs R
+    - Phase diagram?
+
 
 
 
 # TODO tomorrow:
 - [x] Second derivatives
+- [ ] Double check that this approach even makes sense.s
 - [ ] what conditions needed on u to garuntee unique optimum in individual's prob
 - [ ] Tie this back into the equilbrium setup
-- [] Extend equilibrium to multiple types?
-
-
-
-
-
-
-
-## Multiple types
-
-R_1, R_2
-
-Risk Pol = $$R_1 N_1 \tau_1 + R_2 N_2 \tau_2$$
-
+- [x] Extend equilibrium to multiple types?
+- [ ] Calculate the Poisson contact equilibrium for a few different utility functions.
+    - See notes right up above.
 
 
 
