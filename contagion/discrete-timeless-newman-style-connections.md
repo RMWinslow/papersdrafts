@@ -1,4 +1,6 @@
-# Newman-style disease network, discrete choice over number of neighbors.
+---
+title: "Newman-style disease network, discrete choice over number of neighbors."
+---
 
 ## Contagion spread, singular degree distribution
 
@@ -198,6 +200,61 @@ This one has the works:
         - If everyone else is quarantining, it is individually optimal to quaratine.
 
 
+
+---
+
+
+
+## Contagion spread, two types. Each type has a singular degree distribution.
+
+
+Suppose there are two types of agents, indexed by $$i$$.
+Type $$i$$ comprises portion $$A_i$$ of the population, with $$\sum_i A_i = 1$$.
+Every agent of type $$i$$ is identical and chooses $$n_i$$ connections. 
+The degree distribution is described by $$p_i=A_i$$.
+
+- Var $$T$$ is still assumed to be the same for all connections.
+
+Following Newman, look at the the probability generating functions for the spread of this disease.
+
+<!--A_H x^{n_H} + A_L x^{n_L}-->
+
+- PGF for number of neighbors: $$G_0(x)=\sum_k p_k x^k = \sum_i A_i x^{n_i}$$
+- PGF for excess degree of random neighbor: $$G_1(x)=\frac{G'_0(x)}{\mu}=\frac{\sum_i A_i n_i x^{n_i-1}}{\sum_i A_i n_i}$$
+- PGF for number of transmissible connections: $$G_0(x;T)=G_0(1-T+TX)=\sum_i A_i (1-T+Tx)^{n_i}$$
+- PGF for number of neighbor's transmissible excess edges: $$G_1(x;T)=G_1(1-T+Tx)=\frac{\sum_i A_i n_i (1-T+Tx)^{n_i-1}}{\sum_i A_i n_i}$$
+- Critical Transmisiibility threshold $$T_c = \frac{1}{G'_1(1)} = \frac{\sum_i A_i n_i}{\sum_i A_i n_i (n_i-1)} = \frac{E[n]}{E[n^2] - E[n]}$$
+- (Meyers Newman et al 2004) $$R_0 = T(\frac{E[k^2]}{E[k]}-1) = T(\frac{\sum_i A_i n_i^2}{\sum_i A_i n_i} - 1) = T\frac{\sum_i A_i n_i (n_i-1)}{\sum_i A_i n_i}$$
+- Chance that end of random edge remains uninfected determined implicitly by $$U=\frac{\sum_i A_i n_i (1-T+TU)^{n_i-1}}{\sum_i A_i n_i}$$
+    - No disease $$U=1$$ is always a solution, 
+        - and is the only solution if $$T < T_c$$ <!--because of concavity-->
+    - Full infection $$U=0$$ is only a solution if $$T=1$$.
+    - Otherwise if $$T > T_c$$, there exists a unique solution $$U\in(0,1)$$
+- Chance that outbreak causes epidemic = fraction of population that gets infected = $$R_\infty = 1-G_0(U;T) =1 - \sum_i A_i (1-T+TU)^{n_i}$$ (called S(T) in Newman)
+- In this case, infected and uninfected people won't differ in degree distribution (duh)
+
+## Equilibrium with two types
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # TODO Tomorrow
 - [x] Graph somehow showing U,n equilibrium?
     - [x] Contour plot for U(n,t), also p and R? Psi?
@@ -206,6 +263,9 @@ This one has the works:
     - [x] Is equilibrium efficient? What about directly choosing n* to get a good outcome?
     - [x] Do that for a few different u functions. (Find a utility function such that equilibrium does exist?)
 - [ ] Version with two types. The *fatalism* is the interesting part!
+    - [x] General PGF info.
+    - [ ] Equilibrium definition
+    - [ ] Plot $$T_c$$ contours on $$n_H,n_L$$ graph.
 - [ ] Combine Poisson and Discrete nieghbors:
     - Start with discrete results
     - Set that number of neighbors as the mean in a poisson distribution
@@ -219,3 +279,4 @@ This one has the works:
     - Make comparison to SIR predictions
     - Somehow shoehorn in the gamma / negbinom distributions to connect to Schreiber paper?
     - Come up with some sort of validation comparison
+    - What happens to ultimate prevalence if the parameters change midway through epidemic. (Equivalently? Infect some random fraction of people as starting condition???)
