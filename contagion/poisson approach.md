@@ -115,35 +115,53 @@ Given $$\tau, r$$, equilibrium consists of $$v, R$$ such that:
 
     $$R = p(v;R,\tau,r) = 1-e^{-v \ r \tau R}$$
 
+
+
+
 ## Equilibrium with multiple types
 
-Given $$\tau, r$$, and populations $$A_H,A_L$$ equilibrium consists of $$v_H,V_L, R_H,R_L,R$$ such that:
+Let $$W$$ be the weighted fully-mixed "pool-~~risk~~incidence". 
+It's the chance that a randomly chosen *partner* 
+gets infected at some point during the epidemic, 
+noting that types with higher contact rates have higher chance of being partner:
 
-- For each $$i\in\{H,L\}$$, given $$\tau,r,R$$, $$v_i$$ solves
+$$W = \frac{\sum_i A_i v_i p(v_i;W,\tau,r)}{\sum_i A_i v_i }$$
 
-    $$\max_{v_i} [u(v_i) - (1-e^{v_i r \tau R})]$$
+And the chance an individual of type $$i$$ doesn't get infected is 
+
+$$1 - p(n_i;W,\tau,r) = \lim_{dt \to 0}(1-vr\tau W (dt/T))^{T/dt} = e^-v r \tau W$$
+
+Given $$\tau, r$$ and populations $$\{A_i\}$$, an equilibrium consists of $$\{v_i\},R, W$$ such that:
+
+- For each $$i\in\{H,L\}$$, given $$\tau,r,R, W$$, $$v_i$$ solves
+
+    $$\max_{v_i} [u(v_i) - (1-e^{v_i r \tau W})]$$
 
 - The epidemic prevalence is consistent with the individual's choices:
 
-    $$R = \sum_i A_i R_i = \sum_i A_i (1-e^{-v_i \ r \tau R}) 
-    = 1- \sum_i A_i e^{-v_i \ r \tau R}$$
+    $$W = \frac{\sum_i A_i v_i (1-e^{v_i r \tau W})}{\sum_i A_i v_i } 
+    = 1 - \frac{\sum_i A_i v_i (e^{v_i r \tau W})}{\sum_i A_i v_i } $$
+
+    $$R = \sum_i A_i (1-e^{-v_i \ r \tau W}) 
+    = 1- \sum_i A_i e^{-v_i \ r \tau W}$$
 
 
 The latter condition might be more easily conceptualized in terms of 
 
-$$R_\infty = 1- \sum_i A_i e^{-R_{0i}R_\infty}$$
+$$R_\infty = 1- \sum_i A_i e^{-R_{0i}W}$$
 
 Unfortunately, this also must be solved numerically, 
 and unlike the Lambert W up above or the polynomials in the discrete case, 
 there isn't a snappy premade way of calculating it.
 Would just have to find fixed points I suppose.
 
-- Calculate detailed grid for each $$v_i(R)$$
-- Iterating over R grid:
-    - Plug in R to get $$v_i(R)$$ for each $$i$$
-    - Use these to get $$1 - \sum_i A_i e^{-R_{0i}R}$$
-    - Call this quantity the "new R", and plot vs R
+- Calculate detailed grid for $$v_i(W)$$ for each $$i$$.
+- Iterating over W grid:
+    - Plug in W to get $$v_i(R)$$ for each $$i$$
+    - Use these to get $$1 - \frac{\sum_i A_i v_i (e^{v_i r \tau W})}{\sum_i A_i v_i }$$
+    - Call this quantity the "newW", and plot W vs newW
     - Phase diagram?
+    - Somehow visualize $$R_\infty$$ as well. Plot W vs R?
 
 
 
