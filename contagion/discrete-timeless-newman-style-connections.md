@@ -231,11 +231,28 @@ Following Newman, look at the the probability generating functions for the sprea
     - Full infection $$U=0$$ is only a solution if $$T=1$$.
     - Otherwise if $$T > T_c$$, there exists a unique solution $$U\in(0,1)$$
 - Chance that outbreak causes epidemic = fraction of population that gets infected = $$R_\infty = 1-G_0(U;T) =1 - \sum_i A_i (1-T+TU)^{n_i}$$ (called S(T) in Newman)
-- In this case, infected and uninfected people won't differ in degree distribution (duh)
+
+![](graph_newman_twotype_Tc.svg)
 
 ## Equilibrium with two types
 
+The consumer's problem with two types is the same as with one type. 
+The only difference is that there are two of them now.
+The in the self-recurrence formula which determines $$U$$ is entirely different though.
 
+$$n_H = \argmax_n [u_H(n_H) - \delta + \delta (1-T+TU)^{n_H} ] \tag{H preferences}$$
+
+$$n_L = \argmax_n [u_L(n_L) - \delta + \delta (1-T+TU)^{n_L} ] \tag{L preferences}$$
+
+$$U = \frac{ A_H n_H (1-T+TU)^{n_H-1} +  A_L n_L (1-T+TU)^{n_L-1}}{A_H n_H + A_L n_L} \tag{unprevalence}$$
+
+Written in terms of $$V=1-T+TU$$, the last becomes
+
+
+$$[\frac{1}{T}V + (1-\frac{1}{T})][A_H n_H + A_L n_L] =  A_H n_H V^{n_H-1} +  A_L n_L V^{n_L-1} $$
+
+Remember, $$T$$ here is the chance that a transmission potentially occurs along a connection which exists for the duration of a pandemic, not the chance that tranmission occurs when the two nieghbors actually physically contact each other. 
+A very high $$T$$ is unlikely. After all, there's a chance that you don't happen to visit them when they're transmissive, or potentially even at all.
 
 
 
