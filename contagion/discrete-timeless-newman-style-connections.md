@@ -255,7 +255,25 @@ Remember, $$T$$ here is the chance that a transmission potentially occurs along 
 A very high $$T$$ is unlikely. After all, there's a chance that you don't happen to visit them when they're transmissive, or potentially even at all.
 
 
-
+### Plan for calculating two-type equilibriums.
+- Setup
+    - Decide what the utility functions will look like.
+        - Need a parameterized function.
+        - want H type to have more connections in base case.
+        - want $$n^*$$ functions to be smooth.
+        - Highly elastic to disease risk
+        - (Find util where increase in risk causes equal reductions in contact for each type, ala Kremer?)
+    - Fix population sizes
+- Calculate detailed grid for $$n^*_i(V)$$ for each $$i$$.
+    - Linearly interpolate to get object which maps $$V$$ to $$n^*_i$$?
+- Choose a value for $$T$$
+- Iterating over V grid:
+    - Plug in V to get $$n*_i(V)$$ for each $$i$$
+    - Use these to get $$V(\{n_i\};T)$$
+    - Call this quantity the "newV", and plot V vs newV
+    - Phase diagram?
+    - Visualization of how phase diagram changes as T changes?
+    - Somehow visualize $$R_\infty$$ as well. Plot V vs R?
 
 
 
@@ -281,8 +299,9 @@ A very high $$T$$ is unlikely. After all, there's a chance that you don't happen
     - [x] Do that for a few different u functions. (Find a utility function such that equilibrium does exist?)
 - [ ] Version with two types. The *fatalism* is the interesting part!
     - [x] General PGF info.
-    - [ ] Equilibrium definition
-    - [ ] Plot $$T_c$$ contours on $$n_H,n_L$$ graph.
+    - [x] Equilibrium definition
+    - [x] Plot $$T_c$$ contours on $$n_H,n_L$$ graph.
+    - [ ] Visualize equilibria using phase diagrams?
 - [ ] Combine Poisson and Discrete nieghbors:
     - Start with discrete results
     - Set that number of neighbors as the mean in a poisson distribution
