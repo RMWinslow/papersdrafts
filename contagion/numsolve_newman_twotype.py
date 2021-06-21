@@ -37,8 +37,8 @@ def pp(p):
 # Despite the imprecisions, I expect using V to be significantly faster now.
 
 def createVpolynomial(T,nH,nL,AH=0.5,AL=0.5):
-    assert nH>1, "nL needs to be at least 2 if you're plugging it in here."
-    assert nL>1, "nH needs to be at least 2 if you're plugging it in here."
+    assert nH>1, "(nH,nL) = (" + str(nH)+','+str(nL)+')'
+    assert nL>1, "nL needs to be at least 2 if you're plugging it in here."
     assert (AH+AL)==1, "Population needs to be normalized."
     coefficients = [0]*max(nH,nL)
     μ = AH*nH+AL*nL
@@ -55,7 +55,7 @@ def calcTc(nH,nL,AH=0.5,AL=0.5):
 
 def approxV(T,nH,nL,AH=0.5,AL=0.5):
     #check for critical threshold
-    if (T <= calcTc(nH,nL,AH,AL)):                                                         
+    if (nH==nL==0) or (T <= calcTc(nH,nL,AH,AL)):                                                         
         return 1
     #if above Tc, calculate unique solution in (0,1)
     Vpoly = createVpolynomial(T,nH,nL,AH,AL)
@@ -131,7 +131,7 @@ def u_smol_neginv_withtaper(n):
     return (1-(1/n)) - 0.0002*n*n
 
 #%% Functions for calculating individual and SPP decisions
-max_n = 50
+max_n = 100
 
 def calcMyopicUgrid(V,utilfunc):
     util_grid = np.array([utilfunc(n)-calcMyopicRisk(n,V) for n in range(max_n)])

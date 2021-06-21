@@ -43,8 +43,23 @@ plt.plot(Ψ_grid,[findMyopicBest_n(1-Ψ,u_nlogtaper_L) for Ψ in Ψ_grid])
 plt.plot(Ψ_grid,[1/Ψ for Ψ in Ψ_grid])
 labelSubplot(ax, r'newman,two types, $n_H(V)$,$n_L(V)$, and threshold $n > \frac{1}{\Psi}$', r'$\Psi = 1-V$', r'$n^*_i(V)$')
 ax.set_ylim([0,30])
+ax.set_xlim([0,1])
 plt.savefig('graph_newman_twotype_n(V).svg')
 
+
+#%% Contour Plot of V based on n_H and n_L
+#   Based on a specific value of T (unless I figure out another way of visualizing)
+
+def plotcontour_V(T,nH_grid,nL_grid,AH,AL):
+    VV = VV = [[approxV(T,nH,nL,AH=AH,AL=AL) for nH in nH_grid] for nL in nL_grid]
+    
+    fig,ax = plt.subplots(figsize=(8,8),constrained_layout=True)
+    CS = ax.contour(nH_grid,nL_grid,VV)
+    labelSubplot(ax, 'newman,twotype, $V(n_H,n_L)$', r'$n_H$', r'$n_L$')
+ 
+    plt.show()
+    
+plotcontour_V(0.2, n_grid, n_grid, 0.5, 0.5)
 
 
 #%% EVERYTHING BELOW THIS LINE IS OLD AND NEEDS TO BE DELETED LATER.
