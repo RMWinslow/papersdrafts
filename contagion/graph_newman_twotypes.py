@@ -49,7 +49,7 @@ plt.savefig('graph_newman_twotype_n(V).svg')
 
 
 #%% Contour Plot of V based on n_H and n_L
-#   Based on a specific value of T (unless I figure out another way of visualizing)
+#   Based on a specific values of T (unless I figure out another way of visualizing)
 
 fig, ((ax0,ax1,ax2),(ax3,ax4,ax5)) = plt.subplots(2,3, 
                       figsize=(15,10),constrained_layout=True)
@@ -67,8 +67,14 @@ makesubplot_contour_V(ax3, 0.2, n_grid, n_grid, 0.5, 0.5)
 makesubplot_contour_V(ax4, 0.3, n_grid, n_grid, 0.5, 0.5)
 makesubplot_contour_V(ax5, 0.5, n_grid, n_grid, 0.5, 0.5)
 
+#plot the pairs of (n_H*,n_L*) as we trace through the value of V.
+nHstars = [findMyopicBest_n(1-Ψ,u_nlogtaper_H) for Ψ in Ψ_grid]
+nLstars = [findMyopicBest_n(1-Ψ,u_nlogtaper_L) for Ψ in Ψ_grid]
+for ax in [ax0,ax1,ax2,ax3,ax4,ax5]: ax.scatter(nHstars,nLstars)
+for ax in [ax0,ax1,ax2,ax3,ax4,ax5]: ax.scatter(nHstars[0],nLstars[0])
+
 fig.suptitle('newman,twotype, $V(n_H,n_L)$ contours for different values of $T$')
-plt.savefig('graph_newman_twotype_Vcontours.png')
+plt.savefig('graph_newman_twotype_Vcontours.svg')
 
 
 #%% EVERYTHING BELOW THIS LINE IS OLD AND NEEDS TO BE DELETED LATER.
