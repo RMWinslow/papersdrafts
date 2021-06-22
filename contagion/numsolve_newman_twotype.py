@@ -178,11 +178,12 @@ def iterateV(V,T,utilfuncH,utilfuncL,AH=0.5,AL=0.5):
         
 def iterate_npair(nH,nL,T,utilfuncH,utilfuncL,AH=0.5,AL=0.5):
     V = approxV(T, nH, nL, AH=AH, AL=AL)
+    #print(V)
     best_nH = findMyopicBest_n(V, utilfuncH)
     best_nL = findMyopicBest_n(V, utilfuncL)
     if len(best_nH) > 1 or len(best_nL) > 1:
         print("multiple optima at V="+str(V)+",T="+str(T))
-        
+    #print(best_nH,best_nL)
     return (best_nH[0],best_nL[0])
         
         

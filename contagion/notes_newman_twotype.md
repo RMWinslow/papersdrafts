@@ -162,6 +162,13 @@ No equilibrium at $$T=0.1$$, however:
 
 ![](newman_twotype_nVn_nlogtaper-φH=25-φL=10-T=.1.png)
 
+With these parameters, the best responses to $$V\approx .925$$ are $$(n_H,n_L)=(13,6)$$, but that choice of $$n$$s prevents an epidemic, leading to $$V=1$$. For $$V=1$$, the best responses are $$(n_H,n_L)=(25,10)$$, which induce a contagion with $$V\approx .925$$, etc.
+
+Multiple equilibria for $$T=0.15$$.
+
+![](newman_twotype_nVn_nlogtaper-φH=25-φL=10-T=.15.png)
+
+Need to ponder the significance thereof.
 
 
 ### TODO -  Plan for calculating two-type equilibriums.
@@ -177,19 +184,19 @@ No equilibrium at $$T=0.1$$, however:
     - Linearly interpolate to get object which maps $$V$$ to $$n^*_i$$?
         - Doesn't really make sense for discrete output. 
 - Choose a value for $$T$$
-- [ ] Iterating over V grid:
+- [x] Iterating over V grid:
     - Plug in V to get $$n*_i(V)$$ for each $$i$$
     - Use these to get $$V(\{n_i\};T)$$
     - Call this quantity the "newV", and plot V vs newV
     - Phase diagram?
     - Visualization of how phase diagram changes as T changes?
-    - Somehow visualize $$R_\infty$$ as well. Plot V vs R?
+    - [ ] Somehow visualize $$R_\infty$$ as well. Plot V vs R?
 - [x] Plot n and V relationship
     - n_i(V) as described above
     - V(n,n) contour map
     - plot [n_H(V),n_L(V)] pairs as path on contour map.
     - [x] Meditate upon the implications for the existence of equilibriums.
-    - [ ] Take each (n,n)loop point, Get the cooresponding V, plug that v into n(V), get the new ns and plot those. Like the image where the function is 'response  behavior to the epidemic caused by the input behvaior)
+    - [x] Take each (n,n)loop point, Get the cooresponding V, plug that v into n(V), get the new ns and plot those. Like the image where the function is 'response  behavior to the epidemic caused by the input behvaior)
     - Thoughts for now: Any V will give us n on the loop. So as long as we don't skip over any chunks of the loop? Think back to how parameters can cause a divot?
     - [x] Go back and do the same for the 1-type case? $$n^*(V(n;T))$$
 - [ ] Plot elasticities of connections wrt disease risk maybe?
@@ -222,8 +229,9 @@ No equilibrium at $$T=0.1$$, however:
     - [x] General PGF info.
     - [x] Equilibrium definition
     - [x] Plot $$T_c$$ contours on $$n_H,n_L$$ graph.
-    - [ ] Visualize equilibria using phase diagrams?
-- [ ] Figure out conditions on utility that lead to unique equilibrium, lack of equilibrium, etc. (6-21 B?)
+    - [x] Visualize equilibria using phase diagrams?
+        - Large regions with V(n(V))= 0 lead to stable oscillations.
+- [ ] Figure out conditions (on utility) that lead to unique equilibrium, lack of equilibrium, etc. (6-21 B?)
 - [ ] Combine Poisson and Discrete nieghbors:
     - Start with discrete results
     - Set that number of neighbors as the mean in a poisson distribution
@@ -234,6 +242,7 @@ No equilibrium at $$T=0.1$$, however:
 - [ ] Improve understanding of threshold? Maybe just move on?
 - [ ] Figure out what I meant by "Continuous version just collapses to [Clauset](https://scholar.google.com/citations?user=e7VI_HcAAAAJ&hl=en&oi=sra) paper."
 - Longer term ideas:
+    - Throw everything in the garbage and just go back to a diffeq based model. (No.)
     - Make comparison to SIR predictions
     - Somehow shoehorn in the gamma / negbinom distributions to connect to Schreiber paper?
     - Come up with some sort of validation comparison
