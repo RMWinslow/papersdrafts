@@ -131,6 +131,8 @@ A very high $$T$$ is unlikely. After all, there's a chance that you don't happen
 Let $$u_H(n) = \frac{1}{2}[\ln(n) - \frac{1}{1250} x^2]$$
 and let $$u_L(n) = \frac{1}{2}[\ln(n) - \frac{1}{200} x^2]$$.
 
+Additionally, let $$A_H=A_L=0.5$$.
+
 <!--second parameter 1/(2*X^2) where X is the optimum to be without risk-->
 
 These utility functions were chosen so that
@@ -146,11 +148,19 @@ These utility functions were chosen so that
 
 *The dots just plot the joint path of n as V varies from 0-1. Note that this is disconnected from the contours for V, which are the same as the above.*
 
+Each value of $$\Psi$$ gives a unique(?) pair of $$n_H^*,n_L^*$$,
+and these connection parameters in term induce a contagion network in which
+the danger from each connection is uniquely $$\Psi(n_H^*,n_L^*)$$ (or 0).
+This is an equilibrium if $$\Psi=\Psi(n_H^*,n_L^*)$$
 
+<table markdown='block'>
+<tr><td><img src="newman_twotype_PsinPsi_nlogtaper-φH=25-φL=10.png"></td>
+<td><img src="newman_twotype_nVn_nlogtaper-φH=25-φL=10-T=.2.png"></td></tr>
+</table>
 
+No equilibrium at $$T=0.1$$, however:
 
-
-
+![](newman_twotype_nVn_nlogtaper-φH=25-φL=10-T=.1.png)
 
 
 

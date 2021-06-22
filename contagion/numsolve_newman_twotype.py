@@ -168,17 +168,24 @@ def iterateV(V,T,utilfuncH,utilfuncL,AH=0.5,AL=0.5):
         print("multiple optima at V="+str(V)+",T="+str(T))
         
     newV = approxV(T, best_nH[0], best_nL[0], AH=AH, AL=AL)
+    if newV==V:
+        print("equilibrium at V="+str(V)+",T="+str(T))
+    
     return newV
         
         
         
         
+def iterate_npair(nH,nL,T,utilfuncH,utilfuncL,AH=0.5,AL=0.5):
+    V = approxV(T, nH, nL, AH=AH, AL=AL)
+    best_nH = findMyopicBest_n(V, utilfuncH)
+    best_nL = findMyopicBest_n(V, utilfuncL)
+    if len(best_nH) > 1 or len(best_nL) > 1:
+        print("multiple optima at V="+str(V)+",T="+str(T))
+        
+    return (best_nH[0],best_nL[0])
         
         
-        
-        
-        
-        
-        
+    
         
 
