@@ -152,6 +152,18 @@ For example, let $$T=0.2$$. Then
 Also interesting is that in this setup, wherever the equilibrium exists, the societally optimal $$n$$ is one below the equilibrium $$n$$. 
 So solid intuition for why that is except just "externalities".
 
+Also note that in many of these cases, an equilibrium actually does exist, 
+just one where the $$n$$ is arbitrarily high.
+When the line of $$V(n^*(V);T)$$ crosses the 45-degree line, 
+that cooresponds to a $$T$$ and $$V$$ that are in equilibrium.
+If such an equilibrium falls on the long left-half of the line, 
+that cooresponds to an 'ignored' epidemic equilibrium, 
+where everyone just carries on as if there was no risk.
+An equilibrium elsewhere represents one in which people do reduce connections.
+(Rememeber higher $$V$$ means less risk per connection.)
+
+![](graph_newman_singular_VnV_neginverse.png)
+
 ### Example 2:  $$U(n)= \frac{-5}{n} - p(n)$$
 
 
@@ -163,6 +175,10 @@ and the disease risk of that increase is at most $$0.25$$
 (because it's less than $$0.25$$ at $$T=0.26$$, and that's past the threshold, so additional prevalence will lower the disease risk further.
 
 (Equivalent to lowering cost of the disease.)
+
+Below, you can see that most of these values of $$T$$ actually do have equilbria, just equilibria with arbitrarily high $$n$$. On this
+
+![](graph_newman_singular_VnV_bigneginverse.png)
 
 
 ### Example 3: $$U(n) = \frac{1}{2}n-\frac{1}{40}n^2 - p(n)$$
@@ -176,6 +192,10 @@ There is a small window of transmisiveness in which it is societally optimal to 
 There is an *even smaller* window in which individuals will *choose* to reduce connections a tiny bit.
 
 
+![](graph_newman_singular_VnV_kremertest.png)
+
+
+
 ### Example 4: $$U(n) = \frac{-5}{n}-\frac{1}{1000}n^2 - p(n)$$
 
 ![](graph_newman_singular_equilibria_neginvtaper.png)
@@ -185,6 +205,10 @@ This one is interesting:
 - Fatalism slowly tapers a bit.
 - Individuals become less socially distant as tranmissivity rises, while SPP becomes less 
 - There is still a tiny window of no equilibria, as in examples 1 and 2.
+
+Below, you can see how the discreteness of $$n$$ leads to a lack of equilibrium for $$T=0.1$$ or $$T=0.15$$
+
+![](graph_newman_singular_VnV_neginvtaper.png)
 
 ### Example 5: $$U(n) = \frac{-1}{n}-\frac{1}{5000}n^2 - p(n)$$
 
@@ -199,6 +223,9 @@ This one has the works:
         - if eveyone else is partying, it is individually optimal to party.
         - If everyone else is quarantining, it is individually optimal to quaratine.
 
+In the graph below, you can see how $$T=0.6$$ has multiple equilibria.
+
+![](graph_newman_singular_VnV_neginvtaper(small).png)
 
 
 ---

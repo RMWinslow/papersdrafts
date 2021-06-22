@@ -25,7 +25,7 @@ PsiPsi = [[1-approximateV(n, T) for T in T_grid] for n in n_grid]
 pnpn = [[1-(1-Psi)**n for Psi in Psi_grid] for n in n_grid]
 
 
-#%% Make the graphs
+#%% Make the six graphs showing various forms of prevalence.
 
 #formatting for contour of U(n,T)
 def fmtcntrU(x):
@@ -130,6 +130,39 @@ plotEquilAndOptim(neginverse_u, 'graph_newman_singular_equilibria_neginverse.png
 #plotEquilAndOptim(u_kremertest, 'graph_newman_singular_equilibria_kremertest.png',r"newman,singular,equilibria(x) and SPP(.),$U=\frac{1}{2}n-\frac{1}{40}n^2-p(n)$")
 #plotEquilAndOptim(u_neginv_withtaper, 'graph_newman_singular_equilibria_neginvtaper.png',r"newman,singular,equilibria(x) and SPP(.),$U=\frac{-5}{n}-\frac{1}{1000}n^2-p(n)$")
 #plotEquilAndOptim(u_smol_neginv_withtaper, 'graph_newman_singular_equilibria_neginvtaper(small).png',r"newman,singular,equilibria(x) and SPP(.),$U=\frac{-1}{n}-\frac{1}{5000}n^2-p(n)$")
+
+
+#%% Plot V(n(V))
+#   For several (or just one at the start) values of T:
+#       Iterate through a grid of Vs:
+#           Plot V(n^*(V))
+
+def plot_VnV_iteration(utilfunc,filename,title):
+    V_grid = np.arange(0,1.000001,0.001)
+    fig,ax = plt.subplots(figsize=(8,8),constrained_layout=True)
+    ax.plot(V_grid,V_grid,c='black',linestyle='dotted')
+    for T in [0.05,0.1,0.15,0.2,0.4,0.6,0.8]:
+        VnV_grid = []
+        for V in V_grid:
+            best_n = findMyopicBest_n(V,utilfunc)
+            #if len(best_n) > 1:
+            #    print("Multiple n*(V) found for V="+str(V)+",T="+str(T))
+            VnV_grid.append(approximateV(best_n[0],T)) 
+        ax.scatter(V_grid,VnV_grid,label='T='+str(T),marker='.')
+    ax.set_ylim([0,1])
+    ax.set_xlim([0,1])
+    ax.grid()
+    ax.set_title(title)
+    ax.set_xlabel(r'$V$')
+    ax.set_ylabel(r'$V(n^*(V);T)$')
+    ax.legend()
+    plt.savefig(filename)
+    
+plot_VnV_iteration(neginverse_u, 'graph_newman_singular_VnV_neginverse.png',r"newman,singular,V(n(V)), $U=2-\frac{1}{n}-p(n)$")
+plot_VnV_iteration(big_neginverse_u, 'graph_newman_singular_VnV_bigneginverse.png',r"newman,singular,V(n(V)), $U=2-\frac{5}{n}-p(n)$")
+plot_VnV_iteration(u_kremertest, 'graph_newman_singular_VnV_kremertest.png',r"newman,singular,V(n(V)), $U=\frac{1}{2}n-\frac{1}{40}n^2-p(n)$")
+plot_VnV_iteration(u_neginv_withtaper, 'graph_newman_singular_VnV_neginvtaper.png',r"newman,singular,V(n(V)), $U=\frac{-5}{n}-\frac{1}{1000}n^2-p(n)$")
+plot_VnV_iteration(u_smol_neginv_withtaper, 'graph_newman_singular_VnV_neginvtaper(small).png',r"newman,singular,V(n(V)), $U=\frac{-1}{n}-\frac{1}{5000}n^2-p(n)$")
 
 
 
