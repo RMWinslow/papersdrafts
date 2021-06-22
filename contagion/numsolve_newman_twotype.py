@@ -62,7 +62,7 @@ def approxV(T,nH,nL,AH=0.5,AL=0.5):
     Vpoly = createVpolynomial(T,nH,nL,AH,AL)
     Vroots = Vpoly.roots()
     for root in Vroots:
-        if (0 < root.real < 1) and np.isreal(root):
+        if ((1-T) <= root.real < 1) and np.isreal(root):
             return root.real
     print("Hey, what are you doing here?", T,nH,nL,AH,AL)
     
