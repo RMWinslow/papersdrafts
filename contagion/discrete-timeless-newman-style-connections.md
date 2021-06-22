@@ -181,7 +181,10 @@ and the disease risk of that increase is at most $$0.25$$
 
 Below, you can see that most of these values of $$T$$ actually do have equilbria, just equilibria with arbitrarily high $$n$$. On this
 
-![](graph_newman_singular_VnV_bigneginverse.png)
+<table markdown='block'>
+<tr><td><img src="graph_newman_singular_VnV_bigneginverse.png"></td>
+<td><img src="graph_newman_singular_nVn_bigneginverse.png"></td></tr>
+</table>
 
 
 ### Example 3: $$U(n) = \frac{1}{2}n-\frac{1}{40}n^2 - p(n)$$
@@ -195,7 +198,10 @@ There is a small window of transmisiveness in which it is societally optimal to 
 There is an *even smaller* window in which individuals will *choose* to reduce connections a tiny bit.
 
 
-![](graph_newman_singular_VnV_kremertest.png)
+<table markdown='block'>
+<tr><td><img src="graph_newman_singular_VnV_kremertest.png"></td>
+<td><img src="graph_newman_singular_nVn_kremertest.png"></td></tr>
+</table>
 
 
 
@@ -211,7 +217,10 @@ This one is interesting:
 
 Below, you can see how the discreteness of $$n$$ leads to a lack of equilibrium for $$T=0.1$$ or $$T=0.15$$
 
-![](graph_newman_singular_VnV_neginvtaper.png)
+<table markdown='block'>
+<tr><td><img src="graph_newman_singular_VnV_neginvtaper.png"></td>
+<td><img src="graph_newman_singular_nVn_neginvtaper.png"></td></tr>
+</table>
 
 ### Example 5: $$U(n) = \frac{-1}{n}-\frac{1}{5000}n^2 - p(n)$$
 
@@ -228,7 +237,10 @@ This one has the works:
 
 In the graph below, you can see how $$T=0.6$$ has multiple equilibria.
 
-![](graph_newman_singular_VnV_neginvtaper(small).png)
+<table markdown='block'>
+<tr><td><img src="graph_newman_singular_VnV_neginvtaper(small).png"></td>
+<td><img src="graph_newman_singular_nVn_eginvtaper(small).png"></td></tr>
+</table>
 
 
 ---
