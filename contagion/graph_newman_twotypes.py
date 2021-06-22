@@ -51,16 +51,24 @@ plt.savefig('graph_newman_twotype_n(V).svg')
 #%% Contour Plot of V based on n_H and n_L
 #   Based on a specific value of T (unless I figure out another way of visualizing)
 
-def plotcontour_V(T,nH_grid,nL_grid,AH,AL):
+fig, ((ax0,ax1,ax2),(ax3,ax4,ax5)) = plt.subplots(2,3, 
+                      figsize=(15,10),constrained_layout=True)
+
+def makesubplot_contour_V(ax,T,nH_grid,nL_grid,AH,AL):
     VV = VV = [[approxV(T,nH,nL,AH=AH,AL=AL) for nH in nH_grid] for nL in nL_grid]
-    
-    fig,ax = plt.subplots(figsize=(8,8),constrained_layout=True)
     CS = ax.contour(nH_grid,nL_grid,VV,CL_percentile,)
     ax.clabel(CS,CS.levels,fmt='{:.2}'.format,inline=False,fontsize=8)
-    labelSubplot(ax, 'newman,twotype, $V(n_H,n_L)$ contour, T='+str(T), r'$n_H$', r'$n_L$')
-    plt.savefig('graph_newman_twotype_Vcontour_T='+str(T)+'.png')
+    labelSubplot(ax, '$V(n_H,n_L)$ contour for  $T=$'+str(T), r'$n_H$', r'$n_L$')
     
-plotcontour_V(0.5, n_grid, n_grid, 0.5, 0.5)
+makesubplot_contour_V(ax0, 0.05, n_grid, n_grid, 0.5, 0.5)
+makesubplot_contour_V(ax1, 0.1, n_grid, n_grid, 0.5, 0.5)
+makesubplot_contour_V(ax2, 0.15, n_grid, n_grid, 0.5, 0.5)
+makesubplot_contour_V(ax3, 0.2, n_grid, n_grid, 0.5, 0.5)
+makesubplot_contour_V(ax4, 0.3, n_grid, n_grid, 0.5, 0.5)
+makesubplot_contour_V(ax5, 0.5, n_grid, n_grid, 0.5, 0.5)
+
+fig.suptitle('newman,twotype, $V(n_H,n_L)$ contours for different values of $T$')
+plt.savefig('graph_newman_twotype_Vcontours.png')
 
 
 #%% EVERYTHING BELOW THIS LINE IS OLD AND NEEDS TO BE DELETED LATER.
