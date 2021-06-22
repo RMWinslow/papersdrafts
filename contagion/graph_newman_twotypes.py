@@ -14,6 +14,7 @@ def labelSubplot(ax,title,xlabel,ylabel):
     
 CL_log10 = [1E-09,1E-08,1E-07,1E-06,1E-05,1E-04,1E-03,1E-02,1E-01,.99999999]
 CL_percentile = np.arange(0,1.0001,0.01)
+CL_logGraded = [.99999999999]
 
 #%% Grid creation. Input variables to iterate over.
 n_grid = np.arange(0,31)
@@ -54,12 +55,12 @@ def plotcontour_V(T,nH_grid,nL_grid,AH,AL):
     VV = VV = [[approxV(T,nH,nL,AH=AH,AL=AL) for nH in nH_grid] for nL in nL_grid]
     
     fig,ax = plt.subplots(figsize=(8,8),constrained_layout=True)
-    CS = ax.contour(nH_grid,nL_grid,VV)
-    labelSubplot(ax, 'newman,twotype, $V(n_H,n_L)$', r'$n_H$', r'$n_L$')
- 
-    plt.show()
+    CS = ax.contour(nH_grid,nL_grid,VV,CL_percentile,)
+    ax.clabel(CS,CS.levels,fmt='{:.2}'.format,inline=False,fontsize=8)
+    labelSubplot(ax, 'newman,twotype, $V(n_H,n_L)$ contour, T='+str(T), r'$n_H$', r'$n_L$')
+    plt.savefig('graph_newman_twotype_Vcontour_T='+str(T)+'.png')
     
-plotcontour_V(0.2, n_grid, n_grid, 0.5, 0.5)
+plotcontour_V(0.5, n_grid, n_grid, 0.5, 0.5)
 
 
 #%% EVERYTHING BELOW THIS LINE IS OLD AND NEEDS TO BE DELETED LATER.
