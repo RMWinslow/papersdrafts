@@ -163,8 +163,8 @@ An equilibrium elsewhere represents one in which people do reduce connections.
 (Rememeber higher $$V$$ means less risk per connection.)
 
 <table markdown='block'>
-<tr><td>![](graph_newman_singular_VnV_neginverse.png)</td>
-<td>![](graph_newman_singular_nVn_neginverse.png)</td></tr>
+<tr><td><img src="graph_newman_singular_VnV_neginverse.png"></td>
+<td><img src="graph_newman_singular_nVn_neginverse.png"></td></tr>
 </table>
 
 ### Example 2:  $$U(n)= \frac{-5}{n} - p(n)$$
