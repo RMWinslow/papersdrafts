@@ -165,6 +165,38 @@ plot_VnV_iteration(u_neginv_withtaper, 'graph_newman_singular_VnV_neginvtaper.pn
 plot_VnV_iteration(u_smol_neginv_withtaper, 'graph_newman_singular_VnV_neginvtaper(small).png',r"newman,singular,V(n(V)), $U=\frac{-1}{n}-\frac{1}{5000}n^2-p(n)$")
 
 
+#%% Plot n(V(n))
+#   For several (or just one at the start) values of T:
+#       Iterate through a grid of Vs:
+#           Plot V(n^*(V))
+
+def plot_nVn_iteration(utilfunc,filename,title):
+    n_grid = np.arange(0,31)
+    fig,ax = plt.subplots(figsize=(8,8),constrained_layout=True)
+    ax.plot(n_grid,n_grid,c='black',linestyle='dotted')
+    T_list = [0.05,0.1,0.15,0.2,0.4,0.6,0.8]
+    marker_list = ['s','o','*','x','+','.','.','.','.','.','.','.',]
+    for T,m in zip(T_list,marker_list):
+        nVn_grid = []
+        for n in n_grid:
+            newV = approximateV(n,T)
+            nVn_grid.append(findMyopicBest_n(newV,utilfunc)[0]) 
+        ax.scatter(n_grid,nVn_grid,label='T='+str(T),alpha=1,marker=m)
+    ax.set_ylim([0,30])
+    ax.set_xlim([0,30])
+    ax.grid()
+    ax.set_title(title)
+    ax.set_xlabel(r'$n$')
+    ax.set_ylabel(r'$n^*(V(n;T)$')
+    ax.legend()
+    plt.savefig(filename)
+    
+plot_nVn_iteration(neginverse_u, 'graph_newman_singular_nVn_neginverse.png',r"newman,singular,n(V(n)), $U=2-\frac{1}{n}-p(n)$")
+plot_nVn_iteration(big_neginverse_u, 'graph_newman_singular_nVn_bigneginverse.png',r"newman,singular,n(V(n)), $U=2-\frac{5}{n}-p(n)$")
+plot_nVn_iteration(u_kremertest, 'graph_newman_singular_nVn_kremertest.png',r"newman,singular,n(V(n)), $U=\frac{1}{2}n-\frac{1}{40}n^2-p(n)$")
+plot_nVn_iteration(u_neginv_withtaper, 'graph_newman_singular_nVn_neginvtaper.png',r"newman,singular,n(V(n)), $U=\frac{-5}{n}-\frac{1}{1000}n^2-p(n)$")
+plot_nVn_iteration(u_smol_neginv_withtaper, 'graph_newman_singular_nVn_neginvtaper(small).png',r"newman,singular,n(V(n)), $U=\frac{-1}{n}-\frac{1}{5000}n^2-p(n)$")
+
 
 
 #%% Plot p(n;Psi)-p(n+1;Psi) 
