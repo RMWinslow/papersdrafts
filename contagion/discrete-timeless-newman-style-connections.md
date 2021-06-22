@@ -270,11 +270,18 @@ These utility functions were chosen so that
 - but eventually the utility from connections tapers off and starts decreasing.
 - The response to disease risk is large enough to be noticeable.
 
-![Blue line showing n_H^* as a function of V, and an orange line showing the same for L types.](graph_newman_twotype_n(V).svg)
+![Blue line showing n_H^* as a function of V, and an orange line showing the same for L types.](graph_newman_twotype_n(V).png)
 
 *Notice how both types start becoming increasingly fatalistic after crossing the threshold.*
 
+![Contours for different values of T, along with the path of ns from the previous graph.](graph_newman_twotype_Vcontours.png)
 
+*If the joint path of ns were continous instead of discrete, I could use this as proof of the existence of equilibrium. Maybe? Something something fixed-point theorem?*
+
+Notice a few things:
+- V can't fall below 1-T.
+- Lowering the activity of one type lowers per-contact risk for both types.
+    - But lowering it too far eradicates those benefits as that type is no longer making connections.
 
 
 
@@ -298,11 +305,16 @@ These utility functions were chosen so that
     - Phase diagram?
     - Visualization of how phase diagram changes as T changes?
     - Somehow visualize $$R_\infty$$ as well. Plot V vs R?
-- [ ] Plot n and V relationship
+- [x] Plot n and V relationship
     - n_i(V) as described above
     - V(n,n) contour map
     - plot [n_H(V),n_L(V)] pairs as path on contour map.
+    - [ ] Meditate upon the implications for the existence of equilibriums.
+    - [ ] Take each (n,n)loop point, Get the cooresponding V, plug that v into n(V), get the new ns and plot those. Like the image where the function is 'response  behavior to the epidemic caused by the input behvaior)
+    - Thoughts for now: Any V will give us n on the loop. So as long as we don't skip over any chunks of the loop? Think back to how parameters can cause a divot?
+    - [ ] Go back and do the same for the 1-type case? $$n^*(V(n;T))$$
 - [ ] Plot elasticities of connections wrt disease risk maybe?
+    - Behavioral reponse to contact risk, and contact risk response to behavior?
 
 
 
