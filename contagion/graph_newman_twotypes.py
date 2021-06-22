@@ -74,7 +74,7 @@ for ax in [ax0,ax1,ax2,ax3,ax4,ax5]: ax.scatter(nHstars,nLstars)
 for ax in [ax0,ax1,ax2,ax3,ax4,ax5]: ax.scatter(nHstars[0],nLstars[0])
 
 fig.suptitle('newman,twotype, $V(n_H,n_L)$ contours for different values of $T$')
-plt.savefig('graph_newman_twotype_Vcontours.png')
+plt.savefig('graph_newman_twotype_Vcontours_nlogtaper.png')
 
 
 #%% EVERYTHING BELOW THIS LINE IS OLD AND NEEDS TO BE DELETED LATER.

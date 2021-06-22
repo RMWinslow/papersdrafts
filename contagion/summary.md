@@ -32,5 +32,8 @@ Depending on how much people care about social connections and how contagious th
 - It is individually optimal to reduce connections if and only iff nobody else does, leading to a lack of equilibria (just a consequence of everyone being identical)
 
 
+### [Two types of people, each with singular degree](notes_newman_twotype)
+
+This is the same as the above, except that there are two types of people, each of which has different preferences over connections and thus chooses a different amount of connections.
 
 
