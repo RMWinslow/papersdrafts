@@ -15,9 +15,9 @@ Given parameters for a contagion, individual people choose some measure of conne
 
 
 
-## Notes so far.
+## Notes so far:
 
-### [Singular degree distributions](discrete-timeless-newman-style-connections)
+### [Singular degree distributions](notes_newman_singular)
 
 Here, I'm assuming that there are only one type of people, and each type of person chooses a specific number of connections to have.
 
