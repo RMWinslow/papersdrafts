@@ -54,26 +54,29 @@ plt.savefig('graph_newman_twotype_n(V).svg')
 fig, ((ax0,ax1,ax2),(ax3,ax4,ax5)) = plt.subplots(2,3, 
                       figsize=(15,10),constrained_layout=True)
 
-def makesubplot_contour_V(ax,T,nH_grid,nL_grid,AH,AL):
+def makesubplot_contour_V(ax,T,nH_grid,nL_grid,AH=0.3,AL=0.7):
     VV = VV = [[nnt.approxV(T,nH,nL,AH=AH,AL=AL) for nH in nH_grid] for nL in nL_grid]
     CS = ax.contour(nH_grid,nL_grid,VV,CL_percentile,)
     ax.clabel(CS,CS.levels,fmt='{:.2}'.format,inline=False,fontsize=8)
     labelSubplot(ax, '$V(n_H,n_L)$ contour for  $T=$'+str(T), r'$n_H$', r'$n_L$')
     
-makesubplot_contour_V(ax0, 0.05, n_grid, n_grid, 0.5, 0.5)
-makesubplot_contour_V(ax1, 0.1, n_grid, n_grid, 0.5, 0.5)
-makesubplot_contour_V(ax2, 0.15, n_grid, n_grid, 0.5, 0.5)
-makesubplot_contour_V(ax3, 0.2, n_grid, n_grid, 0.5, 0.5)
-makesubplot_contour_V(ax4, 0.3, n_grid, n_grid, 0.5, 0.5)
-makesubplot_contour_V(ax5, 0.5, n_grid, n_grid, 0.5, 0.5)
+makesubplot_contour_V(ax0, 0.05, n_grid, n_grid,)
+makesubplot_contour_V(ax1, 0.1, n_grid, n_grid,)
+makesubplot_contour_V(ax2, 0.15, n_grid, n_grid,)
+makesubplot_contour_V(ax3, 0.2, n_grid, n_grid,)
+makesubplot_contour_V(ax4, 0.3, n_grid, n_grid,)
+makesubplot_contour_V(ax5, 0.5, n_grid, n_grid,)
 
 #plot the pairs of (n_H*,n_L*) as we trace through the value of V.
-nHstars = [nnt.findMyopicBest_n(1-Ψ,nnt.u_nlogtaper_H) for Ψ in Ψ_grid]
+'''nHstars = [nnt.findMyopicBest_n(1-Ψ,nnt.u_nlogtaper_H) for Ψ in Ψ_grid]
 nLstars = [nnt.findMyopicBest_n(1-Ψ,nnt.u_nlogtaper_L) for Ψ in Ψ_grid]
 for ax in [ax0,ax1,ax2,ax3,ax4,ax5]: ax.scatter(nHstars,nLstars)
-for ax in [ax0,ax1,ax2,ax3,ax4,ax5]: ax.scatter(nHstars[0],nLstars[0])
+for ax in [ax0,ax1,ax2,ax3,ax4,ax5]: ax.scatter(nHstars[0],nLstars[0])'''
 
-fig.suptitle('newman,twotype, $V(n_H,n_L)$ contours for different values of $T$')
-plt.savefig('graph_newman_twotype_Vcontours_nlogtaper.png')
+#fig.suptitle('newman,twotype, $V(n_H,n_L)$ contours for different values of $T$')
+#plt.savefig('graph_newman_twotype_Vcontours_nlogtaper.png')
+fig.suptitle('newman,twotype, $V(n_H,n_L)$ contours for different values of $T$, but $A_H=0.3$ and $A_L=0.7$')
+plt.savefig('graph_newman_twotype_Vcontours_populationtwist.png')
 
 
+#%% Plot V(n(V)) to visualize equilibrium.
