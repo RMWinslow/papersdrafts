@@ -37,10 +37,8 @@ def pp(p):
 # Despite the imprecisions, I expect using V to be significantly faster now.
 
 def createVpolynomial(T,nH,nL,AH=0.5,AL=0.5):
-    assert nH>1, "(nH,nL) = (" + str(nH)+','+str(nL)+')'
-    assert nL>1, "nL needs to be at least 2 if you're plugging it in here."
     assert (AH+AL)==1, "Population needs to be normalized."
-    coefficients = [0]*max(nH,nL)
+    coefficients = [0]*max(nH,nL,2)
     μ = AH*nH+AL*nL
     coefficients[0] = μ*(1-T)
     coefficients[1] = μ*(-1)
@@ -51,11 +49,14 @@ def createVpolynomial(T,nH,nL,AH=0.5,AL=0.5):
 def calcTc(nH,nL,AH=0.5,AL=0.5):
     μ = AH*nH+AL*nL
     En2 = AH*nH*nH + AL*nL*nL #E[n^2]
-    return  μ / (En2-μ)
+    if En2 == μ: #check for zero in denominator. Happens when both n in [0,1].
+        return np.inf
+    else: 
+        return  μ / (En2-μ)
 
 def approxV(T,nH,nL,AH=0.5,AL=0.5):
     #check for critical threshold
-    if (nH==nL==0) or (T <= calcTc(nH,nL,AH,AL)):                                                         
+    if (T <= calcTc(nH,nL,AH,AL)):                                                        
         return 1
     #if above Tc, calculate unique solution in (0,1)
     Vpoly = createVpolynomial(T,nH,nL,AH,AL)
