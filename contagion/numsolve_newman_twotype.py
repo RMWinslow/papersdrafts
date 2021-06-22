@@ -34,7 +34,7 @@ def pp(p):
     print(f"{p:unicode}")
 
 #%% Calculate U = (AH*nH*(1-T+TU)**(nH-1)+AL*nL*(1-T+TU)**(nL-1))/(AH*nH+AL*nL)
-# Despite the imprecisions, I expect using V to be significantly faster now.
+# Despite the imprecisions, I expect using V to be significantly faster now in the twotype case.
 
 def createVpolynomial(T,nH,nL,AH=0.5,AL=0.5):
     assert (AH+AL)==1, "Population needs to be normalized."
@@ -158,4 +158,27 @@ def SPPu(T,utilfunc):
     return best_outcomes
 '''
 
+def iterateV(V,T,utilfuncH,utilfuncL,AH=0.5,AL=0.5):
+    #Given V in 0,1, find the optimum n_i(V) for each i, 
+    #then plug these back into V({n_i},T)
+    #Equilibrium where V=V(n(V))
+    best_nH = findMyopicBest_n(V, utilfuncH)
+    best_nL = findMyopicBest_n(V, utilfuncL)
+    if len(best_nH) > 1 or len(best_nL) > 1:
+        print("multiple optima at V="+str(V)+",T="+str(T))
+        
+    newV = approxV(T, best_nH[0], best_nL[0], AH=AH, AL=AL)
+    return newV
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
