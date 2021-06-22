@@ -285,7 +285,7 @@ Notice a few things:
 
 
 
-### Plan for calculating two-type equilibriums.
+### TODO -  Plan for calculating two-type equilibriums.
 - Setup
     - [x] Decide what the utility functions will look like.
         - Need a parameterized function.
@@ -315,6 +315,7 @@ Notice a few things:
     - [ ] Go back and do the same for the 1-type case? $$n^*(V(n;T))$$
 - [ ] Plot elasticities of connections wrt disease risk maybe?
     - Behavioral reponse to contact risk, and contact risk response to behavior?
+    - Use envelope theorem to describe dV/dn_i?
 
 
 
