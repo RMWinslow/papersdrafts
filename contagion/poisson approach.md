@@ -190,7 +190,9 @@ Would just have to find fixed points I suppose.
     - See notes right up above.
 
 
-
+What if vaccine arrives with poisson rate bleh?
+Then probability of infection becomes vrtauW/(vrtauW+bleh)?
+Doesn't seem quite the same, given that the W is also affected by vaccine arrival.
 
 
 
