@@ -84,9 +84,38 @@ def compare_solver_accuracy(vrtau):
 #print(approx_W(1,1,[1],[2]))
 
 
+#%% Utility functions for contact rate
+# Basically same as for Newman stlye, but with u instead of V
 
+def u_vlogtaper(n,vsansrisk,weight):
+    #vsansrisk is a parameter representing the optimum choice when rtauW=0
+    return weight*(np.log(n) - n**2 / (2*vsansrisk**2))
+
+φH = 25
+φL = 10
+
+def u_vlogtaper_H(v):
+    return u_vlogtaper(v,φH,0.5)
     
+def u_vlogtaper_L(v):
+    return u_vlogtaper(v,φL,0.5)
     
+
+#%% Find the best response V_i* to parameters rtauW 
+
+def approx_bestvi(r,tau,W,utilfunc):
+    #need to look at -U because scipy has minimization functions.
+    #only goes to 10^-9 accuracy. And not bumping up against maxiter either. Weird.
+    negU = lambda vi: - utilfunc(vi) + calc_p(vi,r,tau,W)
+    return optimize.minimize_scalar(negU,options={'xtol': np.finfo(float).eps})
+    
+print(approx_bestvi(1,1,0,u_vlogtaper_H))
+
+
+
+
+
+
 
 
 #%% Calculate U = (AH*nH*(1-T+TU)**(nH-1)+AL*nL*(1-T+TU)**(nL-1))/(AH*nH+AL*nL)
@@ -142,20 +171,6 @@ def calcRviaV(T,nH,nL,AH=0.5,AL=0.5, V=None):
 
 
 #%% utility functions
-
-def u_nlogtaper(n,nsansV,weight):
-    #nsansV is a parameter representing the optimum choice when V=1
-    return weight*(np.log(n) - n**2 / (2*nsansV**2))
-
-φH = 25
-φL = 10
-
-def u_nlogtaper_H(n):
-    return u_nlogtaper(n,φH,0.5)
-    
-def u_nlogtaper_L(n):
-    return u_nlogtaper(n,φL,0.5)
-    
 
 
 

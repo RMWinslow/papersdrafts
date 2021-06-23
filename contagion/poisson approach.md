@@ -100,6 +100,10 @@ $$\frac{d}{dR} r\tau Re^{-vr\tau R} = -vr\tau \cdot r\tau R e^{-vrR\tau} + r\tau
 
 This means that increasing the prevalence of the disease actually decreases the marginal disutility from the disease when $$v > 1/r\tau R$$, meaning that the rate of contact exceeds the inverse of (the total disease time times the chance an infectious contact transmits ("total expected transmission time"?)). Or similarly, when $$v\tau > 1/rR$$ meaning that the number of contacts per disease-period exceeds the inverse of (final size of pandemic times chance an infectious contact transmits).
 
+At this threshold of $$v=\frac{1}{r\tau W}$$, $$p(v;r,\tau,W)=1-e^{-1}=1-\frac{1}{e}\approx 0.63$$.
+To repeat, **the fatalism threshold is when the probability of infection exceeds 1-1/e**,
+as mentioned in one of Kremer's footnotes when the lifespan is of fixed length.
+
 <!--For this setup, this threshold happens to be where the disutility and marginal disutility cross. $$1-e^{-vrR\tau}$$ equals $$rR\tau e^{-vrR\tau}$$ when DISREGARD I AM A DINGUS-->
 
 
