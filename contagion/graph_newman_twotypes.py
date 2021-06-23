@@ -125,11 +125,12 @@ def plot_nVn_iteration(utilfuncH,utilfuncL,speciallabel,T):
     ax.set_ylim([0,30])
     ax.set_xlim([0,30])
     ax.grid()
-    labelSubplot(ax, 'newman,twotype,n(V(n)),'+speciallabel, '$n_H$', '$n_L$')
+    labelSubplot(ax, 'newman,twotype,nVn,'+speciallabel, '$n_H$', '$n_L$')
     plt.savefig('newman_twotype_nVn_'+speciallabel+'.png')
 
 plot_nVn_iteration(nnt.u_nlogtaper_H,nnt.u_nlogtaper_L,'nlogtaper-φH=25-φL=10-T=.2',0.2)
 plot_nVn_iteration(nnt.u_nlogtaper_H,nnt.u_nlogtaper_L,'nlogtaper-φH=25-φL=10-T=.1',0.1)
+plot_nVn_iteration(nnt.u_nlogtaper_H,nnt.u_nlogtaper_L,'nlogtaper-φH=25-φL=10-T=.15',0.15)
 
 #Could I trun this into a gif maybe?
 

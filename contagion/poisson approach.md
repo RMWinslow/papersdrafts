@@ -129,18 +129,18 @@ $$W = \frac{\sum_i A_i v_i p(v_i;W,\tau,r)}{\sum_i A_i v_i }$$
 
 And the chance an individual of type $$i$$ doesn't get infected is 
 
-$$1 - p(n_i;W,\tau,r) = \lim_{dt \to 0}(1-vr\tau W (dt/T))^{T/dt} = e^-v r \tau W$$
+$$1 - p(n_i;W,\tau,r) = \lim_{dt \to 0}(1-vr\tau W (dt/T))^{T/dt} = e^{-v r \tau W}$$
 
 Given $$\tau, r$$ and populations $$\{A_i\}$$, an equilibrium consists of $$\{v_i\},R, W$$ such that:
 
 - For each $$i\in\{H,L\}$$, given $$\tau,r,R, W$$, $$v_i$$ solves
 
-    $$\max_{v_i} [u(v_i) - (1-e^{v_i r \tau W})]$$
+    $$\max_{v_i} [u(v_i) - (1-e^{- v_i r \tau W})]$$
 
 - The epidemic prevalence is consistent with the individual's choices:
 
-    $$W = \frac{\sum_i A_i v_i (1-e^{v_i r \tau W})}{\sum_i A_i v_i } 
-    = 1 - \frac{\sum_i A_i v_i (e^{v_i r \tau W})}{\sum_i A_i v_i } $$
+    $$W = \frac{\sum_i A_i v_i (1-e^{- v_i r \tau W})}{\sum_i A_i v_i } 
+    = 1 - \frac{\sum_i A_i v_i (e^{- v_i r \tau W})}{\sum_i A_i v_i } $$
 
     $$R = \sum_i A_i (1-e^{-v_i \ r \tau W}) 
     = 1- \sum_i A_i e^{-v_i \ r \tau W}$$
@@ -158,17 +158,27 @@ Would just have to find fixed points I suppose.
 - Calculate detailed grid for $$v_i(W)$$ for each $$i$$.
 - Iterating over W grid:
     - Plug in W to get $$v_i(R)$$ for each $$i$$
-    - Use these to get $$1 - \frac{\sum_i A_i v_i (e^{v_i r \tau W})}{\sum_i A_i v_i }$$
+    - Use these to get $$1 - \frac{\sum_i A_i v_i (e^{- v_i r \tau W})}{\sum_i A_i v_i }$$
     - Call this quantity the "newW", and plot W vs newW
     - Phase diagram?
     - Somehow visualize $$R_\infty$$ as well. Plot W vs R?
+
+
+### A few notes about solutions for W
+
+- The solution $$W=0$$ always exists, regardless of parameters for $$v_i,r,\tau$$
+- A solution $$W\in(0,1)$$ exists only if $$\frac{d}{dW}(1 - \frac{\sum_i A_i v_i (e^{- v_i r \tau W})}{\sum_i A_i v_i }) > 1$$ at $$W=0$$.
+    - The above condition can be rearranged as "An epidemic occurs with non-zero probability iff $$r\tau E[v^2] > E[v]$$
+    - If such a solution exists, it is unique because $$1 - \frac{\sum_i A_i v_i (e^{- v_i r \tau W})}{\sum_i A_i v_i }$$ is increasing and concave down over the domains for these parameters.
+
+
 
 
 
 
 # TODO tomorrow:
 - [x] Second derivatives
-- [ ] Double check that this approach even makes sense.s
+- [x] Double check that this approach even makes sense.s
 - [ ] what conditions needed on u to garuntee unique optimum in individual's prob
 - [ ] Tie this back into the equilbrium setup
 - [x] Extend equilibrium to multiple types?
