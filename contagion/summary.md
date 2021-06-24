@@ -37,3 +37,6 @@ Depending on how much people care about social connections and how contagious th
 This is the same as the above, except that there are two types of people, each of which has different preferences over connections and thus chooses a different amount of connections.
 
 
+### [Multiple types of people who imperfectly choose their degree](notes_newman_poisson)
+
+Here, each type $$i$$ chooses the number of connections $$N_i$$ they want, but the actual number of connections they make is determined by a Poisson process with mean $$N_i$$. The averages work out to be the same as in the previous case, but this smooths things out and hopefully removes the ugly discontinuities when I go to graph it.
