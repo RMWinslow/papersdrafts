@@ -209,6 +209,24 @@ for $$\psi = 25$$ and $$\psi = 10$$.
 
 *When the line is crammed against the bottom, that means the $$r\tau$$ is so low that the infection dies out even  if nobody social distances at all. When the line is crammed against the top, it means that $$r\tau$$ is so high that even the quarantine behavior of individuals isn't enough to appreciably reduce their chance of getting sick, or at least not among the types that dominate connections.*
 
+### Discontinuity with the utility func from Kremer
+
+<table markdown='block'><tr>
+<td><img src="graph_poisson_W(v(W))_kremertest3.png"></td>
+<td><img src="graph_poisson_W(v(W))_kremertestmix.png"></td>
+<td><img src="graph_poisson_W(v(W))_kremertest2.png"></td>
+</tr></table>
+
+*The leftmost has a consumer's problem such that $$v_i^*(Wr\tau)$$ is discontinuous. The rightmost has continuous best response. The middle is a 50-50 population mix of the two.*
+
+Thoughts:
+- If the discontinuities only 'move upwards', that doesn't prevent an equilibrium from happening, does it?
+    - Wait no, it totally can if the function starts below the line. But then there would still be two equilibriums at $$W=0$$ and $$W=1$$
+
+
+
+
+
 
 # TODO tomorrow:
 - [x] Second derivatives

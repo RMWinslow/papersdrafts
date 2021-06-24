@@ -57,8 +57,9 @@ def plot_Witeration(Ai_list,utilfunc_list,speciallabel):
     labelSubplot(ax, 'poisson,W(v(W)),'+speciallabel, '$W$', '$W(\{v_i^*(W)\})$')
     plt.savefig('graph_poisson_W(v(W))_'+speciallabel+'.png')
     
-plot_Witeration([0.5,0.5],[npm.u_vlogtaper_H,npm.u_vlogtaper_L],'vlogtaper25,10')    
+#plot_Witeration([0.5,0.5],[npm.u_vlogtaper_H,npm.u_vlogtaper_L],'vlogtaper25,10')    
     
+plot_Witeration([1],[npm.u_kremertest3],'kremertest3')    
 
 
 
