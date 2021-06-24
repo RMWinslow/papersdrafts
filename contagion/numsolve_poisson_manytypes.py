@@ -64,8 +64,8 @@ def approx_W(r,tau,Ai_list,vi_list):
         return 0
     #otherwise find the roots
     Wfunc = lambda W: evaluate_Wfunc(W,  r,tau,Ai_list,vi_list,mu)
-    #return optimize.brentq(Wfunc,Ɛ/2,1)
-    #was running into weird floating point issues, so switched to newton
+    #return optimize.brentq(Wfunc,0.0001,1)
+    #was running into weird floating point issues Ɛ, so switched to newton
     return optimize.newton(Wfunc,1)
 
 def approx_W_newton(r,tau,Ai_list,vi_list):

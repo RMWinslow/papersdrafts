@@ -47,7 +47,7 @@ def plot_Witeration(Ai_list,utilfunc_list,speciallabel):
     fig,ax = plt.subplots(figsize=(8,8),constrained_layout=True)
     ax.plot(unit_grid,unit_grid,c='black',linestyle='dotted')
     ##r and tau are interchangable in consumers problem and in W formula.
-    for r in [0.01,0.05,0.09,0.1,0.12,0.15,0.1535,0.2,0.3,0.6,1]:
+    for r in [0.01,0.03,0.04,0.05,0.09,0.1,0.12,0.15,0.1535,0.2,0.3,0.6,1]:
         newW_grid = [npm.iterate_W(W,r,1,Ai_list,utilfunc_list) for W in unit_grid]
         ax.scatter(unit_grid, newW_grid, label=r'$r\tau=$'+str(r), marker='.')
     ax.set_ylim([0,1])
