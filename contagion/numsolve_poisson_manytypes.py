@@ -37,6 +37,8 @@ import sympy as sym
 
 def pp(p):
     print(f"{p:unicode}")
+    
+Ɛ = np.finfo(float).eps
 
 #%% functions to aproximate the value of W, given {A_i,v_i},r,tau
 
@@ -50,7 +52,8 @@ def evaluate_Wfunc(W,  r,tau,Ai_list,vi_list,mu):
     #Ai_list and vi_list are list of population and contacts of each type.
     assert len(Ai_list) == len(vi_list)
     numerator = sum([Ai*vi*calc_p(vi,r,tau,W) for Ai,vi in zip(Ai_list,vi_list)])
-    return (numerator/mu) - W
+    RHS = (numerator/mu)
+    return W-RHS
     
 def approx_W(r,tau,Ai_list,vi_list):
     "This finds the non-zero solution to contact risk formula."
@@ -61,7 +64,8 @@ def approx_W(r,tau,Ai_list,vi_list):
         return 0
     #otherwise find the roots
     Wfunc = lambda W: evaluate_Wfunc(W,  r,tau,Ai_list,vi_list,mu)
-    return optimize.brentq(Wfunc,np.finfo(float).eps,1)
+    #return optimize.brentq(Wfunc,Ɛ/2,1)
+    #was running into weird floating point issues, so switched to newton
     return optimize.newton(Wfunc,1)
 
 def approx_W_newton(r,tau,Ai_list,vi_list):
@@ -117,7 +121,7 @@ def approx_bestvi(r,tau,W,utilfunc):
     #need to look at -U because scipy has minimization functions.
     #only goes to 10^-9 accuracy. And not bumping up against maxiter either. Weird.
     negU = lambda vi: - utilfunc(vi) + calc_p(vi,r,tau,W)
-    return optimize.minimize_scalar(negU, bounds=(0, 1000), method='bounded',options={'xatol': np.finfo(float).eps}).x
+    return optimize.minimize_scalar(negU, bounds=(0, 1000), method='bounded',options={'xatol': Ɛ}).x
     
 
 
@@ -136,7 +140,7 @@ def iterate_vi_list(vi_list,r,tau,Ai_list,utilfunc_list):
 def SPP_v_singletype(r,tau,utilfunc):
     #return the contact rate that gives the maximum utility with awareness of W
     negSPPU = lambda v: - utilfunc(v) + calc_p(v,r,tau,approx_W(r, tau, [1], [v]))
-    return optimize.minimize_scalar(negSPPU,bounds=(0, 1000), method='bounded',options={'xatol': np.finfo(float).eps}).x
+    return optimize.minimize_scalar(negSPPU,bounds=(0, 1000), method='bounded',options={'xatol': Ɛ}).x
 
 
 

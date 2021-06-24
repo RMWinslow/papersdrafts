@@ -32,7 +32,9 @@ plt.plot(unit_grid,[npm.approx_bestvi(1,1,rtauW,npm.u_vlogtaper_H) for rtauW in 
 plt.plot(unit_grid,[npm.approx_bestvi(1,1,rtauW,npm.u_vlogtaper_L) for rtauW in unit_grid])
 plt.plot(unit_grid,[1/Ψ for Ψ in unit_grid])
 plt.plot(unit_grid,[npm.approx_bestvi(1,1,rtauW,npm.u_kremertest) for rtauW in unit_grid])
-labelSubplot(ax, r'poisson,optimal v for $u=\frac{1}{2}\ln(v)-\phi v^2$',r'$\tau r W$',r'$v^*(\tau r W)$')
+plt.plot(unit_grid,[npm.approx_bestvi(1,1,rtauW,npm.u_kremertest2) for rtauW in unit_grid])
+plt.plot(unit_grid,[npm.approx_bestvi(1,1,rtauW,npm.u_kremertest3) for rtauW in unit_grid])
+labelSubplot(ax, r'poisson,optimal v for $u=\frac{1}{2}\ln(v)-\phi v^2$ and some kremer stuff',r'$\tau r W$',r'$v^*(\tau r W)$')
 ax.set_ylim([0,30])
 ax.set_xlim([0,1])
 plt.savefig('graph_poisson_v(rtauW)_logtaper.png')
@@ -40,6 +42,23 @@ plt.savefig('graph_poisson_v(rtauW)_logtaper.png')
 
 
 #%% Plot W vs W(v(W))
+
+def plot_Witeration(Ai_list,utilfunc_list,speciallabel):
+    fig,ax = plt.subplots(figsize=(8,8),constrained_layout=True)
+    ax.plot(unit_grid,unit_grid,c='black',linestyle='dotted')
+    ##r and tau are interchangable in consumers problem and in W formula.
+    for r in [0.01,0.05,0.09,0.1,0.12,0.15,0.1535,0.2,0.3,0.6,1]:
+        newW_grid = [npm.iterate_W(W,r,1,Ai_list,utilfunc_list) for W in unit_grid]
+        ax.scatter(unit_grid, newW_grid, label=r'$r\tau=$'+str(r), marker='.')
+    ax.set_ylim([0,1])
+    ax.set_xlim([0,1])
+    ax.grid()
+    ax.legend()
+    labelSubplot(ax, 'poisson,W(v(W)),'+speciallabel, '$W$', '$W(\{v_i^*(W)\})$')
+    plt.savefig('graph_poisson_W(v(W))_'+speciallabel+'.png')
+    
+plot_Witeration([0.5,0.5],[npm.u_vlogtaper_H,npm.u_vlogtaper_L],'vlogtaper25,10')    
+    
 
 
 

@@ -177,7 +177,37 @@ Would just have to find fixed points I suppose.
 
 
 
+## Examples
 
+<!--A note about Kremer's $$u(v)=\theta_i v_i - \phi v_i^2$$:
+With my risk function, $$1-e^{-v_i \cdot r\tau W}$$, 
+the marginal utility will be $$\theta_i - 2 \phi v_i  + r\tau W e^{-v_i \cdot r\tau W}$$.
+This means that the marg utility is negative for all $$v$$ 
+when $$\theta_i - 2 \phi v_i$$ is below a tangent line for $$r\tau W e^{-v_i \cdot r\tau W}$$.
+The tangent lines go through the point $$(a,Ae^{-Aa})$$ where $$A\equiv Wr\tau$$
+and have slope $$-A^2e^{-Aa}$$.
+Put in slope intercept form, they become $$y=-A^2e^{-Aa}x + (Ae^{-Aa}+aA^2e^{-Aa})$$.
+This means if $$\phi=A^2e^{-Aa}$$, 
+then to get nonzero optimum, need $$\theta > (Ae^{-Aa}+aA^2e^{-Aa})$$.
+At $$A=1$$, this means $$\phi=e^{-a}$$ needs $$\theta > (1+a)e^{-a} = (1+a)\phi$$,
+and $$a=-\ln(\phi)$$, so needs $$\theta > (1-\ln(\phi))\phi$$.
+More generally, it's $$\theta > \phi\cdot A\cdot (1-\ln(\phi / A^2))$$
+So if $$A=1,\phi=0.002$$, need $$\theta > (1-\ln(0.002))0.002 \approx 0.014$$-->
+
+### Example with taper log utility.
+
+$$u(v) = \frac{1}{2} [\ln(v) - \frac{1}{2\phi^2}v^2]$$
+
+for $$\psi = 25$$ and $$\psi = 10$$.
+
+
+![](graph_poisson_v(rtauW)_logtaper.png)
+
+*Just the orange and blue lines. The rest are a utility function of Kremer's that I used to debug.*
+
+![](graph_poisson_W(v(W))_vlogtaper25,10.png)
+
+*When the line is crammed against the bottom, that means the $$r\tau$$ is so low that the infection dies out even  if nobody social distances at all. When the line is crammed against the top, it means that $$r\tau$$ is so high that even the quarantine behavior of individuals isn't enough to appreciably reduce their chance of getting sick, or at least not among the types that dominate connections.*
 
 
 # TODO tomorrow:
@@ -188,11 +218,11 @@ Would just have to find fixed points I suppose.
 - [x] Extend equilibrium to multiple types?
 - [ ] Calculate the Poisson contact equilibrium for a few different utility functions.
     - See notes right up above.
+- [ ] Think about the following:
 
-
-What if vaccine arrives with poisson rate bleh?
-Then probability of infection becomes vrtauW/(vrtauW+bleh)?
-Doesn't seem quite the same, given that the W is also affected by vaccine arrival.
+    What if vaccine arrives with poisson rate bleh?
+    Then probability of infection becomes vrtauW/(vrtauW+bleh)?
+    Doesn't seem quite the same, given that the W is also affected by vaccine arrival.
 
 
 
