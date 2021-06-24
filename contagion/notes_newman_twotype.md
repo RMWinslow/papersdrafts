@@ -64,6 +64,7 @@ Following Newman, look at the the probability generating functions for the sprea
 - PGF for number of transmissible connections: $$G_0(x;T)=G_0(1-T+TX)=\sum_i A_i (1-T+Tx)^{n_i}$$
 - PGF for number of neighbor's transmissible excess edges: $$G_1(x;T)=G_1(1-T+Tx)=\frac{\sum_i A_i n_i (1-T+Tx)^{n_i-1}}{\sum_i A_i n_i}$$
 - Critical Transmisiibility threshold $$T_c = \frac{1}{G'_1(1)} = \frac{\sum_i A_i n_i}{\sum_i A_i n_i (n_i-1)} = \frac{E[n]}{E[n^2] - E[n]}$$
+    
     ![](graph_newman_twotype_Tc.svg)
 - (Meyers Newman et al 2004) $$R_0 = T(\frac{E[k^2]}{E[k]}-1) = T(\frac{\sum_i A_i n_i^2}{\sum_i A_i n_i} - 1) = T\frac{\sum_i A_i n_i (n_i-1)}{\sum_i A_i n_i}$$
 - Chance that end of random edge remains uninfected determined implicitly by $$U=\frac{\sum_i A_i n_i (1-T+TU)^{n_i-1}}{\sum_i A_i n_i}$$
@@ -171,6 +172,28 @@ Multiple equilibria for $$T=0.15$$.
 Need to ponder the significance thereof.
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### TODO -  Plan for calculating two-type equilibriums.
 - Setup
     - [x] Decide what the utility functions will look like.
@@ -202,20 +225,7 @@ Need to ponder the significance thereof.
 - [ ] Plot elasticities of connections wrt disease risk maybe?
     - Behavioral reponse to contact risk, and contact risk response to behavior?
     - Use envelope theorem to describe dV/dn_i?
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- [ ] Plot marginal risk vs marginal utility.
 
 
 # TODO Tomorrow
@@ -225,18 +235,19 @@ Need to ponder the significance thereof.
         - Equilibrium doesn't always exist for singular distribution
     - [x] Is equilibrium efficient? What about directly choosing n* to get a good outcome?
     - [x] Do that for a few different u functions. (Find a utility function such that equilibrium does exist?)
-- [ ] Version with two types. The *fatalism* is the interesting part!
+- [x] Version with two types. The *fatalism* is the interesting part!
     - [x] General PGF info.
     - [x] Equilibrium definition
     - [x] Plot $$T_c$$ contours on $$n_H,n_L$$ graph.
     - [x] Visualize equilibria using phase diagrams?
         - Large regions with V(n(V))= 0 lead to stable oscillations.
 - [ ] Figure out conditions (on utility) that lead to unique equilibrium, lack of equilibrium, etc. (6-21 B?)
-- [ ] Combine Poisson and Discrete nieghbors:
+- [x] Combine Poisson and Discrete nieghbors:
     - Start with discrete results
     - Set that number of neighbors as the mean in a poisson distribution
     - Integrate the discrete results over that poisson distribution.
     - Will it collapse to be the same as poisson or will it turn into something more interesting?
+        - It actually turned out pretty nice. It's very similar to the pure Poisson setup, but simpler in some ways.
     - (target connections can thus be continuous!
 - [ ] Mixed strategy equilibrium?
 - [ ] Improve understanding of threshold? Maybe just move on?

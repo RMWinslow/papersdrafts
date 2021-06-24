@@ -59,7 +59,7 @@ def plot_Witeration(Ai_list,utilfunc_list,speciallabel):
     
 #plot_Witeration([0.5,0.5],[npm.u_vlogtaper_H,npm.u_vlogtaper_L],'vlogtaper25,10')    
     
-plot_Witeration([1],[npm.u_kremertest3],'kremertest3')    
+plot_Witeration([0.5,0.5],[npm.u_kremertest2,npm.u_kremertest3],'kremertestmix')    
 
 
 
