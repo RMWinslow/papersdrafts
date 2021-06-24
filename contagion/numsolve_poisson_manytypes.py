@@ -104,7 +104,11 @@ def u_vlogtaper_L(v):
 
 
 def u_kremertest(x):
-    return 0.5*x - 0.025*x*x
+    return 0.2*x - 0.004*x*x
+def u_kremertest2(x):
+    return 0.15*x - 0.004*x*x
+def u_kremertest3(x):
+    return 0.1*x - 0.004*x*x
     
 
 #%% Find the best response V_i* to parameters rtauW 
@@ -113,7 +117,7 @@ def approx_bestvi(r,tau,W,utilfunc):
     #need to look at -U because scipy has minimization functions.
     #only goes to 10^-9 accuracy. And not bumping up against maxiter either. Weird.
     negU = lambda vi: - utilfunc(vi) + calc_p(vi,r,tau,W)
-    return optimize.minimize_scalar(negU,options={'xtol': np.finfo(float).eps}).x
+    return optimize.minimize_scalar(negU, bounds=(0, 1000), method='bounded',options={'xatol': np.finfo(float).eps}).x
     
 
 
@@ -132,7 +136,7 @@ def iterate_vi_list(vi_list,r,tau,Ai_list,utilfunc_list):
 def SPP_v_singletype(r,tau,utilfunc):
     #return the contact rate that gives the maximum utility with awareness of W
     negSPPU = lambda v: - utilfunc(v) + calc_p(v,r,tau,approx_W(r, tau, [1], [v]))
-    return optimize.minimize_scalar(negSPPU,options={'xtol': np.finfo(float).eps}).x
+    return optimize.minimize_scalar(negSPPU,bounds=(0, 1000), method='bounded',options={'xatol': np.finfo(float).eps}).x
 
 
 
