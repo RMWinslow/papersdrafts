@@ -42,7 +42,7 @@ Potential solution
     - No disease $$U=1$$ is always a solution, and is the only solution if $$T < T_c$$.
     - Full infection $$U=0$$ is only a solution if $$TN\to\infty$$, (though it can get remarkably close to 0 pretty fast, to within 4 decimal places at $$TN=16$$)
     - Otherwise if $$T > T_c$$, there exists a unique solution $$U\in(0,1)$$
-- Rewriting in terms of $$V=1-T+TU$$, the chance that a given neighbor doesn't infect you is defined implicitly by $$V=(1-T)+Te^{(V-1)N}
+- Rewriting in terms of $$V=1-T+TU$$, the chance that a given neighbor doesn't infect you is defined implicitly by $$V=(1-T)+Te^{(V-1)N}$$
 - Rewriting in terms of $$\Psi$$, the risk of transmission from a given neighbor is defined implicitly by $$\Psi=T-Te^{-\Psi N} = T p(N)$$
 - Ultimate prevalence: $$R_\infty = 1-G_0(U;T) = 1-e^{(U-1)TN} = 1-e^{-\Psi N} = p(N)$$
 
@@ -52,6 +52,7 @@ Potential solution
 
 <!--Can I have induce a continuum of types such that the distribution of $$TN_i$$ is gamma, and the distribution of offspring is negative binomial? Then compare the interventions in Schreiber to the mitigated or amplified effects of interventions with this structure of disease spread?-->
 
+<!--As in basic poisson case, half-life for health is $$+\frac{-\ln(1/2)}{\Psi}\approx+\frac{0.69}{\Psi}. So eg if $$\Psi$$ is about 0.69, then each +1 connection will cut chance of remaining healthy in half.-->
 
 ## Contagion Spread, Multiple Types choose $$\{N_i\}$$
 
@@ -64,9 +65,25 @@ Potential solution
     - No disease $$U=1$$ is always a solution, and is the only solution if $$T < T_c$$.
     - Full infection $$U=0$$ is only a solution as $$TN_i\to\infty$$ for all $$i$$ such that $$A_i N_i\neq 0$$.
     - Otherwise if $$T > T_c$$, there exists a unique solution $$U\in(0,1)$$
-- Rewriting in terms of $$V=1-T+TU$$, the chance that a given neighbor doesn't infect you is defined implicitly by $$V = (1-T) + T \frac{\sum_i A_i N_i e^{(V-1) N_i}}{\sum_i A_i N_i}$$
+- Rewriting in terms of $$V=1-T+TU$$, the chance that a given neighbor doesn't infect you is defined implicitly by $$V = (1-T) + T \frac{\sum_i A_i N_i e^{(V-1) N_i}}{\sum_i A_i N_i}$$.
+    - Can also be written as $$1-V = T \frac{\sum_i A_i N_i (1-e^{(V-1)N_i}}{\sum_i A_i N_i}$$
 - Rewriting in terms of $$\Psi$$, the risk of transmission from a given neighbor is defined implicitly by $$\Psi = T - T \frac{\sum_i A_i N_i e^{-\Psi N_i}}{\sum_i A_i N_i}$$
 - Ultimate prevalence: $$R_\infty = 1-G_0(U;T) = 1-\sum_i A_i e^{(U-1) T N_i} = 1-\sum_i A_i e^{-\Psi N_i} = \sum_i A_i [1-e^{-\Psi N_i}] = \sum_i A_i p(N_i)$$. Makes sense, yes.
+
+
+## Equilibrium, multiple types.
+
+Given $$T,\{A_i\}$$, equilibrium consists of $$\{N_i\},V$$ such that:
+
+- Each person is myopically optimizing, taking $$V$$ as given and choosing $$N_I$$ such that:
+
+    $$N_i = \argmax_{N_i} \left[  u_i(N_i) - \delta_i p(N_i)  \right]
+    = \argmax_{N_i} \left[  u_i(N_i) - \delta_i + \delta_i e^{-(1-V)N}  \right]$$
+
+- The per-contact disease risk is consistent with the decisions of individuals:
+
+    $$V = (1-T) + T \frac{\sum_i A_i N_i e^{(V-1) N_i}}{\sum_i A_i N_i}$$
+
 
 
 
@@ -77,7 +94,7 @@ Potential solution
 - [ ] $$R_0$$ for this setup?
 - [ ] Plot marginal risk for this and others.
 - [ ] Try to find a utility function with a nice analytic description for the relationship between some parameter and $$N_i^*(\Psi)$$, such that I can choose a distribution for this parameter that induces a gamme distribution on $$N_i^*$$ 
-
+<!--Could maybe induce a distribution on offspring via a distribution on \delta_i. Different types of people are -->
 
 
 
