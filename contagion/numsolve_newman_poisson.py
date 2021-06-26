@@ -32,6 +32,8 @@ import numpy as np
 
 from scipy import optimize
 
+import timeit
+
 import sympy as sym
 #NOTE: Sympy is neat, but its symbolic solver seems slower than the polynomial 
 #   root approach I've been using with numpy's polynomial solver.
@@ -43,7 +45,6 @@ def pp(p):
 Ɛ = np.finfo(float).eps
 
 #%% functions to aproximate the value of V, given {A_i,N_i},T
-
 
 def calc_p(Ni,V):
     "Calculates individual risk of infection, taking V for granted."
@@ -63,7 +64,6 @@ def evaluate_Vfunc(V,T,Ai_list,Ni_list,mu):
     "The roots of this function gives us the true value of V."
     assert len(Ai_list) == len(Ni_list)
     numerator = sum([Ai*Ni*calc_p(Ni,V) for Ai,Ni in zip(Ai_list,Ni_list)])
-    print(numerator)
     RHSfraction = (numerator/mu)
     return 1 - T*RHSfraction - V
 
@@ -76,6 +76,50 @@ def approx_V(T,Ai_list,Ni_list):
     else:
         Vfunc = lambda V: evaluate_Vfunc(V,T,Ai_list,Ni_list,mu)
         return optimize.newton(Vfunc,1-T) #finds zero of Vfunc near (1-T)
+
+#%% functions to approximate Ψ
+# Basically equivalent to the above, but I want to see if numpy arrays speed things up.
+
+def approx_Ψ(T,Ai_list,Ni_list):
+    Ai_array = np.array(Ai_list)
+    Ni_array = np.array(Ni_list)
+    return approx_Ψ_using_arrays(T,Ai_array,Ni_array)
+
+def approx_Ψ_using_arrays(T,Ai_array,Ni_array):
+    "Approximates non-zero Ψ. Note that Ai_array and Ni_array must be numpy arrays."
+    mu = np.sum(Ai_array*Ni_array)
+    Tc = mu/np.sum(Ai_array*Ni_array*Ni_array)
+    if T <= Tc:
+        return 0
+    else:
+        Ψfunc = lambda Ψ: T-np.sum(Ai_array*Ni_array*np.exp(-Ψ*Ni_array))*T/mu - Ψ
+        return optimize.newton(Ψfunc,T)
+    
+def evaluate_Ψfunc(Ψ,T,Ai_array,Ni_array,mu):
+    return T-np.sum(Ai_array*Ni_array*np.exp(-Ψ*Ni_array))*T/mu - Ψ
+    
+print(approx_Ψ(.93,[1],[1.5]))
+
+#%% Test the comparitive speeds of numpy approximation vs the original one I made
+def speedtest_VΨ(T,Ai_list,Ni_list,numbertrials):
+    findV = lambda: approx_V(T, Ai_list, Ni_list)
+    findΨ = lambda: 1-approx_Ψ(T, Ai_list, Ni_list)
+    timeV = timeit.timeit(findV,number=numbertrials)
+    timeΨ = timeit.timeit(findΨ,number=numbertrials)
+    print("V="+str(findV())+",1-Ψ="+str(findΨ())+",diff="+str(findΨ()-findV()))
+    print("Vtime:",timeV,"seconds")
+    print("Ψtime:",timeΨ,"seconds")
+    
+#speedtest_VΨ(0.93, [1], [1.5], 10000)
+#speedtest_VΨ(0.2, [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,], [5,10,15,20,12,4,3,19,8,20], 10000)
+#speedtest_VΨ(0.2, [0.1]*100, [12]*100, 1000)
+speedtest_VΨ(0.2, [0.1]*100000, [12]*100000, 1)
+
+#RESULTS:
+#    Bad news: for a small number of types (like 1 or 2), the array version is slower.
+#    Good news: for very large numbers of types, the array version works more quickly. 
+#    So this might be useful if I want to approximate some distribution over types or something.
+
 
 #%% Utility functions for contact target
 
