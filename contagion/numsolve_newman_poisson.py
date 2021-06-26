@@ -98,7 +98,6 @@ def approx_Ψ_using_arrays(T,Ai_array,Ni_array):
 def evaluate_Ψfunc(Ψ,T,Ai_array,Ni_array,mu):
     return T-np.sum(Ai_array*Ni_array*np.exp(-Ψ*Ni_array))*T/mu - Ψ
     
-print(approx_Ψ(.93,[1],[1.5]))
 
 #%% Test the comparitive speeds of numpy approximation vs the original one I made
 def speedtest_VΨ(T,Ai_list,Ni_list,numbertrials):
@@ -113,7 +112,7 @@ def speedtest_VΨ(T,Ai_list,Ni_list,numbertrials):
 #speedtest_VΨ(0.93, [1], [1.5], 10000)
 #speedtest_VΨ(0.2, [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,], [5,10,15,20,12,4,3,19,8,20], 10000)
 #speedtest_VΨ(0.2, [0.1]*100, [12]*100, 1000)
-speedtest_VΨ(0.2, [0.1]*100000, [12]*100000, 1)
+#speedtest_VΨ(0.2, [0.1]*100000, [12]*100000, 1)
 
 #RESULTS:
 #    Bad news: for a small number of types (like 1 or 2), the array version is slower.
@@ -123,18 +122,18 @@ speedtest_VΨ(0.2, [0.1]*100000, [12]*100000, 1)
 
 #%% Utility functions for contact target
 
-def u_vlogtaper(N,Nsansrisk,weight):
+def u_Nlogtaper(N,Nsansrisk,weight):
     #vsansrisk is a parameter representing the optimum choice when rtauW=0
     return weight*(np.log(N) - N**2 / (2*Nsansrisk**2))
 
 φH = 25
 φL = 10
 
-def u_vlogtaper_H(N):
-    return u_vlogtaper(N,φH,0.5)
+def u_Nlogtaper_H(N):
+    return u_Nlogtaper(N,φH,0.5)
     
-def u_vlogtaper_L(N):
-    return u_vlogtaper(N,φL,0.5)
+def u_Nlogtaper_L(N):
+    return u_Nlogtaper(N,φL,0.5)
 
 
 def u_kremertest(x):
@@ -160,6 +159,9 @@ def approx_bestNi(V,utilfunc):
 def iterate_V(V,T,Ai_list,utilfunc_list):
     Nistar_list = [approx_bestNi(V,utilfunc) for utilfunc in utilfunc_list]
     return approx_V(T,Ai_list,Nistar_list)
+
+def iterate_Ψ(Ψ,T,Ai_list,utilfunc_list):
+    return 1-iterate_V(1-Ψ,T,Ai_list,utilfunc_list)
 
 def iterate_Ni_list(T,Ai_list,Ni_list,utilfunc_list):
     V = approx_V(T,Ai_list,Ni_list)

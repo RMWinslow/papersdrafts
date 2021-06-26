@@ -85,16 +85,68 @@ Given $$T,\{A_i\}$$, equilibrium consists of $$\{N_i\},V$$ such that:
     $$V = (1-T) + T \frac{\sum_i A_i N_i e^{(V-1) N_i}}{\sum_i A_i N_i}$$
 
 
+## Examples
+
+### Example 1:
+
+*NOTE: Different choices of parameters can lead to non-continous $$N^*_i(V)$$.*
+
+Let $$u_H(n) = \frac{1}{2}[\ln(n) - \frac{1}{1250} x^2]$$
+and let $$u_L(n) = \frac{1}{2}[\ln(n) - \frac{1}{200} x^2]$$.
+
+Additionally, let $$A_H=A_L=0.5$$.
+
+<!--second parameter 1/(2*X^2) where X is the optimum to be without risk-->
+
+These utility functions were chosen so that
+- the first few connections have very high marginal utility, 
+- but eventually the utility from connections tapers off and starts decreasing.
+- The response to disease risk is large enough to be noticeable.
+
+![Blue line showing n_H^* as a function of V, and an orange line showing the same for L types.](graph_newman_twotype_n(V).png)
+
+*Notice how both types start becoming increasingly fatalistic after crossing the threshold $$n=\frac{1}{1-V}$$.*
+
+Each value of $$\Psi$$ gives a unique(?) pair of $$N_H^*,N_L^*$$,
+and these connection parameters in term induce a contagion network in which
+the danger from each connection is uniquely $$\Psi(N_H^*,N_L^*)$$ (or 0).
+This is an equilibrium if $$\Psi=\Psi(N_H^*,N_L^*)$$
+
+![](graph_newman_poisson_Ψ(N(Ψ))_vlogtaper2510.png)
+
+*It also seems clear when zooming in that there are no values of T that give multiple equilibria for this particular setup.*
+
+More generally, $$V(\{N_i\})$$ is continuous, so if each $$N_i^*(V)$$ is continuous, then an equilibrium must exist.
+For multiple equilibria when $$N_i^*$$ are continuous, it needs to be that 
+- There is some $$\Psi$$ such that 
+    - It's an equilibrium for this society: $$\Psi(N(\Psi))=\Psi$$. 
+    - At the margins, as $$\Psi$$ increases, $$\Psi'(N(\Psi)) > 1$$. That is, the behavior of people needs to be increasingly risky, so much so that it increases the equilibrium risk like a total bunch, man. Very high negative elasticity.
+
+
 
 
 
 # TODO Tomorrow:
 
-- [ ] Make the scripts and plots for this setup.
+- [x] Make the scripts and plots for this setup.
+- [ ] Make a plot for T vs $$\Psi_{eq}$$ for this util fucntion.
 - [ ] $$R_0$$ for this setup?
+- [ ] Double check that I calculated $$T_c$$ correctly.
 - [ ] Plot marginal risk for this and others.
-- [ ] Try to find a utility function with a nice analytic description for the relationship between some parameter and $$N_i^*(\Psi)$$, such that I can choose a distribution for this parameter that induces a gamme distribution on $$N_i^*$$ 
+- [ ] Try to find a utility function with a nice analytic description for the relationship between some parameter and $$N_i^*(\Psi)$$, such that I can choose a distribution for this parameter that induces a gamma distribution on $$N_i^*$$ 
 <!--Could maybe induce a distribution on offspring via a distribution on \delta_i. Different types of people are -->
+- [ ] Something something elasticity?
+    - [ ] How much does a proportional increase from each type increase the total risk?
+    - [ ] Like the inverse of the half life concept?
+
+
+
+
+
+
+
+
+
 
 
 
