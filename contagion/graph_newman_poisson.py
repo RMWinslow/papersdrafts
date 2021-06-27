@@ -31,10 +31,11 @@ fig,ax = plt.subplots(figsize=(8,5),constrained_layout=True)
 plt.plot(unit_grid,[nnp.approx_bestNi(1-Ψ, nnp.u_Nlogtaper_H) for Ψ in unit_grid])
 plt.plot(unit_grid,[nnp.approx_bestNi(1-Ψ, nnp.u_Nlogtaper_L) for Ψ in unit_grid])
 plt.plot(unit_grid,[1/Ψ for Ψ in unit_grid])
-plt.plot(unit_grid,[nnp.approx_bestNi(1-Ψ, lambda N: nnp.u_Nlogtaper(N,4,0.5)) for Ψ in unit_grid])
+#plt.plot(unit_grid,[nnp.approx_bestNi(1-Ψ, lambda N: nnp.u_Nlogtaper(N,4,0.5)) for Ψ in unit_grid])
 labelSubplot(ax, r'newman+poisson,$N_i^*(\Psi),logtaper$',r'$\Psi$',r'$N_i^*(\Psi)$')
 ax.set_ylim([0,30])
 ax.set_xlim([0,1])
+ax.grid()
 plt.savefig('graph_newman_poisson_Ni(Psi)_logtaper.png')
 
 
@@ -51,6 +52,7 @@ def plot_Ψiteration(Ai_list,utilfunc_list,speciallabel):
     ax.set_ylim([0,1])
     ax.set_xlim([0,1])
     ax.legend()
+    ax.grid()
     labelSubplot(ax, 'newman+poisson,Ψ(N(Ψ)),'+speciallabel, '$Ψ$', '$Ψ(\{N_i^*(Ψ)\})$')
     plt.savefig('graph_newman_poisson_Ψ(N(Ψ))_'+speciallabel+'.png')
     
@@ -72,6 +74,7 @@ def plot_Ψiteration_differencetest(Ai_list,utilfunc_list):
     ax.set_ylim([-ytol,ytol])
     ax.set_xlim([xmn,xmx])
     ax.legend()
+    ax.grid()
     plt.show()
 #plot_Ψiteration_differencetest([0.5,0.5],[nnp.u_Nlogtaper_H,nnp.u_Nlogtaper_L])   
 
@@ -81,24 +84,32 @@ def plot_equilibriumvsT(Ai_list,utilfunc_list,speciallabel):
     '''Iterate through T, find an equilibrium edge risk at each point. 
     Plug that in to get choices and prevalences. Plot  two graphs.'''
     #unit_grid = np.arange(0.15,0.155,0.00001)
+    unit_grid = np.arange(0.15,0.25,0.0001)
     #Calculate the gridpoints: eqlb edge risk, eqlb connections, eqlb r_infty
     equilV_grid = [nnp.approx_equilibriumV(T, Ai_list, utilfunc_list) for T in unit_grid]
     equilΨ_grid = [1-V for V in equilV_grid]
     Ni_grids = [[nnp.approx_bestNi(V,utilfunc) for V in equilV_grid] for utilfunc in utilfunc_list]
+    #averages 
     Rinfty_grids = [[nnp.calc_p(Ni, V) for Ni,V in zip(Ni_grid,equilV_grid)] for Ni_grid in Ni_grids]
-    
+    weightedN_grid = sum([Ai*np.array(Ni_grid) for Ai,Ni_grid in zip(Ai_list,Ni_grids)])
+    weightedN2_grid = sum([Ai*np.array(Ni_grid)**2 for Ai,Ni_grid in zip(Ai_list,Ni_grids)])
+    edgeweightedN_grid = weightedN2_grid/weightedN_grid
+    weightedR_grid = sum([Ai*np.array(Ri_grid) for Ai,Ri_grid in zip(Ai_list,Rinfty_grids)])
+    edgesharetype0_grid = Ai_list[0]*np.array(Ni_grids[0])/weightedN_grid
     
     # First plot a graph of risk and prevalence.
     fig,ax = plt.subplots(figsize=(8,8),constrained_layout=True)
     
     ax.plot(unit_grid,unit_grid,c='black',linestyle='dotted')#45degree line
     for i,Ri_grid in enumerate(Rinfty_grids):
-        ax.plot(unit_grid, Ri_grid, label=r'$R_{\infty '+str(i)+r'}$', marker='.')
+        ax.plot(unit_grid, Ri_grid, label=r'$p(N_'+str(i)+r')$', marker='.')
     ax.plot(unit_grid, equilΨ_grid, label=r'$Ψ_{eq}$', marker='.')
+    ax.plot(unit_grid, weightedR_grid, label=r'$R_{\infty}$', marker='.')
+    ax.plot(unit_grid, edgesharetype0_grid, label='$edgshr_{0}$', marker='.')
     
     ax.set_ylim([0,1])
     ax.set_xlim([0,1])
-    ax.legend()
+    ax.legend(loc='lower right')
     ax.grid()
     labelSubplot(ax, 'newman+poisson, T vs equilibrium prevalence, '+speciallabel, '$T$', '')
     plt.savefig('graph_newman_poisson_equilibriumprev_'+speciallabel+'.png')
@@ -110,19 +121,25 @@ def plot_equilibriumvsT(Ai_list,utilfunc_list,speciallabel):
     
     for i,Ni_grid in enumerate(Ni_grids):
         ax.plot(unit_grid, Ni_grid, label='$N_'+str(i)+'$', marker='.')    
-    plt.plot(unit_grid,[1/Ψ for Ψ in equilΨ_grid], label=r'$n=\frac{1}{\Psi}$')
+    plt.plot(unit_grid,[1/Ψ for Ψ in equilΨ_grid], label=r'$N=\frac{1}{\Psi}$')
+    ax.plot(unit_grid, weightedN_grid, label='avg N', marker='.')   
+    ax.plot(unit_grid, edgeweightedN_grid, label='EdgeWtd avg N', marker='.')   
     #plt.plot([0.153,0.153],[0,30])
     
     ax.set_ylim([0,30])
     ax.set_xlim([0,1])
-    ax.legend()
+    ax.legend(loc='upper right')
     ax.grid()
     labelSubplot(ax, r'newman+poisson, T vs $N_i^*(V^*(T))$, '+speciallabel, '$T$', '')
     plt.savefig('graph_newman_poisson_equilibriumchoices_'+speciallabel+'.png')
     
 
 
-plot_equilibriumvsT([0.5,0.5],[nnp.u_Nlogtaper_H,nnp.u_Nlogtaper_L],'vlogtaper2510')    
+plot_equilibriumvsT([0.5,0.5],[nnp.u_Nlogtaper_H,nnp.u_Nlogtaper_L],'vlogtaper2010')    
+#plot_equilibriumvsT([0.5,0.5],[nnp.u_Nlogtaper_H,nnp.u_Nlogtaper_L],'vlogtaper2010zoom')  
+
+#plot_equilibriumvsT([0.5,0.5],[nnp.u_Nlogtaper_H,nnp.u_Nlogtaper_L],'vlogtaper2510')    
+#plot_equilibriumvsT([0.5,0.5],[nnp.u_Nlogtaper_H,nnp.u_Nlogtaper_L],'vlogtaper2510zoom')    
 
 
 

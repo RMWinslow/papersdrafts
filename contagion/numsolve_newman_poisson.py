@@ -126,7 +126,7 @@ def u_Nlogtaper(N,Nsansrisk,weight):
     #vsansrisk is a parameter representing the optimum choice when rtauW=0
     return weight*(np.log(N) - N**2 / (2*Nsansrisk**2))
 
-φH = 25
+φH = 20
 φL = 10
 
 def u_Nlogtaper_H(N):

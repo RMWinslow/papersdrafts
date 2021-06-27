@@ -103,7 +103,7 @@ These utility functions were chosen so that
 - but eventually the utility from connections tapers off and starts decreasing.
 - The response to disease risk is large enough to be noticeable.
 
-![Blue line showing n_H^* as a function of V, and an orange line showing the same for L types.](graph_newman_twotype_n(V).png)
+![Blue line showing n_H^* as a function of V, and an orange line showing the same for L types.](graph_newman_poisson_Ni(Psi)_logtaper.png)
 
 *Notice how both types start becoming increasingly fatalistic after crossing the threshold $$n=\frac{1}{1-V}$$.*
 
@@ -112,7 +112,13 @@ and these connection parameters in term induce a contagion network in which
 the danger from each connection is uniquely $$\Psi(N_H^*,N_L^*)$$ (or 0).
 This is an equilibrium if $$\Psi=\Psi(N_H^*,N_L^*)$$
 
-![](graph_newman_poisson_Ψ(N(Ψ))_vlogtaper2510.png)
+
+<table><tr>
+<td><img src="graph_newman_poisson_Ψ(N(Ψ))_vlogtaper2510.png"></td>
+<td><img src="graph_newman_poisson_equilibriumprev_vlogtaper2510"></td>
+<td><img src="graph_newman_poisson_equilibriumchoices_vlogtaper2510"></td>
+</tr></table>
+
 
 *It also seems clear when zooming in that there are no values of T that give multiple equilibria for this particular setup.*
 
