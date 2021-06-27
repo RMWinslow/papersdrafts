@@ -157,6 +157,7 @@ def approx_bestNi(V,utilfunc):
 #%%Iterate {v_i} and W to get fixed points.
 
 def iterate_V(V,T,Ai_list,utilfunc_list):
+    "finds V(N(V))"
     Nistar_list = [approx_bestNi(V,utilfunc) for utilfunc in utilfunc_list]
     return approx_V(T,Ai_list,Nistar_list)
 
@@ -172,7 +173,12 @@ def SPP_v_singletype(V,utilfunc):
     negSPPU = lambda N: - utilfunc(N) + calc_p(N,V)
     return optimize.minimize_scalar(negSPPU,bounds=(0, 1000), method='bounded',options={'xatol': Ɛ}).x
 
+#%% Use iteration function to get equilibrium V
 
+def approx_equilibriumV(T,Ai_list,utilfunc_list):
+    "Finds a point where V(N(V))=V. Doesn't check for multiple equilibria."
+    equilbriumfunc = lambda V: iterate_V(V,T,Ai_list,utilfunc_list) - V
+    return optimize.newton(equilbriumfunc,1-T)
 
     
         

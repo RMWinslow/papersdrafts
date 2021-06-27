@@ -258,3 +258,4 @@ Need to ponder the significance thereof.
     - Somehow shoehorn in the gamma / negbinom distributions to connect to Schreiber paper?
     - Come up with some sort of validation comparison
     - What happens to ultimate prevalence if the parameters change midway through epidemic. (Equivalently? Infect some random fraction of people as starting condition???)
+    - Vaccines and other interventions?

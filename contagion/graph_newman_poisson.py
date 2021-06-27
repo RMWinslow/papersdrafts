@@ -16,6 +16,7 @@ def labelSubplot(ax,title,xlabel,ylabel):
     ax.set_title(title)
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
+    ax.grid()
     
 CL_log10 = [1E-09,1E-08,1E-07,1E-06,1E-05,1E-04,1E-03,1E-02,1E-01,.99999999]
 CL_percentile = np.arange(0,1.0001,0.01)
@@ -31,6 +32,7 @@ fig,ax = plt.subplots(figsize=(8,5),constrained_layout=True)
 plt.plot(unit_grid,[nnp.approx_bestNi(1-Ψ, nnp.u_Nlogtaper_H) for Ψ in unit_grid])
 plt.plot(unit_grid,[nnp.approx_bestNi(1-Ψ, nnp.u_Nlogtaper_L) for Ψ in unit_grid])
 plt.plot(unit_grid,[1/Ψ for Ψ in unit_grid])
+plt.plot(unit_grid,[nnp.approx_bestNi(1-Ψ, lambda N: nnp.u_Nlogtaper(N,4,0.5)) for Ψ in unit_grid])
 labelSubplot(ax, r'newman+poisson,$N_i^*(\Psi),logtaper$',r'$\Psi$',r'$N_i^*(\Psi)$')
 ax.set_ylim([0,30])
 ax.set_xlim([0,1])
@@ -49,7 +51,6 @@ def plot_Ψiteration(Ai_list,utilfunc_list,speciallabel):
         ax.scatter(unit_grid, newΨ_grid, label=r'$T=$'+str(T), marker='.')
     ax.set_ylim([0,1])
     ax.set_xlim([0,1])
-    ax.grid()
     ax.legend()
     labelSubplot(ax, 'newman+poisson,Ψ(N(Ψ)),'+speciallabel, '$Ψ$', '$Ψ(\{N_i^*(Ψ)\})$')
     plt.savefig('graph_newman_poisson_Ψ(N(Ψ))_'+speciallabel+'.png')
@@ -60,8 +61,6 @@ plot_Ψiteration([0.5,0.5],[nnp.u_Nlogtaper_H,nnp.u_Nlogtaper_L],'vlogtaper2510'
 
 
 #%% Little test to try to find multiple equilibria.
-
-
 def plot_Ψiteration_differencetest(Ai_list,utilfunc_list):
     xmn,xmx = 0.1,0.125
     ytol = 0.002
@@ -73,17 +72,52 @@ def plot_Ψiteration_differencetest(Ai_list,utilfunc_list):
         ax.scatter(smol_grid, newΨdiff_grid, label=r'$T=$'+str(T), marker='.')
     ax.set_ylim([-ytol,ytol])
     ax.set_xlim([xmn,xmx])
-    ax.grid()
     ax.legend()
     plt.show()
-    
 #plot_Ψiteration_differencetest([0.5,0.5],[nnp.u_Nlogtaper_H,nnp.u_Nlogtaper_L])   
 
-#%% Plot T vs equilibrium V.
+#%% Plot T vs equilibrium V, along with prevalences?
+
+def plot_equilibriumvsT(Ai_list,utilfunc_list,speciallabel):
+    '''Iterate through T, find an equilibrium edge risk at each point. 
+    Plug that in to get choices and prevalences. Plot  two graphs.'''
+    #unit_grid = np.arange(0.15,0.155,0.00001)
+    #Calculate the gridpoints: eqlb edge risk, eqlb connections, eqlb r_infty
+    equilV_grid = [nnp.approx_equilibriumV(T, Ai_list, utilfunc_list) for T in unit_grid]
+    equilΨ_grid = [1-V for V in equilV_grid]
+    Ni_grids = [[nnp.approx_bestNi(V,utilfunc) for V in equilV_grid] for utilfunc in utilfunc_list]
+    Rinfty_grids = [[nnp.calc_p(Ni, V) for Ni,V in zip(Ni_grid,equilV_grid)] for Ni_grid in Ni_grids]
+    
+    # First plot a graph of risk and prevalence.
+    fig,ax = plt.subplots(figsize=(8,8),constrained_layout=True)
+    ax.plot(unit_grid,unit_grid,c='black',linestyle='dotted')#45degree line
+    
+
+    #ax.plot(unit_grid, equilV_grid, label=r'$V_{eq}$', marker='.')
+    for i,Ri_grid in enumerate(Rinfty_grids):
+        ax.plot(unit_grid, Ri_grid, label=r'$R_{\infty '+str(i)+r'}$', marker='.')
+    ax.plot(unit_grid, equilΨ_grid, label=r'$Ψ_{eq}$', marker='.')
+    
+    ax.set_ylim([0,1])
+    ax.set_xlim([0,1])
+    ax.legend()
+    labelSubplot(ax, 'newman+poisson, T vs equilibrium prevalence, '+speciallabel, '$T$', '')
+    plt.show()
+    
+    
+    #Then plot a graph of choices.
+    fig,ax = plt.subplots(figsize=(8,8),constrained_layout=True)
+    
+    
+    for i,Ni_grid in enumerate(Ni_grids):
+        ax.plot(unit_grid, Ni_grid, label='$N_'+str(i)+'$', marker='.')
+    
+    labelSubplot(ax, r'newman+poisson, T vs $N_i^*(V^*(T))$, '+speciallabel, '$T$', '')
+    
+    
 
 
-
-
+plot_equilibriumvsT([0.5,0.5],[nnp.u_Nlogtaper_H,nnp.u_Nlogtaper_L],'vlogtaper2510')    
 
 
 
