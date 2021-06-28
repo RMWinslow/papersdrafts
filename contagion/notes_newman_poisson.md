@@ -164,7 +164,44 @@ Same as previous, but now type $H$ has baseline desire for 30 connections instea
 *Wait, is there actually a discontinuity in this one???*
 
 
+
+<table><tr>
+<td><img src="graph_newman_poisson_equilibriumprev_vlogtaper3010zoom2.png"></td>
+<td><img src="graph_newman_poisson_Ψ(N(Ψ))_vlogtaper3010.png"></td>
+</tr></table>
+<table><tr>
+<td><img src="doodle_newman_poisson_3010_hyperzoom1.png"></td>
+<td><img src="doodle_newman_poisson_3010_hyperzoom2.png"></td>
+</tr></table>
+
+*Yes, indeed, there does appear to be multiple equilbria at $$T=0.12769$$. This causes the gaph of equilibrium $\Psi(T)$, to jump a bit as $$T$$ passes this point. It could be a computer approximation mistake., but I only went to 5 decimal places, which I think is witihin the accuracy of the numerical solvers.*
+
+
 ### Example 1.3
+
+Same as previous, but now type $H$ has baseline desire for 50 connections instead of 25.
+
+
+<table><tr>
+<td><img src="graph_newman_poisson_equilibriumprev_vlogtaper5010.png"></td>
+<td><img src="graph_newman_poisson_equilibriumchoices_vlogtaper5010.png"></td>
+</tr><tr>
+<td><img src="graph_newman_poisson_equilibriumprev_vlogtaper5010zoom.png"></td>
+<td><img src="graph_newman_poisson_equilibriumchoices_vlogtaper5010zoom.png"></td>
+</tr><tr>
+<td><img src="graph_newman_poisson_Ψ(N(Ψ))_vlogtaper5010.png"></td>
+<td><img src="doodle_newman_poisson_5010_hyperzoom1.png"></td>
+</tr></table>
+
+*The multiple equilibria are even more apparent in this one. (Order of magnitude is less extreme). A change in T of 0.0003 causes equilbrium $$\Psi$$ to jump from about 5% to 6%, which is enough to induce noticeable behavioral changes.*
+
+*To clarify, I was correct that an equilibrium always exists in this setup.*
+*I was incorrect in my conjecture that with these utility functions, there would only be one equilibrium.*
+
+
+
+
+### Example 1.4
 
 Same as example 1, but varying the percent of the population which is of type H.
 
@@ -188,7 +225,7 @@ Left: 90% is type H; Mid: 10%; right: 05%.
 - [x] Make a plot for T vs $$\Psi_{eq}$$ for this util fucntion.
 - [ ] $$R_0$$ for this setup?
 - [ ] Double check that I calculated $$T_c$$ correctly.
-- [ ] Check if there is a discontinuitity in Ex1.2
+- [x] Check if there is a discontinuitity in Ex1.2
 - [ ] Plot marginal risk for this and others.
 - [ ] Try to find a utility function with a nice analytic description for the relationship between some parameter and $$N_i^*(\Psi)$$, such that I can choose a distribution for this parameter that induces a gamma distribution on $$N_i^*$$ 
 <!--Could maybe induce a distribution on offspring via a distribution on \delta_i. Different types of people are -->
