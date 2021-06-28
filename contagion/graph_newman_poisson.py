@@ -67,13 +67,13 @@ plot_Ψiteration([0.5,0.5],[lambda N: nnp.u_Nlogtaper(N,50,0.5),nnp.u_Nlogtaper_
 
 #%% Little test to try to find multiple equilibria.
 def plot_Ψiteration_differencetest(Ai_list,utilfunc_list):
-    xmn,xmx = 0.0
-    ytol = 0.1
+    xmn,xmx = 0,0.1
+    ytol = .002
     smol_grid = np.arange(xmn,xmx,0.0001)
     fig,ax = plt.subplots(figsize=(5,5),constrained_layout=True)
     ax.plot(smol_grid,[0 for _ in smol_grid],c='black',linestyle='dotted')
     #for T in [.15, .152, .1528, .15285, .153 ]:
-    for T in [ .7, .75, .8 ]:
+    for T in [ .07, .075, 0.076, 0.0761, 0.0762, 0.0763,  0.077, .08 ]:
         newΨdiff_grid = [nnp.iterate_Ψ(Ψ, T, Ai_list, utilfunc_list)-Ψ for Ψ in smol_grid]
         ax.scatter(smol_grid, newΨdiff_grid, label=r'$T=$'+str(T), marker='.')
     ax.set_ylim([-ytol,ytol])
