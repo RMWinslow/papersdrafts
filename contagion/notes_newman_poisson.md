@@ -45,6 +45,7 @@ Potential solution
 - Rewriting in terms of $$V=1-T+TU$$, the chance that a given neighbor doesn't infect you is defined implicitly by $$V=(1-T)+Te^{(V-1)N}$$
 - Rewriting in terms of $$\Psi$$, the risk of transmission from a given neighbor is defined implicitly by $$\Psi=T-Te^{-\Psi N} = T p(N)$$
 - Ultimate prevalence: $$R_\infty = 1-G_0(U;T) = 1-e^{(U-1)TN} = 1-e^{-\Psi N} = p(N)$$
+- According to Newman et al (2005), the **standard SIR model** is functionally equivalent to the case where the the degree distribution is Poisson. (That is, this case.)
 
 <!--Intersting how singular poisson distribution vanishes the difference between outbreak and spread, despite still being discrete in nature.-->
 
@@ -61,6 +62,10 @@ Potential solution
 - PGF for transmissible connections: $$G_0(x;T)=G_0(1-T+TX)=\sum_i A_i e^{(x-1) T N_i}$$
 - PGF for number of neighbor's transmissible excess edges: $$G_1(x;T)=G_1(1-T+Tx)=\frac{\sum_i A_i N_i e^{(x-1)TN_i}}{\sum_i A_i N_i}$$
 - Critical Transmisibility threshold $$T_c = \frac{1}{G'_1(1)} = \frac{\sum_i A_i N_i}{\sum_i A_i N_i^2} = \frac{E[N]}{E[N^2]}$$
+    - Notice that in Newman, $$T_c = \frac{E[k]}{[E[k^2]-E[k]}$$. This matches the above because with this setup, $$E[N]=E[k]$$ and $$E[k^2]=E[N^2]+E[N]$$.
+- Likewise, $$R_0 = \frac{T}{T_c} = T\cdot\frac{E[k^2]-E[k]}{E[k]} = T \frac{E[N^2]}{E[N]}$$
+    - Note that $$G_1'(x;T)=T \frac{\sum_i A_i N_i^2 e^{(x-1)TN_i}}{\sum_i A_i N_i}$$ and $$G_1'(1;T)=T \frac{\sum_i A_i N_i^2 }{\sum_i A_i N_i} = R_0$$.
+    - This is because $$G_1(x;t)$$ is the PGF for the distribution of additional infections a random neighbor causes after they themselves have been infected, and evaluating a PGF's derivative at $$1$$ gives you the mean of the distribution that PGF generates.
 - Chance that end of random edge remains uninfected determined implicitly by $$U=G_1(U;T)=\frac{\sum_i A_i N_i e^{(U-1)TN_i}}{\sum_i A_i N_i}$$
     - No disease $$U=1$$ is always a solution, and is the only solution if $$T < T_c$$.
     - Full infection $$U=0$$ is only a solution as $$TN_i\to\infty$$ for all $$i$$ such that $$A_i N_i\neq 0$$.
@@ -223,8 +228,8 @@ Left: 90% is type H; Mid: 10%; right: 05%.
 
 - [x] Make the scripts and plots for this setup.
 - [x] Make a plot for T vs $$\Psi_{eq}$$ for this util fucntion.
-- [ ] $$R_0$$ for this setup?
-- [ ] Double check that I calculated $$T_c$$ correctly.
+- [x] $$R_0$$ for this setup?
+- [x] Double check that I calculated $$T_c$$ correctly. (Yes, see comment below.)
 - [x] Check if there is a discontinuitity in Ex1.2
 - [ ] Plot marginal risk for this and others.
 - [ ] Try to find a utility function with a nice analytic description for the relationship between some parameter and $$N_i^*(\Psi)$$, such that I can choose a distribution for this parameter that induces a gamma distribution on $$N_i^*$$ 
@@ -232,8 +237,26 @@ Left: 90% is type H; Mid: 10%; right: 05%.
 - [ ] Something something elasticity?
     - [ ] How much does a proportional increase from each type increase the total risk?
     - [ ] Like the inverse of the half life concept?
+- [ ] Look at performance of iterative approach as in CNSW 2000? Start with initial guess for V and just plug it a bunch of times?
+- [ ] Verify that the single type case behaves like a standard SIR model.
+- [ ] Figure out how the $$T_c$$ changes in an "coorelated network" (see Newman 05,p74, lower right)
 
 
+
+### Thing that distracted me on 6-28
+
+This didn't end up going anywhere useful, but I was confused about the sum $$\sum_{k=0}^\infty k^2\frac{N^k}{k!}$$.
+I eventually untangled my brain, 
+but I spent far too long thinking about this minor bit of algebra. (2 hrs in fact.) 
+Basically,
+
+$$\sum_{k=0}^\infty \frac{N^k}{k!} = e^N$$
+
+$$\sum_{k=0}^\infty k^J\frac{N^k}{k!} = \blacklozenge_J \cdot e^N$$
+
+where $$\blacklozenge_0\equiv1$$ and for $$J\in\N_{++}$$:
+
+$$\blacklozenge_J=N\cdot \sum_{j=0}^{J-1} \binom{J-1}{j} \blacklozenge_{j}$$
 
 
 
