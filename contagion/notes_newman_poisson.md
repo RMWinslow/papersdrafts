@@ -113,14 +113,20 @@ the danger from each connection is uniquely $$\Psi(N_H^*,N_L^*)$$ (or 0).
 This is an equilibrium if $$\Psi=\Psi(N_H^*,N_L^*)$$
 
 
-<table><tr>
-<td><img src="graph_newman_poisson_Ψ(N(Ψ))_vlogtaper2510.png"></td>
-<td><img src="graph_newman_poisson_equilibriumprev_vlogtaper2510"></td>
-<td><img src="graph_newman_poisson_equilibriumchoices_vlogtaper2510"></td>
-</tr></table>
 
+![](graph_newman_poisson_Ψ(N(Ψ))_vlogtaper2510.png)
 
 *It also seems clear when zooming in that there are no values of T that give multiple equilibria for this particular setup.*
+
+<table><tr>
+<td><img src="graph_newman_poisson_equilibriumprev_vlogtaper2510.png"></td>
+<td><img src="graph_newman_poisson_equilibriumchoices_vlogtaper2510.png"></td>
+</tr><tr>
+<td><img src="graph_newman_poisson_equilibriumprev_vlogtaper2510zoom.png"></td>
+<td><img src="graph_newman_poisson_equilibriumchoices_vlogtaper2510zoom.png"></td>
+</tr></table>
+
+*Here you can see that after T hits about 0.153, the H type becomes increasingly fatalistic, accelerating the increase in $$\Psi$$, which makes the not-yet-fatalistic type L reduce the number of their connections, concentrating connections among the H types, further increasing $$\Psi$$. This little feedback loop drives a temporary wedge between types, and rapidly acceralated the severity of the disease with only a small increase in actual transmissiveness.*
 
 More generally, $$V(\{N_i\})$$ is continuous, so if each $$N_i^*(V)$$ is continuous, then an equilibrium must exist.
 For multiple equilibria when $$N_i^*$$ are continuous, it needs to be that 
@@ -129,6 +135,18 @@ For multiple equilibria when $$N_i^*$$ are continuous, it needs to be that
     - At the margins, as $$\Psi$$ increases, $$\Psi'(N(\Psi)) > 1$$. That is, the behavior of people needs to be increasingly risky, so much so that it increases the equilibrium risk like a total bunch, man. Very high negative elasticity.
 
 
+### Example 1.5
+
+Same as previous, but now type $H$ has baseline desire for 20 connections instead of 25.
+
+
+<table><tr>
+<td><img src="graph_newman_poisson_equilibriumprev_vlogtaper2010.png"></td>
+<td><img src="graph_newman_poisson_equilibriumchoices_vlogtaper2010.png"></td>
+</tr><tr>
+<td><img src="graph_newman_poisson_equilibriumprev_vlogtaper2010zoom.png"></td>
+<td><img src="graph_newman_poisson_equilibriumchoices_vlogtaper2010zoom.png"></td>
+</tr></table>
 
 
 
