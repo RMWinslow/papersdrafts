@@ -80,13 +80,18 @@ def plot_Ψiteration_differencetest(Ai_list,utilfunc_list):
 
 #%% Plot T vs equilibrium V, along with prevalences?
 
-def plot_equilibriumvsT(Ai_list,utilfunc_list,speciallabel):
+def plot_equilibriumvsT(Ai_list,utilfunc_list,speciallabel, zoomparams=None):
     '''Iterate through T, find an equilibrium edge risk at each point. 
     Plug that in to get choices and prevalences. Plot  two graphs.'''
-    #unit_grid = np.arange(0.15,0.155,0.00001)
-    unit_grid = np.arange(0.15,0.25,0.0001)
+    #zoomparems are of the form (minx,maxx,step)
+    local_grid = unit_grid
+    if zoomparams:
+        local_grid = np.arange(zoomparams[0],zoomparams[1],zoomparams[2])
+        xlimits=[zoomparams[0],zoomparams[1]]
+    else:
+        xlimits=[0,1]
     #Calculate the gridpoints: eqlb edge risk, eqlb connections, eqlb r_infty
-    equilV_grid = [nnp.approx_equilibriumV(T, Ai_list, utilfunc_list) for T in unit_grid]
+    equilV_grid = [nnp.approx_equilibriumV(T, Ai_list, utilfunc_list) for T in local_grid]
     equilΨ_grid = [1-V for V in equilV_grid]
     Ni_grids = [[nnp.approx_bestNi(V,utilfunc) for V in equilV_grid] for utilfunc in utilfunc_list]
     #averages 
@@ -100,15 +105,15 @@ def plot_equilibriumvsT(Ai_list,utilfunc_list,speciallabel):
     # First plot a graph of risk and prevalence.
     fig,ax = plt.subplots(figsize=(8,8),constrained_layout=True)
     
-    ax.plot(unit_grid,unit_grid,c='black',linestyle='dotted')#45degree line
+    ax.plot(local_grid,local_grid,c='black',linestyle='dotted')#45degree line
     for i,Ri_grid in enumerate(Rinfty_grids):
-        ax.plot(unit_grid, Ri_grid, label=r'$p(N_'+str(i)+r')$', marker='.')
-    ax.plot(unit_grid, equilΨ_grid, label=r'$Ψ_{eq}$', marker='.')
-    ax.plot(unit_grid, weightedR_grid, label=r'$R_{\infty}$', marker='.')
-    ax.plot(unit_grid, edgesharetype0_grid, label='$edgshr_{0}$', marker='.')
+        ax.plot(local_grid, Ri_grid, label=r'$p(N_'+str(i)+r')$', marker='.')
+    ax.plot(local_grid, equilΨ_grid, label=r'$Ψ_{eq}$', marker='.')
+    ax.plot(local_grid, weightedR_grid, label=r'$R_{\infty}$', marker='.')
+    ax.plot(local_grid, edgesharetype0_grid, label='$edgshr_{0}$', marker='.')
     
     ax.set_ylim([0,1])
-    ax.set_xlim([0,1])
+    ax.set_xlim(xlimits)
     ax.legend(loc='lower right')
     ax.grid()
     labelSubplot(ax, 'newman+poisson, T vs equilibrium prevalence, '+speciallabel, '$T$', '')
@@ -118,32 +123,35 @@ def plot_equilibriumvsT(Ai_list,utilfunc_list,speciallabel):
     #Then plot a graph of choices.
     fig,ax = plt.subplots(figsize=(8,8),constrained_layout=True)
     
-    
     for i,Ni_grid in enumerate(Ni_grids):
-        ax.plot(unit_grid, Ni_grid, label='$N_'+str(i)+'$', marker='.')    
-    plt.plot(unit_grid,[1/Ψ for Ψ in equilΨ_grid], label=r'$N=\frac{1}{\Psi}$')
-    ax.plot(unit_grid, weightedN_grid, label='avg N', marker='.')   
-    ax.plot(unit_grid, edgeweightedN_grid, label='EdgeWtd avg N', marker='.')   
-    #plt.plot([0.153,0.153],[0,30])
+        ax.plot(local_grid, Ni_grid, label='$N_'+str(i)+'$', marker='.')    
+    plt.plot(local_grid,[1/Ψ for Ψ in equilΨ_grid], label=r'$N=\frac{1}{\Psi}$')
+    ax.plot(local_grid, weightedN_grid, label='avg N', marker='.')   
+    ax.plot(local_grid, edgeweightedN_grid, label='EdgeWtd avg N', marker='.')   
     
     ax.set_ylim([0,30])
-    ax.set_xlim([0,1])
+    ax.set_xlim(xlimits)
     ax.legend(loc='upper right')
     ax.grid()
     labelSubplot(ax, r'newman+poisson, T vs $N_i^*(V^*(T))$, '+speciallabel, '$T$', '')
     plt.savefig('graph_newman_poisson_equilibriumchoices_'+speciallabel+'.png')
     
 
+#u_Nlogtaper_20 = lambda N: nnp.u_Nlogtaper(N, 20, 0.5)
+#plot_equilibriumvsT([0.5,0.5],[u_Nlogtaper_20,nnp.u_Nlogtaper_L],'vlogtaper2010')    
+#plot_equilibriumvsT([0.5,0.5],[u_Nlogtaper_20,nnp.u_Nlogtaper_L],'vlogtaper2010zoom',(0.16,0.21,0.0001))  
 
-plot_equilibriumvsT([0.5,0.5],[nnp.u_Nlogtaper_H,nnp.u_Nlogtaper_L],'vlogtaper2010')    
-#plot_equilibriumvsT([0.5,0.5],[nnp.u_Nlogtaper_H,nnp.u_Nlogtaper_L],'vlogtaper2010zoom')  
+plot_equilibriumvsT([0.5,0.5],[nnp.u_Nlogtaper_H,nnp.u_Nlogtaper_L],'vlogtaper2510')    
+plot_equilibriumvsT([0.5,0.5],[nnp.u_Nlogtaper_H,nnp.u_Nlogtaper_L],'vlogtaper2510zoom',(0.14,0.16,0.0001))    
 
-#plot_equilibriumvsT([0.5,0.5],[nnp.u_Nlogtaper_H,nnp.u_Nlogtaper_L],'vlogtaper2510')    
-#plot_equilibriumvsT([0.5,0.5],[nnp.u_Nlogtaper_H,nnp.u_Nlogtaper_L],'vlogtaper2510zoom')    
-
-
-
+#u_Nlogtaper_30 = lambda N: nnp.u_Nlogtaper(N, 30, 0.5)
+#plot_equilibriumvsT([0.5,0.5],[u_Nlogtaper_30,nnp.u_Nlogtaper_L],'vlogtaper3010')    
+#plot_equilibriumvsT([0.5,0.5],[u_Nlogtaper_30,nnp.u_Nlogtaper_L],'vlogtaper3010zoom',(0.125,0.13,0.00001)) 
 
 
+
+#plot_equilibriumvsT([0.1,0.9],[nnp.u_Nlogtaper_H,nnp.u_Nlogtaper_L],'vlogtaper2510_H10pc') 
+#plot_equilibriumvsT([0.9,0.1],[nnp.u_Nlogtaper_H,nnp.u_Nlogtaper_L],'vlogtaper2510_H90pc') 
+#plot_equilibriumvsT([0.05,0.95],[nnp.u_Nlogtaper_H,nnp.u_Nlogtaper_L],'vlogtaper2510_H05pc')    
 
 

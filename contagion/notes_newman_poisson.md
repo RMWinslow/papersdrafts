@@ -135,7 +135,7 @@ For multiple equilibria when $$N_i^*$$ are continuous, it needs to be that
     - At the margins, as $$\Psi$$ increases, $$\Psi'(N(\Psi)) > 1$$. That is, the behavior of people needs to be increasingly risky, so much so that it increases the equilibrium risk like a total bunch, man. Very high negative elasticity.
 
 
-### Example 1.5
+### Example 1.1
 
 Same as previous, but now type $H$ has baseline desire for 20 connections instead of 25.
 
@@ -148,14 +148,47 @@ Same as previous, but now type $H$ has baseline desire for 20 connections instea
 <td><img src="graph_newman_poisson_equilibriumchoices_vlogtaper2010zoom.png"></td>
 </tr></table>
 
+### Example 1.2
+
+Same as previous, but now type $H$ has baseline desire for 30 connections instead of 25.
+
+
+<table><tr>
+<td><img src="graph_newman_poisson_equilibriumprev_vlogtaper3010.png"></td>
+<td><img src="graph_newman_poisson_equilibriumchoices_vlogtaper3010.png"></td>
+</tr><tr>
+<td><img src="graph_newman_poisson_equilibriumprev_vlogtaper3010zoom.png"></td>
+<td><img src="graph_newman_poisson_equilibriumchoices_vlogtaper3010zoom.png"></td>
+</tr></table>
+
+*Wait, is there actually a discontinuity in this one???*
+
+
+### Example 1.3
+
+Same as example 1, but varying the percent of the population which is of type H.
+
+Left: 90% is type H; Mid: 10%; right: 05%.
+
+<table><tr>
+<td><img src="graph_newman_poisson_equilibriumprev_vlogtaper2510_H90pc.png"></td>
+<td><img src="graph_newman_poisson_equilibriumprev_vlogtaper2510_H10pc.png"></td>
+<td><img src="graph_newman_poisson_equilibriumprev_vlogtaper2510_H05pc.png"></td>
+</tr><tr>
+<td><img src="graph_newman_poisson_equilibriumchoices_vlogtaper2510_H90pc.png"></td>
+<td><img src="graph_newman_poisson_equilibriumchoices_vlogtaper2510_H10pc.png"></td>
+<td><img src="graph_newman_poisson_equilibriumchoices_vlogtaper2510_H05pc.png"></td>
+</tr></table>
+
 
 
 # TODO Tomorrow:
 
 - [x] Make the scripts and plots for this setup.
-- [ ] Make a plot for T vs $$\Psi_{eq}$$ for this util fucntion.
+- [x] Make a plot for T vs $$\Psi_{eq}$$ for this util fucntion.
 - [ ] $$R_0$$ for this setup?
 - [ ] Double check that I calculated $$T_c$$ correctly.
+- [ ] Check if there is a discontinuitity in Ex1.2
 - [ ] Plot marginal risk for this and others.
 - [ ] Try to find a utility function with a nice analytic description for the relationship between some parameter and $$N_i^*(\Psi)$$, such that I can choose a distribution for this parameter that induces a gamma distribution on $$N_i^*$$ 
 <!--Could maybe induce a distribution on offspring via a distribution on \delta_i. Different types of people are -->
