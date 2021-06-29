@@ -12,6 +12,7 @@
 
 
 
+
 ## Potential Utility function
 
 Simplifying a bit,
@@ -33,6 +34,17 @@ Potential optimums occur where $$u' = p'$$
 
 
 
+
+
+
+
+
+# TODO for this page:
+- [ ] Copy over the properties of gamma distribution
+- [ ] Find individual $$R_0$$ of a given type. (Mean number of spreads? Just NT, right?)
+- [ ] Find utility function that makes this take on a nice form.
+    - [ ] I think I have a text file somewhere with a note about the typical distribution of actual social connections. Find that and compare to the social connections induced in my model?
+- [ ] Connect Schreiber model of Gamma Poisson spread to an indidivual's problem.
 
 
 
