@@ -73,6 +73,7 @@ Potential solution
 - Rewriting in terms of $$V=1-T+TU$$, the chance that a given neighbor doesn't infect you is defined implicitly by $$V = (1-T) + T \frac{\sum_i A_i N_i e^{(V-1) N_i}}{\sum_i A_i N_i}$$.
     - Can also be written as $$1-V = T \frac{\sum_i A_i N_i (1-e^{-(1-V)N_i})}{\sum_i A_i N_i}$$
 - Rewriting in terms of $$\Psi$$, the risk of transmission from a given neighbor is defined implicitly by $$\Psi = T - T \frac{\sum_i A_i N_i e^{-\Psi N_i}}{\sum_i A_i N_i}$$
+    - Taking the derivative $$\frac{d}{d\Psi}$$ and evaluating at $$\Psi=0$$ yeilds $$R_0$$.  
 - Ultimate prevalence: $$R_\infty = 1-G_0(U;T) = 1-\sum_i A_i e^{(U-1) T N_i} = 1-\sum_i A_i e^{-\Psi N_i} = \sum_i A_i [1-e^{-\Psi N_i}] = \sum_i A_i p(N_i)$$. Makes sense, yes.
 
 
@@ -89,6 +90,8 @@ Given $$T,\{A_i\}$$, equilibrium consists of $$\{N_i\},V$$ such that:
 
     $$V = (1-T) + T \frac{\sum_i A_i N_i e^{(V-1) N_i}}{\sum_i A_i N_i}$$
 
+
+---
 
 ## Examples
 
@@ -240,6 +243,7 @@ Left: 90% is type H; Mid: 10%; right: 05%.
 - [ ] Look at performance of iterative approach as in CNSW 2000? Start with initial guess for V and just plug it a bunch of times?
 - [ ] Verify that the single type case behaves like a standard SIR model.
 - [ ] Figure out how the $$T_c$$ changes in an "coorelated network" (see Newman 05,p74, lower right)
+- [ ] Can I do anything with those notes I took in lyx and on 6-28? Maybe plot $$\Psi$$ vs $$1-e^{-\Psi N^*(\Psi)}$$?? Or is it just useless? 
 
 
 
