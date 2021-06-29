@@ -244,6 +244,7 @@ Left: 90% is type H; Mid: 10%; right: 05%.
 - [ ] Verify that the single type case behaves like a standard SIR model.
 - [ ] Figure out how the $$T_c$$ changes in an "coorelated network" (see Newman 05,p74, lower right)
 - [ ] Can I do anything with those notes I took in lyx and on 6-28? Maybe plot $$\Psi$$ vs $$1-e^{-\Psi N^*(\Psi)}$$?? Or is it just useless? 
+    - [ ] Actaully, yeah, rexpress those notes in terms of elasticity, and that might be exactly the sort of theorem that David is looking for. 
 
 
 

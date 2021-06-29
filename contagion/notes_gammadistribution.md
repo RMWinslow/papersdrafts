@@ -4,8 +4,30 @@
 - Connect to the Schreiber Paper
 
 
+## Gamma distribution facts
 
 
+
+
+
+
+
+## Potential Utility function
+
+Simplifying a bit,
+(utility and disutility left unspecified)
+ the individual's problem becomes 
+
+> Taking $$\Psi$$ as given, choose $$N$$ to solve $$N=\argmax_N [u(N) - p(N)]$$
+
+Now make the following assumptions about the disutility incurred by disease risk $$p(N)$$:
+- Diseasee risk disutility $$p(N)$$ is a strictly increasing function of $$N$$
+- Marginal disutility from disease risk $$p'(N)$$ is a strictly decreasing function of $$N$$ (concave down) ($$p'' < 0$$ 
+
+And the following assumptions on regular utility from connections $$u(N)$$:
+- Marginal connection utility is diminishing in number of connections. $$u'' < 0$$
+
+Potential optimums occur where $$u' = p'$$
 
 
 
