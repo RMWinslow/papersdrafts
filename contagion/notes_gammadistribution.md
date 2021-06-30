@@ -30,7 +30,9 @@ Now instead we want to integrate across a continuum of types
 - Instead of a discrete setof types like $$i\in\{H,L\}$$, we have a continuum $$i\in[0,1]$$
 - Instead of $$A_i\equiv Pr(type=i)$$, now $$A_i \equiv f(i)$$, the pdf for type over the support $$(0,1)$$.
 
-So now $$p_n = \int_i A_i Pr(n_i = n | N_i)$$ 
+So now $$p_n = \int_i A_i Pr(n_i = n | N_i)$$....
+
+# TODO JUNE 30: Finish the above!
 
 
 

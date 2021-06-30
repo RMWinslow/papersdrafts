@@ -269,3 +269,12 @@ Jan is on my comittee, so taking his advice is important.
 # TODO to meet this demand:
 - Under what circumstances outside of equilibrium does people's behavior change towards equilibrium?
 - Under what circumstances does it decay away from equilibrium?
+
+
+
+## Notes from meeting with David today
+
+- think in terms of revenue and cost. look up constant elasticity formula from that context and reinterpret in terms of this revenue (from friendship) and cost (from disease)
+- Can I reinterpret the benefits of social connections to be a poisson process that gives you some extremely high utility at random?
+- Look up "Myerson Poisson Games" Similar result in terms of degree distribtuion and excess degree distribution.
+- Try using $$u(N)=\frac{-1}{\rho} e^{-\rho N}$$?
