@@ -17,17 +17,40 @@ $$u(N) = -\frac{\theta}{\rho} e^{-\rho N}$$
 
 $$U(N;\Psi,\delta) = -\frac{\theta}{\rho} e^{-\rho N} - \delta[1- e^{-\Psi N}]$$
 
+- Paramater domains: $$\rho,\delta,\theta\in(0,\infty)$$, $$\Psi\in[0,1]$$, $$N_{BR} \in [0,\infty)$$
 - Marginal utility: $$\frac{d}{dN}U = \theta e^{-\rho N} - \delta \Psi e^{-\Psi N}$$
-    - Where FOC  is appropriate, it resolves to 
-
-    $$N^*(\Psi,\delta) = \frac{\ln(\delta\Psi/\theta)}{\Psi-\rho}$$
-
+    - Where FOC  is appropriate, it resolves to the single critical point $$N^* = \frac{\ln(\delta\Psi/\theta)}{\Psi-\rho}$$
+    - Because $$U'$$ is continuous, this point exists iff both $$\Psi\neq 0$$ and $$\Psi\neq\rho$$
+    - Whenever it exists, it is the only critical point, and thus at least one of $$N^*,\infty,0$$ are the best response.
+        - If it's a local maximixa, then $$N_{BR}=N^*$$
+    - When it doesn't exist, or when its a local minima, the function is monotonic or constant and thus at least one of $$0,\infty$$ maximizes utility.
 - Second derivative: $$\frac{d}{dN}\frac{d}{dN}U =  - \theta\rho e^{-\rho N} + \delta \Psi^2 e^{-\Psi N}$$
+    - If the critical point $$N^*$$ exists, then $$U''(N^*) = [\Psi-\rho] \cdot (\delta\Psi)^{\frac{-\rho}{\Phi-\rho}}\theta^{\frac{\Psi}{\Phi-\rho}}$$.
+    - Thus if $$\Psi > \rho$$, $$N^*$$ is a local minima, and the optimum is at the boundaries.
+    - If $$
 - Cross derivative: $$\frac{d}{d\Psi}\frac{d}{dN}U = \delta e^{-\Psi N}[\Psi N -1]$$, 
     - giving us the standard $$N=\frac{1}{\Psi}$$, $$p(N;\Psi)=1-\frac{1}{e}$$ fatalism threshold when the FOC is valid.
 
+To reiterate conditions for optimum (See paper notes [6-30 D+] for flowchart):
+- If $$\Psi = 0$$: then $$N_{BR}=+\infty$$
+- If $$\Psi\in(0,\rho)$$: 
+    - If $$\delta\Psi \geq \theta$$: then  $$N_{BR}=0$$
+    - If $$\delta\Psi \leq \theta$$: then  $$N_{BR}=N^*=N^* = \frac{\ln(\delta\Psi/\theta)}{\Psi-\rho}$$
+- If $$\Psi\geq\rho$$: 
+    - If $$\delta < {\theta\over\rho}$$: then  $$N_{BR}=+\infty$$
+    - If $$\delta = {\theta\over\rho}$$: then  there are multiple optima, includeing $$N=0$$ and $$N=+\infty$$.
+    - If $$\delta > {\theta\over\rho}$$: then  $$N_{BR}=0$$
 
 
+
+Now which of my desired properties does this utility have?
+- [x] Nice Form
+- [x] FOC Works
+    - Kinda. The function isn't convex or concave, but it does have at most one critical point, which is all I actually need I think. As long as $$\Psi\in(0,\rho)$$ and $$\delta\Psi < \theta$$, the optimum is at that critical point.
+- [ ] Bounded Connections
+    - Alas, no
+- [x] Gumption
+    - Depends on parameters. But as long as $$\delta < \frac{\theta}{\rho}$$, the best response goes to infinity as $$\Psi\to1$$.
 
 
 ---
