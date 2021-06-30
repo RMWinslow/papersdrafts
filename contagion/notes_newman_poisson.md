@@ -227,6 +227,12 @@ Left: 90% is type H; Mid: 10%; right: 05%.
 
 
 
+
+
+
+
+
+
 # TODO Tomorrow:
 
 - [x] Make the scripts and plots for this setup.
