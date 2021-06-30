@@ -6,9 +6,14 @@
 
 ## Gamma distribution facts
 
-
-
-
+Gamma distribution parameters:
+- dispersion $$k$$ (this is the big one)
+- mean $$\mu=R_0=k\theta$$
+- scale $$\theta=\mu/k$$
+- rate $$\beta=1/\theta=k/\mu$$
+- pdf 
+    $$f(x)=\frac{k^k x^{k-1} e^{-kx/\mu}}{\mu^k\Gamma(k)}$$
+- variance $$\sigma^2=k\theta^2=\mu^2/k$$
 
 
 
