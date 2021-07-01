@@ -78,7 +78,7 @@
 \begin_layout Standard
 \begin_inset Formula 
 \[
-N^{*}=\frac{\ln\frac{\delta\Psi}{\theta}}{\Psi-\rho}
+N=\frac{\ln\frac{}{}}{}
 \]
 
 \end_inset
@@ -87,11 +87,7 @@ N^{*}=\frac{\ln\frac{\delta\Psi}{\theta}}{\Psi-\rho}
 \begin_inset Formula 
 \begin{align*}
 \frac{d}{dN}\frac{d}{dN}U & =-\theta\rho e^{-\rho N}+\delta\Psi^{2}e^{-\Psi N}\\
-U''(N^{*}) & =-\theta\rho e^{-\left(\frac{\rho}{\Psi-\rho}\ln\frac{\delta\Psi}{\theta}\right)}+\delta\Psi^{2}e^{-\left(\frac{\Psi}{\Psi-\rho}\ln\frac{\delta\Psi}{\theta}\right)}\\
- & =-\theta\rho\left[\frac{\delta\Psi}{\theta}\right]^{-\left(\frac{\rho}{\Psi-\rho}\right)}+\delta\Psi^{2}\left[\frac{\delta\Psi}{\theta}\right]^{-\left(\frac{\Psi}{\Psi-\rho}\right)}\\
- & =-\rho(\delta\Psi)^{\frac{-\rho}{\Phi-\rho}}\theta\theta^{\frac{-\rho}{\Phi-\rho}}+\Psi(d\Psi)(\delta\Psi)^{\frac{-\Psi}{\Psi-\rho}}\theta^{\left(\frac{\Psi}{\Psi-\rho}\right)}\\
- & =-\rho(\delta\Psi)^{\frac{-\rho}{\Phi-\rho}}\theta^{\frac{\Psi}{\Phi-\rho}}+\Psi(\delta\Psi)^{\frac{-\rho}{\Psi-\rho}}\theta^{\left(\frac{\Psi}{\Psi-\rho}\right)}\\
- & =[\Psi-\rho](\delta\Psi)^{\frac{-\rho}{\Phi-\rho}}\theta^{\frac{\Psi}{\Phi-\rho}}
+ & =
 \end{align*}
 
 \end_inset
