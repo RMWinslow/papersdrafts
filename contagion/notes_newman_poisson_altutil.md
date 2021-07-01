@@ -89,6 +89,18 @@ But good news, I can easily choose parameters to make it such that the person ch
     - Slope isn't an issue because gamma distribution has nice scaling factor 
     - But interecept changes, which is a problem because the support of a gamma distribution is $$(0,\infty)$$
 
+Here's an alternate way to induce specific values (see [7-01 D]):
+- When $$\Psi=1$$, $$N^*=\frac{\ln(\theta/\delta)}{\rho-1}$$
+- Set $$\delta=1$$, and solve for $$\rho$$ to get $$\rho_i = \frac{\ln\theta}{N_i} + 1$$
+    - Note that now evaluating $$\frac{d}{d\Psi}N_i^*$$ at $$\Psi=1$$ yields $$\frac{1-\rho_i-\ln(\frac{\delta}{\theta})}{(1-\rho_i)^2} = \frac{-\frac{\ln\theta}{N_i}+\ln\theta}{(-\frac{\ln\theta}{N_i})^2}= \frac{[1-{1\over N}]\ln\theta}{(\frac{\ln\theta}{N_i})^2} = \frac{[N_i-1]N_i}{\ln\theta}$$
+    - Given that $$\theta > 1$$, the numerator there is positive as long as $$N_i > 1$$.
+- Then in general, $$N_i^* = \frac{\ln(\Psi/\theta)}{\Psi-\rho} = \frac{\ln(\Psi/\theta)}{\Psi-\frac{\ln\theta}{N_i}-1} $$
+    - Doesn't directly evaluate at $$N_i=0$$, but the limit $$N_i\to 0$$ is zero, and the support of a gamma distribution is just $$(0,\infty)$$ anyways.
+    - Bad news, $$N_i^*\to\infty$$ as $$\Psi\to 0$$ for any value of $$N_i > 0$$.
+        - Doesn't mess with my existence proofs, but does mean that $$\psi\neq 0$$ in equilibrium. An epidemic doesn't necessarily occur, but there is always the chance one **might**. This maybe seems like a unrealistic assumption to go along with the notion that people want infinite connection in the absence of a contagion, but my attempts to deal with it haven't born fruit.
+
+
+
 ---
 
 ## Neggexp utility with a baseline 'background contagion'
@@ -131,7 +143,7 @@ $$U(N) = -\frac{\theta}{\rho} e^{-\rho N} - \delta[1- e^{-(\Psi+\phi-\Psi\phi) N
 
 
 # TODO: 
-- [ ] Add a term for very very tiny non-contagion disaster risk? Hopefully it lets me put $$\rho$$ below 1 without too much hassle?
+- [x] Add a term for very very tiny non-contagion disaster risk? Hopefully it lets me put $$\rho$$ below 1 without too much hassle?
 
 
 
