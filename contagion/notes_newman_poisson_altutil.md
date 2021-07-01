@@ -85,13 +85,53 @@ But good news, I can easily choose parameters to make it such that the person ch
     - PLugging this into wolfram, with $$0 < \Psi < 1$$ and $$LHS > e^\rho$$ gets me the solution $$\Psi = \frac{-\rho}{W_{-1}(\frac{-\rho}{ee^{\rho N-N}})}$$, where $$W^{-1}$$ is a branch of the Lambert product log doohicky.
     - Sadly, I can't solve better than that. But I can say that as $$N_i$$ increases, the threshold $$\Psi$$  starts at 0, decays quickly, then continues to decay but more slowly.
 - The condition for rising but finite optimum as $$\Psi\to1$$ becomes $$🍌>1$$ and $$\ln(🍌) > \ln (🍌^{N_i})$$, which implies $$N_i > 1$$. 
+- With $$\delta=1,\theta_i=e^{(\rho-1)\bar N_i}$$, the optimum turns into a nice linear equation of $$N_i$$: $$N^*_i = \frac{\ln\Psi}{\Psi-\rho} - \frac{\rho-1}{\Psi-\rho} \bar N_i$$
+    - Slope isn't an issue because gamma distribution has nice scaling factor 
+    - But interecept changes, which is a problem because the support of a gamma distribution is $$(0,\infty)$$
+
+---
+
+## Neggexp utility with a baseline 'background contagion'
 
 
+$$u(N) = -\frac{\theta}{\rho} e^{-\rho N} + \Delta e^{-\phi N}$$
+
+$$U(N;\Psi,\delta) = -\frac{\theta}{\rho} e^{-\rho N} + \Delta e^{-\phi N} - \delta[1- e^{-\Psi N}]$$
+
+- Marginal utility: $$\frac{d}{dN}U = \theta e^{-\rho N} -\phi \Delta e^{-\phi N} - \delta \Psi e^{-\Psi N}$$
+
+This way is not analytically solvable, I don't think.
+
+### Take 2: What if the two contagions are mutually exclusive and have the same cost.
+
+So basically, we're just hardcoding a minimum risk level.
+
+Then (and see [7-01 C] for more details):
+
+$$u(N) = -\frac{\theta}{\rho} e^{-\rho N} $$
+
+$$U(N) = -\frac{\theta}{\rho} e^{-\rho N} - \delta[1- e^{-(\Psi+\phi-\Psi\phi) N}]$$
+
+- Marg utility:
+- Critical Point: $$N^* = \frac{\ln ((\Psi+\phi-\Psi\phi)/\theta)}{\Psi+\phi-\Psi\phi-\rho}$$
+- Inducing a distribution at $$\Psi=0$$:
+    - At $$\Psi=0$$, $$N^*=\frac{\ln(\phi\delta/\theta}{\phi-\rho}$$
+    - Fix $$\rho,\phi$$, set $$\delta=1$$, and solve for $$\theta$$ to get $$\theta_i = \phi e^{[\phi-\rho]N_i}$$
+    - Plug this back into $$N^*$$ to get $$N^*_i = \frac{\ln(1+\Psi(\frac{1}{\phi}-1))}{\phi+\Psi-\Psi\phi-\rho} + \frac{\phi-\rho}{\phi+\Psi-\Psi\phi-\rho}N_i$$
+        - Slope is constant and increases as $$\Phi\to1$$
+        - Intercept drops into the negatives, but that's fine I suppose. That's just some mass of people that stop connecting. The distribution of connections can then be imputed from the rest of the people.
+        - The main problem is that $$\phi$$ is necessarily very small and less than $$\rho$$, so $$\theta < \delta$$, and as per notes above, we won't see any fatalism for $$\rho > 1$$
+    - Alternatively set $$\delta=1$$ and solve for $$\rho$$ at $$\Psi=0$$ to get $$\rho_i = \phi - \frac{\ln(\phi/\theta)}{N_i} = \phi + \frac{\ln\theta-\ln\phi}{N_i}$$
+    - Plug *this* one back in to get $$N^* = \frac{\ln ((\Psi+\phi-\Psi\phi)/\theta)}{\Psi-\Psi\phi - \frac{\ln\theta-\ln\phi}{N_i} }$$
+        - Mostly has nice properties in terms of intercept and monotonicity, but:
+        - Kind of a mess to look at.
+        - For any $$\Psi > \phi$$, there is some $$N$$ such that every $$N_i > N$$ yields a $$\rho_i < \Phi$$, which leads to an asymptotic BR. 
+        - This is a really weird implication. For example, let $$\theta=e, \psi=e^{-9}$$ Then anyone who desires more than $$\approx$$ 10 connections when there isn't a contagion desires an infinite number of connections when there *is* a contagion that is guaranteed to transmit?! It's an understandable implication of the way I set things up but it's not at all what I wanted.
 
 
 
 # TODO: 
-- [] Add a term for very very tiny non-contagion disaster risk? Hopefully it lets me put $$\rho$$ below 1 without too much hassle?
+- [ ] Add a term for very very tiny non-contagion disaster risk? Hopefully it lets me put $$\rho$$ below 1 without too much hassle?
 
 
 
