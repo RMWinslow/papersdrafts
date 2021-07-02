@@ -40,3 +40,7 @@ This is the same as the above, except that there are two types of people, each o
 ### [Multiple types of people who imperfectly choose their degree](notes_newman_poisson)
 
 Here, each type $$i$$ chooses the number of connections $$N_i$$ they want, but the actual number of connections they make is determined by a Poisson process with mean $$N_i$$. The averages work out to be the same as in the previous case, but this smooths things out and hopefully removes the ugly discontinuities when I go to graph it.
+
+### [Playing around with different utility functions.](notes_newman_poisson_alutil)
+
+I'd like to find a utility function where the optimal $$N_i$$ in the above setup is a nice simple function of some parameters. Only partial success so far.
