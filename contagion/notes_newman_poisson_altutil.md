@@ -142,9 +142,29 @@ $$U(N) = -\frac{\theta}{\rho} e^{-\rho N} - \delta[1- e^{-(\Psi+\phi-\Psi\phi) N
 
 
 
-# TODO: 
-- [x] Add a term for very very tiny non-contagion disaster risk? Hopefully it lets me put $$\rho$$ below 1 without too much hassle?
+# A quick notes for tomorrow:
 
+
+I tried to find a cost function that doesn't lead to an infinite critical point $$\Psi=0$$.
+
+I'm really tire so I don't know if this makes any sense.
+But if cost is $$\Psi^{1-\Psi}\cdot[1-e^{-\Psi N}]$$,
+Then the marginal utility becomes $$U' = \theta e^{-\rho N} - \Psi^\Psi e^{-\Psi N}$$,
+which makes the critical point $$N^* = \frac{\Psi\ln\Psi-\ln\theta}{\Psi-\rho}$$.
+And the limit of this as $$\Psi\to0$$ is $$\ln\theta\over\rho$$.
+
+That's.. I don't know if that's useful. 
+Does this cost function even have a reasonable interpretation?
+At least on [0,1], $$\Psi^\Psi$$ is strictly increasing, so it's not like (Wait not is it? It's not right?)
+
+Actually I think this implies that a more transmissive contagion reduces the cost of connections. THat's not what I want at all.
+
+## TODO with this:
+- [ ] What if I just multiply by $$\Psi$$ instead of $$\Psi^\Psi/\Psi$$
+- [ ] What if I divide the benefit by $$\Psi$$? Like risk of contagion decreases the joy of communing with others? Will that have a similar effect? (Wait no, I don't think that will work. It's the **zero** contagion case that's causing me problems.
+- [ ] Some other stuff to try to make the optimum noninfinite at 0. Subtract AN? constant cost of connections?
+
+Or if that doesn't work, just give up, make the graphs, assume we aren't in a disease free equilibrium, and start writing stuff up.
 
 
 
