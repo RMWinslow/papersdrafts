@@ -19,7 +19,9 @@ Gamma distribution parameters:
   
     $$F(x;k,\mu) = {\gamma(k,\frac{k x}{\mu}) \over \Gamma(k)} = \frac{\int_0^{\frac{k x}{\mu}} t^{k-1} e^{-t} \; dt}{\int_0^\infty t^{k-1} e^{-t} \; dt}$$
 
+Some additional helpful knowledge:
 
+The pdf for gamma dist with $$k+1,\theta$$ is equal to the pdf for gamma dist with $$k,\theta$$ times $$\frac{x}{\theta k}$$
 
 
 
@@ -41,10 +43,15 @@ Now instead we want to integrate across a continuum of types
 
 So now $$p_n = \int_i A_i Pr(n_i = n | N_i)$$....
 
-# TODO JUNE 30: Finish the above!
+## Here are the statistics facts I was confused about:
 
+$$p_H(x)=\int p_F(x|\theta)p_G(\theta)\ d\theta$$
 
+$$E[g(x)]=\int_x g(x)\ dF_x(x) = \int_x g(x) f_X(x)\ dx$$
 
+If $$Y=g(X)$$ and $$X=h(Y)=g^{-1}(Y)$$, then 
+
+$$f_Y(y) = f_x(h(y))\cdot abs(h'(y))$$
 
 
 
@@ -83,8 +90,6 @@ But the cost $$-p(N)$$ is concave up, so $$u$$ needs to not only be concave down
 # TODO for this page:
 - [x] Copy over the properties of gamma distribution
 - [ ] Find individual $$R_0$$ of a given type. (Mean number of spreads? Just NT, right?)
-- [ ] Rewrite the PGFs for the case where types are a continuum instead of a discrete set.
-    - Maybe look at the prelim solutions to help allieviate my confusion?
 - [ ] Find utility function that makes this take on a nice form.
     - [ ] I think I have a text file somewhere with a note about the typical distribution of actual social connections. Find that and compare to the social connections induced in my model?
 - [ ] Connect Schreiber model of Gamma Poisson spread to an indidivual's problem.
