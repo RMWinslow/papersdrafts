@@ -14,6 +14,8 @@ Gamma distribution parameters:
 - pdf 
    
     $$f(x)=\frac{k^k x^{k-1} e^{-kx/\mu}}{\mu^k\Gamma(k)}$$
+
+    $$f(x)=\frac{x^{k-1} e^{-x/\theta}}{\theta^k\Gamma(k)}$$
 - variance $$\sigma^2=k\theta^2=\mu^2/k$$
 - cdf
   
@@ -22,6 +24,31 @@ Gamma distribution parameters:
 Some additional helpful knowledge:
 
 The pdf for gamma dist with $$k+1,\theta$$ is equal to the pdf for gamma dist with $$k,\theta$$ times $$\frac{x}{\theta k}$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -55,11 +82,68 @@ $$f_Y(y) = f_x(h(y))\cdot abs(h'(y))$$
 
 
 
+## Examples:
+
+### Proportional response
+
+Say that $$N\sim\Gamma(k,\theta)$$. And $$M=N\cdot A$$, where A is some positive constant.
+So $$N=M/A$$
+
+Then 
+
+$$f_M(m)=f_N(m/A)\cdot (1/A) = (1/A) \frac{(m/A)^{k-1} e^{-m/A\theta}}{\theta^k\Gamma(k)} 
+= \frac{m^{k-1} e^{-m/(A\theta)}}{(A\theta)^k\Gamma(k)} 
+\sim \Gamma(k,A\theta)$$
+
+
+
+### Everyone reduces connections by same amount 
+
+Say that $$N\sim\Gamma(k,\theta)$$. And $$M=N - A$$, where A is some positive constant.
+So $$N=M+A$$
+
+$$f_M(m)=f_N(m+A) = \frac{(m+A)^{k-1} e^{-(m+A)/\theta}}{\theta^k\Gamma(k)} 
+= \frac{m^{k-1} e^{-m/(A\theta)}}{(A\theta)^k\Gamma(k)} 
+\sim \Gamma(k,A\theta)$$
+
+
+### That weird thing I found yesterday
+
+Say that $$N\sim\Gamma(k,\theta)$$. And $$M=  \frac{\ln(\Psi/\Theta)}{\Psi-\rho} = \frac{\ln(\Psi/\Theta)}{\Psi-\frac{\ln\Theta}{N}-1}$$.
+
+Then $$N=h(M)\equiv\frac{\ln\Theta}{\Psi-1-\ln(\Psi/\theta)/M}$$ and $$h'(M)=\frac{\ln\Theta\ln(\Psi/\Theta)}{(\Psi M - M - \ln(\Psi/\Theta))^2}$$
+
+But plugging this in doesn't seem to lead to anything too useful.
+
+$$f_M(m)=
+= \frac{1}{\theta^k\Gamma(k)} (\frac{\ln\Theta}{\Psi-1-\ln(\Psi/\theta)/M})^{k-1} \exp(\frac{\ln\Theta /\theta}{\Psi-1-\ln(\Psi/\theta)/M}) \left|\frac{\ln\Theta\ln(\Psi/\Theta)}{(\Psi M - M - \ln(\Psi/\Theta))^2}\right|
+$$
+
+
+
+## TODO Tomorrow:
+
+- [ ] Try just plugging the proportional response thing in and seeing how that turns out.
+    - [ ] Reverse engineer a utility function that makes that happen?
+    - [ ] Look at what happens in equilibrium. Might lead to counterintuitive consequences for relationship between $$T$$ and $$\Psi$$ and $$R_\infty$$??
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+---
 
 ## Potential Utility function
 
@@ -96,4 +180,6 @@ But the cost $$-p(N)$$ is concave up, so $$u$$ needs to not only be concave down
 
 - [ ] Play around with the multiplicative $$U$$ some more. It looks like the threshold condition breaks down but maybe I flip a sign or something. (6-29 B)
 
+
+- [ ] Maybe just fix the dispersion as a function of the disease and let the rate vary as a consumer response?
 
