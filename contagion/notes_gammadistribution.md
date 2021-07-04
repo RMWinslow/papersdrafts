@@ -70,6 +70,14 @@ Now instead we want to integrate across a continuum of types
 
 So now $$p_n = \int_i A_i Pr(n_i = n | N_i)$$....
 
+
+From Schreiber. If each individual transmits poisson at individual rate $$v$$, and these $$v$$s are distributed with pdf $$f_v$$, then the PGF for offspring distribution is 
+
+$$g(x)=\int_o^\infty e^{-v(1-x)}f_v(v)\ dv$$
+
+
+
+
 ## Here are the statistics facts I was confused about:
 
 $$p_H(x)=\int p_F(x|\theta)p_G(\theta)\ d\theta$$
@@ -102,9 +110,7 @@ $$f_M(m)=f_N(m/A)\cdot (1/A) = (1/A) \frac{(m/A)^{k-1} e^{-m/A\theta}}{\theta^k\
 Say that $$N\sim\Gamma(k,\theta)$$. And $$M=N - A$$, where A is some positive constant.
 So $$N=M+A$$
 
-$$f_M(m)=f_N(m+A) = \frac{(m+A)^{k-1} e^{-(m+A)/\theta}}{\theta^k\Gamma(k)} 
-= \frac{m^{k-1} e^{-m/(A\theta)}}{(A\theta)^k\Gamma(k)} 
-\sim \Gamma(k,A\theta)$$
+$$f_M(m)=f_N(m+A) = \frac{(m+A)^{k-1} e^{-(m+A)/\theta}}{\theta^k\Gamma(k)}$$
 
 
 ### That weird thing I found yesterday
@@ -115,9 +121,65 @@ Then $$N=h(M)\equiv\frac{\ln\Theta}{\Psi-1-\ln(\Psi/\theta)/M}$$ and $$h'(M)=\fr
 
 But plugging this in doesn't seem to lead to anything too useful.
 
-$$f_M(m)=
+$$f_M(m)
 = \frac{1}{\theta^k\Gamma(k)} (\frac{\ln\Theta}{\Psi-1-\ln(\Psi/\theta)/M})^{k-1} \exp(\frac{\ln\Theta /\theta}{\Psi-1-\ln(\Psi/\theta)/M}) \left|\frac{\ln\Theta\ln(\Psi/\Theta)}{(\Psi M - M - \ln(\Psi/\Theta))^2}\right|
 $$
+
+
+
+
+## Negative Binomial Distribution
+
+If $$Z$$ is a negbinom distribution with mean $$R_0$$ and dispersion $$k$$, then its $$r$$ parameter is $$k$$ and its $$q$$ parameter is $$R_0 \over k+R_0$$. $$p=(1+\frac{R_0}{k})^{-1}$$
+
+The pdf for this negbinom dist is 
+
+$$f_Z(x) = \binom{x+r-1}{x}(1-p)^rp^x$$
+
+Schreiber says that if we get the NB this way, then pgf for offspring is
+
+$$g(x) = (1+\frac{R_0}{k}(1-x))^{-1}$$
+
+Compare with Newman, where pgf for offspring is $$G_1(x;T)$$ and  $$R_0$$ works out to be $$T\cdot G_1'(1)$$  or $$T\frac{E[k^2]-E[k]}{E[k]}$$.
+
+We get the per-edge risk from $$\Psi=(U-1)T$$, and $$U=G_1(U;T)$$.
+So this means combining the above we get
+
+$$G_1(x;T) = g(x) = (1+\frac{R_0}{k}(1-x))^{-1} = (1+\frac{G_1'(1)}{k}T(1-x))^{-1}$$
+
+And I think this means that because $$G_1(x;T)=G_1(1-T(1-x))$$, that
+
+$$G_1(x) = (1+\frac{G_1'(1)}{k}(1-x))^{-1} = (1+\frac{1}{kT_c}(1-x))^{-1}$$
+
+Note that this itself seems to be the pgf for a negbinom distribution with $$r=k$$ and mean $$1/T_c$$
+
+
+
+
+
+
+$$U = G(U;T) = g(x) = (1+\frac{R_0}{k}(1-U))^{-1} \\
+= (1-\frac{G_1'(1)}{k}T(U-1))^{-1} \\
+= (1-\frac{1}{kT_c}\Psi)^{-1} $$
+
+$$1+\Psi/T = \frac{\Psi+T}{T} =  \frac{1}{1-\frac{1}{kT_c}\Psi}$$
+
+$$(\Psi+T)(1-\frac{1}{kT_c}\Psi) = T$$
+
+
+
+
+
+
+
+
+
+
+## If individuals choose poisson N_i, but the poisson N_i is gamma distributed.
+
+
+
+
 
 
 

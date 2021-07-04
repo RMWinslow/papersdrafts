@@ -159,12 +159,18 @@ At least on [0,1], $$\Psi^\Psi$$ is strictly increasing, so it's not like (Wait 
 
 Actually I think this implies that a more transmissive contagion reduces the cost of connections. THat's not what I want at all.
 
+
 ## TODO with this:
 - [ ] What if I just multiply by $$\Psi$$ instead of $$\Psi^\Psi/\Psi$$
 - [ ] What if I divide the benefit by $$\Psi$$? Like risk of contagion decreases the joy of communing with others? Will that have a similar effect? (Wait no, I don't think that will work. It's the **zero** contagion case that's causing me problems.
 - [ ] Some other stuff to try to make the optimum noninfinite at 0. Subtract AN? constant cost of connections?
+- [ ] What if I add a cost of the form D*N?
 
 Or if that doesn't work, just give up, make the graphs, assume we aren't in a disease free equilibrium, and start writing stuff up.
+(Actually, I don't think this works too well. Can't really say much about how the reponse distribution changes for intermediate values of $$\Psi$$.
+
+
+
 
 
 
