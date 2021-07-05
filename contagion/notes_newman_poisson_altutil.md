@@ -141,6 +141,32 @@ $$U(N) = -\frac{\theta}{\rho} e^{-\rho N} - \delta[1- e^{-(\Psi+\phi-\Psi\phi) N
         - This is a really weird implication. For example, let $$\theta=e, \psi=e^{-9}$$ Then anyone who desires more than $$\approx$$ 10 connections when there isn't a contagion desires an infinite number of connections when there *is* a contagion that is guaranteed to transmit?! It's an understandable implication of the way I set things up but it's not at all what I wanted.
 
 
+## Proof that things won't work out cleanly.
+
+Suppose I have a cost of the form $$\delta-\delta e^{-\Psi N}$$, 
+and want to use FOCs to solve for optimal $$N^*$$.
+The FOC would be $$u'(N) = \delta\Psi e^{-\Psi N}$$, 
+so it would be really handy if I could take the log of both sides to solve for $$N^*$$.
+But if $$\ln(u'(N))$$ is well defined, then $$u' > 0$$, 
+which means that when $$\Psi=0$$, the optimum is $$\infty$$.
+
+So things necessarily will be messy with this cost function equal to chance of getting sick.
+
+~~Or more generally, the marginal cost is always positive, to use FOC, the marginal benefit needs to be positive as well. But that means when the cost is removed, FOC breaks.~~
+The marginal cost at $$N=0$$ is $$\delta\Psi$$. So $$u'(0)$$ must be at least that much no matter what, and then it needs to plummet downwards past $$\delta\Psie^{-\Psi N}$$. 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # A quick notes for tomorrow:
 

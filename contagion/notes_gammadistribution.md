@@ -162,6 +162,7 @@ Working directly from Newman, suppose that the number of conncetions itself is $
     - Notice that $$(1+\frac{1}{k}\cdot\mu_n T(1-x))^{-k-1} = (1+\frac{1}{k+1}\cdot\frac{k+1}{k}\mu_n T(1-x))^{-k-1}$$, 
         - meaning that if the distribution of neighbors is $$NB(\mu_n,k)$$, the contagion offspring distribution will be $$\sim NB(\mu_c,k+1)$$, where  $$\mu_c = \frac{k+1}{k}T\mu_n = R_0$$. *(+1 to dispersion, mean slightly higher than $$T\mu_n$$)*.
         - Likewise, if the contagion offspring distribution is $$\sim NB(R_0,k+1)$$, then that tells us that the neighbor distribution may be $$\sim NB(\mu_n,k)$$, where $$\mu_n = \frac{k}{k+1}\frac{R_0}{T}$$.
+- Index of dispersion $$\frac{\sigma_c^2}{\mu_c} = 1+\frac{\mu_c}{k+1} = R_0/(k+1)$$. Remember that higher $$k$$ actually means less variance in offspring infection number.
 - Unprevelance found from solution to $$U=G_1(U;T)=(1+\frac{\mu_n}{k}T(1-U))^{-k-1}$$.
 - In terms of $$\Psi=T-TU$$, this becomes $$\Psi=T- T G_1(U;T)=T - T(1+\frac{\mu_n}{k}\Psi)^{-k-1}$$. Let's rearrange it to make it the roots of a polynomial:
 
@@ -171,17 +172,15 @@ $${T \over T-\Psi} = (1+\frac{\mu_n}{k}\Psi)^{k+1}$$
 
 $$0 = (1+\frac{\mu_n}{k}\Psi)^{k+1}\cdot(T-\Psi) - T$$
 
+- And the chance of an outbreak and ultimate prevalence will be $$R_\infty = 1-G_0(U;T) = 1-[1+\frac{\mu_n}{k}\Psi]^{-k}$$
 
 
+Note that if $$X\sim Gamma(k,\mu)$$, and $$c > 0$$, then $$cX\sim Gamma(k,c\mu)$$. 
 
+Note that $$\mu_N$$ (and also k) is itself a function of $$\Psi$$.
 
-
-
-
-
-## If individuals choose poisson N_i, but the poisson N_i is gamma distributed.
-
-
+So for example if everyone reacts proportionally, then the dispersion won't change, only the mean.
+And if $$\mu_n \Psi$$ goes up, then so does ultimate prevalence.
 
 
 
@@ -192,8 +191,9 @@ $$0 = (1+\frac{\mu_n}{k}\Psi)^{k+1}\cdot(T-\Psi) - T$$
 - [ ] Try just plugging the proportional response thing in and seeing how that turns out.
     - [ ] Reverse engineer a utility function that makes that happen?
     - [ ] Look at what happens in equilibrium. Might lead to counterintuitive consequences for relationship between $$T$$ and $$\Psi$$ and $$R_\infty$$??
-
-
+- [ ] Is it possible that an increase 
+- [ ] Just graph the cases you have een though they aren't algebraically elegant.
+- [ ] Dispersion increases, holding mean constant. Look at people indexed by percentile. What is the cutoff N_i for which changing dispersion increases or decreases Ni. Use that to ssay something?
 
 
 
