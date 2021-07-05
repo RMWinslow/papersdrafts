@@ -259,8 +259,9 @@ Need to ponder the significance thereof.
     - Come up with some sort of validation comparison
     - What happens to ultimate prevalence if the parameters change midway through epidemic. (Equivalently? Infect some random fraction of people as starting condition???)
     - Vaccines and other interventions?
-    - Site percolation instead of Bond percolation?
+    - [ ] Site percolation instead of Bond percolation?
         - See [Network Robustness and Fragility: Percolation on Random Graphs](https://journals.aps.org/prl/pdf/10.1103/PhysRevLett.85.5468) for details on Joint-bond-site percolation PGFs.
+    - Complete rethink, purely in discrete terms, with initial connections randomized, and cost to increase or decrease discrete connections?
 
 From Jan in Joey's talk "I would rather see it formalized outside of steady state and then see whether it even goes into steady state in the first place. Rather than just saying how it works inside of the steady state." How does it work outside of the steady state?
 

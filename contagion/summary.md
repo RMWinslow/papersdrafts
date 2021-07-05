@@ -44,3 +44,6 @@ Here, each type $$i$$ chooses the number of connections $$N_i$$ they want, but t
 ### [Playing around with different utility functions.](notes_newman_poisson_alutil)
 
 I'd like to find a utility function where the optimal $$N_i$$ in the above setup is a nice simple function of some parameters. Only partial success so far.
+
+
+Also, [see here for some notes about a negative binomial degree distribution](notes_gammadistribution).

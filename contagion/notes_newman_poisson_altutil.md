@@ -13,6 +13,11 @@ I would like to choose a utility function such that the following properties hol
 - **Elasticity:** I wan the response to increasing contact risk to be big enough to easiy see on a graph.
 
 
+I don't think it's possible, but I would really like a utility function where I can prove that the variance to mean ratio increases as the contagion becomes more severe.
+
+Regardless of u, can I write some proof with regards to the threshold thing? That is, a person will marginally increase connecitons when $$\Psi$$ goes up only if $$N\Psi > 1$$. But that means (ignoring the excess degree issue) that the individual's expected transmissiveness when they get sick is in some sense above average, right? 
+
+
 
 
 ## Let utility be negative exponential
@@ -157,6 +162,13 @@ The marginal cost at $$N=0$$ is $$\delta\Psi$$. So $$u'(0)$$ must be at least th
 
 
 
+## Other things I played around with
+
+- fixed cost in addition to contagion cost
+- various twists on utility function
+- trying to work backwards from desired distribution to see what marg utility and thus utility I'd need.
+
+As described above, I finally realized this isn't really going to work. 
 
 
 
@@ -168,7 +180,8 @@ The marginal cost at $$N=0$$ is $$\delta\Psi$$. So $$u'(0)$$ must be at least th
 
 
 
-# A quick notes for tomorrow:
+
+# Weird sleep fragment. A quick notes for tomorrow:
 
 
 I tried to find a cost function that doesn't lead to an infinite critical point $$\Psi=0$$.

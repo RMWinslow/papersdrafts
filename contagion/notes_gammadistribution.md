@@ -3,6 +3,8 @@
 - Use this to force the distribution of connections to be distributed according to a gamma distribution so that the offspring distribution becomes Negative Binomial.
 - Connect to the Schreiber Paper
 
+Problem is that I won't be able to find one that's negbinom throughout entirety of $$\Psi$$ and which has a nice analytical optimum.
+
 
 ## Gamma distribution facts
 
@@ -33,47 +35,17 @@ $$\sum_{k=0}^\infty \binom{k+(r-1)}{k} = \frac{1}{(1-px)^r}$$
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Integrating over types instead of summing over types.
-
-I need to stop using $$k$$ as subscript for a partiicular degree. How about little unidexed $$n$$?
-
-The PGF for connections is PGF for connections: $$G_0(X)=\sum_{n=0}^\infty p_n x^n$$.
-
-If there are multiple discrete types, with each type's connections being distributed according to iid Poisson process, then this PGF becomes: $$G_0(X)=\sum_{🍌=0}^\infty p_🍌 x^🍌 = \sum_i [A_i \sum_{🍌=0}^\infty \frac{N_i^🍌 e^{-N_i} x^🍌}{🍌!}] = \sum_i [ A_i e^{(x-1)N_i}]$$ because $$p_🍌 = \sum_i A_i Pr(n_i = 🍌 | N_i) = \sum_i A_i \frac{N_i^🍌 e^{-N_i}}{🍌!}$$.
-
-If there are multiple discrete types, with each type's connections being distributed according to iid Poisson process, then this PGF becomes: $$G_0(X)=\sum_{n=0}^\infty p_n x^n = \sum_i [A_i \sum_{n=0}^\infty \frac{N_i^n e^{-N_i} x^n}{n!}] = \sum_i [ A_i e^{(x-1)N_i}]$$ because $$p_n = \sum_i A_i Pr(n_i = n | N_i) = \sum_i A_i \frac{N_i^n e^{-N_i}}{n!}$$.
-
-Now instead we want to integrate across a continuum of types
-- Instead of a discrete setof types like $$i\in\{H,L\}$$, we have a continuum $$i\in[0,1]$$
-- Instead of $$A_i\equiv Pr(type=i)$$, now $$A_i \equiv f(i)$$, the pdf for type over the support $$(0,1)$$.
-
-So now $$p_n = \int_i A_i Pr(n_i = n | N_i)$$....
-
-
 From Schreiber. If each individual transmits poisson at individual rate $$v$$, and these $$v$$s are distributed with pdf $$f_v$$, then the PGF for offspring distribution is 
 
 $$g(x)=\int_o^\infty e^{-v(1-x)}f_v(v)\ dv$$
+
+
+
+
+Perhaps I can use some other degree distribution and just look at the index of dispersion $$\frac{\sigma^2}{\mu}$$?
+
+For negbinom, this index is $$\mu/k$$?
+
 
 
 
@@ -87,6 +59,34 @@ $$E[g(x)]=\int_x g(x)\ dF_x(x) = \int_x g(x) f_X(x)\ dx$$
 If $$Y=g(X)$$ and $$X=h(Y)=g^{-1}(Y)$$, then 
 
 $$f_Y(y) = f_x(h(y))\cdot abs(h'(y))$$
+
+
+
+
+
+
+### Thing that distracted me on 6-28
+
+This didn't end up going anywhere useful, but I was confused about the sum $$\sum_{k=0}^\infty k^2\frac{N^k}{k!}$$.
+I eventually untangled my brain, 
+but I spent far too long thinking about this minor bit of algebra. (2 hrs in fact.) 
+Basically,
+
+$$\sum_{k=0}^\infty \frac{N^k}{k!} = e^N$$
+
+$$\sum_{k=0}^\infty k^J\frac{N^k}{k!} = \blacklozenge_J \cdot e^N$$
+
+where $$\blacklozenge_0\equiv1$$ and for $$J\in\N_{++}$$:
+
+$$\blacklozenge_J=N\cdot \sum_{j=0}^{J-1} \binom{J-1}{j} \blacklozenge_{j}$$
+
+
+
+
+
+
+
+
 
 
 

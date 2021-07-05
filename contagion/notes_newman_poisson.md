@@ -235,11 +235,34 @@ Left: 90% is type H; Mid: 10%; right: 05%.
 
 # TODO Tomorrow:
 
-- [x] Make the scripts and plots for this setup.
-- [x] Make a plot for T vs $$\Psi_{eq}$$ for this util fucntion.
-- [x] $$R_0$$ for this setup?
-- [x] Double check that I calculated $$T_c$$ correctly. (Yes, see comment below.)
-- [x] Check if there is a discontinuitity in Ex1.2
+- [ ] Make plots for the negbinom distribution, where k is held constant.
+    - [ ] Try various functions for $$\mu(\Psi$$. See if I can figure out when multiple equilibria become possible.
+- [ ] Plug in some reasonable parameters for the negexp utility and just make some plots.
+    - [ ] Start with just a couple types.
+    - [ ] Use the induced distribution from [7-01 D] with a gamma distributed $$N_i$$
+        - [ ] Make plots of mean connection and E squared connection.  
+- [ ] Go back and take a second look at the weird note at the end of the altutil notes
+- [ ] Write some general theorem about utility and uniqueness etc. If u'' < c'', etc.
+- [ ] Start structuring the actual paper.
+
+
+
+
+Interesting questions to ask and answer: 
+- Can  a reduction in $$T$$ (masking) increase $$R_\infty$$? 
+    - Under what circumstances?
+    - Specifically under what circumstances in the simple proportional negbinom case?
+- Can vaccines increase the prevalence of the disease? What about specifically among the unvaccinated?
+- Can adding a fixed cost to social connections increase $$\Psi$$? 
+    - What about $$R_\infty$$?
+    - If no to either, what about just increasing the index of dispersion?
+
+
+
+
+
+
+
 - [ ] Plot marginal risk for this and others.
 - [ ] Try to find a utility function with a nice analytic description for the relationship between some parameter and $$N_i^*(\Psi)$$, such that I can choose a distribution for this parameter that induces a gamma distribution on $$N_i^*$$ 
 <!--Could maybe induce a distribution on offspring via a distribution on \delta_i. Different types of people are -->
@@ -249,28 +272,9 @@ Left: 90% is type H; Mid: 10%; right: 05%.
 - [ ] Look at performance of iterative approach as in CNSW 2000? Start with initial guess for V and just plug it a bunch of times?
 - [ ] Verify that the single type case behaves like a standard SIR model.
 - [ ] Figure out how the $$T_c$$ changes in an "coorelated network" (see Newman 05,p74, lower right)
+- [ ] Impose bond *and* site percolation to simulate vaccines?
 - [ ] Can I do anything with those notes I took in lyx and on 6-28? Maybe plot $$\Psi$$ vs $$1-e^{-\Psi N^*(\Psi)}$$?? Or is it just useless? 
     - [ ] Actaully, yeah, rexpress those notes in terms of elasticity, and that might be exactly the sort of theorem that David is looking for. 
-
-
-
-### Thing that distracted me on 6-28
-
-This didn't end up going anywhere useful, but I was confused about the sum $$\sum_{k=0}^\infty k^2\frac{N^k}{k!}$$.
-I eventually untangled my brain, 
-but I spent far too long thinking about this minor bit of algebra. (2 hrs in fact.) 
-Basically,
-
-$$\sum_{k=0}^\infty \frac{N^k}{k!} = e^N$$
-
-$$\sum_{k=0}^\infty k^J\frac{N^k}{k!} = \blacklozenge_J \cdot e^N$$
-
-where $$\blacklozenge_0\equiv1$$ and for $$J\in\N_{++}$$:
-
-$$\blacklozenge_J=N\cdot \sum_{j=0}^{J-1} \binom{J-1}{j} \blacklozenge_{j}$$
-
-
-
 
 
 
