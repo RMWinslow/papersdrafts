@@ -7,7 +7,7 @@ And I know that many paramaters will range in (0,1).
 In individual's problem, r,tau,W are interchangable.
 """
 
-import numsolve_newman_poisson as nnp
+import numsolve_newman_negbinom as nnn
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -23,8 +23,87 @@ CL_logGraded = [.99999999999]
 
 #%% Some grids
 unit_grid = np.arange(0,1.00001,.001)
+mu_grid = np.arange(0,30.000001,0.01)
+
+#%% Plot Psi vs mu
+
+
+fig,ax = plt.subplots(figsize=(8,5),constrained_layout=True)
+
+for T in [0.05,0.1,0.3]:
+    for α in [0.001,1,100]:
+        ax.plot(mu_grid,[nnn.approx_Ψ(T,mu,α) for mu in mu_grid], label="T:"+str(T)+',α:'+str(α))
+labelSubplot(ax, "newman_negbinom_muvsPsi", r'$\mu_N$', r'$\Psi$')
+ax.grid()
+ax.legend()
+#plt.show()
+plt.savefig('newman_negbinom_muvsPsi.png')
+
+#%% PLot Psi vs Psi
+
+fig,ax = plt.subplots(figsize=(8,8),constrained_layout=True)
+ax.plot(unit_grid,unit_grid,c='black',linestyle='dotted')
+newMu_grid = [nnn.proportionalmeanresponse(Ψ,20,0) for Ψ in unit_grid]
+for T in [0.05,0.1,0.3,.6]:
+    for α in [0.001,1,1000]:
+        newΨ_grid = [nnn.approx_Ψ(T,mu,α) for mu in newMu_grid]
+        plt.plot(unit_grid,newΨ_grid,  label="T:"+str(T)+',α:'+str(α))
+labelSubplot(ax, "newman_negbinom_Psi(mu(Psi))_proportionalresponse", r'$\Psi$', r'$\Psi(\mu(\Psi))$')
+
+ax.grid()
+ax.legend()
+
+plt.savefig("newman_negbinom_Psi(mu(Psi))_proportionalresponse.png")
+
+
+#%% PLot Psi vs Psi with different proportional response
+
+fig,ax = plt.subplots(figsize=(8,8),constrained_layout=True)
+ax.plot(unit_grid,unit_grid,c='black',linestyle='dotted')
+newMu_grid = [nnn.propmean_expondecay(Ψ,30,1/np.e) for Ψ in unit_grid]
+for T in [0.05,0.1,0.3,.6]:
+    for α in [0.0001,1,1000]:
+        newΨ_grid = [nnn.approx_Ψ(T,mu,α) for mu in newMu_grid]
+        plt.plot(unit_grid,newΨ_grid,  label="T:"+str(T)+',α:'+str(α))
+labelSubplot(ax, "newman_negbinom_Psi(mu(Psi))_propresponse_expdecy", r'$\Psi$', r'$\Psi(\mu(\Psi))$')
+
+ax.grid()
+ax.legend()
+
+plt.savefig("newman_negbinom_Psi(mu(Psi))_propresponse_expdecy.png")
+
+
+#%% PLot Psi vs Psi when  everybody actually increases their connections in response to Psi
+
+fig,ax = plt.subplots(figsize=(8,8),constrained_layout=True)
+ax.plot(unit_grid,unit_grid,c='black',linestyle='dotted')
+newMu_grid = [nnn.proportionalmeanresponse(Ψ,0,30) for Ψ in unit_grid]
+for T in [0.05,0.1,0.3,.6]:
+    for α in [0.001,1,1000]:
+        newΨ_grid = [nnn.approx_Ψ(T,mu,α) for mu in newMu_grid]
+        plt.plot(unit_grid,newΨ_grid,  label="T:"+str(T)+',α:'+str(α))
+labelSubplot(ax, "newman_negbinom_Psi(mu(Psi))_propresponse_increasing", r'$\Psi$', r'$\Psi(\mu(\Psi))$')
+
+ax.grid()
+ax.legend()
+
+plt.savefig("newman_negbinom_Psi(mu(Psi))_propresponse_increasing.png")
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #%% Plot contact risk T vs optimal Ni, for two types of people.
+
 
 #parameters for choice of each type in absence of contagion
 fig,ax = plt.subplots(figsize=(8,5),constrained_layout=True)

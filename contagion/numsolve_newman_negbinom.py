@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-This plots figures for the poisson+Newman model of disease spread.
+This plots figures for the poisson+Newman model of disease spread, 
+where the Nis themselves are gamma distributed.
 
 EXOGENOUS:
     
@@ -50,75 +51,41 @@ def calc_p(Ni,V):
     "Calculates individual risk of infection, taking V for granted."
     return 1 - np.exp( Ni*(V-1) )
 
-def calc_mu(Ai_list,Ni_list):
-    "Returns dot product of two lists. Make sure Ai_list sums to 1, ya hear?"
-    return sum([Ai*Ni for Ai,Ni in zip(Ai_list,Ni_list)])
-
-def calc_Tc(Ai_list,Ni_list,mu):
-    "Returns critical transmissibility threshold for a given social graph."
-    #Only works for this Poisson thing. Not a general formula.
-    EN2 = sum([Ai*Ni*Ni for Ai,Ni in zip(Ai_list,Ni_list)])
-    return mu / EN2
-
-def evaluate_Vfunc(V,T,Ai_list,Ni_list,mu):
-    "The roots of this function gives us the true value of V."
-    assert len(Ai_list) == len(Ni_list)
-    numerator = sum([Ai*Ni*calc_p(Ni,V) for Ai,Ni in zip(Ai_list,Ni_list)])
-    RHSfraction = (numerator/mu)
-    return 1 - T*RHSfraction - V
-
-def approx_V(T,Ai_list,Ni_list):
-    "This finds the (non V=1) solution to contact unrisk formula."
-    mu = calc_mu(Ai_list,Ni_list)
-    Tc = calc_Tc(Ai_list,Ni_list,mu)
-    if T <= Tc:
-        return 1
-    else:
-        Vfunc = lambda V: evaluate_Vfunc(V,T,Ai_list,Ni_list,mu)
-        return optimize.newton(Vfunc,1-T) #finds zero of Vfunc near (1-T)
 
 #%% functions to approximate Ψ
 # Basically equivalent to the above, but I want to see if numpy arrays speed things up.
 
-def approx_Ψ(T,Ai_list,Ni_list):
-    Ai_array = np.array(Ai_list)
-    Ni_array = np.array(Ni_list)
-    return approx_Ψ_using_arrays(T,Ai_array,Ni_array)
-
-def approx_Ψ_using_arrays(T,Ai_array,Ni_array):
-    "Approximates non-zero Ψ. Note that Ai_array and Ni_array must be numpy arrays."
-    mu = np.sum(Ai_array*Ni_array)
-    Tc = mu/np.sum(Ai_array*Ni_array*Ni_array)
+'''def approx_Ψ(T,mu,k):
+    Tc = k/((1+k)*mu)
     if T <= Tc:
         return 0
     else:
-        Ψfunc = lambda Ψ: T-np.sum(Ai_array*Ni_array*np.exp(-Ψ*Ni_array))*T/mu - Ψ
+        Ψfunc = lambda Ψ: T- T*(1+mu*Ψ/k)**(-k-1) - Ψ
+        return optimize.newton(Ψfunc,T)
+ '''   
+    
+def approx_Ψ(T,mu,α):
+    Tc = 1/((1+α)*mu)
+    if T <= Tc:
+        return 0
+    else:
+        Ψfunc = lambda Ψ: T- T*(1+mu*Ψ*α)**(-1/α-1) - Ψ
         return optimize.newton(Ψfunc,T)
     
-def evaluate_Ψfunc(Ψ,T,Ai_array,Ni_array,mu):
-    return T-np.sum(Ai_array*Ni_array*np.exp(-Ψ*Ni_array))*T/mu - Ψ
+def evaluate_Ψfunc(Ψ,T,mu,k):
+    return T- T*(1+mu*Ψ/k)**(-k-1) - Ψ
+
+#%% Simple nonutility response where people just respond proportionately
+
+def proportionalmeanresponse(Ψ,responsetoΨ0,responsetoΨ1):
+    return responsetoΨ0*(1-Ψ) + responsetoΨ1*Ψ
+
+def propmean_expondecay(Ψ, responseΨ0,portionleftatΨtenth):
+    "Here, an increase in psi exponential decays mean"
+    return responseΨ0*np.exp(np.log(portionleftatΨtenth)*10*Ψ)
+
+
     
-
-#%% Test the comparitive speeds of numpy approximation vs the original one I made
-def speedtest_VΨ(T,Ai_list,Ni_list,numbertrials):
-    findV = lambda: approx_V(T, Ai_list, Ni_list)
-    findΨ = lambda: 1-approx_Ψ(T, Ai_list, Ni_list)
-    timeV = timeit.timeit(findV,number=numbertrials)
-    timeΨ = timeit.timeit(findΨ,number=numbertrials)
-    print("V="+str(findV())+",1-Ψ="+str(findΨ())+",diff="+str(findΨ()-findV()))
-    print("Vtime:",timeV,"seconds")
-    print("Ψtime:",timeΨ,"seconds")
-    
-#speedtest_VΨ(0.93, [1], [1.5], 10000)
-#speedtest_VΨ(0.2, [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,], [5,10,15,20,12,4,3,19,8,20], 10000)
-#speedtest_VΨ(0.2, [0.1]*100, [12]*100, 1000)
-#speedtest_VΨ(0.2, [0.1]*100000, [12]*100000, 1)
-
-#RESULTS:
-#    Bad news: for a small number of types (like 1 or 2), the array version is slower.
-#    Good news: for very large numbers of types, the array version works more quickly. 
-#    So this might be useful if I want to approximate some distribution over types or something.
-
 
 #%% Utility functions for contact target
 
@@ -152,6 +119,9 @@ def approx_bestNi(V,utilfunc):
     negU = lambda Ni: - utilfunc(Ni) + calc_p(Ni,V)
     return optimize.minimize_scalar(negU, bounds=(0, 1000), method='bounded',options={'xatol': Ɛ}).x
     
+
+
+
 
 
 #%%Iterate {v_i} and W to get fixed points.

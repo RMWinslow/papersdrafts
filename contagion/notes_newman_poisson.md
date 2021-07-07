@@ -228,6 +228,30 @@ Left: 90% is type H; Mid: 10%; right: 05%.
 
 
 
+## Example 2: Negbinom distribution, proportional response
+
+![](newman_negbinom_muvsPsi.png)
+
+*Here, $$k=\frac{1}{\alpha}$$ is the dispersion, while $$\mu$$ is the mean of the degree distribution. It so happens that this leads to an offspring distribution for the contagion where the mean is $$\mu \frac{k+1}{k} T$$ and the dispersion is $$k+1$$*
+
+![](newman_negbinom_Psi(mu(Psi))_proportionalresponse.png)
+
+*Here we can see how a linearly proportional response doesn't lead to much interesting happening in terms of fatalism*
+
+![](newman_negbinom_Psi(mu(Psi))_propresponse_expdecy.png)
+
+*Here's something similar where everyone's connections scale proportionally, but the mean connections are $$30e^{-10x}$$. Still no fatalism but at least there is something a bit more interesting to look at.*
+
+(Remember that very low $$\alpha$$ means very high $$k$$ means distribution is approximately Poisson.)
+
+If $$\mu_n^*(\Psi)$$ is decreasing, then multiple equilibria cannot exist.
+
+![](newman_negbinom_Psi(mu(Psi))_propresponse_increasing.png)
+*Here, where the mean connection actually is just $$\mu_N=30\cdot\Psi$$, there is either the unique equilibria at $$\Psi=0$$, or multiple equilibria.*
+
+
+
+
 
 
 
@@ -236,7 +260,7 @@ Left: 90% is type H; Mid: 10%; right: 05%.
 # TODO Tomorrow:
 
 - [ ] Make plots for the negbinom distribution, where k is held constant.
-    - [ ] Try various functions for $$\mu(\Psi$$. See if I can figure out when multiple equilibria become possible.
+    - [ ] Try various functions for $$\mu(\Psi)$$. See if I can figure out when multiple equilibria become possible.
 - [ ] Plug in some reasonable parameters for the negexp utility and just make some plots.
     - [ ] Start with just a couple types.
     - [ ] Use the induced distribution from [7-01 D] with a gamma distributed $$N_i$$
