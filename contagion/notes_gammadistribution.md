@@ -27,7 +27,7 @@ Some additional helpful knowledge:
 
 The pdf for gamma dist with $$k+1,\theta$$ is equal to the pdf for gamma dist with $$k,\theta$$ times $$\frac{x}{\theta k}$$
 
-$$\sum_{k=0}^\infty \binom{k+(r-1)}{k} = \frac{1}{(1-px)^r}$$
+$$\sum_{k=0}^\infty \binom{k+(r-1)}{k} (px)^k= \frac{1}{(1-px)^r}$$
 
 
 
@@ -135,7 +135,7 @@ If $$Z$$ is a negbinom distribution with mean $$R_0$$ and dispersion $$k$$, then
 Confusingly, if you consult wikipedia, and compare the above to the formula for $$\mu$$, you'll find that the $$p$$ referred to in Schreiber is called $$q$$ on wikipedia and vice versa. 
 
 
-The pdf for this negbinom dist (using Schreiber's notation is 
+The pdf for this negbinom dist (using Schreiber's notation) is 
 
 $$f_Z(x) = \binom{x+r-1}{x}p^r (1-p)^x$$
 
@@ -182,6 +182,19 @@ Note that $$\mu_N$$ (and also k) is itself a function of $$\Psi$$.
 So for example if everyone reacts proportionally, then the dispersion won't change, only the mean.
 And if $$\mu_n \Psi$$ goes up, then so does ultimate prevalence.
 
+
+### Chance of getting sick if a single person chooses the mean but has actually negbinom distributed connections.
+
+Chance of not getting sick is $$\sum_{n=0}^\infty f(n) V^n$$.
+Substituting in pdf for negbinom (schreiber notation), we get $$\sum_{n=0}^\infty \binom{n+k-1}{n}p^k (1-p)^n V^n = \left( \frac{p}{1-(1-p)v} \right)^k$$.
+This just simplifies to the formula for $$1-R_\infty$$ from above: $$[1+\frac{\mu_n}{k}\Psi]^{-k}$$
+
+Then the marginal probability of getting sick as $$\mu_N$$ increases is $\Psi\cdot[1+\frac{\mu_n}{k}\Psi]^{-k-1}$$, 
+which as expected, peaks at $$\Psi=1/\mu_N$$.
+This threshold occurs at a probability of infection of $$1-(1+\frac{1}{k})^{-k}$$.
+As $$k\to\infty$$ (meaning more homogenous population, distribution becomes poisson) this threshold goes to $$1 - \frac{1}{e}\approx 63\%$$.
+As $$k\to 0$$ (meaning less homogenous population) this threshold goes to $$0$$,
+meaning... what exactly?
 
 
 
