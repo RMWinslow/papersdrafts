@@ -44,6 +44,9 @@ Potential solution
     - Otherwise if $$T > T_c$$, there exists a unique solution $$U\in(0,1)$$
 - Rewriting in terms of $$V=1-T+TU$$, the chance that a given neighbor doesn't infect you is defined implicitly by $$V=(1-T)+Te^{(V-1)N}$$
 - Rewriting in terms of $$\Psi$$, the risk of transmission from a given neighbor is defined implicitly by $$\Psi=T-Te^{-\Psi N} = T p(N)$$
+    - Note $$\frac{d\Psi}{dN}=T e^{-\Psi N}\cdot [N\frac{d\Psi}{dN} + \Psi]$$ so $$\frac{d\Psi}{dN}=\frac{T N \Psi e^{-\Psi N}}{1- T N e^{-\Psi N}}$$.
+    - Thus an increase in $$N$$ decreases the risk that a random neighbor will transmit to you if $$T N e^{-\Psi N} > 1$$.
+    - Of course, this can't happen in the singular type case. (PROOF?)
 - Ultimate prevalence: $$R_\infty = 1-G_0(U;T) = 1-e^{(U-1)TN} = 1-e^{-\Psi N} = p(N)$$
 - According to Newman et al (2005), the **standard SIR model** is functionally equivalent to the case where the the degree distribution is Poisson. (That is, this case.)
 
@@ -73,9 +76,47 @@ Potential solution
 - Rewriting in terms of $$V=1-T+TU$$, the chance that a given neighbor doesn't infect you is defined implicitly by $$V = (1-T) + T \frac{\sum_i A_i N_i e^{(V-1) N_i}}{\sum_i A_i N_i}$$.
     - Can also be written as $$1-V = T \frac{\sum_i A_i N_i (1-e^{-(1-V)N_i})}{\sum_i A_i N_i}$$
 - Rewriting in terms of $$\Psi$$, the risk of transmission from a given neighbor is defined implicitly by $$\Psi = T - T \frac{\sum_i A_i N_i e^{-\Psi N_i}}{\sum_i A_i N_i}$$
-    - Taking the derivative $$\frac{d}{d\Psi}$$ and evaluating at $$\Psi=0$$ yeilds $$R_0$$.  
+    - Can also be written $$\Psi = T \frac{\sum_i A_i N_i [1-e^{-\Psi N_i}]}{\sum_i A_i N_i}$$
+    - Taking the derivative $$\frac{d}{d\Psi}$$ and evaluating at $$\Psi=0$$ yeilds $$R_0$$.
+    - Note also that $$\frac{d\Psi}{dN_i} > 0$$ iff $$p(N_i) + N_i p'(N_i) > \frac{\Psi}{T} = (1-U)$$. 
+        - But that $$p'(N_i)$$ term works out to $$e^{-\Psi N_i}[\Psi + N_i \frac{d\Psi}{dN_i}]$$, I'm pretty sure. Which makes things more complicated.
 - Ultimate prevalence: $$R_\infty = 1-G_0(U;T) = 1-\sum_i A_i e^{(U-1) T N_i} = 1-\sum_i A_i e^{-\Psi N_i} = \sum_i A_i [1-e^{-\Psi N_i}] = \sum_i A_i p(N_i)$$. Makes sense, yes.
 
+
+Let $$p_i$$ be shorthand for $$1-e^{-\Psi N_i}$$ and $$\Psi'$$ be shorthand for $$\frac{d\Psi}{dN_j}$$ for some specific $$j$$.
+Then 
+
+$$\Psi' = T \frac{(A_jN_jp_j'+A_jp_j)(\sum_iA_iN_i)-(\sum_iA_iN_ip_i)A_j}{(\sum_iA_iN_i)^2}$$
+
+Where in this context, $$p_j'=e^{-\Psi N_j}\cdot[N_j\Psi'+\Psi]$$. So
+
+$$\Psi' = T \frac{(A_jN_je^{-\Psi N_j}N_j\Psi')(\sum_iA_iN_i)}{(\sum_iA_iN_i)^2}
++T\frac{(A_jN_je^{-\Psi N_j}\Psi+A_jp_j)(\sum_iA_iN_i)-(\sum_iA_iN_ip_i)A_j}{(\sum_iA_iN_i)^2}$$
+
+
+$$\Psi' \cdot \left[1 - T \frac{(A_jN_j^2e^{-\Psi N_j})}{(\sum_iA_iN_i)}\right]= 
+TA_j\frac{(N_je^{-\Psi N_j}\Psi+p_j)(\sum_iA_iN_i)-(\sum_iA_iN_ip_i)}{(\sum_iA_iN_i)^2}$$
+
+$$\Psi' \cdot \left[1 - T \frac{(A_jN_j^2e^{-\Psi N_j})}{(\sum_iA_iN_i)}\right]= 
+\frac{TA_j(\sum_iA_iN_i \left[\left(N_j \Psi-1\right)e^{-\Psi N_j} + e^{-\Psi N_i}\right])}{(\sum_iA_iN_i)^2}$$
+
+
+$$\Psi' = \frac{\frac{TA_j(\sum_iA_iN_i \left[\left(N_j \Psi-1\right)e^{-\Psi N_j} + e^{-\Psi N_i}\right])}{(\sum_iA_iN_i)^2}}{1 - T \frac{(A_jN_j^2e^{-\Psi N_j})}{(\sum_iA_iN_i)}}$$
+
+$$\Psi' = \frac{TA_j(\sum_iA_iN_i \left[\left(N_j \Psi-1\right)e^{-\Psi N_j} + e^{-\Psi N_i}\right])}{\mu_N^2 - \mu_N T A_jN_j^2 e^{-\Psi N_j}}$$
+
+- The denominator is negative when $$T A_j N_j^2 e^{-\Psi N_j} > \mu_N$$.
+    - Agrees with singular case up above.
+- The numerator is positive when ...
+    - If $$N > \frac{1}{\Psi}$$, then the numerator is surely positive.
+
+
+Okay, this confuses me a bit. 
+The term $$N_j^2 e^{-\Psi N_j}$$ maxes out at $$\frac{4}{e^2\Psi^2}\approx \frac{0.54}{\Psi^2}$$ when $$N_j=\frac{2}{\Psi}$$. 
+At this $$N_j$$, if $$\mu$$ is relatively small, the numerator is positive while the denominator is negative.
+So a high activity group can decrease edge risk by increasing their own activity at the margins???
+
+That doesn't make sense.
 
 ## Equilibrium, multiple types.
 
@@ -259,7 +300,8 @@ If $$\mu_n^*(\Psi)$$ is decreasing, then multiple equilibria cannot exist.
 
 # TODO Tomorrow:
 
-- [ ] Make plots for the negbinom distribution, where k is held constant.
+- [ ] Double check the calculations for $$\Psi'$$ up above. I'm getting the implication that a high actiivty group can reduce edge risk by increasing their own activity. Doesn't make much sense.
+- [x] Make plots for the negbinom distribution, where k is held constant.
     - [ ] Try various functions for $$\mu(\Psi)$$. See if I can figure out when multiple equilibria become possible.
 - [ ] Plug in some reasonable parameters for the negexp utility and just make some plots.
     - [ ] Start with just a couple types.
