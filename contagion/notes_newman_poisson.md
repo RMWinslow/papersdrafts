@@ -73,6 +73,8 @@ Potential solution
     - No disease $$U=1$$ is always a solution, and is the only solution if $$T < T_c$$.
     - Full infection $$U=0$$ is only a solution as $$TN_i\to\infty$$ for all $$i$$ such that $$A_i N_i\neq 0$$.
     - Otherwise if $$T > T_c$$, there exists a unique solution $$U\in(0,1)$$
+    - Notice that $$1-U=\frac{\sum_i A_i N_i}{\sum_i A_i N_i}-\frac{\sum_i A_i N_i e^{(U-1)TN_i}}{\sum_i A_i N_i} = \frac{\sum_i A_i N_i (1-e^{(U-1)TN_i)}}{\sum_i A_i N_i} = \frac{\sum_i A_i N_i p(N_i)}{\sum_i A_i N_i}$$. That is, $$1-U$$ is the chance a random neighbor gets sick at some point. 
+        - This is a consequence of the Poisson connection assumption, similar to how Poisson games let a person ignore the information they have by virtue of knowing that they are a participant.
 - Rewriting in terms of $$V=1-T+TU$$, the chance that a given neighbor doesn't infect you is defined implicitly by $$V = (1-T) + T \frac{\sum_i A_i N_i e^{(V-1) N_i}}{\sum_i A_i N_i}$$.
     - Can also be written as $$1-V = T \frac{\sum_i A_i N_i (1-e^{-(1-V)N_i})}{\sum_i A_i N_i}$$
 - Rewriting in terms of $$\Psi$$, the risk of transmission from a given neighbor is defined implicitly by $$\Psi = T - T \frac{\sum_i A_i N_i e^{-\Psi N_i}}{\sum_i A_i N_i}$$
@@ -126,8 +128,31 @@ Looks like it matches up fine. Haven't checked the implications yet. Need to do 
 
 # TODO: Do that tomorrow.
 
+Just noticed a problem: If I set $$A_H=0,A_l=1$$, then $$\mu = N_l$$ and 
+
+$$\frac{\partial\Psi}{\partial N_{l}}=\frac{T\cdot\left[e^{-\Psi N_{l}}\left[\frac{N_{l}}{N_l}+N_{l}\Psi-1\right]\right]}{\mu-\left[T e^{-\Psi N_{l}}N_{l}^{2}\right]} \\
+= \frac{Te^{-\Psi N_l} N_l \Psi}{N_l - T e^{-\Psi N_{l}}N_{l}^{2}}$$
+
+But this doesn't match up with the $$\frac{\partial\Psi}{\partial N}=\frac{T N \Psi e^{-\Psi N}}{1- T N e^{-\Psi N}}$$ I found for the single-type case. The denominator is off by a factor of $$N$$.
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
 
 
 ## Equilibrium, multiple types.
