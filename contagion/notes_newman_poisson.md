@@ -118,6 +118,18 @@ So a high activity group can decrease edge risk by increasing their own activity
 
 That doesn't make sense.
 
+Here's the derivative calculated a second time in LyX (`notes_newman_poisson_checkingPsiPrime.lyx`), using only two types, l and h:
+
+$$\frac{\partial\Psi}{\partial N_{l}}=\frac{TA_{l}\cdot\left[e^{-\Psi N_{l}}\left[\frac{A_{l}N_{l}}{\mu}+N_{l}\Psi-1\right]+\frac{A_{h}N_{h}}{\mu}e^{-\Psi N_{h}}\right]}{\mu-\left[TA_{l}e^{-\Psi N_{l}}N_{l}^{2}\right]}$$
+
+Looks like it matches up fine. Haven't checked the implications yet. Need to do that tomorrow.
+
+# TODO: Do that tomorrow.
+
+
+
+
+
 ## Equilibrium, multiple types.
 
 Given $$T,\{A_i\}$$, equilibrium consists of $$\{N_i\},V$$ such that:
@@ -130,6 +142,13 @@ Given $$T,\{A_i\}$$, equilibrium consists of $$\{N_i\},V$$ such that:
 - The per-contact disease risk is consistent with the decisions of individuals:
 
     $$V = (1-T) + T \frac{\sum_i A_i N_i e^{(V-1) N_i}}{\sum_i A_i N_i}$$
+
+
+
+
+
+
+
 
 
 ---

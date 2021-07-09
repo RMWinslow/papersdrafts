@@ -1,0 +1,152 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi=T-T\frac{\sum_{i}A_{i}N_{i}e^{-\Psi N_{i}}}{\sum_{i}A_{i}N_{i}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Keeping in mind that the 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ on the RHS needs to be treated as a function of 
+\begin_inset Formula $N_{i}$
+\end_inset
+
+, let's find the derivative in the case where there are two types of people:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi=T-T\frac{A_{h}N_{h}e^{-\Psi N_{h}}+A_{l}N_{l}e^{-\Psi N_{l}}}{A_{h}N_{h}+A_{l}N_{l}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The derivatives of the numerator and denominator are 
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial}{\partial N_{l}}[A_{h}N_{h}e^{-\Psi N_{h}}+A_{l}N_{l}e^{-\Psi N_{l}}] & =-A_{l}e^{-\Psi N_{l}}\cdot\left[N^{2}\frac{\partial\Psi}{\partial N_{l}}+N\Psi-1\right]\\
+ & =-A_{l}e^{-\Psi N_{l}}N^{2}\frac{\partial\Psi}{\partial N_{l}}-A_{l}e^{-\Psi N_{l}}N\Psi+A_{l}e^{-\Psi N_{l}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial N_{l}}[A_{h}N_{h}+A_{l}N_{l}]=A_{l}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And so applying the chain rule we get 
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial\Psi}{\partial N_{l}} & =-T\frac{\left[-A_{l}e^{-\Psi N_{l}}N^{2}\frac{\partial\Psi}{\partial N_{l}}-A_{l}e^{-\Psi N_{l}}N\Psi+A_{l}e^{-\Psi N_{l}}\right]\left[A_{h}N_{h}+A_{l}N_{l}\right]-A_{l}\left[A_{h}N_{h}e^{-\Psi N_{h}}+A_{l}N_{l}e^{-\Psi N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]^{2}}\\
+ & =-T\frac{\left[-A_{l}e^{-\Psi N_{l}}N^{2}\frac{\partial\Psi}{\partial N_{l}}-A_{l}e^{-\Psi N_{l}}N\Psi+A_{l}e^{-\Psi N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]}+T\frac{A_{l}\left[A_{h}N_{h}e^{-\Psi N_{h}}+A_{l}N_{l}e^{-\Psi N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]^{2}}\\
+ & =T\frac{\left[A_{l}e^{-\Psi N_{l}}N^{2}\frac{\partial\Psi}{\partial N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]}+T\frac{\left[A_{l}e^{-\Psi N_{l}}N\Psi-A_{l}e^{-\Psi N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]}+T\frac{A_{l}\left[A_{h}N_{h}e^{-\Psi N_{h}}+A_{l}N_{l}e^{-\Psi N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]^{2}}\\
+ & =\frac{\left[TA_{l}e^{-\Psi N_{l}}N^{2}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]}\frac{\partial\Psi}{\partial N_{l}}+T\frac{A_{l}e^{-\Psi N_{l}}\left[N\Psi-1\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]}+T\frac{A_{l}\left[A_{h}N_{h}e^{-\Psi N_{h}}+A_{l}N_{l}e^{-\Psi N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]^{2}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
