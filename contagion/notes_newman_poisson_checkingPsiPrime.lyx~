@@ -113,8 +113,8 @@ Keeping in mind that the
 The derivatives of the numerator and denominator are 
 \begin_inset Formula 
 \begin{align*}
-\frac{\partial}{\partial N_{l}}[A_{h}N_{h}e^{-\Psi N_{h}}+A_{l}N_{l}e^{-\Psi N_{l}}] & =-A_{l}e^{-\Psi N_{l}}\cdot\left[N^{2}\frac{\partial\Psi}{\partial N_{l}}+N\Psi-1\right]\\
- & =-A_{l}e^{-\Psi N_{l}}N^{2}\frac{\partial\Psi}{\partial N_{l}}-A_{l}e^{-\Psi N_{l}}N\Psi+A_{l}e^{-\Psi N_{l}}
+\frac{\partial}{\partial N_{l}}[A_{h}N_{h}e^{-\Psi N_{h}}+A_{l}N_{l}e^{-\Psi N_{l}}] & =-A_{l}e^{-\Psi N_{l}}\cdot\left[N_{l}^{2}\frac{\partial\Psi}{\partial N_{l}}+N_{l}\Psi-1\right]\\
+ & =-A_{l}e^{-\Psi N_{l}}N_{l}^{2}\frac{\partial\Psi}{\partial N_{l}}-A_{l}e^{-\Psi N_{l}}N_{l}\Psi+A_{l}e^{-\Psi N_{l}}
 \end{align*}
 
 \end_inset
@@ -137,11 +137,130 @@ The derivatives of the numerator and denominator are
 And so applying the chain rule we get 
 \begin_inset Formula 
 \begin{align*}
-\frac{\partial\Psi}{\partial N_{l}} & =-T\frac{\left[-A_{l}e^{-\Psi N_{l}}N^{2}\frac{\partial\Psi}{\partial N_{l}}-A_{l}e^{-\Psi N_{l}}N\Psi+A_{l}e^{-\Psi N_{l}}\right]\left[A_{h}N_{h}+A_{l}N_{l}\right]-A_{l}\left[A_{h}N_{h}e^{-\Psi N_{h}}+A_{l}N_{l}e^{-\Psi N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]^{2}}\\
- & =-T\frac{\left[-A_{l}e^{-\Psi N_{l}}N^{2}\frac{\partial\Psi}{\partial N_{l}}-A_{l}e^{-\Psi N_{l}}N\Psi+A_{l}e^{-\Psi N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]}+T\frac{A_{l}\left[A_{h}N_{h}e^{-\Psi N_{h}}+A_{l}N_{l}e^{-\Psi N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]^{2}}\\
- & =T\frac{\left[A_{l}e^{-\Psi N_{l}}N^{2}\frac{\partial\Psi}{\partial N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]}+T\frac{\left[A_{l}e^{-\Psi N_{l}}N\Psi-A_{l}e^{-\Psi N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]}+T\frac{A_{l}\left[A_{h}N_{h}e^{-\Psi N_{h}}+A_{l}N_{l}e^{-\Psi N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]^{2}}\\
- & =\frac{\left[TA_{l}e^{-\Psi N_{l}}N^{2}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]}\frac{\partial\Psi}{\partial N_{l}}+T\frac{A_{l}e^{-\Psi N_{l}}\left[N\Psi-1\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]}+T\frac{A_{l}\left[A_{h}N_{h}e^{-\Psi N_{h}}+A_{l}N_{l}e^{-\Psi N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]^{2}}
+\frac{\partial\Psi}{\partial N_{l}} & =-T\frac{\left[-A_{l}e^{-\Psi N_{l}}N_{l}^{2}\frac{\partial\Psi}{\partial N_{l}}-A_{l}e^{-\Psi N_{l}}N_{l}\Psi+A_{l}e^{-\Psi N_{l}}\right]\left[A_{h}N_{h}+A_{l}N_{l}\right]-A_{l}\left[A_{h}N_{h}e^{-\Psi N_{h}}+A_{l}N_{l}e^{-\Psi N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]^{2}}\\
+ & =-T\frac{\left[-A_{l}e^{-\Psi N_{l}}N_{l}^{2}\frac{\partial\Psi}{\partial N_{l}}-A_{l}e^{-\Psi N_{l}}N_{l}\Psi+A_{l}e^{-\Psi N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]}+T\frac{A_{l}\left[A_{h}N_{h}e^{-\Psi N_{h}}+A_{l}N_{l}e^{-\Psi N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]^{2}}\\
+ & =T\frac{\left[A_{l}e^{-\Psi N_{l}}N_{l}^{2}\frac{\partial\Psi}{\partial N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]}+T\frac{\left[A_{l}e^{-\Psi N_{l}}N_{l}\Psi-A_{l}e^{-\Psi N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]}+T\frac{A_{l}\left[A_{h}N_{h}e^{-\Psi N_{h}}+A_{l}N_{l}e^{-\Psi N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]^{2}}\\
+ & =\frac{\left[TA_{l}e^{-\Psi N_{l}}N_{l}^{2}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]}\frac{\partial\Psi}{\partial N_{l}}+T\frac{A_{l}e^{-\Psi N_{l}}\left[N_{l}\Psi-1\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]}+T\frac{A_{l}\left[A_{h}N_{h}e^{-\Psi N_{h}}+A_{l}N_{l}e^{-\Psi N_{l}}\right]}{\left[A_{h}N_{h}+A_{l}N_{l}\right]^{2}}
 \end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Or writing it more concisely with 
+\begin_inset Formula $\mu\equiv A_{h}N_{h}+A_{l}N_{l}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial\Psi}{\partial N_{l}} & =\frac{\left[TA_{l}e^{-\Psi N_{l}}N_{l}^{2}\right]}{\mu}\frac{\partial\Psi}{\partial N_{l}}+T\frac{A_{l}e^{-\Psi N_{l}}\left[N_{l}\Psi-1\right]}{\mu}+T\frac{A_{l}\left[A_{h}N_{h}e^{-\Psi N_{h}}+A_{l}N_{l}e^{-\Psi N_{l}}\right]}{\mu^{2}}\\
+ & =\frac{\left[TA_{l}e^{-\Psi N_{l}}N_{l}^{2}\right]}{\mu}\frac{\partial\Psi}{\partial N_{l}}+T\frac{A_{l}e^{-\Psi N_{l}}\left[N_{l}\Psi-1\right]\mu}{\mu^{2}}+T\frac{A_{l}\left[A_{h}N_{h}e^{-\Psi N_{h}}+A_{l}N_{l}e^{-\Psi N_{l}}\right]}{\mu^{2}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left[1-\frac{\left[TA_{l}e^{-\Psi N_{l}}N_{l}^{2}\right]}{\mu}\right]\cdot\frac{\partial\Psi}{\partial N_{l}} & =\frac{TA_{l}}{\mu^{2}}\cdot\left[e^{-\Psi N_{l}}\left[N_{l}\Psi-1\right]\mu+A_{h}N_{h}e^{-\Psi N_{h}}+A_{l}N_{l}e^{-\Psi N_{l}}\right]\\
+\left[\mu-\left[TA_{l}e^{-\Psi N_{l}}N_{l}^{2}\right]\right]\cdot\frac{\partial\Psi}{\partial N_{l}} & =\frac{TA_{l}}{\mu}\cdot\left[e^{-\Psi N_{l}}\left[N_{l}\Psi-1\right]\mu+A_{h}N_{h}e^{-\Psi N_{h}}+A_{l}N_{l}e^{-\Psi N_{l}}\right]\\
+ & =TA_{l}\cdot\left[e^{-\Psi N_{l}}\left[N_{l}\Psi-1\right]+\frac{A_{h}N_{h}}{\mu}e^{-\Psi N_{h}}+\frac{A_{l}N_{l}}{\mu}e^{-\Psi N_{l}}\right]\\
+ & =TA_{l}\cdot\left[e^{-\Psi N_{l}}\left[\frac{A_{l}N_{l}}{\mu}+N_{l}\Psi-1\right]+\frac{A_{h}N_{h}}{\mu}e^{-\Psi N_{h}}\right]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial\Psi}{\partial N_{l}}=\frac{TA_{l}\cdot\left[e^{-\Psi N_{l}}\left[\frac{A_{l}N_{l}}{\mu}+N_{l}\Psi-1\right]+\frac{A_{h}N_{h}}{\mu}e^{-\Psi N_{h}}\right]}{\mu-\left[TA_{l}e^{-\Psi N_{l}}N_{l}^{2}\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This seems inconsistent with the single-type derivative I calculated.
+\end_layout
+
+\begin_layout Standard
+Let's double check.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Psi=T-Te^{-\Psi N}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial\Psi}{\partial N}=Te^{-\Psi N}\cdot\left[\frac{\partial\Psi}{\partial N}\cdot N+\Psi\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial\Psi}{\partial N}=TNe^{-\Psi N}\frac{\partial\Psi}{\partial N}+T\Psi e^{-\Psi N}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial\Psi}{\partial N}\cdot\left[1-TNe^{-\Psi N}\right]=T\Psi e^{-\Psi N}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial\Psi}{\partial N}=\frac{T\Psi e^{-\Psi N}}{1-TNe^{-\Psi N}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Whereas if we plug in 
+\begin_inset Formula $A_{l}=1,A_{h}=0$
+\end_inset
+
+ up above, we get
+\begin_inset Formula 
+\[
+\frac{\partial\Psi}{\partial N_{l}}=\frac{T\cdot\left[e^{-\Psi N_{l}}\left[\frac{N_{l}}{N_{l}}+N_{l}\Psi-1\right]+0\right]}{N_{l}-\left[Te^{-\Psi N_{l}}N_{l}^{2}\right]}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial\Psi}{\partial N_{l}}=\frac{TN_{l}\Psi e^{-\Psi N_{l}}}{N_{l}\cdot\left[1-Te^{-\Psi N_{l}}N_{l}\right]}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial\Psi}{\partial N_{l}}=\frac{T\Psi e^{-\Psi N_{l}}}{\left[1-Te^{-\Psi N_{l}}N_{l}\right]}
+\]
 
 \end_inset
 

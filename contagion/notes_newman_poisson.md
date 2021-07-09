@@ -44,7 +44,7 @@ Potential solution
     - Otherwise if $$T > T_c$$, there exists a unique solution $$U\in(0,1)$$
 - Rewriting in terms of $$V=1-T+TU$$, the chance that a given neighbor doesn't infect you is defined implicitly by $$V=(1-T)+Te^{(V-1)N}$$
 - Rewriting in terms of $$\Psi$$, the risk of transmission from a given neighbor is defined implicitly by $$\Psi=T-Te^{-\Psi N} = T p(N)$$
-    - Note $$\frac{d\Psi}{dN}=T e^{-\Psi N}\cdot [N\frac{d\Psi}{dN} + \Psi]$$ so $$\frac{d\Psi}{dN}=\frac{T N \Psi e^{-\Psi N}}{1- T N e^{-\Psi N}}$$.
+    - Note $$\frac{d\Psi}{dN}=T e^{-\Psi N}\cdot [N\frac{d\Psi}{dN} + \Psi]$$ so $$\frac{d\Psi}{dN}=\frac{T \Psi e^{-\Psi N}}{1- T N e^{-\Psi N}}$$.
     - Thus an increase in $$N$$ decreases the risk that a random neighbor will transmit to you if $$T N e^{-\Psi N} > 1$$.
     - Of course, this can't happen in the singular type case. (PROOF?)
 - Ultimate prevalence: $$R_\infty = 1-G_0(U;T) = 1-e^{(U-1)TN} = 1-e^{-\Psi N} = p(N)$$
@@ -128,12 +128,6 @@ Looks like it matches up fine. Haven't checked the implications yet. Need to do 
 
 # TODO: Do that tomorrow.
 
-Just noticed a problem: If I set $$A_H=0,A_l=1$$, then $$\mu = N_l$$ and 
-
-$$\frac{\partial\Psi}{\partial N_{l}}=\frac{T\cdot\left[e^{-\Psi N_{l}}\left[\frac{N_{l}}{N_l}+N_{l}\Psi-1\right]\right]}{\mu-\left[T e^{-\Psi N_{l}}N_{l}^{2}\right]} \\
-= \frac{Te^{-\Psi N_l} N_l \Psi}{N_l - T e^{-\Psi N_{l}}N_{l}^{2}}$$
-
-But this doesn't match up with the $$\frac{\partial\Psi}{\partial N}=\frac{T N \Psi e^{-\Psi N}}{1- T N e^{-\Psi N}}$$ I found for the single-type case. The denominator is off by a factor of $$N$$.
 
 
 

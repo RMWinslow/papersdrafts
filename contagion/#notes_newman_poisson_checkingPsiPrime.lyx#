@@ -241,34 +241,6 @@ Whereas if we plug in
 \end_inset
 
  up above, we get
-\begin_inset Formula 
-\[
-\frac{\partial\Psi}{\partial N_{l}}=\frac{T\cdot\left[e^{-\Psi N_{l}}\left[\frac{N_{l}}{N_{l}}+N_{l}\Psi-1\right]+0\right]}{N_{l}-\left[Te^{-\Psi N_{l}}N_{l}^{2}\right]}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\frac{\partial\Psi}{\partial N_{l}}=\frac{TN_{l}\Psi e^{-\Psi N_{l}}}{N_{l}\cdot\left[1-Te^{-\Psi N_{l}}N_{l}\right]}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\frac{\partial\Psi}{\partial N_{l}}=\frac{T\Psi e^{-\Psi N_{l}}}{\left[1-Te^{-\Psi N_{l}}N_{l}\right]}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Okay, nevermind, everything works out.
 \end_layout
 
 \end_body
