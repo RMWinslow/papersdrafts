@@ -241,6 +241,468 @@ Whereas if we plug in
 \end_inset
 
  up above, we get
+\begin_inset Formula 
+\[
+\frac{\partial\Psi}{\partial N_{l}}=\frac{T\cdot\left[e^{-\Psi N_{l}}\left[\frac{N_{l}}{N_{l}}+N_{l}\Psi-1\right]+0\right]}{N_{l}-\left[Te^{-\Psi N_{l}}N_{l}^{2}\right]}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial\Psi}{\partial N_{l}}=\frac{TN_{l}\Psi e^{-\Psi N_{l}}}{N_{l}\cdot\left[1-Te^{-\Psi N_{l}}N_{l}\right]}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial\Psi}{\partial N_{l}}=\frac{T\Psi e^{-\Psi N_{l}}}{\left[1-Te^{-\Psi N_{l}}N_{l}\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Okay, nevermind, everything works out.
+\end_layout
+
+\begin_layout Standard
+–
+\end_layout
+
+\begin_layout Section*
+Taking partial derivatives of U
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U=\frac{\sum_{i}A_{i}N_{i}e^{(U-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Partial derivative wrt T:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial U}{\partial T}=\frac{\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}\left[\frac{\partial U}{\partial T}T+U-1\right]}{\sum_{i}A_{i}N_{i}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial U}{\partial T}=\frac{\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}\left[U-1\right]}{\sum_{i}A_{i}N_{i}}+\frac{\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}\frac{\partial U}{\partial T}T}{\sum_{i}A_{i}N_{i}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial U}{\partial T}\cdot\left[1-\frac{\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}T}{\sum_{i}A_{i}N_{i}}\right]=\frac{\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}\left[U-1\right]}{\sum_{i}A_{i}N_{i}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial U}{\partial T}=\frac{\left[\frac{\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}\left[U-1\right]}{\sum_{i}A_{i}N_{i}}\right]}{\left[1-T\frac{\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So already we can observe that (for 
+\begin_inset Formula $\sum_{i}A_{i}N_{i}\neq0$
+\end_inset
+
+), the numerator is cleary non-positive.
+ And it's negative unless 
+\begin_inset Formula $U=1$
+\end_inset
+
+ , meaning outbreak extinction is ensured.
+\end_layout
+
+\begin_layout Standard
+Furthermore, if 
+\begin_inset Formula $N_{i}\geq1$
+\end_inset
+
+ 
+\begin_inset Formula $\forall i$
+\end_inset
+
+, then 
+\begin_inset Formula $\left[1-T\frac{\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}\right]\geq\left[1-T\frac{\sum_{i}A_{i}N_{i}e^{(U-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}\right]=1-TU\geq0$
+\end_inset
+
+, meaning that an increase in 
+\begin_inset Formula $T$
+\end_inset
+
+, holding 
+\begin_inset Formula ${N}$
+\end_inset
+
+ fixed, will decrease 
+\begin_inset Formula $U$
+\end_inset
+
+, meaning that the edge-weighted prevalence of the disease becomes more
+ likely.
+ 
+\end_layout
+
+\begin_layout Standard
+Furthermore, note that 
+\begin_inset Formula $e^{(U-1)TN_{i}}\in[0,1]$
+\end_inset
+
+, and so 
+\begin_inset Formula $T\frac{\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}\leq T\frac{\sum_{i}A_{i}N_{i}^{2}}{\sum_{i}A_{i}N_{i}}=R_{0}$
+\end_inset
+
+.
+ And thus the denominator 
+\begin_inset Formula $\left[1-T\frac{\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}\right]\geq\left[1-R_{0}\right]$
+\end_inset
+
+.
+ But wait this isn't super useful.
+ That's Negative whenever an outbreak is possible, and I want to show that
+ (when outbreak is possible, meaning 
+\begin_inset Formula $U\neq1$
+\end_inset
+
+) the denominator is positive.
+\end_layout
+
+\begin_layout Standard
+Mrrm.
+ Rearranging it a bit, it becomes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial U}{\partial T}=\frac{\left[\left[U-1\right]\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}-T\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}\right]}=\frac{\left[\left[U-1\right]E[(1-p(N))N^{2}]\right]}{\left[E[N]-TE[(1-p(N))N^{2}]\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Once again, the numerator is clearly negative when an outbreak can actually
+ occur.
+ Thus is the denominator is negative, then an increase in 
+\begin_inset Formula $T$
+\end_inset
+
+ increases 
+\begin_inset Formula $U$
+\end_inset
+
+ paradoxically indicating a decrease in outbreak likelihood.
+ I want to show that this can't happen.
+ Or understand when it does.
+\end_layout
+
+\begin_layout Subsubsection*
+With a single type,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial U}{\partial T}=\frac{\left[\left[U-1\right]N^{2}e^{(U-1)TN}\right]}{\left[N-TN^{2}e^{(U-1)TN}\right]}=\frac{\left[\left[U-1\right]Ne^{(U-1)TN}\right]}{\left[1-TNe^{(U-1)TN}\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $N\leq1$
+\end_inset
+
+, then 
+\begin_inset Formula $R_{0}=TN\leq1$
+\end_inset
+
+ and thus 
+\begin_inset Formula $U=1$
+\end_inset
+
+, meaning 
+\begin_inset Formula $\frac{\partial U}{\partial T}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $N>1$
+\end_inset
+
+, then as discussed above, either 
+\begin_inset Formula $U=1$
+\end_inset
+
+ or 
+\begin_inset Formula $\frac{\partial U}{\partial T}<0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Therefore in the single type case, 
+\begin_inset Formula $\frac{\partial U}{\partial T}\leq0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Unimportant note about limit of 
+\begin_inset Formula $\frac{\partial U}{\partial T}$
+\end_inset
+
+ as 
+\begin_inset Formula $R_{0}\to1$
+\end_inset
+
+ : 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+(Sidenote: In the case with a single type, 
+\begin_inset Formula $\lim_{N\to\frac{1}{T}}\frac{\partial U}{\partial T}$
+\end_inset
+
+ is 
+\begin_inset Formula $0$
+\end_inset
+
+ from the left, and 
+\begin_inset Formula $-1$
+\end_inset
+
+ from the right.
+ (See notes [7-09 C]).
+\end_layout
+
+\begin_layout Plain Layout
+And for 
+\begin_inset Formula $\lim_{T\to\frac{1}{N}}\frac{\partial U}{\partial T}$
+\end_inset
+
+, it's again 
+\begin_inset Formula $0$
+\end_inset
+
+ from the left, but from the right, we need to apply Lhopital
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial}{\partial T}\left[\left[U-1\right]Ne^{(U-1)TN}\right] & =N\left[\left[U-1\right]\frac{\partial}{\partial T}e^{(U-1)TN}+e^{(U-1)TN}\frac{\partial}{\partial T}\left[U-1\right]\right]\\
+ & =N\left[\left[U-1\right]N\left[T\frac{\partial U}{\partial T}+U-1\right]e^{(U-1)TN}+e^{(U-1)TN}\frac{\partial U}{\partial T}\right]\\
+ & =Ne^{(U-1)TN}\left[\left[U-1\right]^{2}N+\left[U-1\right]NT\frac{\partial U}{\partial T}+\frac{\partial U}{\partial T}\right]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial}{\partial T}\left[1-TNe^{(U-1)TN}\right] & =-N\left[T\frac{\partial}{\partial T}e^{(U-1)TN}+e^{(U-1)TN}\frac{\partial}{\partial T}T\right]\\
+ & =-N\left[TN\left[T\frac{\partial U}{\partial T}+U-1\right]e^{(U-1)TN}+e^{(U-1)TN}\right]\\
+ & =-Ne^{(U-1)TN}\left[TNT\frac{\partial U}{\partial T}+TN\left[U-1\right]+1\right]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+\frac{\frac{\partial}{\partial T}\left[\left[U-1\right]Ne^{(U-1)TN}\right]}{\frac{\partial}{\partial T}\left[1-TNe^{(U-1)TN}\right]}=\frac{\left[U-1\right]^{2}N+\left[U-1\right]NT\frac{\partial U}{\partial T}+\frac{\partial U}{\partial T}}{\left[TNT\frac{\partial U}{\partial T}+TN\left[U-1\right]+1\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+And so coming from the right, (letting 
+\begin_inset Formula $U_{lim}^{\prime}$
+\end_inset
+
+ be shorthand for 
+\begin_inset Formula $\lim_{T\to_{+}\frac{1}{N}}\frac{\partial U}{\partial T}$
+\end_inset
+
+ ), (because 
+\begin_inset Formula $U\to1$
+\end_inset
+
+)
+\begin_inset Formula 
+\begin{align*}
+U_{lim}^{\prime} & =\lim_{T\to_{+}\frac{1}{N}}\frac{\left[U-1\right]^{2}N+\left[U-1\right]NT\frac{\partial U}{\partial T}+\frac{\partial U}{\partial T}}{\left[TNT\frac{\partial U}{\partial T}+TN\left[U-1\right]+1\right]}\\
+ & =\frac{U_{lim}^{\prime}}{\left[\frac{1}{N}U_{lim}^{\prime}+1\right]}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+For which the only solution is 
+\begin_inset Formula $U_{lim}^{\prime}=0$
+\end_inset
+
+.
+ Wait, does this mean that 
+\begin_inset Formula $U$
+\end_inset
+
+ is actually differentiable wrt 
+\begin_inset Formula $T$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Plain Layout
+Very likely I made a mistake given how bad I am at basic algebra, but nevermind.
+ This isn't really important.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Example(s) with two types H L:
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $A_{l}=A_{h}=\frac{1}{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $N_{l}=0.8$
+\end_inset
+
+, 
+\begin_inset Formula $N_{h}=2.4$
+\end_inset
+
+.
+ 
+\begin_inset Formula $E[N]=\frac{2.4+0.8}{2}=1.6$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In this example, 
+\begin_inset Formula $T_{c}=\frac{1}{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $R_{0}=2T$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial U}{\partial T}=\frac{\left[\left[U-1\right]\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}-T\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}\right]}=\frac{\left[\left[U-1\right]\frac{0.64e^{(U-1)T\cdot0.8}+5.76e^{(U-1)T\cdot2.4}}{2}\right]}{\left[1.6-T\frac{0.64e^{(U-1)T\cdot0.8}+5.76e^{(U-1)T\cdot2.4}}{2}\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $T=0.6$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Then plugging these numbers into Desmos, 
+\begin_inset Formula $U\approx0.7182$
+\end_inset
+
+, and 
+\begin_inset Formula $U-1\approx-0.2818$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{0.64e^{(-0.2818)0.6\cdot0.8}+5.76e^{(-0.2818)0.6\cdot2.4}}{2}\approx2.19889
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial U}{\partial T}\frac{\left[\left[-0.2818\right]\cdot2.19889\right]}{\left[1.6-0.6\cdot2.19889\right]}\approx\frac{-0.}{}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $T=\frac{5}{6}$
+\end_inset
+
+
 \end_layout
 
 \end_body
