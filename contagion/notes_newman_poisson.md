@@ -75,7 +75,7 @@ Potential solution
     - Otherwise if $$T > T_c$$, there exists a unique solution $$U\in(0,1)$$
     - Notice that $$1-U=\frac{\sum_i A_i N_i}{\sum_i A_i N_i}-\frac{\sum_i A_i N_i e^{(U-1)TN_i}}{\sum_i A_i N_i} = \frac{\sum_i A_i N_i (1-e^{(U-1)TN_i)}}{\sum_i A_i N_i} = \frac{\sum_i A_i N_i p(N_i)}{\sum_i A_i N_i}$$. That is, $$1-U$$ is the chance a random neighbor gets sick at some point. 
         - This is a consequence of the Poisson connection assumption, similar to how Poisson games let a person ignore the information they have by virtue of knowing that they are a participant.
-    - 
+    - If $$T$$ goes up, then (the nonzero) $$U$$ must go up. This is because 
 - Rewriting in terms of $$V=1-T+TU$$, the chance that a given neighbor doesn't infect you is defined implicitly by $$V = (1-T) + T \frac{\sum_i A_i N_i e^{(V-1) N_i}}{\sum_i A_i N_i}$$.
     - Can also be written as $$1-V = T \frac{\sum_i A_i N_i (1-e^{-(1-V)N_i})}{\sum_i A_i N_i}$$
 - Rewriting in terms of $$\Psi$$, the risk of transmission from a given neighbor is defined implicitly by $$\Psi = T - T \frac{\sum_i A_i N_i e^{-\Psi N_i}}{\sum_i A_i N_i}$$
