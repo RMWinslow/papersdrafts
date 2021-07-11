@@ -726,7 +726,7 @@ Let
 
 \begin_inset Formula 
 \[
-\frac{\partial U}{\partial T}\approx\frac{\left[\left[-0.6147\right]\cdot1.05472\right]}{\left[1.6-0.6\cdot1.05472\right]}\approx\frac{-0.648}{0.967}<0
+\frac{\partial U}{\partial T}\approx\frac{\left[\left[-0.6147\right]\cdot1.05472\right]}{\left[1.6-\frac{5}{6}\cdot1.05472\right]}\approx\frac{-0.648}{0.721}<0
 \]
 
 \end_inset
@@ -763,7 +763,7 @@ Let
 
 \begin_inset Formula 
 \[
-\frac{\partial U}{\partial T}\approx\frac{\left[\left[-0.0036\right]\cdot3.1871\right]}{\left[1.6-0.6\cdot3.1871\right]}\approx\frac{-0.0115}{0.31226}>0
+\frac{\partial U}{\partial T}\approx\frac{\left[\left[-0.0036\right]\cdot3.1871\right]}{\left[1.6-0.501\cdot3.1871\right]}\approx\frac{-0.0115}{0.003269}<0
 \]
 
 \end_inset
@@ -772,14 +772,7 @@ Let
 \end_layout
 
 \begin_layout Standard
-Aha! Found a counterexample.
- My hunch is that if pandemics can just barely happen, and there's some
- type with 
-\begin_inset Formula $N_{i}<1$
-\end_inset
-
-, then at the margins we can make pandemics less likely by increasing the
- connections of that person.
+Doesn't seem like I can find a spot where the partial derivative is positive.
 \end_layout
 
 \end_body
