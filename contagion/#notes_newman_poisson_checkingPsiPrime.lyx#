@@ -536,13 +536,8 @@ At any point
 \begin_inset Formula $x\in(U^{*},1)$
 \end_inset
 
-, this equation will be positive.
- , and for any 
-\begin_inset Formula $x\notin[U^{*},1]$
-\end_inset
-
 , this equation will be negative.
- (second term is concave up).
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -558,40 +553,23 @@ Set this derivative equal to zero to find the unique solution
 \begin_inset Formula $\underline{x}$
 \end_inset
 
-, which is the unique argmax for 
-\begin_inset Formula $x-\frac{\sum_{i}A_{i}N_{i}e^{(x-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}$
-\end_inset
-
-.
- It must be that 
-\begin_inset Formula $\underline{x}\in(U^{*},1)$
-\end_inset
-
 .
 \end_layout
 
 \begin_layout Itemize
-Therefore, 
-\begin_inset Formula $e^{(U-1)TN_{i}}<e^{(\underline{x}-1)TN_{i}}$
+It is also the case that 
+\begin_inset Formula $\underline{x}$
 \end_inset
 
- for any 
-\begin_inset Formula $N_{i}>0$
+ is the unique argmin for 
+\begin_inset Formula $x-\frac{\sum_{i}A_{i}N_{i}e^{(x-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}$
 \end_inset
 
- and 
-\begin_inset Formula $T>0$
+, and it must be that 
+\begin_inset Formula $\underline{x}\in(U^{*},1)$
 \end_inset
 
-, and so 
-\begin_inset Formula 
-\[
-1-T\frac{\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}>1-T\frac{\sum_{i}A_{i}N_{i}^{2}e^{(\underline{x}-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}=0
-\]
-
-\end_inset
-
-
+.
 \end_layout
 
 \begin_layout Standard

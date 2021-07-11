@@ -75,7 +75,10 @@ Potential solution
     - Otherwise if $$T > T_c$$, there exists a unique solution $$U\in(0,1)$$
     - Notice that $$1-U=\frac{\sum_i A_i N_i}{\sum_i A_i N_i}-\frac{\sum_i A_i N_i e^{(U-1)TN_i}}{\sum_i A_i N_i} = \frac{\sum_i A_i N_i (1-e^{(U-1)TN_i)}}{\sum_i A_i N_i} = \frac{\sum_i A_i N_i p(N_i)}{\sum_i A_i N_i}$$. That is, $$1-U$$ is the chance a random neighbor gets sick at some point. 
         - This is a consequence of the Poisson connection assumption, similar to how Poisson games let a person ignore the information they have by virtue of knowing that they are a participant.
-    - If $$T$$ goes up, then (the nonzero) $$U$$ must go up. This is because 
+    - If $$T$$ goes up, then (the nonzero) $$U$$ must go down.  Holding the $$N_i$$ fixed, $$\frac{dU(T)}{dT} < 0$$ whenever a pandemic can occur.
+        - This is because if we solve for the derivative $$\frac{dU}{dT}$$, we'll get a negative numerator and a denominator equal to $$1-T\frac{\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}=\frac{d}{dU} [U-\frac{\sum_i A_i N_i e^{(U-1)TN_i}}{\sum_i A_i N_i}]$$. 
+        - The pandemic solution for $$U(T)$$ is less than the value of $$U$$ which would set the denominator to zero, and thus the denominator at that point must be positive.
+        - See [notes_newman_poisson_checkingPsiPrime](notes_newman_poisson_checkingPsiPrime.lyx) for details.
 - Rewriting in terms of $$V=1-T+TU$$, the chance that a given neighbor doesn't infect you is defined implicitly by $$V = (1-T) + T \frac{\sum_i A_i N_i e^{(V-1) N_i}}{\sum_i A_i N_i}$$.
     - Can also be written as $$1-V = T \frac{\sum_i A_i N_i (1-e^{-(1-V)N_i})}{\sum_i A_i N_i}$$
 - Rewriting in terms of $$\Psi$$, the risk of transmission from a given neighbor is defined implicitly by $$\Psi = T - T \frac{\sum_i A_i N_i e^{-\Psi N_i}}{\sum_i A_i N_i}$$
@@ -83,6 +86,7 @@ Potential solution
     - Taking the derivative $$\frac{d}{d\Psi}$$ and evaluating at $$\Psi=0$$ yeilds $$R_0$$.
     - Note also that $$\frac{d\Psi}{dN_i} > 0$$ iff $$p(N_i) + N_i p'(N_i) > \frac{\Psi}{T} = (1-U)$$. 
         - But that $$p'(N_i)$$ term works out to $$e^{-\Psi N_i}[\Psi + N_i \frac{d\Psi}{dN_i}]$$, I'm pretty sure. Which makes things more complicated.
+    - When outbreak is possible, increasing $$\frac{d\Psi}{dT} > 0$$ (see [lyx notes](notes_newman_poisson_checkingPsiPrime.lyx)).
 - Ultimate prevalence: $$R_\infty = 1-G_0(U;T) = 1-\sum_i A_i e^{(U-1) T N_i} = 1-\sum_i A_i e^{-\Psi N_i} = \sum_i A_i [1-e^{-\Psi N_i}] = \sum_i A_i p(N_i)$$. Makes sense, yes.
 
 
