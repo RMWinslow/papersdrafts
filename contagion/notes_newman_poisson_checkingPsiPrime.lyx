@@ -495,7 +495,7 @@ The second term
 
  could be either positive or negative.
  If 
-\begin_inset Formula $N_{j}<N_{k}$
+\begin_inset Formula $N_{j}>N_{k}$
 \end_inset
 
 , then 
@@ -531,6 +531,89 @@ the larger type decreases
 .
  This makes intuitive sense.
  But when can the small type have the opposite effect?
+\end_layout
+
+\begin_layout Standard
+Instead, rearrange it like so: 
+\begin_inset Formula 
+\begin{align*}
+numer & =\frac{e^{(U-1)TN_{j}}\cdot\left[1+(U-1)TN_{j}\right]\left[N_{j}+N_{k}\right]-\left[N_{j}e^{(U-1)TN_{j}}+N_{k}e^{(U-1)TN_{k}}\right]}{\left[N_{j}+N_{k}\right]\left[N_{j}+N_{k}\right]}\\
+ & =\frac{N_{j}\cdot\left(e^{(U-1)TN_{j}}\cdot\left[1+(U-1)TN_{j}\right]-e^{(U-1)TN_{j}}\right)+N_{k}\cdot\left(e^{(U-1)TN_{j}}\cdot\left[1+(U-1)TN_{j}\right]-e^{(U-1)TN_{k}}\right)}{\left[N_{j}+N_{k}\right]\left[N_{j}+N_{k}\right]}\\
+ & =\frac{\sum_{i}\left[\left(e^{(U-1)TN_{j}}\cdot\left[1+(U-1)TN_{j}\right]-e^{(U-1)TN_{i}}\right)N_{i}\right]}{\left[N_{j}+N_{k}\right]\left[N_{j}+N_{k}\right]}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What can we say? The whole thing is negative when 
+\begin_inset Formula $e^{(U-1)TN_{j}}\cdot\left[1+(U-1)TN_{j}\right]<0$
+\end_inset
+
+.
+ This happens when 
+\begin_inset Formula $N>\frac{1}{(1-U)T}=\frac{1}{\Psi}$
+\end_inset
+
+.
+ That is, at least in this setup, 
+\series bold
+an already fatalistic person always decreases 
+\begin_inset Formula $U$
+\end_inset
+
+ and increases 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ when they increase connectivity
+\end_layout
+
+\begin_layout Standard
+So to get the counterintutitive result, needs to be that 
+\end_layout
+
+\begin_layout Standard
+CONTINUE FROM HERE
+\end_layout
+
+\begin_layout Standard
+-
+\end_layout
+
+\begin_layout Standard
+Remember, 
+\begin_inset Formula $A>B$
+\end_inset
+
+ means 
+\begin_inset Formula $e^{-\Psi A}<e^{-\Psi B}.$
+\end_inset
+
+ So the smallest 
+\begin_inset Formula $N_{i}$
+\end_inset
+
+ will have the largest 
+\begin_inset Formula $e^{(U-1)TN_{i}}$
+\end_inset
+
+\SpecialChar endofsentence
+
+\end_layout
+
+\begin_layout Standard
+-
+\end_layout
+
+\begin_layout Standard
+-
+\end_layout
+
+\begin_layout Standard
+-
 \end_layout
 
 \begin_layout Subsection*
@@ -1206,6 +1289,9 @@ Taking partial derivatives of
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
 \Psi=T-T\cdot U=T-T\frac{\sum_{i}A_{i}N_{i}e^{(U-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}
