@@ -291,6 +291,249 @@ U=\frac{\sum_{i}A_{i}N_{i}e^{(U-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}
 \end_layout
 
 \begin_layout Subsection*
+Partial derivative wrt some 
+\begin_inset Formula $N_{j}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+Holding everything else constant, including 
+\begin_inset Formula $\left\{ N_{-i}\right\} $
+\end_inset
+
+, and treating 
+\begin_inset Formula $U$
+\end_inset
+
+ as a function of 
+\begin_inset Formula $N_{j}$
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Standard
+The derivatives of the numerator and denominator are :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial}{\partial N_{j}}\left[\sum_{i}A_{i}N_{i}e^{(U-1)TN_{i}}\right] & =\frac{\partial}{\partial N_{j}}\left[A_{j}N_{j}e^{(U-1)TN_{j}}\right]\\
+ & =e^{(U-1)TN_{j}}\cdot\frac{\partial}{\partial N_{j}}\left[A_{j}N_{j}\right]+A_{j}N_{j}\cdot\frac{\partial}{\partial N_{j}}\left[e^{(U-1)TN_{j}}\right]\\
+ & =A_{j}e^{(U-1)TN_{j}}+A_{j}N_{j}e^{(U-1)TN_{j}}\cdot\left[\frac{\partial U}{\partial N_{j}}TN_{j}+TU-T\right]\\
+ & =A_{j}e^{(U-1)TN_{j}}\cdot\left[1+\frac{\partial U}{\partial N_{j}}TN_{j}^{2}+TUN_{j}-TN_{j}\right]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial N_{j}}\left[\sum_{i}A_{i}N_{i}\right]=A_{j}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(Which agrees with the derivatives found for the numer and denom of 
+\begin_inset Formula $Psi$
+\end_inset
+
+ up above if you substitute 
+\begin_inset Formula $\Psi\equiv(1-U)T$
+\end_inset
+
+ and 
+\begin_inset Formula $\frac{\partial\Psi}{\partial N_{j}}\equiv-T\frac{\partial U}{\partial N_{j}}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+Combining these using the quotient rule yields
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial U}{\partial N_{j}} & =\frac{A_{j}e^{(U-1)TN_{j}}\cdot\left[1+\frac{\partial U}{\partial N_{j}}TN_{j}^{2}+TUN_{j}-TN_{j}\right]\left[\sum_{i}A_{i}N_{i}\right]-A_{j}\left[\sum_{i}A_{i}N_{i}e^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}\right]^{2}}\\
+ & =\frac{A_{j}e^{(U-1)TN_{j}}\cdot\left[\frac{\partial U}{\partial N_{j}}TN_{j}^{2}\right]}{\left[\sum_{i}A_{i}N_{i}\right]}+\frac{A_{j}e^{(U-1)TN_{j}}\cdot\left[1+TUN_{j}-TN_{j}\right]\left[\sum_{i}A_{i}N_{i}\right]-A_{j}\left[\sum_{i}A_{i}N_{i}e^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}\right]^{2}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial U}{\partial N_{j}}\cdot\left[1-\frac{A_{j}e^{(U-1)TN_{j}}TN_{j}^{2}}{\left[\sum_{i}A_{i}N_{i}\right]}\right] & =\frac{A_{j}e^{(U-1)TN_{j}}\cdot\left[1+TUN_{j}-TN_{j}\right]\left[\sum_{i}A_{i}N_{i}\right]-A_{j}\left[\sum_{i}A_{i}N_{i}e^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}\right]^{2}}\\
+ & =\frac{A_{j}e^{(U-1)TN_{j}}\cdot\left[1+TUN_{j}-TN_{j}\right]\left[\sum_{i}A_{i}N_{i}\right]-A_{j}\left[\sum_{i}A_{i}N_{i}e^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}\right]^{2}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial U}{\partial N_{j}}=\frac{\left[\frac{A_{j}e^{(U-1)TN_{j}}\cdot\left[1+TUN_{j}-TN_{j}\right]\left[\sum_{i}A_{i}N_{i}\right]-A_{j}\left[\sum_{i}A_{i}N_{i}e^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}\right]^{2}}\right]}{\left[1-\frac{A_{j}e^{(U-1)TN_{j}}TN_{j}^{2}}{\left[\sum_{i}A_{i}N_{i}\right]}\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The denominator is 
+\begin_inset Formula $1-\frac{A_{j}e^{(U-1)TN_{j}}TN_{j}^{2}}{\left[\sum_{i}A_{i}N_{i}\right]}=1-T\frac{A_{j}N_{j}^{2}e^{(U-1)TN_{j}}}{\left[\sum_{i}A_{i}N_{i}\right]}>1-T\frac{\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}>0$
+\end_inset
+
+.
+ (See below for proof.)
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula $\frac{\partial U}{\partial N_{j}}$
+\end_inset
+
+ is positive when the numerator is positive.
+\end_layout
+
+\begin_layout Standard
+The numerator is 
+\begin_inset Formula 
+\begin{align*}
+numer & =\frac{A_{j}e^{(U-1)TN_{j}}\cdot\left[1+TUN_{j}-TN_{j}\right]\left[\sum_{i}A_{i}N_{i}\right]-A_{j}\left[\sum_{i}A_{i}N_{i}e^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}\right]^{2}}\\
+ & =A_{j}\frac{e^{(U-1)TN_{j}}\cdot\left[1+TUN_{j}-TN_{j}\right]\left[\sum_{i}A_{i}N_{i}\right]-\left[\sum_{i}A_{i}N_{i}e^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}\right]^{2}}\\
+\\
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the single-type case, 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+(agrees with above)
+\begin_inset Formula 
+\begin{align*}
+numer & =\frac{Ne^{(U-1)TN}+TUNNe^{(U-1)TN}-TNNe^{(U-1)TN}-Ne^{(U-1)TN}}{N^{2}}\\
+ & =TUe^{(U-1)TN}-Te^{(U-1)TN}\\
+ & =(U-1)Te^{(U-1)TN}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In two type case, with 
+\begin_inset Formula $A_{j}=A_{k}=\frac{1}{2}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+numer & =\frac{1}{2}\frac{e^{(U-1)TN_{j}}\cdot\left[1+TUN_{j}-TN_{j}\right]\left[\frac{N_{j}+N_{k}}{2}\right]-\left[\frac{N_{j}e^{(U-1)TN_{j}}+N_{k}e^{(U-1)TN_{k}}}{2}\right]}{\left[\frac{N_{j}+N_{k}}{2}\right]^{2}}\\
+ & =\frac{e^{(U-1)TN_{j}}\cdot\left[1+(U-1)TN_{j}\right]\left[N_{j}+N_{k}\right]-\left[N_{j}e^{(U-1)TN_{j}}+N_{k}e^{(U-1)TN_{k}}\right]}{\left[N_{j}+N_{k}\right]\left[N_{j}+N_{k}\right]}\\
+ & =\frac{\left[e^{(U-1)TN_{j}}+(U-1)TUN_{j}e^{(U-1)TN_{j}}\right]\left[N_{j}+N_{k}\right]-\left[N_{j}e^{(U-1)TN_{j}}+N_{k}e^{(U-1)TN_{k}}\right]}{\left[N_{j}+N_{k}\right]\left[N_{j}+N_{k}\right]}\\
+ & =\frac{\xcancel{N_{j}e^{(U-1)TN_{j}}}+(U-1)TN_{j}^{2}e^{(U-1)TN_{j}}+N_{k}e^{(U-1)TN_{j}}+(U-1)TN_{j}N_{k}e^{(U-1)TN_{j}}-\xcancel{N_{j}e^{(U-1)TN_{j}}}-N_{k}e^{(U-1)TN_{k}}}{\left[N_{j}+N_{k}\right]\left[N_{j}+N_{k}\right]}\\
+ & =\frac{\left[(U-1)TN_{j}^{2}+N_{k}+(U-1)TN_{j}N_{k}\right]e^{(U-1)TN_{j}}-N_{k}e^{(U-1)TN_{k}}}{\left[N_{j}+N_{k}\right]\left[N_{j}+N_{k}\right]}\\
+ & =\frac{\left[(U-1)TN_{j}^{2}\left[N_{j}+N_{k}\right]+N_{k}\right]e^{(U-1)TN_{j}}-N_{k}e^{(U-1)TN_{k}}}{\left[N_{j}+N_{k}\right]\left[N_{j}+N_{k}\right]}\\
+ & =\frac{\left[(U-1)TN_{j}^{2}\left[N_{j}+N_{k}\right]\right]e^{(U-1)TN_{j}}+N_{k}\left[e^{(U-1)TN_{j}}-e^{(U-1)TN_{k}}\right]}{\left[N_{j}+N_{k}\right]\left[N_{j}+N_{k}\right]}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, I've probably made some sort of horrible algebra mistake at this point.
+ But suppose I haven't.
+ Then looking at the above, 
+\end_layout
+
+\begin_layout Standard
+The first term 
+\begin_inset Formula $\left[(U-1)TN_{j}^{2}\left[N_{j}+N_{k}\right]\right]e^{(U-1)TN_{j}}$
+\end_inset
+
+ is negative because 
+\begin_inset Formula $TN_{j}^{2}\left[N_{j}+N_{k}\right]e^{(U-1)TN_{j}}>0$
+\end_inset
+
+ and 
+\begin_inset Formula $U-1<0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The second term 
+\begin_inset Formula $N_{k}\left[e^{(U-1)TN_{j}}-e^{(U-1)TN_{k}}\right]$
+\end_inset
+
+ could be either positive or negative.
+ If 
+\begin_inset Formula $N_{j}<N_{k}$
+\end_inset
+
+, then 
+\begin_inset Formula $N_{k}\left[e^{(U-1)TN_{j}}-e^{(U-1)TN_{k}}\right]>0$
+\end_inset
+
+, (because 
+\begin_inset Formula $e^{-(1-U)TN}$
+\end_inset
+
+ is a strictly decreasing function of 
+\begin_inset Formula $N$
+\end_inset
+
+), which means the entire numerator is negative.
+ 
+\end_layout
+
+\begin_layout Standard
+So we can conclude that in the case with two types of equal population,
+ 
+\series bold
+the larger type decreases 
+\begin_inset Formula $U$
+\end_inset
+
+ and increases 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ when they increase connectivity
+\series default
+.
+ This makes intuitive sense.
+ But when can the small type have the opposite effect?
+\end_layout
+
+\begin_layout Subsection*
 Partial derivative wrt T:
 \end_layout
 
@@ -595,85 +838,14 @@ Therefore,
 \end_layout
 
 \begin_layout Standard
-Also, we can prove that when an Once again, the numerator is clearly negative
- when an outbreak can actually occur.
- Thus is the denominator is negative, then an increase in 
-\begin_inset Formula $T$
-\end_inset
-
- increases 
-\begin_inset Formula $U$
-\end_inset
-
- paradoxically indicating a decrease in outbreak likelihood.
- I want to show that this can't happen.
- Or understand when it does.
-\end_layout
-
-\begin_layout Standard
-Ah! So notice that 
-\begin_inset Formula $\frac{\partial}{\partial x}\left[x-\frac{\sum_{i}A_{i}N_{i}e^{(x-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}\right]=1-T\frac{\sum_{i}A_{i}N_{i}^{2}e^{(x-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}$
-\end_inset
-
-.
- Setting to 0 and solving for 
-\begin_inset Formula $x$
-\end_inset
-
- gives the value of 
-\begin_inset Formula $x$
-\end_inset
-
- that maximizes the difference between 
-\begin_inset Formula $x$
-\end_inset
-
- and 
-\begin_inset Formula $\frac{\sum_{i}A_{i}N_{i}e^{(x-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}$
-\end_inset
-
-.
- Interpretting in terms of 
-\begin_inset Formula $U=x$
-\end_inset
-
-, (if a pandemic can actually occur) this gives us some 
-\begin_inset Formula $\check{U}$
-\end_inset
-
- greater than the pandemic solution of 
-\begin_inset Formula $U$
-\end_inset
-
- and less than the nonpandemic 
-\begin_inset Formula $U=1$
-\end_inset
-
- solution (because of the concave-up-ness of RHS of recursive def for U).
- At the pandemic solution, an increase in 
-\begin_inset Formula $U$
-\end_inset
-
- would make the gap bigger.Both actually valid solutions of 
-\begin_inset Formula $U$
-\end_inset
-
- will 
-\begin_inset Formula 
-\[
-0=1-T\frac{\sum_{i}A_{i}N_{i}^{2}e^{(\check{U}-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}
-\]
-
-\end_inset
-
-
-\end_layout
+\begin_inset Note Note
+status collapsed
 
 \begin_layout Subsubsection*
 With a single type,
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula 
 \[
 \frac{\partial U}{\partial T}=\frac{\left[\left[U-1\right]N^{2}e^{(U-1)TN}\right]}{\left[N-TN^{2}e^{(U-1)TN}\right]}=\frac{\left[\left[U-1\right]Ne^{(U-1)TN}\right]}{\left[1-TNe^{(U-1)TN}\right]}
@@ -684,7 +856,7 @@ With a single type,
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 If 
 \begin_inset Formula $N\leq1$
 \end_inset
@@ -704,7 +876,7 @@ If
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 If 
 \begin_inset Formula $N>1$
 \end_inset
@@ -720,7 +892,7 @@ If
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Therefore in the single type case, 
 \begin_inset Formula $\frac{\partial U}{\partial T}\leq0$
 \end_inset
@@ -728,7 +900,7 @@ Therefore in the single type case,
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Unimportant note about limit of 
 \begin_inset Formula $\frac{\partial U}{\partial T}$
 \end_inset
@@ -864,7 +1036,7 @@ Very likely I made a mistake given how bad I am at basic algebra, but nevermind.
 Example(s) with two types H L:
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Let 
 \begin_inset Formula $A_{l}=A_{h}=\frac{1}{2}$
 \end_inset
@@ -885,7 +1057,7 @@ Let
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 In this example, 
 \begin_inset Formula $T_{c}=\frac{1}{2}$
 \end_inset
@@ -898,7 +1070,7 @@ In this example,
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula 
 \[
 \frac{\partial U}{\partial T}=\frac{\left[\left[U-1\right]\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}-T\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}\right]}=\frac{\left[\left[U-1\right]\frac{0.64e^{(U-1)T\cdot0.8}+5.76e^{(U-1)T\cdot2.4}}{2}\right]}{\left[1.6-T\frac{0.64e^{(U-1)T\cdot0.8}+5.76e^{(U-1)T\cdot2.4}}{2}\right]}
@@ -909,7 +1081,7 @@ In this example,
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Let 
 \begin_inset Formula $T=0.6$
 \end_inset
@@ -917,7 +1089,7 @@ Let
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Then plugging these numbers into Desmos, 
 \begin_inset Formula $U\approx0.7182$
 \end_inset
@@ -945,7 +1117,7 @@ Then plugging these numbers into Desmos,
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Let 
 \begin_inset Formula $T=\frac{5}{6}$
 \end_inset
@@ -963,7 +1135,7 @@ Let
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula 
 \[
 \frac{0.64e^{(-0.6147)\frac{5}{6}0.8}+5.76e^{(-0.6147)\frac{5}{6}2.4}}{2}\approx1.05472
@@ -982,7 +1154,7 @@ Let
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Let 
 \begin_inset Formula $T=0.501$
 \end_inset
@@ -1000,7 +1172,7 @@ Let
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula 
 \[
 \frac{0.64e^{(-0.0036)0.501\cdot0.8}+5.76e^{(-0.0036)0.501\cdot2.4}}{2}\approx3.1871
@@ -1019,8 +1191,197 @@ Let
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Doesn't seem like I can find a spot where the partial derivative is positive.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Taking partial derivatives of 
+\begin_inset Formula $\Psi$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Psi=T-T\cdot U=T-T\frac{\sum_{i}A_{i}N_{i}e^{(U-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Partial derivative wrt T:
+\end_layout
+
+\begin_layout Standard
+Even though we can't explicitly solve for 
+\begin_inset Formula $\Psi,$
+\end_inset
+
+we can observe that an increase in 
+\begin_inset Formula $T$
+\end_inset
+
+ will increase 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ when 
+\begin_inset Formula $\left\{ N_{i}\right\} $
+\end_inset
+
+ are held constant (and pandemic is actually possible, meaning 
+\begin_inset Formula $T>T_{c}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\Psi(T)}{\partial T}=1-U(T)-T\cdot\frac{\partial U(T)}{\partial T}>0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Taking partial derivatives of 
+\begin_inset Formula $T_{c}$
+\end_inset
+
+ and 
+\begin_inset Formula $R_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+T_{c}=\frac{\sum_{i}A_{i}N_{i}}{\sum_{i}A_{i}N_{i}^{2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial T_{c}}{\partial N_{j}} & =\frac{A_{j}\left[\sum_{i}A_{i}N_{i}^{2}\right]-2A_{j}N_{j}\left[\sum_{i}A_{i}N_{i}\right]}{\left(\sum_{i}A_{i}N_{i}^{2}\right)^{2}}\\
+ & =A_{j}\frac{\left[\sum_{i}A_{i}N_{i}^{2}\right]-2\left[\sum_{i}A_{i}N_{i}N_{j}\right]}{\left(\sum_{i}A_{i}N_{i}^{2}\right)^{2}}\\
+ & =A_{j}\frac{\left[\sum_{i\neq j}A_{i}N_{i}^{2}\right]+A_{j}N_{j}^{2}-2\left[\sum_{i\neq j}A_{i}N_{i}N_{j}\right]-2A_{j}N_{j}^{2}}{\left(\sum_{i}A_{i}N_{i}^{2}\right)^{2}}\\
+ & =A_{j}\frac{\left[\sum_{i\neq j}A_{i}N_{i}^{2}\right]-2\left[\sum_{i\neq j}A_{i}N_{i}\right]N_{j}-A_{j}N_{j}^{2}}{\left(\sum_{i}A_{i}N_{i}^{2}\right)^{2}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The sign of this is the same as the sign of 
+\begin_inset Formula $\left[\sum_{i\neq j}A_{i}N_{i}^{2}\right]-2\left[\sum_{i\neq j}A_{i}N_{i}\right]N_{j}-A_{j}N_{j}^{2}$
+\end_inset
+
+ .
+ (When is this concave down, making the rest of the following accurate?
+ Always, I think.
+ Just the concavity argument was falacious?)
+\end_layout
+
+\begin_layout Standard
+Plug these into quadratic formula to get roots at 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{-b\pm\sqrt{b^{2}-4ac}}{2a}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+N_{j\taurus} & =\frac{-\frac{2\left[\sum_{i\neq j}A_{i}N_{i}\right]}{A_{j}}+\sqrt{\left(\frac{2\left[\sum_{i\neq j}A_{i}N_{i}\right]}{A_{j}}\right)^{2}+4\frac{\left[\sum_{i\neq j}A_{i}N_{i}^{2}\right]}{A_{j}}}}{2}\\
+ & =\sqrt{\frac{\left[\sum_{i\neq j}A_{i}N_{i}\right]^{2}+\left[\sum_{i\neq j}A_{i}N_{i}^{2}\right]}{A_{j}}}-\frac{\left[\sum_{i\neq j}A_{i}N_{i}\right]}{A_{j}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $N_{j}>N_{j\taurus}$
+\end_inset
+
+, then 
+\begin_inset Formula $\frac{\partial T_{c}}{\partial N_{j}}<0$
+\end_inset
+
+ as you would expect.
+\end_layout
+
+\begin_layout Standard
+But if 
+\begin_inset Formula $N_{j}<N_{j\taurus}$
+\end_inset
+
+, then 
+\begin_inset Formula $\frac{\partial T_{c}}{\partial N_{j}}>0$
+\end_inset
+
+, meaning that type 
+\begin_inset Formula $j$
+\end_inset
+
+ increasing their connections will actually result in an 
+\emph on
+increase
+\emph default
+ in 
+\begin_inset Formula $T_{c}$
+\end_inset
+
+ potentially preventing an epidemic.
+ 
+\end_layout
+
+\begin_layout Standard
+Similarly, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R_{0}=\frac{T}{T_{c}}
+\]
+
+\end_inset
+
+ will have the same threshold, where 
+\begin_inset Formula $N_{j}<N_{j\taurus}$
+\end_inset
+
+ means that 
+\begin_inset Formula $\frac{\partial R_{0}}{\partial N_{j}}<0$
+\end_inset
+
+ potentially preventing an epidemic.
 \end_layout
 
 \end_body
