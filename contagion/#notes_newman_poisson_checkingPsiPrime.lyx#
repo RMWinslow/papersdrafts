@@ -702,8 +702,29 @@ And
 
 
 \begin_inset Formula 
+\begin{align*}
+\frac{\partial U}{\partial N_{j}} & =\frac{\left(\sum_{i}\left[A_{i}N_{i}^{2}Te^{(U-1)TN_{i}}\frac{\partial U}{\partial N_{j}}\right]+A_{j}e^{(U-1)TN_{j}}\cdot\left[1+TUN_{j}-TN_{j}\right]\right)\left[\sum_{i}A_{i}N_{i}\right]-A_{j}\left[\sum_{i}A_{i}N_{i}e^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}\right]^{2}}\\
+ & =\frac{\left[A_{i}N_{i}^{2}Te^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}\right]}\frac{\partial U}{\partial N_{j}}+\frac{\left(A_{j}e^{(U-1)TN_{j}}\cdot\left[1+TUN_{j}-TN_{j}\right]\right)}{\left[\sum_{i}A_{i}N_{i}\right]}-\frac{A_{j}}{\left[\sum_{i}A_{i}N_{i}\right]}U\\
+ & =\frac{\left[A_{i}N_{i}^{2}Te^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}\right]}\frac{\partial U}{\partial N_{j}}+A_{j}\frac{\left(e^{(U-1)TN_{j}}\cdot\left[1+(U-1)TN_{j}\right]-U\right)}{\left[\sum_{i}A_{i}N_{i}\right]}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
 \[
-\frac{\partial U}{\partial N_{j}}=\frac{A_{j}e^{(U-1)TN_{j}}\cdot\left[1+\frac{\partial U}{\partial N_{j}}TN_{j}^{2}+TUN_{j}-TN_{j}\right]\left[\sum_{i}A_{i}N_{i}\right]-A_{j}\left[\sum_{i}A_{i}N_{i}e^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}\right]^{2}}=\frac{A_{j}e^{(U-1)TN_{j}}\cdot\left[\frac{\partial U}{\partial N_{j}}TN_{j}^{2}\right]}{\left[\sum_{i}A_{i}N_{i}\right]}+\frac{A_{j}e^{(U-1)TN_{j}}\cdot\left[1+TUN_{j}-TN_{j}\right]\left[\sum_{i}A_{i}N_{i}\right]-A_{j}\left[\sum_{i}A_{i}N_{i}e^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}\right]^{2}}
+\frac{\partial U}{\partial N_{j}}\cdot\left[1-\frac{\left[A_{i}N_{i}^{2}Te^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}\right]}\right]=A_{j}\frac{\left(e^{(U-1)TN_{j}}\cdot\left[1+(U-1)TN_{j}\right]-U\right)}{\left[\sum_{i}A_{i}N_{i}\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial U}{\partial N_{j}}=\frac{\left[A_{j}\frac{\left(e^{(U-1)TN_{j}}\cdot\left[1+(U-1)TN_{j}\right]-U\right)}{\left[\sum_{i}A_{i}N_{i}\right]}\right]}{\left[1-\frac{\left[A_{i}N_{i}^{2}Te^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}\right]}\right]}
 \]
 
 \end_inset
@@ -1715,7 +1736,7 @@ status collapsed
 
 \begin_layout Standard
 The above example was incorrect, but just using Desmos, I was able to show
- that indeed, with these parameters type 
+ that indeed, with these parameters, type 
 \begin_inset Formula $l$
 \end_inset
 
@@ -1728,7 +1749,52 @@ The above example was incorrect, but just using Desmos, I was able to show
 \end_inset
 
 , the disease risk.
- Assum
+ 
+\end_layout
+
+\begin_layout Standard
+It looks like holding 
+\begin_inset Formula $N_{h}$
+\end_inset
+
+ constant at 
+\begin_inset Formula $9$
+\end_inset
+
+, an increase in type 
+\begin_inset Formula $l$
+\end_inset
+
+'s contacts reduces disease until around 
+\begin_inset Formula $N_{l}\approx3.25$
+\end_inset
+
+, at which point, 
+\begin_inset Formula $U$
+\end_inset
+
+ peaks at 
+\begin_inset Formula $\approx.4727$
+\end_inset
+
+.
+ Confusingly, this doesn't correspond to the fatalism threshold nor to the
+ threshold 
+\begin_inset Formula $N_{h}\cdot0.4142\approx3.72$
+\end_inset
+
+ at which 
+\begin_inset Formula $R_{0}$
+\end_inset
+
+ starts increasing.
+ So that means that as type 
+\begin_inset Formula $l$
+\end_inset
+
+ increases connection, first we hit a point where they start making the
+ disease more common, and then only after that do we hit the point where
+ the make the disease spread more??!! Confusing.
 \end_layout
 
 \end_body

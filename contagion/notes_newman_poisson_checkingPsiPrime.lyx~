@@ -682,7 +682,7 @@ status collapsed
 \begin_inset Formula 
 \begin{align*}
 \frac{\partial}{\partial N_{j}}\left[\sum_{i}A_{i}N_{i}e^{(U-1)TN_{i}}\right] & =\frac{\partial}{\partial N_{j}}\left[\sum_{i\neq j}A_{i}N_{i}e^{(U-1)TN_{i}}\right]+\frac{\partial}{\partial N_{j}}\left[A_{j}N_{j}e^{(U-1)TN_{j}}\right]\\
- & =A_{j}e^{(U-1)TN_{j}}\cdot\left[1+\frac{\partial U}{\partial N_{j}}TN_{j}^{2}+TUN_{j}-TN_{j}\right]+\sum_{i\neq j}\left[A_{i}N_{i}^{2}Te^{(U-1)TN_{i}}\frac{\partial U}{\partial N_{j}}\right]\\
+ & =\sum_{i\neq j}\left[A_{i}N_{i}^{2}Te^{(U-1)TN_{i}}\frac{\partial U}{\partial N_{j}}\right]+A_{j}e^{(U-1)TN_{j}}\cdot\left[1+\frac{\partial U}{\partial N_{j}}TN_{j}^{2}+TUN_{j}-TN_{j}\right]\\
  & =\sum_{i}\left[A_{i}N_{i}^{2}Te^{(U-1)TN_{i}}\frac{\partial U}{\partial N_{j}}\right]+A_{j}e^{(U-1)TN_{j}}\cdot\left[1+TUN_{j}-TN_{j}\right]
 \end{align*}
 
@@ -701,6 +701,77 @@ And
 \end_inset
 
 
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial U}{\partial N_{j}} & =\frac{\left(\sum_{i}\left[A_{i}N_{i}^{2}Te^{(U-1)TN_{i}}\frac{\partial U}{\partial N_{j}}\right]+A_{j}e^{(U-1)TN_{j}}\cdot\left[1+TUN_{j}-TN_{j}\right]\right)\left[\sum_{i}A_{i}N_{i}\right]-A_{j}\left[\sum_{i}A_{i}N_{i}e^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}\right]^{2}}\\
+ & =\frac{\sum_{i}\left[A_{i}N_{i}^{2}Te^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}\right]}\frac{\partial U}{\partial N_{j}}+\frac{\left(A_{j}e^{(U-1)TN_{j}}\cdot\left[1+TUN_{j}-TN_{j}\right]\right)}{\left[\sum_{i}A_{i}N_{i}\right]}-\frac{A_{j}}{\left[\sum_{i}A_{i}N_{i}\right]}U\\
+ & =\frac{\sum_{i}\left[A_{i}N_{i}^{2}Te^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}\right]}\frac{\partial U}{\partial N_{j}}+A_{j}\frac{\left(e^{(U-1)TN_{j}}\cdot\left[1+(U-1)TN_{j}\right]-U\right)}{\left[\sum_{i}A_{i}N_{i}\right]}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial U}{\partial N_{j}}\cdot\left[1-\frac{\sum_{i}\left[A_{i}N_{i}^{2}Te^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}\right]}\right]=A_{j}\frac{\left(e^{(U-1)TN_{j}}\cdot\left[1+(U-1)TN_{j}\right]-U\right)}{\left[\sum_{i}A_{i}N_{i}\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial U}{\partial N_{j}}=\frac{\left[A_{j}\frac{\left(e^{(U-1)TN_{j}}\cdot\left[1+(U-1)TN_{j}\right]-U\right)}{\left[\sum_{i}A_{i}N_{i}\right]}\right]}{\left[1-T\frac{\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As discussed below, the denominator 
+\begin_inset Formula $1-T\frac{\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}>0$
+\end_inset
+
+ is positive whenever an epidemic is possible (
+\begin_inset Formula $T>T_{c}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+As such, the entire derivative is positive iff the term.
+ 
+\begin_inset Formula $e^{(U-1)TN_{j}}\cdot\left[1-(1-U)TN_{j}\right]-U$
+\end_inset
+
+ is positive.
+\end_layout
+
+\begin_layout Standard
+Clearly, it's negative if 
+\begin_inset Formula $N_{j}>\frac{1}{(1-U)T}$
+\end_inset
+
+, meaning a fatalistic person always decreases 
+\begin_inset Formula $U$
+\end_inset
+
+, increases 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ when they increase connections.
+ But what about when it's lower? What else can we say about this threshold?
+\end_layout
+
+\begin_layout Standard
+CONTINUE FROM HERE
 \end_layout
 
 \begin_layout Standard
@@ -1679,10 +1750,15 @@ We need
 \begin_inset Formula $\sum_{i}A_{i}N_{i}e^{(U-1)TN_{i}}\approx1.9354218975$
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
+This is actually using the incorrect formula: 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
 \begin_inset Formula 
 \begin{align*}
 \frac{\partial U}{\partial N_{l}} & =\frac{\left[\frac{A_{l}e^{(U-1)TN_{l}}\cdot\left[1+TUN_{l}-TN_{l}\right]\left[\sum_{i}A_{i}N_{i}\right]-A_{l}\left[\sum_{i}A_{i}N_{i}e^{(U-1)TN_{i}}\right]}{\left[\sum_{i}A_{i}N_{i}\right]^{2}}\right]}{\left[1-\frac{A_{j}e^{(U-1)TN_{j}}TN_{j}^{2}}{\left[\sum_{i}A_{i}N_{i}\right]}\right]}\\
@@ -1695,8 +1771,14 @@ We need
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
-So indeed, type 
+The above example was incorrect, but just using Desmos, I was able to show
+ that indeed, with these parameters, type 
 \begin_inset Formula $l$
 \end_inset
 
@@ -1709,6 +1791,52 @@ So indeed, type
 \end_inset
 
 , the disease risk.
+ 
+\end_layout
+
+\begin_layout Standard
+It looks like holding 
+\begin_inset Formula $N_{h}$
+\end_inset
+
+ constant at 
+\begin_inset Formula $9$
+\end_inset
+
+, an increase in type 
+\begin_inset Formula $l$
+\end_inset
+
+'s contacts reduces disease until around 
+\begin_inset Formula $N_{l}\approx3.25$
+\end_inset
+
+, at which point, 
+\begin_inset Formula $U$
+\end_inset
+
+ peaks at 
+\begin_inset Formula $\approx.4727$
+\end_inset
+
+.
+ Confusingly, this doesn't correspond to the fatalism threshold nor to the
+ threshold 
+\begin_inset Formula $N_{h}\cdot0.4142\approx3.72$
+\end_inset
+
+ at which 
+\begin_inset Formula $R_{0}$
+\end_inset
+
+ starts increasing.
+ So that means that as type 
+\begin_inset Formula $l$
+\end_inset
+
+ increases connection, first we hit a point where they start making the
+ disease more common, and then only after that do we hit the point where
+ the make the disease spread more??!! Confusing.
 \end_layout
 
 \end_body
