@@ -937,7 +937,8 @@ as well such that
 \end_inset
 
 .
- If this is the case, then (COME BACK TO CLEAN THIS UP)
+ If this is the case, then (COME BACK TO CLEAN THIS UP (COMPARE DERIVATIVES
+ MORE TO TRY TO FIND A TIGHTER CUTOFF))
 \end_layout
 
 \begin_layout Standard
@@ -1034,7 +1035,7 @@ Take the derivative of the RHS to get
 \begin_inset Formula $U<\frac{e^{(U-1)TN_{j}}\left[1-TN_{j}\right]}{\left[1-TN_{j}e^{(U-1)TN_{j}}\right]}$
 \end_inset
 
- in the epidemic solution for 
+ (concavity argument) in the epidemic solution for 
 \begin_inset Formula $U$
 \end_inset
 
@@ -1120,7 +1121,7 @@ Won't work if
 \end_inset
 
 .
- So the threshold is below that at least.
+ (because that would make LHS > 1) So the threshold is below that at least.
  (Or is that just a consequence of my assumptions above?)
 \end_layout
 
@@ -1844,6 +1845,132 @@ we can observe that an increase in
 \frac{\partial\Psi(T)}{\partial T}=1-U(T)-T\cdot\frac{\partial U(T)}{\partial T}>0
 \]
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+—
+\end_layout
+
+\begin_layout Standard
+Trying to puzzle out shocks to T without doing the math 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Suppose we have two types: nerds and jocks.
+ The nerds have 
+\begin_inset Formula $\frac{\partial U}{\partial N_{n}}>0$
+\end_inset
+
+, the jocks are fatalistic and 
+\begin_inset Formula $\frac{\partial U}{\partial N_{j}}<0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+If T goes up:
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ stays the same, 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+then People's decisions will remain the same, so 
+\begin_inset Formula $U$
+\end_inset
+
+ will go down when T goes up
+\end_layout
+
+\begin_layout Itemize
+But 
+\begin_inset Formula $\Psi=(1-U)T$
+\end_inset
+
+ will then go up, which is a contradiction.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+If 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ goes down
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Jocks will (for utility where the fatalism triggers) party less, nerds will
+ party more, which will have an increasing effect on U.
+\end_layout
+
+\begin_layout Itemize
+But combined with the increase in T, the direction of U is technically ambiguous.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\Psi=(1-U)T$
+\end_inset
+
+ suggests that for this to be consistent, 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+If 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ goes up
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Jocks will party more, nerds will party less, and so 
+\begin_inset Formula $U$
+\end_inset
+
+ will go down
+\end_layout
+
+\begin_layout Itemize
+This is consistent with 
+\begin_inset Formula $\Psi=(1-U)T$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+If U is going down, then 
+\begin_inset Formula $U=1-\frac{\Psi}{T}$
+\end_inset
+
+ is going down, meaning 
+\begin_inset Formula $\frac{\Psi}{T}$
+\end_inset
+
+ is going down, which means 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ is going up more quickly than T is.
+ Yep, that's consistent.
+\end_layout
+
+\end_deeper
 \end_inset
 
 
