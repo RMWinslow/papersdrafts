@@ -1011,7 +1011,50 @@ that we have the counterintutive results when
 \end_layout
 
 \begin_layout Standard
-Take the derivative of the RHS to get 
+Take the derivative of the RHS 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+What is the slope of 
+\begin_inset Formula $\frac{e^{(U-1)TN_{j}}\left[1-TN_{j}\right]}{\left[1-TN_{j}e^{(U-1)TN_{j}}\right]}$
+\end_inset
+
+ at 1?
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial U}\left[e^{(U-1)TN_{j}}\left[1-TN_{j}\right]\right]=e^{(U-1)TN_{j}}TN_{j}\left[1-TN_{j}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial U}\left[1-TN_{j}e^{(U-1)TN_{j}}\right]=-TN_{j}TN_{j}e^{(U-1)TN_{j}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial}{\partial U}\frac{e^{(U-1)TN_{j}}\left[1-TN_{j}\right]}{\left[1-TN_{j}e^{(U-1)TN_{j}}\right]} & =\frac{e^{(U-1)TN_{j}}TN_{j}\left[1-TN_{j}\right]\left[1-TN_{j}e^{(U-1)TN_{j}}\right]+TN_{j}TN_{j}e^{(U-1)TN_{j}}e^{(U-1)TN_{j}}\left[1-TN_{j}\right]}{\left[1-TN_{j}e^{(U-1)TN_{j}}\right]^{2}}\\
+ & =\frac{e^{(U-1)TN_{j}}TN_{j}\left[1-TN_{j}\right]\left[1-TN_{j}e^{(U-1)TN_{j}}+TN_{j}e^{(U-1)TN_{j}}\right]}{\left[1-TN_{j}e^{(U-1)TN_{j}}\right]^{2}}\\
+ & =\frac{e^{(U-1)TN_{j}}TN_{j}\left[1-TN_{j}\right]}{\left[1-TN_{j}e^{(U-1)TN_{j}}\right]^{2}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ to get 
 \begin_inset Formula $\frac{e^{(U-1)TN_{j}}\left[1-TN_{j}\right]TN_{j}}{\left[1-TN_{j}e^{(U-1)TN_{j}}\right]^{2}}$
 \end_inset
 
@@ -1857,7 +1900,7 @@ we can observe that an increase in
 \begin_layout Standard
 Trying to puzzle out shocks to T without doing the math 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Suppose we have two types: nerds and jocks.
@@ -1929,6 +1972,7 @@ But combined with the increase in T, the direction of U is technically ambiguous
  Meaning the behavior of the people in response to edge risk has to be elastic
  enough that the high activity of nerds overwhlems the increase in transmission
  probability between contacts.
+ This outcome involves U rising very fast.
 \end_layout
 
 \end_deeper
@@ -1975,9 +2019,26 @@ If U is going down, then
 \end_layout
 
 \end_deeper
+\begin_layout Plain Layout
+So for consistency, neither 
+\begin_inset Formula $\Psi$
 \end_inset
 
+ nor 
+\begin_inset Formula $U$
+\end_inset
 
+ can remain constant at the margins when T increase 
+\emph on
+under these circumstances where there is a low-connection type and a high
+ connection type
+\emph default
+.
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section*
@@ -2120,6 +2181,10 @@ Example with two types:
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
 For example, in the two-type case with 
 \begin_inset Formula $A_{h}=A_{l}=\frac{1}{2}$
 \end_inset
@@ -2158,7 +2223,7 @@ So for example, let
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 And 
 \begin_inset Formula $T_{c}=\frac{5}{41},$
 \end_inset
@@ -2170,7 +2235,7 @@ so
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 So type 
 \begin_inset Formula $l$
 \end_inset
@@ -2195,7 +2260,7 @@ So type
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 We need 
 \begin_inset Formula $N_{l}<\frac{1}{\Psi}=\frac{1}{(1-U)T}$
 \end_inset
@@ -2230,7 +2295,7 @@ We need
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 This is actually using the incorrect formula: 
 \begin_inset Note Note
 status collapsed
@@ -2253,7 +2318,7 @@ status collapsed
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 The above example was incorrect, but just using Desmos, I was able to show
  that indeed, with these parameters, type 
 \begin_inset Formula $l$
@@ -2271,7 +2336,7 @@ The above example was incorrect, but just using Desmos, I was able to show
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 It looks like holding 
 \begin_inset Formula $N_{h}$
 \end_inset
@@ -2314,6 +2379,11 @@ It looks like holding
  increases connection, first we hit a point where they start making the
  disease more common, and then only after that do we hit the point where
  the make the disease spread more??!! Confusing.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
