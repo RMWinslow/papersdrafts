@@ -867,7 +867,7 @@ Okay, what about solving for
 
 ?
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Formula 
@@ -911,6 +911,96 @@ U\cdot\left[1-TN_{j}e^{(U-1)TN_{j}}\right]<e^{(U-1)TN_{j}}\left[1-TN_{j}\right]
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+e^{(U-1)TN_{j}}\cdot\left[1-(1-U)TN_{j}\right]-U>0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+e^{-\Psi N_{j}}\cdot\left[1-\Psi N_{j}\right]-1+\frac{\Psi}{T}>0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Psi\left[\frac{1}{T}-e^{-\Psi N_{j}}N_{j}\right]+e^{-\Psi N_{j}}-1>0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Psi\left[\frac{1}{T}-e^{-\Psi N_{j}}N_{j}\right]>1-e^{-\Psi N_{j}}=p(N_{j})>0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+So when 
+\begin_inset Formula $T>T_{c}$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{\partial\Psi}{\partial N_{j}}=-T\frac{\partial U}{\partial N_{j}}<0$
+\end_inset
+
+ iff 
+\begin_inset Formula $\frac{\partial U}{\partial N_{j}}>0$
+\end_inset
+
+ iff 
+\begin_inset Formula $\left[\frac{1}{T}-e^{-\Psi N_{j}}N_{j}\right]>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+1>e^{-\Psi N_{j}}N_{j}T
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $e^{-\Psi N_{j}}$
+\end_inset
+
+ is the chance type j doesn't get sick.
+ 
+\begin_inset Formula $N_{j}T$
+\end_inset
+
+ is the mean offspring for a type 
+\begin_inset Formula $j$
+\end_inset
+
+ that does get sick.
+ 
 \end_layout
 
 \end_inset
@@ -1113,11 +1203,16 @@ Thus if epidemic is possible, and
 \end_layout
 
 \begin_layout Standard
+Slighty tighter conjecture that 
+\begin_inset Formula $N<\frac{1}{T+T_{c}}$
+\end_inset
+
+ is enough:
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
-If the slop of 
+If the slope of 
 \begin_inset Formula $\frac{e^{(U-1)TN_{j}}\left[1-TN_{j}\right]}{\left[1-TN_{j}e^{(U-1)TN_{j}}\right]}$
 \end_inset
 
@@ -1158,11 +1253,71 @@ T\frac{\sum_{i}A_{i}N_{i}^{2}}{\sum_{i}A_{i}N_{i}}=\frac{TN_{j}}{1-TN_{j}}
 \end_inset
 
 
+\begin_inset Formula 
+\[
+N=\frac{1}{T+T_{c}}>\frac{1}{2T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+T=\frac{1-T_{c}N}{N}=\frac{1}{N}-T_{c}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Conjecture that the maximum discrepancy is still somehow relevant: 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+U is defined as solution to 
+\begin_inset Formula 
+\[
+0=x-\frac{\sum_{i}A_{i}N_{i}e^{(x-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Derivative of discrepancy is 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+1-T\frac{\sum_{i}A_{i}N_{i}^{2}e^{(x-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+—
 \end_layout
 
 \begin_layout Standard
