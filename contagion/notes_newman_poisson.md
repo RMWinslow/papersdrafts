@@ -79,6 +79,10 @@ Potential solution
         - This is because if we solve for the derivative $$\frac{dU}{dT}$$, we'll get a negative numerator and a denominator equal to $$1-T\frac{\sum_{i}A_{i}N_{i}^{2}e^{(U-1)TN_{i}}}{\sum_{i}A_{i}N_{i}}=\frac{d}{dU} [U-\frac{\sum_i A_i N_i e^{(U-1)TN_i}}{\sum_i A_i N_i}]$$. 
         - The pandemic solution for $$U(T)$$ is less than the value of $$U$$ which would set the denominator to zero, and thus the denominator at that point must be positive.
         - See [notes_newman_poisson_checkingPsiPrime](notes_newman_poisson_checkingPsiPrime.lyx) for details.
+    - It is trickier to say under what circumstances $$\frac{dU}{dN_j} > 0$$, meaning that an increase in $$N_j$$ would counterintuively *decrease* the edge prevalence. 
+        - The necessary and sufficient condition is that $$[1-U][1-TN_j e^{(U-1)TN_j}] > 1 - e^{(U-1)TN_j}$$.
+        - A sufficient condition is that $$T > T_c$$ and $$N_j < \frac{1}{2T}$$.
+        - A necessary condition is that $$1 > TN_j > TN_j e^{(U-1)TN_j} > 0$$.
 - Rewriting in terms of $$V=1-T+TU$$, the chance that a given neighbor doesn't infect you is defined implicitly by $$V = (1-T) + T \frac{\sum_i A_i N_i e^{(V-1) N_i}}{\sum_i A_i N_i}$$.
     - Can also be written as $$1-V = T \frac{\sum_i A_i N_i (1-e^{-(1-V)N_i})}{\sum_i A_i N_i}$$
 - Rewriting in terms of $$\Psi$$, the risk of transmission from a given neighbor is defined implicitly by $$\Psi = T - T \frac{\sum_i A_i N_i e^{-\Psi N_i}}{\sum_i A_i N_i}$$
