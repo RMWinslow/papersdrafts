@@ -2213,6 +2213,129 @@ Doesn't seem like I can find a spot where the partial derivative is positive.
 
 \end_layout
 
+\begin_layout Subsection*
+I think I can see the split:
+\end_layout
+
+\begin_layout Standard
+Let's say you have two types, 
+\begin_inset Formula $H$
+\end_inset
+
+ and 
+\begin_inset Formula $L$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Type 
+\begin_inset Formula $H$
+\end_inset
+
+ is fatalistic 
+\begin_inset Formula $\frac{\partial N_{h}}{\partial T}>0$
+\end_inset
+
+ and so 
+\begin_inset Formula $\frac{\partial U}{\partial N_{H}}<0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Type 
+\begin_inset Formula $L$
+\end_inset
+
+ is normal and has very low connection such that 
+\begin_inset Formula $\frac{\partial N_{L}}{\partial T}<0$
+\end_inset
+
+ and 
+\begin_inset Formula $\frac{\partial U}{\partial N_{L}}>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The total derivative of 
+\begin_inset Formula $U$
+\end_inset
+
+ with respect to 
+\begin_inset Formula $T$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\frac{dU(T,N_{H}(T),N_{L}(T))}{dT}=\frac{\partial U}{\partial T}+\frac{\partial U}{\partial N_{H}}\frac{\partial N_{H}}{\partial T}+\frac{\partial U}{\partial N_{L}}\frac{\partial N_{L}}{\partial T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Plugging in the above situtation, we find that
+\begin_inset Formula 
+\[
+\frac{dU(T,N_{H}(T),N_{L}(T))}{dT}=\frac{\partial U}{\partial T}+\frac{\partial U}{\partial N_{H}}\frac{\partial N_{H}}{\partial T}+\frac{\partial U}{\partial N_{L}}\frac{\partial N_{L}}{\partial T}<\frac{\partial U}{\partial T}<0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can't have fatalism and postive externalities, so can't have 
+\begin_inset Formula $\frac{\partial N_{i}}{\partial T}>0$
+\end_inset
+
+ with 
+\begin_inset Formula $\frac{\partial U}{\partial N_{i}}>0$
+\end_inset
+
+.The tricky bit that makes it theoretically possible for worse disease to
+ make edge risk less common (mulitple equilibria?) is when 
+\begin_inset Formula $\frac{\partial N_{i}}{\partial T}<0$
+\end_inset
+
+ with 
+\begin_inset Formula $\frac{\partial U}{\partial N_{i}}<0$
+\end_inset
+
+.
+ Somebody who isn't fatalistic, but does make the pandemic worse when they
+ go outside.
+\end_layout
+
+\begin_layout Standard
+Wait, does this actually work? After all, the 
+\begin_inset Formula $N$
+\end_inset
+
+s are functions of 
+\begin_inset Formula $U$
+\end_inset
+
+ as well?
+\end_layout
+
+\begin_layout Standard
+Rewrite in terms of 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ instead?
+\end_layout
+
 \begin_layout Section*
 Taking partial derivatives of 
 \begin_inset Formula $\Psi$
